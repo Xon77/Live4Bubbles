@@ -1,4 +1,4 @@
-**Live 4 Life** © 2025-End of the world by **Christophe Lengelé** is licensed under:
+**Live 4 Bubbles (Love & Fuck)** © 2025-End of the world by **Christophe Lengelé** is licensed under:
 
 **Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International** (CC BY-NC-SA 4.0).
 
