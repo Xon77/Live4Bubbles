@@ -3,7 +3,13 @@
 
 | [**Overview**](#overview) | [**Usage**](#usage) | [**Platform**](#platform-support------) | [**Installation**](#installation) | [**Setup**](#setup) | [**References**](#references) | [**Contribute**](#contribute) | [**Acknowledgements**](#acknowledgements) | [**Licence**](#licence) |
 
-Project to come on controlling Live Coding
+## Licence
+
+Project to come on controlling Live Coding.
+
+This project is an extension of [SuperDirMixer](https://github.com/thgrund/SuperDirtMixer) from Thomas Grund. But, it is not just a mixer for Tidal, but allows you to control lines of code in Tidal and  tons of parameters (tempo, duration, buffer folder and file, functions on the patterns and effects).
+
+You need to follow the instructions to install SuperDirtMixer to set up this project.
 
 ## Licence
 
