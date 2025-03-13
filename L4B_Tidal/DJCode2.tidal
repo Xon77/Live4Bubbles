@@ -1,0 +1,107 @@
+d2 $ u1d2 $ u2d2 $ f1d2 $ f2d2 $ slow 2 $ struct "<[t ~ ~ ~]!15 t(<1 2>,32) [t ~ ~ ~]!15 [t t? t? t?] [t ~ ~ ~]!15 [[t t?] t? t? t?]>*[^d2]" $ dud2 $ sound "^2Fol" # n "^2Buf" |+ n (run 77)
+d2 $ u1d2 $ u2d2 $ f1d2 $ f2d2 $ slow 2 $ struct "<[t ~ ~ ~]!15 t(<1 2>,32) [t ~ ~ ~]!15 [t t? t? t?] [t ~ ~ ~]!15 [[t t?] t? t? t?]>*[^d2]" $ dud2 $ sound "^2Fol" # n "^2Buf" |+ n "0 1"
+d2 $ u1d2 $ u2d2 $ f1d2 $ f2d2 $ slow 2 $ struct "<[t ~ ~ ~]!15 t(<1 2>,32) [t ~ ~ ~]!15 [t t? t? t?] [t ~ ~ ~]!15 [[t t?] t? t? t?]>*[^d2]" $ dud2 $ sound "^2Fol" # n "^2Buf" |+ n "0 1 2"
+d2 $ u1d2 $ u2d2 $ f1d2 $ f2d2 $ slow 2 $ struct "<[t ~ ~ ~]!15 t(<1 2>,32) [t ~ ~ ~]!15 [t t? t? t?] [t ~ ~ ~]!15 [[t t?] t? t? t?]>*[^d2]" $ dud2 $ sound "^2Fol" # n "^2Buf" |+ n "0 1 2 3"
+d2 $ u1d2 $ u2d2 $ f1d2 $ f2d2 $ slow 2 $ struct "<[t ~ ~ ~]!15 t(<1 2>,32) [t ~ ~ ~]!15 [t t? t? t?] [t ~ ~ ~]!15 [[t t?] t? t? t?]>*[^d2]" $ dud2 $ sound "^2Fol" # n "^2Buf" |+ n "0 1 2 3 4"
+d2 $ u1d2 $ u2d2 $ f1d2 $ f2d2 $ slow 2 $ struct "<[t ~ ~ ~]!15 t(<1 2>,32) [t ~ ~ ~]!15 [t t? t? t?] [t ~ ~ ~]!15 [[t t?] t? t? t?]>*[^d2]" $ dud2 $ sound "^2Fol" # n "^2Buf" |+ n "0 1 2 3 10 10"
+d2 $ u1d2 $ u2d2 $ f1d2 $ f2d2 $ slow 2 $ struct "<[t ~ ~ ~]!15 t(<1 2>,32) [t ~ ~ ~]!15 [t t? t? t?] [t ~ ~ ~]!15 [[t t?] t? t? t?]>*[^d2]" $ dud2 $ sound "^2Fol" # n "^2Buf" |+ n "0 1 2 7 8 9 14 3 2 1 3 10 10"
+d2 $ u1d2 $ u2d2 $ f1d2 $ f2d2 $ slow 2 $ struct "<[t ~ ~ ~]!15 t(<1 2>,32) [t ~ ~ ~]!15 [t t? t? t?] [t ~ ~ ~]!15 [[t t?] t? t? t?]>*[^d2]" $ dud2 $ sound "^2Fol" # n "^2Buf" |+ n (choose [0,2,3]) -- -- Répétera l'aléatoire en fonction du chiffre de d2 - Random by Cycle ?
+d2 $ u1d2 $ u2d2 $ f1d2 $ f2d2 $ slow 2 $ struct "<[t ~ ~ ~]!15 t(<1 2>,32) [t ~ ~ ~]!15 [t t? t? t?] [t ~ ~ ~]!15 [[t t?] t? t? t?]>*[^d2]" $ dud2 $ sound "^2Fol" # n "^2Buf" |+ n (cycleChoose [0,2,3]) -- only picks once per cycle -- Identique
+d2 $ u1d2 $ u2d2 $ f1d2 $ f2d2 $ slow 2 $ struct "<[t ~ ~ ~]!15 t(<1 2>,32) [t ~ ~ ~]!15 [t t? t? t?] [t ~ ~ ~]!15 [[t t?] t? t? t?]>*[^d2]" $ dud2 $ fast "^d2" $ sound "^2Fol" # n "^2Buf" |+ n (choose [0,2,3]) -- Utilisation de fast pour avoir un aléatoire constant - Possibilité de jouer sur la répétition en modifiant d2
+d2 $ u1d2 $ u2d2 $ f1d2 $ f2d2 $ slow 2 $ struct "<[t ~ ~ ~]!15 t(<1 2>,32) [t ~ ~ ~]!15 [t t? t? t?] [t ~ ~ ~]!15 [[t t?] t? t? t?]>*[^d2]" $ dud2 $ sound "^2Fol" # n (irand 77) -- Aléatoire complet
+d2 $ u1d2 $ u2d2 $ f1d2 $ f2d2 $ slow 2 $ struct "<[t ~ ~ ~]!15 t(<1 2>,32) [t ~ ~ ~]!15 [t t? t? t?] [t ~ ~ ~]!15 [[t t?] t? t? t?]>*[^d2]" $ dud2 $ fast "^d2" $ sound "^2Fol" # n (irand 77) -- Aléatoire complet Rapide
+d2 $ u1d2 $ u2d2 $ f1d2 $ f2d2 $ slow 2 $ struct "<[t ~ ~ ~]!15 t(<1 2>,32) [t ~ ~ ~]!15 [t t? t? t?] [t ~ ~ ~]!15 [[t t?] t? t? t?]>*[^d2]" $ dud2 $ sound "^2Fol" # n "^2Buf" |+ n (wchoose [(0,0.9),(2,0.25),(3,0.75)]) -- -- Choose with weight
+d2 $ u1d2 $ u2d2 $ f1d2 $ f2d2 $ slow 2 $ struct "<[t ~ ~ ~]!15 t(<1 2>,32) [t ~ ~ ~]!15 [t t? t? t?] [t ~ ~ ~]!15 [[t t?] t? t? t?]>*[^d2]" $ dud2 $ fast "^d2" $ sound "^2Fol" # n "^2Buf" |+ n (wchoose [(0,0.8),(2,0.15),(3,0.05)]) -- Choose with weight 2
+d2 $ u1d2 $ u2d2 $ f1d2 $ f2d2 $ slow 8 $ struct "[t t? t? t?]*[^d2]" $ dud2 $ sound "^2Fol" # n "^2Buf" |+ n "6 2 3 5 0 8 7 87 2 23 7 78 3 5 6 2"
+d2 $ u1d2 $ u2d2 $ f1d2 $ f2d2 $ chop "<[16 64 32]>*[^d2]" $ sound "^2Fol" # n (irand 200)
+d2 $ u1d2 $ u2d2 $ f1d2 $ f2d2 $ jux rev $ chop "<4 8 12>*[^d2]" $ sound "^2Fol" # n (irand 200)
+d2 $ u1d2 $ u2d2 $ f1d2 $ f2d2 $ jux rev $ chop "^d2" $ sound "^2Fol" # n (run 200)
+d2 $ u1d2 $ u2d2 $ f1d2 $ f2d2 $ jux rev $ chop "^d2" $ sound "^2Fol" # n (irand 200)
+d2 $ u1d2 $ u2d2 $ f1d2 $ f2d2 $ jux rev $ chop "^d2" $ fast 2 $ sound "^2Fol" # n (irand 200)
+d2 $ u1d2 $ u2d2 $ f1d2 $ f2d2 $ jux rev $ chop "^d2" $ fast 4 $ sound "^2Fol" # n (irand 200)
+d2 $ u1d2 $ u2d2 $ f1d2 $ f2d2 $ jux rev $ chop "^d2" $ fast 8 $ sound "^2Fol" # n (irand 200)
+d2 $ u1d2 $ u2d2 $ f1d2 $ f2d2 $ striate "^d2" $ sound "^2Fol" # n (irand 200) -- ???
+d2 $ u1d2 $ u2d2 $ f1d2 $ f2d2 $ slice "^d2" "[<0*8 0*2> 3*4 2 4] [4 .. 7]*[^d2]" $ sound "^2Fol" # n (irand 200)
+d2 $ u1d2 $ u2d2 $ f1d2 $ f2d2 $ slice "^d2" "7 6 5 4 3 2 1 0" $ sound "^2Fol" # n (irand 200)
+d2 $ u1d2 $ u2d2 $ f1d2 $ f2d2 $ slice "^d2" "7 6 5 4 3 2 1 0" $ sound "^2Fol" # n (run 200)
+d2 $ u1d2 $ u2d2 $ f1d2 $ f2d2 $ struct "[t ~ t/16 ~]" $ fast "[^d2]" $ dud2 $ sound "^2Fol" -- different "^d2" ?
+d2 $ u1d2 $ u2d2 $ f1d2 $ f2d2 $ struct "[t ~]*[^d2]" $ dud2 $ sound "^2Fol" # n "^2Buf" -- # n 0
+d2 $ u1d2 $ u2d2 $ f1d2 $ f2d2 $ echoWith 4 (1/("^d2")) (|* speed "0.9 1.1 0.7 0.8") $ struct "[t ~]*[^d2]" $ dud2 $ sound "^2Fol" # n "^2Buf" -- # n 0
+d2 $ u1d2 $ u2d2 $ f1d2 $ f2d2 $ struct "[~ t]*[^d2]" $ dud2 $ sound "^2Fol" # n "^2Buf" -- # n 0
+d2 $ u1d2 $ u2d2 $ f1d2 $ f2d2 $ struct "[t ~]*[^d2]" $ dud2 $ sound "^2Fol" # n (irand 200)
+d2 $ u1d2 $ u2d2 $ f1d2 $ f2d2 $ struct "[~ t]*[^d2]" $ dud2 $ sound "^2Fol" # n (irand 200)
+d2 $ u1d2 $ u2d2 $ f1d2 $ f2d2 $ struct "[~ ~ t ~ ~ t ~ ~]*[^d2]" $ dud2 $ sound "^2Fol" # n "^2Buf" -- # n 0
+d2 $ u1d2 $ u2d2 $ f1d2 $ f2d2 $ struct "[~ ~ t ~ ~ t ~ ~]*[^d2]" $ dud2 $ sound "^2Fol" # n (irand 200)
+d2 $ u1d2 $ u2d2 $ f1d2 $ f2d2 $ struct "<[t ~ ~ ~]!15 [t ~ t ~]>*[^d2]" $ dud2 $ sound "^2Fol" # n "^2Buf"
+d2 $ u1d2 $ u2d2 $ f1d2 $ f2d2 $ struct "<[t ~ ~ ~]!7 [t ~ t ~]>*[^d2]" $ dud2 $ sound "^2Fol" # n "^2Buf"
+d2 $ u1d2 $ u2d2 $ f1d2 $ f2d2 $ struct "<[t ~ ~ ~]!3 [t ~ t ~]>*[^d2]" $ dud2 $ sound "^2Fol" # n "^2Buf"
+d2 $ u1d2 $ u2d2 $ f1d2 $ f2d2 $ struct "<[t*8 t*4] t*[^d2]>" $ dud2 $ sound "^2Fol" # n "^2Buf"
+d2 $ u1d2 $ u2d2 $ f1d2 $ f2d2 $ struct "<[t ~ ~ ~]!15 [t ~ t ~]>*[^d2]" $ dud2 $ sound "^2Fol" # n ("6 2 0 8"+"^2Buf")
+d2 $ u1d2 $ u2d2 $ f1d2 $ f2d2 $ struct "<[t ~ ~ ~]!15 [t ~ t ~]>*[^d2]" $ dud2 $ sound "^2Fol" # n ("16 10 8"+"^2Buf")
+d2 $ u1d2 $ u2d2 $ f1d2 $ f2d2 $ struct "<[t ~ ~ ~]!15 [t ~ t ~]>*[^d2]" $ dud2 $ sound "^2Fol" # n ("8 10 9 9 7"+"^2Buf")
+d2 $ u1d2 $ u2d2 $ f1d2 $ f2d2 $ struct "<[t ~ ~ ~]!15 [t ~ t ~]>*[^d2]" $ dud2 $ sound "^2Fol" # n ("8 10 9 9 7"+"^2Buf") # distort "<0 0.03 0.05 0.1>"
+d2 $ u1d2 $ u2d2 $ f1d2 $ f2d2 $ struct "<[t ~ ~ ~]!15 [t ~ t ~]>*[^d2]" $ dud2 $ sound "^2Fol" # n ("8 10 9 9 7 8 14 18 8"+"^2Buf")
+d2 $ u1d2 $ u2d2 $ f1d2 $ f2d2 $ struct "<[t ~ ~ ~]!15 [t ~ t ~]>*[^d2]" $ dud2 $ sound "^2Fol" # n ("8 10 9 9 7 8 14 18 8"+"^2Buf") # legato "3" -- legato & dud en conflit
+d2 $ u1d2 $ u2d2 $ f1d2 $ f2d2 $ struct "<[t ~ ~ ~]!15 [t ~ t ~]>*[^d2]" $ dud2 $ sound "^2Fol" # n ("8 20 8 14 6 7 8 7 18 6"+"^2Buf") # legato "3" -- legato & dud en conflit
+d2 $ u1d2 $ u2d2 $ f1d2 $ f2d2 $ struct "<[t ~ ~ ~]!15 [t ~ t ~]>*[^d2]" $ dud2 $ sound "^2Fol" # n ("<8 20 8 14 6 7 8 7 18 6>"+"^2Buf") # legato "3" -- legato & dud en conflit
+d2 $ u1d2 $ u2d2 $ f1d2 $ f2d2 $ struct "<[t ~ ~ ~]!15 [t ~ t ~]>*[^d2]" $ dud2 $ sound "^2Fol" # n ("<8 20 8 14 6 7 8 7 18 6 66>"+"^2Buf") # legato "3" -- legato & dud en conflit
+d2 $ u1d2 $ u2d2 $ f1d2 $ f2d2 $ struct "<[t ~ ~ ~]!15 [t ~ t ~]>*[^d2]" $ dud2 $ sound "^2Fol" # n ("<8 20 8 14 6 7 8 7 18 6 6>"+"^2Buf") # legato "6" -- legato & dud en conflit
+d2 $ u1d2 $ u2d2 $ f1d2 $ f2d2 $ struct "<[t ~ ~ ~]!15 [t ~ t ~]>*[^d2]" $ dud2 $ sound "^2Fol" # n ("<8 20 8 14 6 7 8 7 18 6 6>"+"^2Buf") # legato "6" # lpf (range 60 5000 $ perlin2With (cosine*2) (sine*2)) -- legato & dud en conflit
+d2 $ u1d2 $ u2d2 $ f1d2 $ f2d2 $ struct "<[t ~ ~ ~]!15 [t ~ t ~]>*[^d2]" $ dud2 $ sound "^2Fol" # n ("<16 10 8 14>"+"^2Buf")
+d2 $ u1d2 $ u2d2 $ f1d2 $ f2d2 $ struct "<[t ~ ~ ~]!15 [t ~ t ~]>*[^d2]" $ dud2 $ sound "^2Fol" # n (irand 10)
+d2 $ u1d2 $ u2d2 $ f1d2 $ f2d2 $ struct "<[t ~ ~ ~]!15 [t ~ t ~]>*[^d2]" $ dud2 $ sound "^2Fol" # n (irand 200)
+d2 $ u1d2 $ u2d2 $ f1d2 $ f2d2 $ struct "<[t ~ ~ ~]!15 [t ~ t ~]>*[^d2]" $ dud2 $ sound "^2Fol" # n ("^2Buf" |+ (run 16))
+d2 $ u1d2 $ u2d2 $ f1d2 $ f2d2 $ struct "<[t ~ ~ ~]!15 [t ~ t ~]>*[^d2]" $ dud2 $ sound "^2Fol" # n (run (irand 10))
+d2 $ u1d2 $ u2d2 $ f1d2 $ f2d2 $ struct "<[t ~ ~ ~]!15 [t ~ t ~]>*[^d2]" $ dud2 $ sound "^2Fol" # n (run (irand 200))
+d2 $ u1d2 $ u2d2 $ f1d2 $ f2d2 $ struct "<[t ~ ~ ~]!15 [t ~ t ~]>*[^d2]" $ dud2 $ sound "^2Fol" # n (irand 100)
+d2 $ u1d2 $ u2d2 $ f1d2 $ f2d2 $ struct "<[t ~ ~ ~]!15 [t ~ t ~]>*[^d2]" $ dud2 $ sound "^2Fol" # n ("^2Buf" |+ (run 10)) -- (n (run 10) ~> "^2Buf") -- n (run 10)+"^2Buf"
+d2 $ u1d2 $ u2d2 $ f1d2 $ f2d2 $ struct "<[t ~ ~ ~]!15 [t t t t]>*[^d2]" $ dud2 $ sound "^2Fol" # n (irand 18) # legato "7" # distort "<0 0.3 0.2 0.1>" # lpf (range 60 5000 $ perlin2With (cosine*2) (sine*2)) -- legato & dud en conflit
+d2 $ u1d2 $ u2d2 $ f1d2 $ f2d2 $ struct "<[t ~ ~ ~]!15 [t t t t]>*[^d2]" $ dud2 $ sound "^2Fol" # n (irand 18) # legato "2" # distort "<0 0.3 0.2 0.1>" # lpf (range 60 5000 $ perlin2With (cosine*2) (sine*2)) -- legato & dud en conflit
+d2 $ u1d2 $ u2d2 $ f1d2 $ f2d2 $ struct "<[t ~ ~ ~]!15 [t t t t]>*[^d2]" $ dud2 $ sound "^2Fol" # distort "<0 0.3 0.2 0.1>" # n "^2Buf"
+d2 $ u1d2 $ u2d2 $ f1d2 $ f2d2 $ struct "<[t ~ ~ ~]!15 [t t t t]>*[^d2]" $ dud2 $ sound "^2Fol" # crush "12 8 12 16" # n "^2Buf"
+d2 $ u1d2 $ u2d2 $ f1d2 $ f2d2 $ struct "<[t ~ ~ ~]!15 [t t t t]>*[^d2]" $ dud2 $ sound "^2Fol" # freeze "0.1 0.2 0.4" # n "^2Buf"
+d2 $ u1d2 $ u2d2 $ f1d2 $ f2d2 $ fast "^d2" $ slow 3 $ euclid "<3 5>" "[8 16]/4" $ dud2 $ sound "^2Fol" # n "^2Buf"
+d2 $ u1d2 $ u2d2 $ f1d2 $ f2d2 $ fast "^d2" $ slow 3 $ euclid 2 5 $ dud2 $ sound "^2Fol" # n ("^2Buf" |+ (run 2))
+d2 $ u1d2 $ u2d2 $ f1d2 $ f2d2 $ fast "^d2" $ slow 3 $ euclid 3 4 $ dud2 $ sound "^2Fol" # n ("^2Buf" |+ (run 3))
+d2 $ u1d2 $ u2d2 $ f1d2 $ f2d2 $ fast "^d2" $ slow 3 $ euclid 3 5 $ dud2 $ sound "^2Fol" # n ("^2Buf" |+ (run 3))
+d2 $ u1d2 $ u2d2 $ f1d2 $ f2d2 $ fast "^d2" $ slow 3 $ euclid 3 7 $ dud2 $ sound "^2Fol" # n ("^2Buf" |+ (run 3))
+d2 $ u1d2 $ u2d2 $ f1d2 $ f2d2 $ fast "^d2" $ slow 3 $ euclid 3 8 $ dud2 $ sound "^2Fol" # n ("^2Buf" |+ (run 3))
+d2 $ u1d2 $ u2d2 $ f1d2 $ f2d2 $ fast "^d2" $ slow 3 $ euclid 4 7 $ dud2 $ sound "^2Fol" # n ("^2Buf" |+ (run 4))
+d2 $ u1d2 $ u2d2 $ f1d2 $ f2d2 $ fast "^d2" $ slow 3 $ euclid 4 9 $ dud2 $ sound "^2Fol" # n ("1 2 0 8"+"^2Buf")
+d2 $ u1d2 $ u2d2 $ f1d2 $ f2d2 $ fast "^d2" $ slow 3 $ euclid 4 11 $ dud2 $ sound "^2Fol" # n ("4 5 6 2 0 8"+"^2Buf")
+d2 $ u1d2 $ u2d2 $ f1d2 $ f2d2 $ fast "^d2" $ slow 3 $ euclid 5 6 $ dud2 $ sound "^2Fol" # n ("6 7 2 0 8"+"^2Buf")
+d2 $ u1d2 $ u2d2 $ f1d2 $ f2d2 $ fast "^d2" $ slow 3 $ euclid 5 7 $ dud2 $ sound "^2Fol" # n ("7 2 0 8"+"^2Buf")
+d2 $ u1d2 $ u2d2 $ f1d2 $ f2d2 $ fast "^d2" $ slow 3 $ euclid 5 8 $ dud2 $ sound "^2Fol" # n ("6 10 2 0 8"+"^2Buf")
+d2 $ u1d2 $ u2d2 $ f1d2 $ f2d2 $ fast "^d2" $ slow 3 $ euclid 5 9 $ dud2 $ sound "^2Fol" # n ("6 7 8"+"^2Buf")
+d2 $ u1d2 $ u2d2 $ f1d2 $ f2d2 $ fast "^d2" $ slow 3 $ euclid 5 11 $ dud2 $ sound "^2Fol" # n ("0 2 0 8"+"^2Buf")
+d2 $ u1d2 $ u2d2 $ f1d2 $ f2d2 $ fast "^d2" $ slow 3 $ euclid 5 12 $ dud2 $ sound "^2Fol" # n ("0 2 1 7 0 8"+"^2Buf")
+d2 $ u1d2 $ u2d2 $ f1d2 $ f2d2 $ fast "^d2" $ slow 3 $ euclid 5 16 $ dud2 $ sound "^2Fol" # n ("6 2 0 3 8"+"^2Buf")
+d2 $ u1d2 $ u2d2 $ f1d2 $ f2d2 $ fast "^d2" $ slow 3 $ euclid 7 8 $ dud2 $ sound "^2Fol" # n ("6 2 4 8"+"^2Buf")
+d2 $ u1d2 $ u2d2 $ f1d2 $ f2d2 $ fast "^d2" $ slow 3 $ euclid 5 8 $ dud2 $ sound "^2Fol" # n "^2Buf" # legato 100 -- legato & dud en conflit
+d2 $ u1d2 $ u2d2 $ f1d2 $ f2d2 $ fast "^d2" $ slow 3 $ euclid 3 4 $ dud2 $ sound "^2Fol" # n (run 200)
+d2 $ u1d2 $ u2d2 $ f1d2 $ f2d2 $ fast "^d2" $ slow 3 $ euclid 3 5 $ dud2 $ sound "^2Fol" # n (run 200)
+d2 $ u1d2 $ u2d2 $ f1d2 $ f2d2 $ fast "^d2" $ slow 3 $ euclid 3 8 $ dud2 $ sound "^2Fol" # n (run 200)
+d2 $ u1d2 $ u2d2 $ f1d2 $ f2d2 $ fast "^d2" $ slow 3 $ euclid 5 8 $ dud2 $ sound "^2Fol" # n (run 200)
+d2 $ u1d2 $ u2d2 $ f1d2 $ f2d2 $ chop "<[16 64 32]>*[^d2]" $ dud2 $ sound "^2Fol" # n (irand 200)
+d2 $ u1d2 $ u2d2 $ f1d2 $ f2d2 $ jux rev $ chop "<4 8 12>*[^d2]" $ dud2 $ sound "^2Fol" # n (irand 200)
+d2 $ u1d2 $ u2d2 $ f1d2 $ f2d2 $ jux rev $ chop "^d2" $ dud2 $ sound "^2Fol" # n (run 200)
+d2 $ u1d2 $ u2d2 $ f1d2 $ f2d2 $ jux rev $ chop "^d2" $ dud2 $ sound "^2Fol" # n (irand 200)
+d2 $ u1d2 $ u2d2 $ f1d2 $ f2d2 $ striate "^d2" $ dud2 $ sound "^2Fol" # n (irand 200) -- ???
+d2 $ u1d2 $ u2d2 $ f1d2 $ f2d2 $ slice "^d2" "[<0*8 0*2> 3*4 2 4] [4 .. 7]*[^d2]" $ dud2 $ sound "^2Fol" # n (irand 200)
+d2 $ u1d2 $ u2d2 $ f1d2 $ f2d2 $ slice "^d2" "7 6 5 4 3 2 1 0" $ dud2 $ sound "^2Fol" # n (irand 200)
+d2 $ u1d2 $ u2d2 $ f1d2 $ f2d2 $ slice "^d2" "7 6 5 4 3 2 1 0" $ dud2 $ sound "^2Fol" # n (run 200)
+
+
+-- Find & Replace
+-- d2
+-- "^2
+
+-- ^d2 -- pas necessaire
+
+
+
+osc(20, 0.1, 0.8) // Fréquence et vitesse des oscillations
+  .pixelate(30, 20) // Ajoute un effet de pixellisation
+  .modulate(osc(4), 0.2) // Modulation avec une autre oscillation
+  .rotate(() => Math.sin(time) * 0.5) // Rotation dynamique en fonction du temps
+  .out() // Envoie à la sortie

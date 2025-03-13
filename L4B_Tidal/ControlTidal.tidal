@@ -1,0 +1,901 @@
+-- Initialisation : index of tracks, control lists and functions XXX
+let t1 = (1/8); t2 = (2/8); t3 = (3/8); t4 = (4/8); t5 = (5/8); t6 = (6/8); t7 = (7/8); t8 = (8/8)
+    -- Listes de contrôle hormis ryt pour le tempo
+    leg = [ "^1Leg", "^2Leg", "^3Leg", "^4Leg", "^5Leg", "^6Leg", "^7Leg", "^8Leg" ]
+    legS = ["^1LegS", "^2LegS", "^3LegS", "^4LegS", "^5LegS", "^6LegS", "^7LegS", "^8LegS" ]
+    fol = [ "^1Fol", "^2Fol", "^3Fol", "^4Fol", "^5Fol", "^6Fol", "^7Fol", "^8Fol" ]
+    buf = [ "^1Buf", "^2Buf", "^3Buf", "^4Buf", "^5Buf", "^6Buf", "^7Buf", "^8Buf" ]
+    fxs = [ "^1fxs", "^2fxs", "^3fxs", "^4fxs", "^5fxs", "^6fxs", "^7fxs", "^8fxs" ]
+    fxx = [ "^1fxx", "^2fxx", "^3fxx", "^4fxx", "^5fxx", "^6fxx", "^7fxx", "^8fxx" ]
+    fxt = [ "^1fxt", "^2fxt", "^3fxt", "^4fxt", "^5fxt", "^6fxt", "^7fxt", "^8fxt" ]
+    fxp = [ "^1fxp", "^2fxp", "^3fxp", "^4fxp", "^5fxp", "^6fxp", "^7fxp", "^8fxp" ]
+    fxv = [ "^1fxv", "^2fxv", "^3fxv", "^4fxv", "^5fxv", "^6fxv", "^7fxv", "^8fxv" ]
+    fxs2 = [ "^1fxs2", "^2fxs2", "^3fxs2", "^4fxs2", "^5fxs2", "^6fxs2", "^7fxs2", "^8fxs2" ]
+    fxx2 = [ "^1fxx2", "^2fxx2", "^3fxx2", "^4fxx2", "^5fxx2", "^6fxx2", "^7fxx2", "^8fxx2" ]
+    fxt2 = [ "^1fxt2", "^2fxt2", "^3fxt2", "^4fxt2", "^5fxt2", "^6fxt2", "^7fxt2", "^8fxt2" ]
+    fxp2 = [ "^1fxp2", "^2fxp2", "^3fxp2", "^4fxp2", "^5fxp2", "^6fxp2", "^7fxp2", "^8fxp2" ]
+    fxv2 = [ "^1fxv2", "^2fxv2", "^3fxv2", "^4fxv2", "^5fxv2", "^6fxv2", "^7fxv2", "^8fxv2" ]
+    fus = [ "^1fus", "^2fus", "^3fus", "^4fus", "^5fus", "^6fus", "^7fus", "^8fus" ]
+    fux = [ "^1fux", "^2fux", "^3fux", "^4fux", "^5fux", "^6fux", "^7fux", "^8fux" ]
+    fut = [ "^1fut", "^2fut", "^3fut", "^4fut", "^5fut", "^6fut", "^7fut", "^8fut" ]
+    fup = [ "^1fup", "^2fup", "^3fup", "^4fup", "^5fup", "^6fup", "^7fup", "^8fup" ]
+    fuv = [ "^1fuv", "^2fuv", "^3fuv", "^4fuv", "^5fuv", "^6fuv", "^7fuv", "^8fuv" ]
+    fus2 = [ "^1fus2", "^2fus2", "^3fus2", "^4fus2", "^5fus2", "^6fus2", "^7fus2", "^8fus2" ]
+    fux2 = [ "^1fux2", "^2fux2", "^3fux2", "^4fux2", "^5fux2", "^6fux2", "^7fux2", "^8fux2" ]
+    fut2 = [ "^1fut2", "^2fut2", "^3fut2", "^4fut2", "^5fut2", "^6fut2", "^7fut2", "^8fut2" ]
+    fup2 = [ "^1fup2", "^2fup2", "^3fup2", "^4fup2", "^5fup2", "^6fup2", "^7fup2", "^8fup2" ]
+    fuv2 = [ "^1fuv2", "^2fuv2", "^3fuv2", "^4fuv2", "^5fuv2", "^6fuv2", "^7fuv2", "^8fuv2" ]
+    fxpL = [ "1fxp", "2fxp", "3fxp", "4fxp", "5fxp", "6fxp", "7fxp", "8fxp" ] -- Access without ref
+    fxpL2 = [ "1fxp2", "2fxp2", "3fxp2", "4fxp2", "5fxp2", "6fxp2", "7fxp2", "8fxp2" ]
+    fupL = [ "1fup", "2fup", "3fup", "4fup", "5fup", "6fup", "7fup", "8fup" ]
+    fupL2 = [ "1fup2", "2fup2", "3fup2", "4fup2", "5fup2", "6fup2", "7fup2", "8fup2" ]
+    legSL = ["1LegS", "2LegS", "3LegS", "4LegS", "5LegS", "6LegS", "7LegS", "8LegS" ]
+    -- Initialisation des variables de contrôle - Nb de pistes contrôlable XXX
+    -- e.g. setI "d1" (cI 4 "d1"); setI "d2" (cI 4 "d2"); ...
+    initializeControls :: Int -> IO ()
+    initializeControls n = do
+      -- Tempo
+      mapM_ (\i -> setI ("d" ++ show i) (cI 4 ("d" ++ show i))) [1..n]
+      -- Duration
+      mapM_ (\i -> setF (show i ++ "Leg") (cF 1 (show i ++ "Leg"))) [1..n]
+      -- Duration Switch Algo (All sound or legato or a function)
+      mapM_ (\i -> setF (show i ++ "LegS") (cF 0 (show i ++ "LegS"))) [1..n]
+      -- Sound folder
+      mapM_ (\i -> setS (show i ++ "Fol") (cS "DB_A0KikCE" (show i ++ "Fol"))) [1..n]
+      -- Sound buffer
+      mapM_ (\i -> setI (show i ++ "Buf") (cI 0 (show i ++ "Buf"))) [1..n]
+      -- FX Switch, Timing, Position, Valeur
+      mapM_ (\i -> mapM_ (\fx -> setF (show i ++ fx) (cF 0 (show i ++ fx))) ["fxs", "fxx", "fxt", "fxp", "fxv"]) [1..n]
+      -- FX 2 Switch, Timing, Position, Valeur
+      mapM_ (\i -> mapM_ (\fx -> setF (show i ++ fx ++ "2") (cF 0 (show i ++ fx ++ "2"))) ["fxs", "fxx", "fxt", "fxp", "fxv"]) [1..n]
+      -- FU Switch, Switch 2 (flottant même si on/off), Timing, Position, Valeur
+      mapM_ (\i -> mapM_ (\fu -> setF (show i ++ fu) (cF 0 (show i ++ fu))) ["fus", "fux", "fut", "fup", "fuv"]) [1..n]
+      -- FU 2 Switch, Timing, Position, Valeur
+      mapM_ (\i -> mapM_ (\fu -> setF (show i ++ fu ++ "2") (cF 0 (show i ++ fu ++ "2"))) ["fus", "fux", "fut", "fup", "fuv"]) [1..n]
+    -- Fonctions de temps
+    toWithin tpat f pat = innerJoin $ fmap (\t -> within (0, t) f pat) tpat
+    fromWithin tpat f pat = innerJoin $ fmap (\t -> within (t, 1) f pat) tpat
+    whenT1Inf tpat f pat = innerJoin $ fmap (\t -> whenT ((< t) . (flip Data.Fixed.mod' 1)) f pat) tpat
+    whenT2Inf tpat f pat = innerJoin $ fmap (\t -> whenT ((< t) . (flip Data.Fixed.mod' 2)) f pat) tpat
+    whenT1Sup tpat f pat = innerJoin $ fmap (\t -> whenT ((> t) . (flip Data.Fixed.mod' 1)) f pat) tpat
+    whenT2Sup tpat f pat = innerJoin $ fmap (\t -> whenT ((> t) . (flip Data.Fixed.mod' 2)) f pat) tpat
+    -- Fonction pour le delay XXX
+    delay' a t fb = delay a # delayt t # delayfb fb
+    -- Définition de la fonction sur les FX XXX
+    updateFx fxs fxx fxt fxp fxv t = do
+      let listfx = [
+            -- Filtres statiques contrôlés par fxv - positionner les filtres statiques puis dynamiques ou par catégorie ???
+            -- (1, "Nothing", 1),
+            -- (1, "Di", distort $ (sel t fxv)),
+            -- (1, "Di", distort "<0.1 0.3>" |* distort (sel t fxv)), -- Appliqué fxv à un pattern
+            -- (0, "Di", distort 0.5),
+            -- (0, "speed", speed (segment 32 $ choose [2,3,1,0.7])),
+            -- 0 A. EQ and Filters
+            (1, "Static LPF", lpf (rangex 20000 50 $ (sel t fxv))),
+            (2, "Static HPF", hpf (rangex 50 20000 $ (sel t fxv))),
+            (3, "Static BPF", bpf (rangex 20000 50 $ (sel t fxv)) # bpq 0.4),
+            (4, "Static Resonant LPF", lpf (rangex 50 20000 $ (sel t fxv)) # lpq 0.2),
+            (5, "Static Resonant HPF", hpf (rangex 50 20000 $ (sel t fxv)) # hpq 0.2),
+            (6, "Static Resonant BPF", bpf (rangex 50 20000 $ (sel t fxv)) # bpq 0.4),
+            (7, "Static LPF+HPF", lpf (rangex 1000 20000 $ (sel t fxv)) # hpf (rangex 20 1000 $ (sel t fxv))),
+            (8, "Static LPF+BPF", lpf (rangex 1000 20000 $ (sel t fxv)) # bpf (rangex 500 5000 $ (sel t fxv)) # bpq 0.4),
+            (9, "Static HPF+BPF", hpf (rangex 50 2000 $ (sel t fxv)) # bpf (rangex 500 5000 $ (sel t fxv)) # bpq 0.4),
+            (10, "Static DJ Filter", djf (sel t fxv)), -- XXX
+            (11, "Static Vowel 1", vowel "a e i"),
+            (12, "Static Vowel 2", vowel "u"),
+            (13, "Static Comb", comb (range 0 1 $ (sel t fxv))),
+            (14, "Static Spectral HPF", (range 0 1 $ hbrick (sel t fxv))),
+            (15, "Static Spectral LPF", (range 1 0 $ lbrick (sel t fxv))),
+            (16, "Static LPF+HPF Crossover", lpf (rangex 100 10000 $ (sel t fxv)) # hpf (rangex 100 10000 $ (sel t fxv))),
+            (17, "Static Multi-Filter", lpf (rangex 1000 20000 $ (sel t fxv)) # hpf (rangex 20 1000 $ (sel t fxv)) # bpf (rangex 500 5000 $ (sel t fxv)) # bpq 0.2),
+            (18, "Static LPF+Resonance", lpf (rangex 50 20000 $ (sel t fxv)) # lpq (rangex 0 0.2 $ (sel t fxv))),
+            (19, "Static HPF+Resonance", hpf (rangex 50 20000 $ (sel t fxv)) # hpq (rangex 0 0.2 $ (sel t fxv))),
+            (20, "Static Spectral Comb+LPF", comb (range 0 1 $ (sel t fxv)) # lbrick (sel t fxv)),
+            -- 0 B. Filters with modulation -- TO DO mettre le fxv sur la vitesse de modulation ou sur l'effet ???
+            (21, "LPF Sweep", lpf (range 50 20000 $ slow 7 sine)), -- slow 8
+            -- (21, "LPF Sweep", lpf (range 50 20000 $ slow (7.0 * (sel t fxv)) sine)), -- slow 8
+            -- (21, "LPF Sweep", lpf (range 50 20000 $ slow (fmap (* 8) (sel t fxv)) sine)), -- slow 8
+            -- (21, "LPF Sweep", lpf (range 50 20000 $ slow (7 * toRational (sel t fxv)) sine)),
+            (22, "HPF Sweep", hpf (range 50 20000 $ slow 7 sine)),
+            (23, "BPF Sweep", bpf (range 50 20000 $ slow 6 sine) # bpq 0.5),
+            (24, "Resonant LPF Mod", lpf (range 50 20000 $ slow 5 sine) # lpq (range 0 0.4 $ slow 4 cosine)),
+            (25, "Resonant HPF Mod", hpf (range 50 20000 $ slow 6 sine) # hpq (range 0 0.4 $ slow 5 sine)),
+            (26, "Resonant BPF Mod", bpf (range 50 20000 $ slow 7 sine) # bpq (range 0 0.4 $ slow 6 cosine)),
+            (27, "LPF+HPF Mod", lpf (range 1000 20000 $ slow 8 sine) # hpf (range 20 1000 $ slow 7 cosine)),
+            (28, "LPF+BPF Mod", lpf (range 1000 20000 $ slow 9 sine) # bpf (range 500 5000 $ slow 8 cosine) # bpq 0.4),
+            (29, "HPF+BPF Mod", hpf (range 50 2000 $ slow 10 sine) # bpf (range 500 5000 $ slow 9 cosine) # bpq 0.4),
+            (30, "DJ Filter Sweep", djf (range 0 1 $ slow 11 sine)), -- XXX
+            (31, "Vowel Sequence", vowel "<a e i o u>"), -- XXX
+            (32, "Comb Filter Sweep", comb (range 0 1 $ slow 12 sine)),
+            (33, "Spectral HPF Sweep", hbrick (range 0 1 $ slow 13 sine)),
+            (34, "Spectral LPF Sweep", lbrick (range 0 1 $ slow 14 sine)),
+            (35, "LPF+HPF Crossover Mod", lpf (range 100 10000 $ slow 15 sine) # hpf (range 100 10000 $ slow 14 cosine)),
+            (36, "Multi-Filter Mod", lpf (range 1000 20000 $ slow 16 sine) # hpf (range 20 1000 $ slow 15 cosine) # bpf (range 500 5000 $ slow 14 sine) # bpq 0.5),
+            (37, "LPF+Resonance Mod", lpf (range 20 20000 $ slow 17 sine) # lpq (range 0 0.4 $ slow 16 cosine)),
+            (38, "HPF+Resonance Mod", hpf (range 20 20000 $ slow 18 sine) # hpq (range 0 0.4 $ slow 17 cosine)),
+            (39, "Spectral Comb+LPF Mod", comb (range 0 1 $ slow 19 sine) # lbrick (range 0 1 $ slow 18 cosine)),
+            (40, "Vowel+LPF Mod", vowel "<a e i o u>" # lpf (range 100 10000 $ slow 20 sine)),
+            -- 1. Saturation and Distortion
+            (41, "Light distortion", distort "0.1"),
+            (42, "Medium distortion", distort "0.5"),
+            (43, "Heavy distortion", distort "0.8"),
+            (44, "Full distortion", distort "1"),
+            (45, "Distortion", distort $ (sel t fxv)),
+            (46, "Distortion", distort "0 0.3 0.2 0.7 0.3"),
+            (47, "Variable distortion", distort "<0 0.3 0.2 0.1>"),
+            (48, "Distortion", distort "0 0.3 0.2 0.1" |* distort (sel t fxv)),
+            (49, "Distortion", distort "<0 0.3 0.2 0.1>" |* distort (sel t fxv)),
+            (50, "Distortion", distort "<0 0.3 0.2 0.7 0.3 0.5>" |* distort (sel t fxv)),
+            (51, "Cyclic distortion", select (slow 3 $ sine) [distort "0", distort "<0 0.3 0.2 0.1>", distort "0.5"]),
+            (52, "Cyclic distortion", select (slow 3 $ sine) [distort "0", distort "<0 0.3 0.2 0.1>", distort "0.5"]),
+            -- (52, "Tape saturation", tanh (range 0 5 $ slow 5 sine)), -- provoque une erreur à 53 ?
+            (53, "Shape", shape 0.3),
+            (54, "Shape", shape 0.5),
+            (55, "Shape", shape 0.7),
+            (56, "Subtle shape", shape "0 0.3"),
+            (57, "Medium shape", shape "0 0.7"),
+            (58, "Heavy shape", shape "0 0.98"),
+            (59, "Shape", shape $ (sel t fxv)),
+            (60, "Shape", shape "0 0.3 0.2 0.1"),
+            (61, "Shape", shape "0 0.3 0.2 0.7 0.3"),
+            (62, "Shape", shape "0 0.3 0.2 0.1" |* shape (sel t fxv)),
+            (63, "Shape", shape "<0 0.3 0.2 0.1>" |* shape (sel t fxv)),
+            (64, "Shape", shape "<0 0.3 0.2 0.1 0.4>"),
+            (65, "Shape", shape "<0 0.3 0.2 0.7 0.3 0.5>" |* distort (sel t fxv)),
+            (66, "Cassette tape wow", slow 8 $ speed (range 0.95 1.05 $ sine)),
+            -- (80, "Digital glitch", sometimes (|* speed "-1") $ striate' 32 (1/16) # coarse 4), -- To solve XXX
+            -- 2. Bit reduction and Lo-fi
+            (67, "Squiz", squiz 2),
+            (68, "Squiz", squiz 4),
+            (69, "Squiz", squiz 8),
+            (70, "Squiz", squiz $ (sel t fxv)),
+            (71, "Squiz", squiz "0 4 2 8"),
+            (72, "Squiz", squiz "0 4 16 2 8"),
+            (73, "Squiz", squiz "0 4 2 8 2" |* shape (sel t fxv)),
+            (74, "Squiz", squiz "<0 4 2 8 2>" |* shape (sel t fxv)),
+            (75, "Squiz", squiz "<0 4 16 2 8>"),
+            (76, "Squiz", squiz "<0 4 2 8 16 2 8>" |* distort (sel t fxv)),
+            (77, "Lossy compression simulation", squiz (range 1 4 $ slow 7 sine)),
+            (78, "Heavy crush", crush "4"),
+            (79, "Medium crush", crush "8"),
+            (80, "Subtle crush", crush "16"),
+            (81, "Subtle crush", crush "2 12 4"),
+            (82, "Subtle crush", crush "12 8 12 16"),
+            (83, "Subtle crush", crush "<2 12 4>"),
+            (84, "Subtle crush", crush "<12 8 12 16>"),
+            (85, "Bit crusher distortion", crush (range 2 16 $ slow 8 sine) # gain 1.2),
+            (86, "Bit reducer with filter", crush 8 # lpf (range 500 5000 $ slow 5 sine)),
+            -- (74, "Chorus", chorus 0.7 0.8 0.7 4 0.5) -- does not work
+            -- (92, "Ping pong delay", pingpong 0.5 0.4 0.16), -- does not work
+            -- (111, "Granular time stretch", randslice 32 # speed 0.5),
+            -- 3. Modulation and Panning
+            (87, "Subtle Pan", pan (range 0.3 0.7 $ slow 2 sine)),
+            (88, "Full Pan", pan (range 0 1 $ slow 2 sine)),
+            (89, "Panner with LFO", pan (range 0 1 $ slow 8 $ tri)),
+            (90, "Autopan", pan (range 0 1 $ slow 4 $ sine)),
+            (91, "Stereo widener", pan (range 0 1 $ slow 4 sine) # room 0.5 # size 0.8),
+            (92, "Spatial panner", pan (perlin) # room 0.6 # size 0.7),
+            (93, "Ring modulation", ring (range 20 2000 $ slow 5 sine)),
+            (94, "Ring modulation b", ring (range 20 2000 $ slow 5 sine)), -- To Do
+            (95, "Ring modulation c", ring (range 20 2000 $ slow 5 sine)), -- To Do
+            (96, "Amplitude modulation", gain (range 0.5 1 $ slow 4 sine)),
+            (97, "Tremolo", tremolorate (range 1 10 $ slow 8 sine) # tremolodepth (range 0.1 0.8 $ slow 6 cosine)),
+            -- (72, "Phaser sweep", phaser (range 0 4 $ slow 6 sine)) -- does not work
+            -- (73, "Flanger", flanger (range 0.1 1 $ slow 7 sine)) -- does not work
+            -- (27, "Chorus", chorus 0.7 0.8 0.7 4 0.5), -- does not work
+            (98, "Stereo delay pan", delay "0.25 0.5" # delaytime "0.125 0.25" # pan (range 0 1 $ slow 4 sine)),
+            -- 4. Temporal and Pitch Effects
+            (99, "Doppler effect", speed (range 0.8 1.2 $ slow 8 sine)),
+            (100, "Subtle speed change", speed "0.9 1.1"),
+            (101, "Medium speed change", speed "0.7 1.3"),
+            (102, "Extreme speed change", speed "0.5 2"),
+            (103, "speed", speed (segment 32 $ choose [2,3,1,0.7])),
+            (104, "Particle generator", segment 16 $ speed (range 0.5 2 $ rand)),
+            (105, "Subtle speed change", speed "0.9 1.1"),  -- To Do
+            (106, "Medium speed change", speed "0.7 1.3"),  -- To Do
+            (107, "Extreme speed change", speed "0.5 2"),  -- To Do
+            (108, "Extreme speed change", speed "0.5 2"),  -- To Do
+            (109, "Tape stop", accelerate "-1"),
+            (110, "Pitch bend", slow 8 $ up (range 0 12 $ sine)),
+            -- 5. Reverberation and space
+            (111, "Small room", room "0.2" # size "0.2"),
+            (112, "Medium room", room "0.5" # size "0.5"),
+            (113, "Large hall", room "0.8" # size "0.9"),
+            (114, "Reverb modulation", room (range 0.1 0.9 $ slow 10 sine) # size (range 0.1 0.9 $ slow 8 cosine)),
+            (115, "Gated reverb", room 0.6 # size 0.8 # gain (range 0 1 $ fast 8 $ envL)), -- c'est quoi envL ???
+            (116, "Shimmer reverb", room 0.7 # size 0.8 # up 12),
+            -- (127, "Reverse reverb", every 4 (rev) # room 0.8 # size 0.9),
+            (117, "Infinite reverb", room 1 # size 1 # dry 0),
+            -- 6. Spectral effects
+            (118, "Texture morph", morph 0.5 # enhance 0.2),
+            (119, "Light granular", grain (range 0.1 0.3 $ slow 8 sine) (range 1 5 $ slow  6 sine)),
+            (120, "Heavy granular", grain (range 0.3 0.7 $ slow 8 sine) (range 5 20 $ slow 6 sine)),
+            (121, "Other freeze", freeze "0.1 0.2 0.4"),
+            (122, "Texture freeze", freeze 1 # smear 0.6)
+            -- (115, "Texture blender", weave 16 (pan sine) [striate 4, rev, chop 16, hole 4])
+            ]
+      let lfx = map (\(_, _, fx) -> fx) listfx
+      let fxR = fromIntegral (length lfx) :: Double -- fromIntegral convertit un type qui est une instance de la classe Integral (comme Int ou Integer) en un type plus général compatible avec Num (comme Float, Double, etc.)
+      let sfx = select (select t fxp) lfx
+      -- let fxt2 = (fmap (round . (* 10)) (select "^tr" fxt))
+      let sfxx = selectF (fmap (/ 20) (select t fxx))
+            [ (# sfx) -- 0 Effet seul
+            -- The superimpose plays a modified version of a pattern 'on top of' the original pattern, resulting in the modified and original version of the patterns being played at the same time. Implemented with sfux.
+            -- 1 superposition originel et effet
+            , superimpose (# sfx)
+            -- off is similar to superimpose, in that it applies a function to a pattern, and layers up the results on top of the original pattern. The difference is that off takes an extra pattern being a time (in cycles) to shift the transformed version of the pattern by.
+            , off 0.125 (# sfx) -- 2 superposition avec décalage
+            , off 0.25 (# sfx) -- 3 superposition avec décalage
+            , off 0.33 (# sfx) -- 4 superposition avec décalage
+            , off 0.5 (# sfx) -- 5 superposition avec décalage
+            , off 0.75 (# sfx) -- 6 superposition avec décalage
+            , off 1 (# sfx) -- 7 superposition avec décalage
+            , off 2 (# sfx) -- 8 superposition avec décalage
+            , off 4 (# sfx) -- 9 superposition avec décalage
+            , off "<0.125 0.25 0.5 1>" (# sfx) -- 10 superposition avec décalage
+            , off "<0.25 0.75 0.5 0.125>" (# sfx) -- 11 superposition avec décalage
+            , off "<0.33 0.25 0.66 0.5>" (# sfx) -- 12 superposition avec décalage
+            , jux (# sfx) -- 13
+            , juxBy 0.75 (# sfx) -- 14
+            , juxBy 0.5 (# sfx) -- 15
+            , juxBy 0.25 (# sfx) -- 16
+            , jux (rev . (# sfx)) -- 17
+            , juxBy 0.75 (rev . (# sfx)) -- 18
+            , juxBy 0.5 (rev . (# sfx)) -- 19
+            , juxBy 0.25 (rev . (# sfx)) -- 20
+            -- , off 0.25 (# sfx) $ off 0.75 (# sfx)
+            -- , weave 16 (pan sine) [(# sfx), slow 2 (# sfx), fast 2 (# sfx)]
+            -- , stack [(# sfx), off 0.25 (# sfx), off 0.5 (# sfx)]
+            -- , spread ($) [id, slow 4, fast 4] (# sfx) -- does not work, stack same...
+            ]
+      -- See also the layer function allows you to layer up multiple functions on one pattern. How to control mutiple functions with one parameter ?
+      -- let sfx2 = select (select "^tr" fxp2) lfx
+      -- let fx2 = selectF (fmap (/ 3) (select "^tr" fxs2)) [(every (fmap (round) (range 10 0 (select "^tr" fxt2))) (# sfx2)), (sometimesBy (select "^tr" fxt2) (# sfx2)), (someCyclesBy (select "^tr" fxt2) (# sfx2))]
+      -- let fxR = fromIntegral (length lfx) -- erreur si la variable est mise dans l'updateFx -pourquoi ?
+      -- let fx = selectF (fmap (/ 3) (select t fxs))
+                  -- [ (every (fmap (round) (range 10 0 (select t fxt))) sfxx)
+                  -- , (sometimesBy (select t fxt) sfxx)
+                  -- , (someCyclesBy (select t fxt) sfxx)]
+      let fx = while ((> 0) <$> (select t fxs))
+            (selectF (fmap (/ 40) (select t fxs))
+                [
+                -- 0 Not used - No Effect
+                (every 77 (sfxx))
+                -- 1 Every X Cycle - 0.9 pour at every cycle (Pattern Int)
+                , (every (fmap round (range 10 0 (select t fxt))) (sfxx))
+                -- foldEvery : is similar to chaining multiple every functions together. It transforms a pattern with a function, once per any of the given number of cycles. If a particular cycle is the start of more than one of the given cycle periods, then it it applied more than once : foldEvery [5,3] (|+ n 1)
+                -- when : Only when the given test function returns True the given pattern transformation is applied. The test function will be called with the current cycle as a number.
+                -- when ((elem '4').show) : Only if the current cycle number contains the number 4. So the fourth cycle will be striated and the fourteenth and so on. Expect lots of striates after cycle number 399.
+                -- when ((`elem` "37") . last . show) : Only if the cycle number ends in 3 or 7.
+                -- when ((`elem` [2,3,5,7,11,13,17,19,23,29]) . fromIntegral . cycle) : Only to prime cycles, creating a somewhat organic/random pattern
+                -- d'autres exemples ?
+                -- whenmod : has a similar form and behavior to every, but requires an additional number. It applies the function to the pattern, when the remainder of the current loop number divided by the first parameter, is greater or equal than the second parameter.
+                -- whenmod 8 4 - every other block of four loops - Transformation tous les 8 cycles, à chaque bloc de 4.
+                -- 2 works, but apparently no effect if 0, needs to be 0.05 in the input, even if the scale begins with 1.
+                , (whenmod 4 (fmap (fromIntegral . round) (range 4 1 (select t fxt))) sfxx)
+                -- 3
+                , (whenmod 8 (fmap (fromIntegral . round) (range 8 1 (select t fxt))) sfxx)
+                -- 4
+                , (whenmod 16 (fmap (fromIntegral . round) (range 16 1 (select t fxt))) sfxx)
+                -- whenT : Only when the given test function returns True the given pattern transformation is applied. It differs from when, being passed a continuous Time value instead of the cycle number. XXX Basically, a Rational version of when.
+                -- whenT ((< 0.5).(flip Data.Fixed.mod' 2)) -- only when the remainder of the current Time divided by 2 is less than 0.5.
+                -- , (whenT (\time -> realToFrac time `elem` fmap (realToFrac :: Ratio Integer -> Double) (select t fut)) sfu) -- does not work
+                -- , (whenT ((== 0) . (flip Data.Fixed.mod' 3.7)) sfu) -- Every 3.7 seconds, adding a sense of controlled randomness ?
+                -- whenT ((< 15) . snd . properFraction . (/ 60)) - Only in the first 15 seconds of each minute, creating a pulse effect that syncs with real time.
+                -- , (whenT ((< 10) . (flip Data.Fixed.mod' 20)) sfu) -- Triggers transformation for the first 10 seconds of every 20-second period
+                -- , (whenT ((< 30) . (flip Data.Fixed.mod' 60)) sfu) -- Only if the current time is within the last 30 seconds of each minute
+                -- d'autres exemples ?
+                -- 5
+                , whenT1Inf (realToFrac <$> (sel t fxt)) (sfxx)
+                -- 6
+                , whenT2Inf (realToFrac <$> (sel t fxt)) (sfxx)
+                -- 7
+                , whenT1Sup (realToFrac <$> (sel t fxt)) (sfxx)
+                -- 8
+                , whenT2Sup (realToFrac <$> (sel t fxt)) (sfxx)
+                -- 9 Sometimes X in Cycle
+                , (sometimesBy (select t fxt) (sfxx))
+                -- 10 Sometimes X at each Cycle
+                , (someCyclesBy (select t fxt) (sfxx))
+                -- inside : carries out an peration 'inside' a cycle. What this function is really doing is 'slowing down' the pattern by a given factor, applying the given function to it, and then 'speeding it up' by the same factor. 'inside 2 rev' is like : 'fast 2 $ rev $ slow 2', so the 1st half of a cycle is reversed.
+                -- 11 Effet ?
+                , (inside (fmap (fromIntegral . round) (range 1 16 (select t fxt))) (sfxx))
+                -- 12
+                , (inside (fmap (fromIntegral . round) (range 1 32 (select t fxt))) (sfxx))
+                -- , (inside 4 sfu) -- n'a pas l'air d'avoir d'effet, amis en fait subtil - Pattern time
+                -- 13
+                , (inside "<1 2 4 8 16 24 32>" sfxx) -- 6 voire l'effet des séquences qui semblent très intéressants - voire outside, très dependant de la structure puisqu'agit en dehors des cycles
+                -- 14
+                , (inside (choose [2,32]) (sfxx))
+                -- 15
+                , (inside (irand 32) (sfxx))
+                -- 16
+                , (inside (rand * 32) (sfxx))
+                -- 17
+                , (inside (wchoose [(2,0.5),(4,0.25),(8,0.25)]) (sfxx)) -- TO DO
+                -- 18
+                , (inside (wchoose [(4,0.5),(8,0.25),(16,0.25)]) (sfxx)) -- TO DO
+                -- 19
+                , (inside (wchoose [(2,0.5),(8,0.25),(32,0.25)]) (sfxx)) -- TO DO
+                -- , (within (0, (select t fut)) (sfu)) ] -- Comment faire pour que le deuxième chiffre 0.5 soit modulable en le remplaçant par (select t fut) pour aller de 0 à 1 -- Génération d'une erreur :
+                -- Couldn't match type: Pattern Double - with: Ratio Integer - Expected: Time - Actual: Pattern Double -> solution ci-dessous
+                -- , (within (0, 0.5) (sfux)) -- From 0 to 0.5
+                -- 20
+                , toWithin (realToFrac <$> max 0.01 (sel t fxt)) (sfxx)
+                -- toPerc tpat f pat = innerJoin $ fmap (\t -> within (0, t) f pat) tpat
+                -- drawLine $ toPerc "<0 0.5>" (fast 2) $ "a b c d"
+                -- 21
+                , toWithin "<0 0.25 0.5 0.75 1 1 1>" (sfxx)
+                -- 22
+                , toWithin (slow 16 saw + 0.1) (sfxx)
+                -- 23
+                , toWithin (slow 32 saw + 0.1) (sfxx)
+                -- 24
+                , toWithin rand (sfxx)
+                -- 25
+                , fromWithin (realToFrac <$> max 0.01 (sel t fxt)) (sfxx)
+                -- 26
+                , fromWithin "<0 0.25 0.5 0.75 0.5 0.25 0>" (sfxx)
+                -- 27
+                , fromWithin (slow 16 saw + 0.1) (sfxx)
+                -- 28
+                , fromWithin (slow 32 saw + 0.1) (sfxx)
+                -- 29
+                , fromWithin rand (sfxx)
+                -- The chunk divides a pattern into a given number of parts, then cycles through those parts in turn, applying the given function to each part in turn (one part per cycle).
+                -- 30
+                , chunk 4 (sfxx)
+                -- 31
+                , chunk 8 (sfxx)
+                -- 32
+                , chunk 16 (sfxx)
+                -- 33
+                , chunk (irand 16) (sfxx)
+                -- 34 ?
+                , chunk (irand 64) (sfxx)
+                -- 35 ?
+                -- The chunk' does the same as chunk but cycles through the parts in the reverse direction.
+                , chunk' 4 (sfxx)
+                -- 36
+                , chunk' 8 (sfxx)
+                -- 37
+                , chunk' 16 (sfxx)
+                -- 38
+                , chunk' (irand 16) (sfxx)
+                -- 39
+                , chunk' (irand 64) (sfxx)
+                ])
+      return (listfx, lfx, sfx, sfxx, fx, fxR)
+    -- Définition des fonctions sur les patterns XXX
+    updateFu fus fux fut fup fuv t = do
+      let listfu = [
+            -- Fonctions contrôlées éventuellement par fuv organisées ainsi :
+            -- Alteration -> 0.Degrade (0-1) / 1.Truncation (2-20) / 2. Repetition (21-60) / 3. Time-Tempo (61-110) (Fast FastGap fastSqueeze hurry) / 4. Shuffling and scrambling (111-?) / 6 Sampling (76-?)
+            -- Dans le Time-Tempo, des fonctions à appliquer à des effets à intégrer dans la liste des FX ?, comme :
+            -- ghostWith (1/16) ((|*| gain 1.1) . (|> begin 0.05)
+            -- Début de la liste des fonctions XXX
+            -- Also possible to use a function to silence a cycle : silent or (mask "~") or within a cycle : (mask "0 0 0 0"). At the beginning or the end. How to classify all these functions by perception from small to big changes ?
+            -- (0, "Degrade", silence), -- does not work ?
+            -- (0, "Degrade", degrade),
+            -- (0, "Degrade", degradeBy 0), -- comme Effet Nul
+            -- (1, "DegradeBy", degradeBy 0), -- The degradeBy allows you to control the percentage of events that are removed
+            -- (1, "DegradeBy", degradeBy (sel t fuv)), -- Couldn't match type ‘Double’ with ‘Ratio Integer’ / Expected: [Pattern Time] / Actual: [Pattern Double] -- ne marche pas ? Solution ci-dessous :
+            (1, "DegradeBy", degradeBy (realToFrac <$> sel t fuv)),
+            -- realToFrac convertit des valeurs entre tous les types Fractional (comme Float, Double, Rational, etc.) et aussi entre Integral et Fractional. realToFrac est plus polyvalent que fromIntegral. On l’utilise surtout lorsqu’on doit convertir entre types décimaux ou lorsqu'on a besoin d’une conversion de type qui fonctionne pour à la fois des valeurs Integral et Fractional. En résumé, utilise fromIntegral pour des conversions simples entre Integral et des types Num, et realToFrac pour des conversions plus générales entre Integral et Fractional ou entre différents types Fractional.
+            -- (1, "DegradeBy", degradeBy (fromRational . toRational <$> sel t fuv)),
+            -- The trunc truncates a pattern so that only a fraction of the pattern is played. The below example plays only the first three quarters of the pattern
+            -- (2, "Trunc", trunc 0.75),
+            (2, "Trunc", trunc (max 0.005 (sel t fuv))), -- provoque une erreur si 0 -- pratiquement pas de son si proche de 0 car coupe
+            (3, "Trunc", trunc (wchoose [(0.25,0.5),(0.5,0.25),(0.75,0.25)])),
+            (4, "Trunc", trunc (wchoose [(0.25,0.25),(0.5,0.25),(0.75,0.5)])),
+            (5, "Trunc", trunc (wchoose [(0.25,0.25),(0.5,0.25),(0.75,0.5)] * (max 0.005 (sel t fuv)))),
+            -- (6, "Trunc", trunc ("0.25 0.75")), -- marche très bien
+            -- Comment varier la liste en par multipliant la valeur de (sel t fuv) ?
+            (6, "Trunc", trunc ("0.25 0.75" + ((sel t fuv) * 0.5))), -- à 0, pour être sans la variation
+            (7, "Trunc", trunc ("0.25 0.75" * 2 * (max 0.01 (sel t fuv)))), -- à 0.5, sans la variation
+            (8, "Trunc", trunc "0.3 0.7"), -- pour créer qqch de plus bancal
+            (9, "Trunc", trunc "0.5 0.75"), -- marche bien aussi
+            (10, "Trunc", trunc "0.75 0.6"), -- laisse plus de trou pour respirer mais reste intéressant
+            (11, "Trunc", trunc "0.25 0.5 0.75"), -- marche aussi bien
+            (12, "Trunc", trunc "0.25 0.3 0.5 0.7 0.75"), -- marche encore mieux...
+            (13, "Trunc", trunc ("0.25 0.3 0.5 0.75" * 2 * (max 0.01 (sel t fuv)))), -- laisse plus de trou et moins groovy
+            (14, "Trunc", trunc ("<0.75 1>" * (max 0.01 (sel t fuv)))),
+            (15, "Trunc", trunc "<0.75 0.75 1>"),
+            (16, "Trunc", trunc "<0.75 0.75 0.75 1>"), -- série de cycles où une partie est coupée
+            (17, "Trunc", trunc "<0.7 0.75 1 0.7 1>"),
+            (18, "Trunc", trunc "<0.7 0.75 0.75 0.7 1>"),
+            (19, "Trunc", trunc ("<0.7 0.7 0.75 0.75 1 1>" * (max 0.01 (sel t fuv)))),
+            (20, "Trunc", trunc ("<0.7 0.7 0.75 0.75 1 1 0.7 0.75 1>" * (max 0.01 (sel t fuv)))), -- autant de cycles - ou s'arrêter pour ne pas faire qqch d'ingérable ?
+            -- (20, "Trunc", trunc "<1 0.5 0.75>"), -- Faire plus de truc avec des trous ?
+            -- The linger is similar to trunc, in that it truncates a pattern so that only the first fraction of the pattern is played. However unlike trunc, linger repeats that part to fill the remainder of the cycle. -- For example 0.25 repeats the first quarter, so you only hear a single repeating note.
+            -- (21, "Linger", linger 0.25),
+            (21, "Linger", linger (max 0.005 (sel t fuv))), -- provoque une erreur si 0
+            (22, "Linger", linger (max 0.01 ((sel t fuv) * rand))),
+            (23, "Linger", linger (wchoose [(0.75,0.5),(0.24,0.25),(0.01,0.1)])),
+            (24, "Linger", linger (wchoose [(0.75,0.5),(0.22,0.25),(0.02,0.2),(0.01,0.1)])),
+            (25, "Linger", linger (wchoose [(0.75,0.5),(0.22,0.25),(0.2,0.1),(0.1,0.05)] * (max 0.05 (sel t fuv)))),
+            (26, "Linger", linger ("0.25 0.75" * (max 0.05 (sel t fuv)))),
+            (27, "Linger", linger ("0.25 0.5 0.75" * (max 0.05 (sel t fuv)))),
+            (28, "Linger", linger ("<0.25 0.75>" * (max 0.05 (sel t fuv)))),
+            (29, "Linger", linger ("<0.5 0.5 0.75>" * (max 0.05 (sel t fuv)))),
+            (30, "Linger", linger ("<0.25 0.5 1>" * (max 0.05 (sel t fuv)))), -- Valeurs à améliorer
+            -- The ply repeats each event the given number of times.
+            -- (21, "Ply", ply 2),
+            (31, "Ply", ply (irand 2)), -- irand 2 génére un motif entre 0 et 1, intéressant car ne joue pas si 0 - peut-être donc intéressant de ne pas mettre +1 pour au moins lire
+            (32, "Ply", ply (irand 3)), -- * (sel t fuv) -- pas si intéressant de contrôler une valeur si petite & pb que cela arrête le son si 0
+            (33, "Ply", ply (irand 4)),
+            (34, "Ply", ply (irand 2 + 1)), -- très cool
+            (35, "Ply", ply (irand 3 + 1)),
+            (36, "Ply", ply (irand 3 + 1 * rand)),
+            (37, "Ply", ply (rand * 2 * (max 0.005 (sel t fuv)))),
+            (38, "Ply", ply (rand * 3 * (max 0.005 (sel t fuv)))),
+            (39, "Ply", ply (wchoose [(1,0.5),(2,0.25),(3,0.25)] * (max 0.005 (sel t fuv)))),
+            (40, "Ply", ply (wchoose [(1,0.25),(2,0.5),(3,0.25)] * (max 0.005 (sel t fuv)))),
+            (41, "Ply", ply (wchoose [(1,0.25),(2,0.6),(3,0.15)] * (max 0.005 (sel t fuv)))),
+            (42, "Ply", ply (wchoose [(1,0.1),(2,0.5),(3,0.3)] * (max 0.005 (sel t fuv)))),
+            (43, "Ply", ply (wchoose [(1,0.5),(2,0.3),(3,0.2)] * 2 * (max 0.005 (sel t fuv)))),
+            (44, "Ply", ply (wchoose [(1,0.2),(2,0.5),(3,0.3)] * 2 * (max 0.005 (sel t fuv)))),
+            -- (30, "Ply", ply (choose [1, 2, 3] * (sel t fuv))), -- wchoose est mieux
+            (45, "Ply", ply ("1 2 3" * (max 0.005 (sel t fuv)))), -- max 0.005 pour ne pas couper le son
+            (46, "Ply", ply ("1 2 3" * rand * (max 0.005 (sel t fuv)))), -- l'ajout d'un rand pour encore plus d'aléatoire
+            (47, "Ply", ply ("1 2 3" * rand * 2 * (max 0.005 (sel t fuv)))), -- Doubler pour plus d'action
+            (48, "Ply", ply ("1 2 3" + (rand * (max 0.005 (sel t fuv))))), -- l'addition donne un effet sympa aussi -- "2 3 1"
+            (49, "Ply", ply ("2 3" * (max 0.005 (sel t fuv)))),
+            (50, "Ply", ply ("2 3 4" * (max 0.005 (sel t fuv)))),
+            (51, "Ply", ply ("2 3 1 2" * (max 0.005 (sel t fuv)))),
+            (52, "Ply", ply ("2 3 1 2 3" * (max 0.005 (sel t fuv)))),
+            (53, "Ply", ply ("2 3 4 2 3 1" * (max 0.005 (sel t fuv)))),
+            (54, "Ply", ply ("<2 3 4>" * (max 0.005 (sel t fuv)))),
+            (55, "Ply", ply ("<1 3 2 3 2 1>" * ((max 0.005 (sel t fuv))))),
+            (56, "Ply", ply ("<2 3 4 3 1 2 4>" * (max 0.005 (sel t fuv)))),
+            (57, "Ply", ply ("<1 3 2 3 2 1 4>" * (max 0.005 (sel t fuv)))),
+            (58, "Ply", ply (max 1 ((* 4) <$> sel t fuv))),
+            (59, "Ply", ply (max 1 ((* 16) <$> sel t fuv) * rand)),
+            (60, "Ply", ply (max 1 ((* 16) <$> sel t fuv))),
+            -- (60, "Ply", ply (max 1 (round <$> (* 8) <$> sel t fuv))), -- Impossible de mettre le round - Pourquoi ? -- Si round ne fonctionne pas ici, essayez floor ou ceiling à la place pour arrondir la valeur et la forcer à être un entier ?
+            -- (60, "Stripe", stripe 2), -- The stripe function repeats a pattern at random speeds. The first parameter gives the number of cycles to operate over, for example stripe 2 will repeat a pattern twice, over two cycles. Each cycle will be played at a random speed, but in such a way that the total duration will be the same.
+            -- (60, "Stripe", stripe (max 1 (round <$> (* 8) <$> sel t fuv))), -- Obligatoire de mettre le round car besoin d'un entier ? -- ne produit pratiquement aucun son peu importe la valeur ? proposer autre chose ?
+            (61, "Fast", fast (irand 2)),
+            (62, "Fast", fast (irand 3)),
+            (63, "Fast", fast (rand * 2)),
+            (64, "Fast", fast "2 0.5"), -- marche super bien
+            (65, "Fast", fast "0.5 2"),
+            (66, "Fast", fast "0.5 2 0.5 2"),
+            (67, "Fast", fast "0.5 1 2 0.5 2 1"), -- Aussi très intéressant - proposer une vingtaine de fast ?
+            (68, "Fast", fast ((* 2) <$> (sel t fuv))), -- (max 0.05 (sel t fuv)) mettre un minimum pour éviter de couper le son
+            (69, "Fast", fast ((* 4) <$> (sel t fuv))),
+            (70, "Fast", fast ("2 0.5" * ((* 2) <$> sel t fuv))),
+            (71, "Fast", fast ("0.5 1 2 0.5 2 1" * ((* 2) <$> sel t fuv))),
+            (72, "Fast", fast ("2 1 0.5 0.5 2 1 0.5 2" * ((* 2) <$> sel t fuv))),
+            (73, "Fast", fast ("<2 0.5 1>" * ((* 2) <$> sel t fuv))),
+            (74, "Fast", fast ("<0.5 1 2 0.5 2 1>" * ((* 2) <$> sel t fuv))),
+            (75, "Fast", fast ("<1 0.5 1 2 0.5 2 1>" * ((* 2) <$> sel t fuv))),
+            (76, "Fast", fast ("<2 1 2 0.5 2 1 0.5>" * ((* 2) <$> sel t fuv))),
+            -- (66, "Fast", fast $ (segment (max 1 ((* 64) <$> sel t fuv)) $ choose [1, 2, 0.5])), -- action sur le segmentage
+            (77, "Fast", fast $ (segment 4 $ wchoose [(1,0.5),(2,0.25),(0.5,0.25)]) * (max 0.1 (sel t fuv))), -- action sur la valeur des Fast
+            (78, "Fast", fast $ (segment 8 $ wchoose [(1,0.5),(2,0.25),(0.5,0.25)]) * (max 0.1 (sel t fuv))),
+            (79, "Fast", fast $ (segment (max 0.01 (sel t fuv) * 32) $ wchoose [(1,0.5),(2,0.2),(0.5,0.2),(3,0.1)]) * (max 0.1 (sel t fuv))), -- action sur la valeur des Fast
+            (80, "Slow", slow $ (segment 8 $ wchoose [(1,0.4),(2,0.3),(0.5,0.3)]) * (max 0.1 (sel t fuv))), -- des valeurs proches de 0 génrent plein de lates dans SC
+            -- The fastGap (alias densityGap) speeds up a pattern like fast, but rather than it playing multiple times as fast would it instead leaves a gap in the remaining space of the cycle.
+            (81, "Fast Gap", fastGap $ (segment 8 $ wchoose [(2,0.4),(0.5,0.4),(1,0.06),(0.5,0.02),(3,0.02)]) * (max 0.1 (sel t fuv))),
+            (82, "Fast Gap", fastGap $ (segment (max 0.01 (sel t fuv) * 32) $ wchoose [(2,0.4),(0.5,0.4),(1,0.06),(0.5,0.02),(4,0.02)]) * (max 0.1 (sel t fuv) * 2)),
+            -- (77, "Fast Gap", fastGap ((* 8) <$> sel t fuv)),
+            -- (78, "Fast Gap", fastGap ("0.5 2 0.5 2" * ((* 2) <$> sel t fuv))),
+            (83, "Fast Gap", fastGap ("2 0.5 0.5 2" * ((* 2) <$> sel t fuv))),
+            (84, "Fast Gap", fastGap ("1 2 1 0.5" * ((* 2) <$> sel t fuv))),
+            (85, "Fast Gap", fastGap ("0.5 2 0.5 1 2" * ((* 2) <$> sel t fuv))),
+            (86, "Fast Gap", fastGap ("2 0.5 0.5 2 1" * ((* 2) <$> sel t fuv))),
+            (87, "Fast Gap", fastGap ("0.25 0.5 2 2 1" * ((* 2) <$> sel t fuv))),
+            (88, "Fast Gap", fastGap ("0.5 1 2 0.5 2 1" * ((* 2) <$> sel t fuv))),
+            (89, "Fast Gap", fastGap ("2 0.5 1 2 0.5 1" * ((* 2) <$> sel t fuv))),
+            (90, "Fast Gap", fastGap ("<0.5 1 2 0.5 2 1>" * ((* 2) <$> sel t fuv))),
+            -- The fastSqueeze speeds up a pattern by a time pattern given as input, squeezing the resulting pattern inside one cycle and playing the original pattern at every repetition.
+            -- (77, "Fast Squeeze", fastSqueeze ((* 8) <$> sel t fuv)),
+            (91, "Fast Squeeze", fastSqueeze ((* 8) <$> sel t fuv)),
+            (92, "Fast Squeeze", fastSqueeze $ (segment 8 $ wchoose [(2,0.4),(0.5,0.4),(1,0.08),(4,0.02)]) * (max 0.1 (sel t fuv))),
+            (93, "Fast Squeeze", fastSqueeze $ (segment 8 $ wchoose [(2,0.4),(0.5,0.4),(1,0.08),(4,0.02)]) * (max 0.1 (sel t fuv))),
+            (94, "Fast Squeeze", fastSqueeze $ (segment 16 $ wchoose [(1,0.3),(2,0.3),(0.5,0.3),(4,0.05)]) * (max 0.1 (sel t fuv))),
+            (95, "Fast Squeeze", fastSqueeze $ (segment (max 0.01 (sel t fuv) * 32) $ wchoose [(1,0.5),(2,0.2),(0.5,0.2),(4,0.1)])), -- Contrôle du segmentage seulement
+            (96, "Fast Squeeze", fastSqueeze $ (segment (max 0.01 (sel t fuv) * 64) $ wchoose [(1,0.5),(2,0.2),(0.5,0.2),(4,0.1)]) * (max 0.1 (sel t fuv))), -- Contrôle du segmentage et de la valeur
+            (97, "Fast Squeeze", fastSqueeze ("0.5 2 0.5 2" * ((* 2) <$> sel t fuv))),
+            (98, "Fast Squeeze", fastSqueeze ("2 0.5 0.5 2" * ((* 2) <$> sel t fuv))),
+            (99, "Fast Squeeze", fastSqueeze ("2 0.5 0.5 1 2" * ((* 2) <$> sel t fuv))),
+            (100, "Fast Squeeze", fastSqueeze ("<0.5 1 2 0.5 2 1>" * ((* 2) <$> sel t fuv))),
+            (101, "Hurry", hurry ((irand 2) + (max 0.1 (sel t fuv)) / 2)),
+            (102, "Hurry", hurry (irand 2 + (max 0.1 (sel t fuv)))),
+            (103, "Hurry", hurry $ (segment 4 $ wchoose [(1,0.5),(2,0.25),(0.5,0.25)]) * (max 0.1 (sel t fuv))),
+            (104, "Hurry", hurry $ (segment 8 $ wchoose [(1,0.5),(2,0.25),(0.5,0.25)]) * (max 0.1 (sel t fuv))),
+            (105, "Hurry", hurry $ (segment (max 0.01 (sel t fuv) * 32) $ wchoose [(1,0.5),(2,0.2),(0.5,0.25),(3,0.05)]) * (max 0.1 (sel t fuv))),
+            -- The hurry is similiar to fast, in that it speeds up a pattern, but it also increases the speed control by the same factor, so if you're triggering samples, the sound gets higher in pitch.
+            (106, "Hurry", hurry (rand * 2)),
+            (107, "Hurry", hurry ("2 0.5" * ((* 2) <$> sel t fuv))),
+            (108, "Hurry", hurry ("0.5 2" * ((* 2) <$> sel t fuv))),
+            (109, "Hurry", hurry ("0.5 2 0.5 2" * ((* 2) <$> sel t fuv))),
+            (110, "Hurry", hurry ("<0.5 1 2 0.5 2 1>" * ((* 2) <$> sel t fuv))),
+            -- (110, "Hurry", hurry ((* 2) <$> sel t fuv)), -- faire une dizaine de prosositions en Hurry
+            (111, "Compress", compress (0, 1/2)), -- The compress takes a pattern and squeezes it within the specified time span (i.e. the 'arc'). The new resulting pattern is a sped up version of the original
+            (112, "Compress", compress (1/2, 1)),
+            (113, "Compress", compress (1/4, 3/4)),
+            (114, "Compress", compress (0, 3/4)),
+            (115, "Compress", compress (1/4, 1)),
+            -- (115, "Compress", compress (1/4, realToFrac (sel t fuv))), -- ne marche pas ???
+            -- The zoom plays a portion of a pattern, specified by the beginning and end of a time span (known as an 'arc'). The new resulting pattern is played over the time period of the original pattern.
+            (116, "Zoom", zoom (0, 1/2)),
+            (117, "Zoom", zoom (1/2, 1)),
+            (118, "Zoom", zoom (1/4, 3/4)),
+            (119, "Zoom", zoom (0, 3/4)),
+            (120, "Zoom", zoom (1/4, 1)),
+            -- (120, "Zoom", zoom (1/4, realToFrac (sel t fuv))), -- ne marche pas ???
+            -- Pour s'assurer qu’elle reste entre 0 et 1, on pourrait mettre : (realToFrac . max 0 . min 1 <$> sel t fuv)
+            -- The stretch takes a pattern, and if there's silences at the start or end of the current cycle, it will zoom in to avoid them. You can pattern silences on the extremes of a cycle to make changes to the rhythm : note (stretch "~ <0 ~> 1 5 8*4 ~")
+            (121, "Stretch", stretch),
+            -- The press delays a sound for half the time in its slot. In mini notation terms, it basically turns every instance of a into [~ a]. Every beat then becomes an offbeat, and so the overall effect is to syncopate a pattern.
+            (122, "Press", press),
+            -- The pressBy is similar to press, but it takes one additional parameter which is the displacement of the pattern, from 0 (inclusive) to 1 (exclusive). pressBy 0.5 is equivalent to press.
+            (123, "PressBy", pressBy "<0 0.5>"),
+            (124, "PressBy", pressBy "<0 0.5 0.75>"),
+            (125, "PressBy", pressBy "<0 0.25 0.5 0.75>"),
+            (126, "PressBy", pressBy "<0 0.25 0.5 0.75 0.5 0 0.25>"),
+            (127, "PressBy", pressBy (min 0.99 (sel t fuv))),
+            (128, "PressBy", pressBy (wchoose [(0.25,0.5),(0.5,0.25),(0.75,0.25)] * (max 0.05 (sel t fuv)))),
+            (129, "PressBy", pressBy (wchoose [(0.25,0.5),(0.5,0.25),(0.75,0.2),(0.3,0.05)] * (max 0.05 (sel t fuv)))),
+            (130, "PressBy", pressBy (wchoose [(0.25,0.25),(0.5,0.5),(0.75,0.2),(1,0.05)] * (max 0.05 (sel t fuv)))),
+            -- (X, "RotL", rotL (sel t fuv)), -- The rotL Shifts a pattern back in time by the given amount, expressed in cycles. This will skip to the fourth cycle when evaluated. Too complicated to implement.
+            -- The spin will play the given number of copies of the given control pattern at once. For n copies, each successive copy will be offset in time by an additional 1/n of a cycle, and also panned in space by an additional n1. This function works particularly well on multichannel systems. XXX -- Proposer une dizaines de propositions en cycle et dans le pattern ?
+            (131, "Spin", spin (irand 8)),
+            (132, "Spin", spin (round <$> rand * 8)),
+            (133, "Spin", spin (round <$> (sel t fuv) * 8)),
+            (134, "Spin", spin (max 1 (round <$> (* 8) <$> sel t fuv))),
+            (135, "Spin", spin (round <$> wchoose [(2,0.5),(3,0.25),(4,0.25)] * (max 0.01 (sel t fuv)))),
+            (136, "Spin", spin (round <$> wchoose [(2,0.5),(4,0.25),(8,0.25)] * (max 0.01 (sel t fuv)))),
+            (137, "Spin", spin (round <$> "4 8 6 3" * (max 0.1 (sel t fuv)))),
+            (138, "Spin", spin (round <$> "6 7 2 4" * (max 0.1 (sel t fuv)))),
+            (139, "Spin", spin (round <$> "<3 2 8 4>" * (max 0.1 (sel t fuv)))),
+            (140, "Spin", spin (round <$> "<2 4 3 6 2 8 4>" * (max 0.1 (sel t fuv)))),
+            -- The ghost adds quieter, pitch-shifted, copies of an event after the event, emulating ghost notes that are common in drumming patterns. -- super - faire davantage de propositions autour de çà ?
+            (141, "Ghost", ghost),
+            -- The ghost' is a variation from ghost above, where you can also specify the base delay used to create the pattern of ghosts notes.
+            (142, "Ghost", ghost' (1/4)),
+            (143, "Ghost", ghost' (1/8)),
+            (144, "Ghost", ghost' (1/16)),
+            (145, "Ghost", ghost' (1/32)),
+            -- (145, "Ghost", ghost' (realToFrac $ wchoose [((1/4),0.5),((1/8),0.25),((1/16),0.25)])),
+            -- The swing is an alias for swingBy (1/3) -- ne marche pas ? -> utilisation de swingBy instead
+            -- (146, "Swing", swing)
+            -- The swingBy x n breaks each cycle into n slices, and then delays events in the second half of each slice by the amount x, which is relative to the size of the (half) slice. So if x is 0 it does nothing, 0.5 delays for half the note duration, and 1 will wrap around to doing nothing again. The end result is a shuffle or swing-like rhythm.
+            (146, "SwingBy", swingBy (1/3) 4),
+            (147, "SwingBy", swingBy (sel t fuv) 4),
+            (148, "SwingBy", swingBy (sel t fuv) 8),
+            (149, "SwingBy", swingBy (sel t fuv) 16),
+            (150, "SwingBy", swingBy (sel t fuv) 32), -- essayer avec 64 ou d'autres valeurs ?
+            (151, "SwingBy", swingBy (rand) 8),
+            (152, "SwingBy", swingBy (rand * (sel t fuv)) 16),
+            (153, "SwingBy", swingBy (rand * (sel t fuv)) 32),
+            (154, "SwingBy", swingBy (wchoose [((1/4),0.5),((1/8),0.25),((1/16),0.25)]) 16),
+            (155, "SwingBy", swingBy (wchoose [((1/4),0.5),((1/8),0.25),((1/16),0.25)]) (wchoose [((8),0.5),((16),0.25),((32),0.25)])),
+            (156, "SwingBy", swingBy (wchoose [((1/4),0.5),((1/8),0.25),((1/16),0.25)]) (irand 32 * (sel t fuv))),
+            (157, "SwingBy", swingBy (wchoose [((1/8),0.5),((1/16),0.25),((1/32),0.25)]) (irand 64 * (sel t fuv))),
+            (158, "SwingBy", swingBy (sel t fuv) (irand 32 * (sel t fuv))),
+            (159, "SwingBy", swingBy (sel t fuv * rand) (32 * (sel t fuv))),
+            (160, "SwingBy", swingBy (sel t fuv) (32 * (sel t fuv))),
+            -- (152, "SwingBy", swingBy (1/3) ((round <$> (* 8) <$> sel t fuv))) -- ne marche pas ???
+            -- The echo applies a type of delay to a pattern. It has three parameters, which could be called depth, time and feedback. depth is and integer, and time and feedback are floating point numbers. The above results in 4 echos, each one 50% (that's the 0.5) quieter than the last, with 1/5th (that's the 0.2) of a cycle between them.
+            (161, "Echo", echo 4 0.2 0.5),
+            (162, "Echo", echo 4 (sel t fuv) 0.5),
+            (163, "Echo", echo 8 (sel t fuv) 0.5),
+            (164, "Echo", echo 8 (sel t fuv) (rand * 0.5)),
+            (165, "Echo", echo (irand 16) (sel t fuv) (rand * 0.5)),
+            (166, "Echo", echo 4 0.2 (realToFrac <$> sel t fuv)),
+            (167, "Echo", echo (max 1 (round <$> (* 16) <$> sel t fuv)) 0.2 0.5),
+            (168, "Echo", echo (max 1 (round <$> (* 16) <$> sel t fuv)) rand 0.5),
+            (169, "Echo", echo (max 1 (round <$> (* 16) <$> sel t fuv)) rand rand),
+            (170, "Echo", echo (max 1 (round <$> (* 16) <$> sel t fuv)) rand 0.8),
+            (171, "Echo", echoWith 4 (sel t fuv) (# vowel "{a e i o u}%2")),
+            (172, "Echo", echoWith (irand 8 + 1) (sel t fuv) (# vowel "{a e i o u}%2")),
+            (173, "Echo", echoWith (irand 16 + 1) (sel t fuv) (# vowel "{a e i o u o u}%2")),
+            (174, "Echo", echoWith (max 1 (round <$> (* 16) <$> sel t fuv)) (1/3) (# vowel "{a e i o u}%2")),
+            (175, "Echo", echoWith (max 1 (round <$> (* 16) <$> sel t fuv)) (rand * (sel t fuv)) (# vowel "{a e i o u}%2")),
+            (176, "Echo", echoWith (max 1 (round <$> (* 16) <$> sel t fuv)) (sine * (sel t fuv)) (# vowel "{a e i o u e}%2")),
+            (177, "Echo", echoWith (max 1 (round <$> (* 16) <$> sel t fuv)) (saw * (sel t fuv)) (# vowel "{a e i o u e i}%2")),
+            (178, "Echo", echoWith (max 1 (round <$> (* 16) <$> sel t fuv)) (isaw * (sel t fuv)) (# vowel "{a e i o u e i o}%2")),
+            (179, "Echo", echoWith (max 1 (round <$> (* 16) <$> sel t fuv)) (saw * (sel t fuv)) (# vowel "{a e i o u e i o u e u}%2")),
+            (180, "Echo", echoWith (max 1 (round <$> (* 16) <$> sel t fuv)) (sine * (sel t fuv)) (# vowel "{a e i o u e i o u e a}%2")),
+            -- The iter divides a pattern into a given number of subdivisions, plays the subdivisions in order, but increments the starting subdivision each cycle. The pattern wraps to the first subdivision after the last subdivision is played.
+            (181, "Iter", iter 4),
+            (182, "Iter", iter 8),
+            (183, "Iter", iter 16),
+            (184, "Iter", iter (irand 16)),
+            (185, "Iter", iter "4 8"),
+            (186, "Iter", iter "4 8 16"),
+            (187, "Iter", iter (max 1 (round <$> (* 16) <$> sel t fuv))),
+            (188, "Iter", iter (max 1 (round <$> (* 16) <$> sel t fuv * rand))),
+            (189, "Iter", iter (wchoose [(4,0.5),(8,0.25),(16,0.25)])),
+            (190, "Iter", iter (wchoose [(4,0.8),(8,0.1),(16,0.1)])),
+            -- The iter' does the same as iter but in the other direction.
+            (191, "Iter", iter' 4),
+            (192, "Iter", iter' 8),
+            (193, "Iter", iter' 16),
+            (194, "Iter", iter' (irand 16)),
+            (195, "Iter", iter' "4 8"),
+            (196, "Iter", iter' "4 8 16"),
+            (197, "Iter", iter' (max 1 (round <$> (* 16) <$> sel t fuv))),
+            (198, "Iter", iter' (max 1 (round <$> (* 16) <$> sel t fuv * rand))),
+            (199, "Iter", iter' (wchoose [(4,0.5),(8,0.25),(16,0.25)])),
+            (200, "Iter", iter' (wchoose [(4,0.8),(8,0.1),(16,0.1)])),
+            -- The bite allows you to slice each cycle into a given number of equal sized bits, and then pattern those bits by number. It's similar to slice, but is for slicing up patterns, rather than samples.
+            (201, "Bite", bite 4 "0 2 1 3"),
+            (202, "Bite", bite 4 "2 0 1 3"),
+            (203, "Bite", bite 4 "3 1 0 2"),
+            (204, "Bite", bite 4 "2 [0 3] 1*2 1"),
+            (205, "Bite", bite 4 "1 [2 3] 1*2 0"),
+            (206, "Bite", bite 8 "2 [0 4 3 7] 1*2 1 5 6"),
+            (207, "Bite", bite 8 "7 [0 1] 5 6*2 2"),
+            (208, "Bite", bite 8 "7 [0 3 1] 6*2 5 2"),
+            (209, "Bite", bite 8 "2 [0 7] 1*2 1 5 6"),
+            (210, "Bite", bite 8 "1*2 [2 4 7] 1 6 5"), -- Faire davantage de propositions au moins aune dizaine ?
+            -- The shuffle takes a number and a pattern as input, divides the pattern into the given number of parts, and returns a new pattern as a random permutation of the parts, picking one of each per cycle. This could also be called "sampling without replacement".
+            -- bite 4 (iter 5 "3 0 1") - TO TRY en combinaison de iter XXX
+            -- chew 4 (iter 3 "3 1 0") - TO TRY XXX
+            -- see https://tidalcycles.org/blog/tidal_profile_ndr_brt/#livecoding
+            (211, "Shuffle", shuffle 4),
+            (212, "Shuffle", shuffle 8),
+            (213, "Shuffle", shuffle (irand 8)),
+            (214, "Shuffle", shuffle (irand 16)),
+            (215, "Shuffle", shuffle (irand 32)),
+            (216, "Shuffle", shuffle "4 8"),
+            (217, "Shuffle", shuffle "4 8 16"),
+            (218, "Shuffle", shuffle (max 1 (round <$> (* 64) <$> sel t fuv))),
+            (219, "Shuffle", shuffle (wchoose [(4,0.5),(8,0.25),(16,0.25)])),
+            (220, "Shuffle", shuffle (wchoose [(4,0.5),(8,0.25),(16,0.25)])),
+            -- The scramble takes a number and a pattern as input, divides the pattern into the given number of parts, and returns a new pattern by randomly selecting from the parts. This could also be called "sampling with replacement".
+            (221, "Scramble", scramble 4),
+            (222, "Scramble", scramble 8),
+            (223, "Scramble", scramble (irand 8)),
+            (224, "Scramble", scramble (irand 16)),
+            (225, "Scramble", scramble (irand 32)),
+            (226, "Scramble", scramble "4 8"),
+            (227, "Scramble", scramble "<4 8 16 32>"),
+            (228, "Scramble", scramble (max 1 (round <$> (* 64) <$> sel t fuv))),
+            (229, "Scramble", scramble (wchoose [(4,0.5),(8,0.25),(16,0.25)])),
+            (230, "Scramble", scramble (wchoose [(8,0.5),(16,0.25),(64,0.25)])),
+            -- The rot 'rotates' the values in a pattern, while preserving its structure.
+            (231, "Rot", rot 1),
+            (232, "Rot", rot (max 1 (round <$> (* 8) <$> sel t fuv))),
+            (233, "Rot", rot "<0 0 1 2>"),
+            (234, "Rot", rot "<0 1 3 2>"),
+            (235, "Rot", rot "<3 2 1 0>"),
+            (236, "Rot", rot "<3 2 1 0>"),
+            (237, "Rot", rot "<1 0 3 2 1 0>"),
+            (238, "Rot", rot "<1 3 0 1 1 0>"),
+            (239, "Rot", rot "<1 0 3 2 0 1 2 3>"),
+            (240, "Rot", rot "<2 3 2 1 1 0 2 3>"),
+            (241, "Shift", ((sel t fuv) ~>)),
+            (242, "Shift", (0.25 ~>)),
+            (243, "Shift", (0.5 ~>)),
+            (243, "Shift", (0.75 ~>)),
+            (245, "Shift", ("<0 0.25 0.75>" ~>)),
+            (246, "Shift", ("<0 0.25 0.5 0.75>" ~>)),
+            (247, "Palindrome", palindrome),
+            -- The loopFirst takes a pattern and loops only the first cycle of the pattern. This function combines with sometimes to insert events from the first cycle randomly into subsequent cycles of the pattern.
+            (248, "LoopFirst", loopFirst),
+            (249, "Rev", rev),
+            (250, "Jux Rev", jux rev),
+            -- Sampling
+            (251, "Chop", chop "<[16 64 32]>*[^d1]"), -- Comment remplacer [^d1] par [^d2]... ?
+            (252, "Chop", chop "<[16 128 32]>"),
+            (253, "Chop", chop "<4 8 12>*[^d1]"),
+            (254, "Chop", chop (max 1 (round <$> (* 128) <$> sel t fuv)))
+            -- (# chop (range 1 32 $ slow 10 sine)) - To test ?
+            -- (224, "Rand Slice", randslice (max 1 (round <$> (* 16) <$> sel t fuv)))
+            -- (50, "Slice", slice "^d1" "[<0*8 0*2> 3*4 2 4] [4 .. 7]*[^d1]"),
+            -- (11, "Splice", slice "^d1" "7 6 5 4 3 2 1 0"),
+            -- (103, "Splice", splice (max 2 (round <$> (* 7) <$> sel t fuv)) "7 6 5 4 3 2 1 2 0 0")
+            -- (9, "Striate", striate "^d1"),
+            -- (100, "Striate", striate (max 1 (round <$> (* 12) <$> sel t fuv))), -- peut générer de nombreux late and skip
+            -- (101, "Striate", striate "1 4 6"), -- peut générer de nombreux late and skip
+            -- (102, "Splice", splice (max 2 (round <$> (* 8) <$> sel t fuv)) "[<0*8 0*2> 3*4 2 4] [4 .. 7]*[^d1]"),
+            -- (11, "Chunk Striate", chunk 4 $ striate $ (round <$> sel "^tr" fuv))
+            ]
+      let lfu = map (\(_, _, fu) -> fu) listfu
+      let fuR = fromIntegral (length lfu) :: Double
+      let sfu = selectF (select t fup) lfu
+      -- let sfux = if select t fux == 0 then sfu else superimpose (sfu)
+      let sfux = selectF (fmap (/ 20) (select t fux))
+            [ sfu -- 0 Effet seul
+            , superimpose (sfu) -- 1 superposition originel et effet
+            , off 0.125 (sfu) -- 2 superposition avec décalage
+            , off 0.25 (sfu) -- 3 superposition avec décalage
+            , off 0.33 (sfu) -- 4 superposition avec décalage
+            , off 0.5 (sfu) -- 5 superposition avec décalage
+            , off 0.75 (sfu) -- 6 superposition avec décalage
+            , off 1 (sfu) -- 7 superposition avec décalage
+            , off 2 (sfu) -- 8 superposition avec décalage
+            , off 4 (sfu) -- 9 superposition avec décalage
+            , off "<0.125 0.25 0.5 1>" (sfu) -- 10 superposition avec décalage
+            , off "<0.25 0.75 0.5 0.125>" (sfu) -- 11 superposition avec décalage
+            , off "<0.33 0.25 0.66 0.5>" (sfu) -- 12 superposition avec décalage
+            , jux (sfu) -- 13
+            , juxBy 0.75 (sfu) -- 14
+            , juxBy 0.5 (sfu) -- 15
+            , juxBy 0.25 (sfu) -- 16
+            , jux (rev . sfu) -- 17
+            , juxBy 0.75 (rev . sfu) -- 18
+            , juxBy 0.5 (rev . sfu) -- 19
+            , juxBy 0.25 (rev . sfu) -- 20
+            ]
+      -- let fu = selectF (fmap (/ 3) (select t fus)) [(every (fmap round (range 10 0 (select t fut))) (sfu)), (sometimesBy (select t fut) (sfu)), (someCyclesBy (select t fut) (sfu))]
+      let fu = while ((> 0) <$> (select t fus))
+            (selectF (fmap (/ 40) (select t fus))
+                [
+                -- 0 Not used - No Effect
+                (every 77 (sfux))
+                -- 1 Every X Cycle - 0.9 pour at every cycle (Pattern Int)
+                , (every (fmap round (range 10 0 (select t fut))) (sfux))
+                -- 2 works, but apparently no effect if 0, needs to be 0.05 in the input, even if the scale begins with 1.
+                , (whenmod 4 (fmap (fromIntegral . round) (range 4 1 (select t fut))) sfux)
+                -- 3
+                , (whenmod 8 (fmap (fromIntegral . round) (range 8 1 (select t fut))) sfux)
+                -- 4
+                , (whenmod 16 (fmap (fromIntegral . round) (range 16 1 (select t fut))) sfux)
+                -- 5
+                , whenT1Inf (realToFrac <$> (sel t fut)) (sfux)
+                -- 6
+                , whenT2Inf (realToFrac <$> (sel t fut)) (sfux)
+                -- 7
+                , whenT1Sup (realToFrac <$> (sel t fut)) (sfux)
+                -- 8
+                , whenT2Sup (realToFrac <$> (sel t fut)) (sfux)
+                -- 9 Sometimes X in Cycle
+                , (sometimesBy (select t fut) (sfux))
+                -- 10 Sometimes X at each Cycle
+                , (someCyclesBy (select t fut) (sfux))
+                -- 11 Effet ?
+                , (inside (fmap (fromIntegral . round) (range 1 16 (select t fut))) (sfux))
+                -- 12
+                , (inside (fmap (fromIntegral . round) (range 1 32 (select t fut))) (sfux))
+                -- 13
+                , (inside "<1 2 4 8 16 24 32>" sfux) -- 6 voire l'effet des séquences qui semblent très intéressants - voire outside, très dependant de la structure puisqu'agit en dehors des cycles
+                -- 14
+                , (inside (choose [2,32]) (sfux))
+                -- 15
+                , (inside (irand 32) (sfux))
+                -- 16
+                , (inside (rand * 32) (sfux))
+                -- 17
+                , (inside (wchoose [(2,0.5),(4,0.25),(8,0.25)]) (sfux)) -- TO DO
+                -- 18
+                , (inside (wchoose [(4,0.5),(8,0.25),(16,0.25)]) (sfux)) -- TO DO
+                -- 19
+                , (inside (wchoose [(2,0.5),(8,0.25),(32,0.25)]) (sfux)) -- TO DO
+                -- 20
+                , toWithin (realToFrac <$> max 0.01 (sel t fut)) (sfux)
+                -- 21
+                , toWithin "<0 0.25 0.5 0.75 1 1 1>" (sfux)
+                -- 22
+                , toWithin (slow 16 saw + 0.1) (sfux)
+                -- 23
+                , toWithin (slow 32 saw + 0.1) (sfux)
+                -- 24
+                , toWithin rand (sfux)
+                -- 25
+                , fromWithin (realToFrac <$> max 0.01 (sel t fut)) (sfux)
+                -- 26
+                , fromWithin "<0 0.25 0.5 0.75 0.5 0.25 0>" (sfux)
+                -- 27
+                , fromWithin (slow 16 saw + 0.1) (sfux)
+                -- 28
+                , fromWithin (slow 32 saw + 0.1) (sfux)
+                -- 29
+                , fromWithin rand (sfux)
+                -- 30
+                , chunk 4 (sfux)
+                -- 31
+                , chunk 8 (sfux)
+                -- 32
+                , chunk 16 (sfux)
+                -- 33
+                , chunk (irand 16) (sfux)
+                -- 34 ?
+                , chunk (irand 64) (sfux)
+                -- The chunk' does the same as chunk but cycles through the parts in the reverse direction.
+                -- 35
+                , chunk' 4 (sfux)
+                -- 36
+                , chunk' 8 (sfux)
+                -- 37
+                , chunk' 16 (sfux)
+                -- 38
+                , chunk' (irand 16) (sfux)
+                -- 39
+                , chunk' (irand 64) (sfux)
+                ])
+      return (listfu, lfu, sfu, sfux, fu, fuR)
+    -- Définition des fonctions sur les durées XXX
+    -- Voire comment alterner pas de legato et legato 1/2 ou autres ?
+    updateDur legS leg t = do
+      let dur = while ((> 0) <$> (select t legS))
+            (selectF (fmap (/ 7) (select t legS))
+                [
+                -- (# legato 0) -- Pas de legato pour 0
+                (# legato 0) -- duration of the sound / no intervention on the duration
+                -- 1
+                , (# legato 1) -- stops when another begins
+                -- 2
+                , (# legato (select t leg))
+                -- 3
+                , (# (legato (select t leg) |* legato "1 6"))
+                -- 4
+                , (# (legato (select t leg) |* legato "<1 6>"))
+                -- 5
+                , (# (legato (select t leg) |* legato "<60>")) -- does not seem to work ?
+                -- 6
+                , (# (legato (select t leg) |* legato rand))
+                -- 7
+                , (# (legato (select t leg) |* legato saw))
+                -- 8
+                , (# (legato (select t leg) |* legato "6" |* legato rand))
+                -- 9
+                , (# (legato (select t leg) |* legato "6" |* legato saw))
+                ])
+      return (dur)
+    -- Définition combinée pour mettre à jour fx et fu XXX
+    updateAll fxs fxx fxt fxp fxv fxs2 fxx2 fxt2 fxp2 fxv2 fus fux fut fup fuv fus2 fux2 fut2 fup2 fuv2 legS leg t1 t2 t3 t4 t5 t6 t7 t8 = do
+        -- Mise à jour de fx1, fx2, fu1 fu2 et dud
+        (listfx11, lfx11, sfx11, sfxx11, f1d1, fxR) <- updateFx fxs fxx fxt fxp fxv t1
+        (listfx21, lfx21, sfx21, sfxx21, f2d1, fxR) <- updateFx fxs2 fxx2 fxt2 fxp2 fxv2 t1
+        (listfx12, lfx12, sfx12, sfxx12, f1d2, fxR) <- updateFx fxs fxx fxt fxp fxv t2
+        (listfx22, lfx22, sfx22, sfxx22, f2d2, fxR) <- updateFx fxs2 fxx2 fxt2 fxp2 fxv2 t2
+        (listfx13, lfx13, sfx13, sfxx13, f1d3, fxR) <- updateFx fxs fxx fxt fxp fxv t3
+        (listfx23, lfx23, sfx23, sfxx23, f2d3, fxR) <- updateFx fxs2 fxx2 fxt2 fxp2 fxv2 t3
+        (listfx14, lfx14, sfx14, sfxx14, f1d4, fxR) <- updateFx fxs fxx fxt fxp fxv t4
+        (listfx24, lfx24, sfx24, sfxx24, f2d4, fxR) <- updateFx fxs2 fxx2 fxt2 fxp2 fxv2 t4
+        (listfx15, lfx15, sfx15, sfxx15, f1d5, fxR) <- updateFx fxs fxx fxt fxp fxv t5
+        (listfx25, lfx25, sfx25, sfxx25, f2d5, fxR) <- updateFx fxs2 fxx2 fxt2 fxp2 fxv2 t5
+        (listfx16, lfx16, sfx16, sfxx16, f1d6, fxR) <- updateFx fxs fxx fxt fxp fxv t6
+        (listfx26, lfx26, sfx26, sfxx26, f2d6, fxR) <- updateFx fxs2 fxx2 fxt2 fxp2 fxv2 t6
+        (listfx17, lfx17, sfx17, sfxx17, f1d7, fxR) <- updateFx fxs fxx fxt fxp fxv t7
+        (listfx27, lfx27, sfx27, sfxx27, f2d7, fxR) <- updateFx fxs2 fxx2 fxt2 fxp2 fxv2 t7
+        (listfx18, lfx18, sfx18, sfxx18, f1d8, fxR) <- updateFx fxs fxx fxt fxp fxv t8
+        (listfx28, lfx28, sfx28, sfxx28, f2d8, fxR) <- updateFx fxs2 fxx2 fxt2 fxp2 fxv2 t8
+        -- let fx14 = (listfx11, lfx11, sfx11, f1d1, listfx21, lfx21, sfx21, f2d1, listfx12, lfx12, sfx12, f1d2, listfx22, lfx22, sfx22, f2d2, listfx13, lfx13, sfx13, f1d3, listfx23, lfx23, sfx23, f2d3, listfx14, lfx14, sfx14, f1d4, listfx24, lfx24, sfx24, f2d4, listfx15, lfx15, sfx15, f1d5, listfx25, lfx25, sfx25, f2d5, listfx16, lfx16, sfx16, f1d6, listfx26, lfx26, sfx26, f2d6, listfx17, lfx17, sfx17, f1d7, listfx27, lfx27, sfx27, f2d7, listfx18, lfx18, sfx18, f1d8, listfx28, lfx28, sfx28, f2d8, fxR)
+        -- Ici, obligé de diviser le grand tuple en plusieurs sous-tuples de taille acceptable (64 éléments ou moins).
+        -- Mais, au lieu d'utiliser des tuples, on peut envisager d'utiliser des types de données personnalisés ou des structures comme des listes, des maps, ou même des records pour organiser tes données -> TO DO
+        let fx14 = (listfx11, lfx11, sfx11, sfxx11, listfx21, lfx21, sfx21, sfxx21, listfx12, lfx12, sfx12, sfxx21, listfx22, lfx22, sfx22, sfxx22, listfx13, lfx13, sfx13, sfxx13, listfx23, lfx23, sfx23, sfxx23, listfx14, lfx14, sfx14, sfxx14, listfx24, lfx24, sfx24, sfxx24) -- actuellement 32 éléments
+        let fx58 = (listfx15, lfx15, sfx15, sfxx15, listfx25, lfx25, sfx25, sfxx25, listfx16, lfx16, sfx16,  sfxx16, listfx26, lfx26, sfx26, sfxx26, listfx17, lfx17, sfx17, sfxx17, listfx27, lfx27, sfx27, sfxx27, listfx18, lfx18, sfx18, sfxx18, listfx28, lfx28, sfx28,  sfxx28, fxR)
+        (listfu11, lfu11, sfu11, sfux11, u1d1, fuR) <- updateFu fus fux fut fup fuv t1
+        (listfu21, lfu21, sfu21, sfux21, u2d1, fuR) <- updateFu fus2 fux2 fut2 fup2 fuv2 t1
+        (listfu12, lfu12, sfu12, sfux12, u1d2, fuR) <- updateFu fus fux fut fup fuv t2
+        (listfu22, lfu22, sfu22, sfux22, u2d2, fuR) <- updateFu fus2 fux2 fut2 fup2 fuv2 t2
+        (listfu13, lfu13, sfu13, sfux13, u1d3, fuR) <- updateFu fus fux fut fup fuv t3
+        (listfu23, lfu23, sfu23, sfux23, u2d3, fuR) <- updateFu fus2 fux2 fut2 fup2 fuv2 t3
+        (listfu14, lfu14, sfu14, sfux14, u1d4, fuR) <- updateFu fus fux fut fup fuv t4
+        (listfu24, lfu24, sfu24, sfux24, u2d4, fuR) <- updateFu fus2 fux2 fut2 fup2 fuv2 t4
+        (listfu15, lfu15, sfu15, sfux15, u1d5, fuR) <- updateFu fus fux fut fup fuv t5
+        (listfu25, lfu25, sfu25, sfux25, u2d5, fuR) <- updateFu fus2 fux2 fut2 fup2 fuv2 t5
+        (listfu16, lfu16, sfu16, sfux16, u1d6, fuR) <- updateFu fus fux fut fup fuv t6
+        (listfu26, lfu26, sfu26, sfux26, u2d6, fuR) <- updateFu fus2 fux2 fut2 fup2 fuv2 t6
+        (listfu17, lfu17, sfu17, sfux17, u1d7, fuR) <- updateFu fus fux fut fup fuv t7
+        (listfu27, lfu27, sfu27, sfux27, u2d7, fuR) <- updateFu fus2 fux2 fut2 fup2 fuv2 t7
+        (listfu18, lfu18, sfu18, sfux18, u1d8, fuR) <- updateFu fus fux fut fup fuv t8
+        (listfu28, lfu28, sfu28, sfux28, u2d8, fuR) <- updateFu fus2 fux2 fut2 fup2 fuv2 t8
+        let fu14 = (listfu11, lfu11, sfu11, sfux11, listfu21, lfu21, sfu21, sfux21, listfu12, lfu12, sfu12, sfux12, listfu22, lfu22, sfu22, sfux22, listfu13, lfu13, sfu13, sfux13, listfu23, lfu23, sfu23, sfux23, listfu14, lfu14, sfu14, sfux14, listfu24, lfu24, sfu24, sfux24)
+        let fu58 = (listfu15, lfu15, sfu15, sfux15, listfu25, lfu25, sfu25, sfux25, listfu16, lfu16, sfu16, sfux16, listfu26, lfu26, sfu26, sfux26, listfu17, lfu17, sfu17, sfux17, listfu27, lfu27, sfu27, sfux27, listfu18, lfu18, sfu18, sfux18, listfu28, lfu28, sfu28, sfux28, fuR)
+        (dud1) <- updateDur legS leg t1; (dud2) <- updateDur legS leg t2
+        (dud3) <- updateDur legS leg t3; (dud4) <- updateDur legS leg t4
+        (dud5) <- updateDur legS leg t5; (dud6) <- updateDur legS leg t6
+        (dud7) <- updateDur legS leg t7; (dud8) <- updateDur legS leg t8
+        return (fx14, fx58, f1d1, f2d1, f1d2, f2d2, f1d3, f2d3, f1d4, f2d4, f1d5, f2d5, f1d6, f2d6, f1d7, f2d7, f1d8, f2d8, fxR, fu14, fu58, u1d1, u2d1, u1d2, u2d2, u1d3, u2d3, u1d4, u2d4, u1d5, u2d5, u1d6, u2d6, u1d7, u2d7, u1d8, u2d8, fuR, dud1, dud2, dud3, dud4, dud5, dud6, dud7, dud8)
+
+-- Possibilité d'évaluer tout d'un seul coup : la fonction et son évaluation ?
+
+-- Initialisation des variables de contrôle
+initializeControls 8
+
+-- Mise à jour de tous les FX et fonctions d'un seul coup XXX
+(fx14, fx58, f1d1, f2d1, f1d2, f2d2, f1d3, f2d3, f1d4, f2d4, f1d5, f2d5, f1d6, f2d6, f1d7, f2d7, f1d8, f2d8, fxR, fu14, fu58, u1d1, u2d1, u1d2, u2d2, u1d3, u2d3, u1d4, u2d4, u1d5, u2d5, u1d6, u2d6, u1d7, u2d7, u1d8, u2d8, fuR, dud1, dud2, dud3, dud4, dud5, dud6, dud7, dud8) <- updateAll fxs fxx fxt fxp fxv fxs2 fxx2 fxt2 fxp2 fxv2 fus fux fut fup fuv fus2 fux2 fut2 fup2 fuv2 legS leg t1 t2 t3 t4 t5 t6 t7 t8
+
+fxR -- Number of Effects
+fuR -- Number of Functions
+length sfxx -- ?
+
+hush
