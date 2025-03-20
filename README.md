@@ -11,13 +11,21 @@ This project is an extension of [SuperDirMixer](https://github.com/thgrund/Super
 
 ## Installation
 
-You need to follow the instructions to install SuperDirtMixer to set up this project.
+1. You have to install SuperDirtMixer and therefore follow the instructions in SuperDirtMixer to install [its requirements](https://github.com/thgrund/SuperDirtMixer?tab=readme-ov-file#requirements), like Tidal Cycles and SuperDirt Quark.
 
-More to come in the following months.
+2. You have to put the folder [L4B_SC_Extensions](https://github.com/Xon77/Live4Bubbles/tree/main/L4B_SC_Extensions) into your SiperCollider extensions folder.
+
+3. You have to evaluate the 3 steps within the file [ControlTidal.tidal](https://github.com/Xon77/Live4Bubbles/blob/main/L4B_Tidal/ControlTidal.tidal) within Pulsar, open the file [DJCode1.tidal](https://github.com/Xon77/Live4Bubbles/blob/main/L4B_Tidal/DJCode1.tidal) in the first tab of Pulsat to be able to Tidal code lines.
+
+4. The path of the sound folder has to structured in the same way as the [sound data base of my other project _Live 4 Life_](https://github.com/Xon77/L4LSoundsDataBase/tree/main/SoundFolder), except that the space should be replaced by "_", like "DB_MBass".
+
+**More to come in the following months in May 2025. Be patient.**
+
+
 
 ## Licence
 
-© 2011-2077 ∞ Christophe Lengelé
+© 2025 - End of the world ∞ Christophe Lengelé
 
 ***Live 4 Life*** is an open source software: you can redistribute it and/or modify it under the terms of **Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International license** (CC BY-NC-SA 4.0). 
 

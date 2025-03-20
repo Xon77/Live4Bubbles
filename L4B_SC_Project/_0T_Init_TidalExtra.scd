@@ -4,6 +4,7 @@
 // Synchronization via Ableton Link
 
 
+
 ( // TIDAL Xon - Live 4 Bubbles
 
 ~tidalOutputChannels = 2; // Nb of Channels in Tidal
@@ -106,95 +107,95 @@ s.waitForBoot {
 
 	if (~tidalOutputChannels != 32, {
 
-			( // Réverb Custom VST
-				~dirtNumChannels = ~dirt.numChannels;
+		( // Réverb Custom VST
+			~dirtNumChannels = ~dirt.numChannels;
 
-				// This is VST Plugin synthdef example for a global reverb fx
-				SynthDef(\valhalla2, {|out|
-					var size = 14; // This value needs to be hard coded and means that it works for 14 orbits.
-					var dryBusses = NamedControl.kr(\dryBusses, (0 ! size ));
-					var wetReverbs = NamedControl.kr(\wetReverbs, (0 ! size)); // Contains the amount of dry/wet for each orbit. Value is between 0 and 1.
-					var fxSound = size.collect({arg i; In.ar(dryBusses[i], ~dirtNumChannels) * wetReverbs[i]}).sum;
+			// This is VST Plugin synthdef example for a global reverb fx
+			SynthDef(\valhalla2, {|out|
+				var size = 14; // This value needs to be hard coded and means that it works for 14 orbits.
+				var dryBusses = NamedControl.kr(\dryBusses, (0 ! size ));
+				var wetReverbs = NamedControl.kr(\wetReverbs, (0 ! size)); // Contains the amount of dry/wet for each orbit. Value is between 0 and 1.
+				var fxSound = size.collect({arg i; In.ar(dryBusses[i], ~dirtNumChannels) * wetReverbs[i]}).sum;
 
-					fxSound = VSTPlugin.ar(fxSound, numOut: ~dirtNumChannels, id: \valhalla);
+				fxSound = VSTPlugin.ar(fxSound, numOut: ~dirtNumChannels, id: \valhalla);
 
-					// out should be a global fx bus for reverb.
-					// With this you could add more of these fx busses without affecting other audio busses.
-					Out.ar(out ,fxSound);
-				}).add;
+				// out should be a global fx bus for reverb.
+				// With this you could add more of these fx busses without affecting other audio busses.
+				Out.ar(out ,fxSound);
+			}).add;
 
-				SynthDef(\masterSynth, { |out, fxBus|
-					var size = 8; // This value needs to be hard coded and means that it works for 8 orbits.
-					var wetSound = In.ar(fxBus, ~dirtNumChannels);
-					var dryBusses = NamedControl.kr(\dryBusses, (0 ! size ));
-					var wetSums = NamedControl.kr(\wetSums, (0 ! size));
+			SynthDef(\masterSynth, { |out, fxBus|
+				var size = 8; // This value needs to be hard coded and means that it works for 8 orbits.
+				var wetSound = In.ar(fxBus, ~dirtNumChannels);
+				var dryBusses = NamedControl.kr(\dryBusses, (0 ! size ));
+				var wetSums = NamedControl.kr(\wetSums, (0 ! size));
 
-					// Reduces the dry bus gain logarithmically for each orbit based on the
-					// global fx amount.
-					var drySound = size.collect({
-						arg i;
-						ReplaceOut.ar (dryBusses[i], In.ar(dryBusses[i], ~dirtNumChannels) * (1/(wetSums[i] +1) ));
-					});
+				// Reduces the dry bus gain logarithmically for each orbit based on the
+				// global fx amount.
+				var drySound = size.collect({
+					arg i;
+					ReplaceOut.ar (dryBusses[i], In.ar(dryBusses[i], ~dirtNumChannels) * (1/(wetSums[i] +1) ));
+				});
 
-					// Route the global fx bus to i.e. hardware output
-					Out.ar(out, wetSound);
-				}).add;
-			);
+				// Route the global fx bus to i.e. hardware output
+				Out.ar(out, wetSound);
+			}).add;
+		);
 
-			s.sync;
+		s.sync;
 
-			(
-				~tidalMasterBus = Bus.new; // Usually this is the output of your sound card (it returns the first bus 0)
-				~tidalGlobalReverbBus = Bus.audio(~dirt.server, ~dirtNumChannels);
-				~tidalWetReverbs = Array.fill(~dirt.orbits.size, 0);
-				~tidalWetSums = Array.fill(~dirt.orbits.size, 0);
-				~tidalDryBusses = ~dirt.orbits.collect({arg item; item.dryBus});
-				~tidalGlobalFXBusses = ~dirt.orbits.collect({arg item; item.globalEffectBus});
+		(
+			~tidalMasterBus = Bus.new; // Usually this is the output of your sound card (it returns the first bus 0)
+			~tidalGlobalReverbBus = Bus.audio(~dirt.server, ~dirtNumChannels);
+			~tidalWetReverbs = Array.fill(~dirt.orbits.size, 0);
+			~tidalWetSums = Array.fill(~dirt.orbits.size, 0);
+			~tidalDryBusses = ~dirt.orbits.collect({arg item; item.dryBus});
+			~tidalGlobalFXBusses = ~dirt.orbits.collect({arg item; item.globalEffectBus});
 
-				// Initilaize the reverb synth
-				// Ensure that this Synth be played at the end of the Synth group
-				~valhallaSynth = Synth(\valhalla2, [
-					\out, ~tidalGlobalReverbBus,
-					id: \valhalla
-				], addAction: 'addToTail');
+			// Initilaize the reverb synth
+			// Ensure that this Synth be played at the end of the Synth group
+			~valhallaSynth = Synth(\valhalla2, [
+				\out, ~tidalGlobalReverbBus,
+				id: \valhalla
+			], addAction: 'addToTail');
 
-				// Namedcontrol to set all the dryBusses for the global fx synth
-				~valhallaSynth.set(\dryBusses, ~tidalDryBusses);
+			// Namedcontrol to set all the dryBusses for the global fx synth
+			~valhallaSynth.set(\dryBusses, ~tidalDryBusses);
 
-				// Link synth with vst plugin and load it
-				~valhalla = VSTPluginController(~valhallaSynth, id: \valhalla);
-				~valhalla.open("ValhallaSupermassive.vst3");
+			// Link synth with vst plugin and load it
+			~valhalla = VSTPluginController(~valhallaSynth, id: \valhalla);
+			~valhalla.open("ValhallaSupermassive.vst3");
 
-				// Test the settings and play around with them
-				{~valhalla.editor}.defer(1);
+			// Test the settings and play around with them
+			{~valhalla.editor}.defer(1);
 
-				// The master synth routes the content of the fxBus to an out bus
-				// i.e. the hardware output
-				~masterSynth = Synth(\masterSynth, [
-					\out, ~tidalMasterBus,
-					\fxBus, ~tidalGlobalReverbBus,
-				], addAction: 'addToTail');
+			// The master synth routes the content of the fxBus to an out bus
+			// i.e. the hardware output
+			~masterSynth = Synth(\masterSynth, [
+				\out, ~tidalMasterBus,
+				\fxBus, ~tidalGlobalReverbBus,
+			], addAction: 'addToTail');
 
-				~masterSynth.set(\dryBusses, ~tidalDryBusses);
-				~masterSynth.set(\globalFXBusses, ~tidalGlobalFXBusses);
+			~masterSynth.set(\dryBusses, ~tidalDryBusses);
+			~masterSynth.set(\globalFXBusses, ~tidalGlobalFXBusses);
 
-				// Fix this to swich between VST and Native FX
-				~dirt.receiveAction = { |event|
-					var e = event.copy;
-					var orbit = ~dirt.orbits[e.at(\orbit)];
-					var reverb = e.at(\reverb) ?? orbit.defaultParentEvent.at(\reverb) ?? 0;
-					var room = e.at(\room) ?? orbit.defaultParentEvent.at(\room) ?? 0;
+			// Fix this to swich between VST and Native FX
+			~dirt.receiveAction = { |event|
+				var e = event.copy;
+				var orbit = ~dirt.orbits[e.at(\orbit)];
+				var reverb = e.at(\reverb) ?? orbit.defaultParentEvent.at(\reverb) ?? 0;
+				var room = e.at(\room) ?? orbit.defaultParentEvent.at(\room) ?? 0;
 
-					var wet = reverb + room;
+				var wet = reverb + room;
 
-					~tidalWetReverbs.put(orbit.orbitIndex, reverb);
-					~tidalWetSums.put(orbit.orbitIndex, wet);
+				~tidalWetReverbs.put(orbit.orbitIndex, reverb);
+				~tidalWetSums.put(orbit.orbitIndex, wet);
 
-					~valhallaSynth.set(\wetReverbs, ~tidalWetReverbs);
-					~masterSynth.set(\wetSums, ~tidalWetSums);
-				};
-			);
-		});
+				~valhallaSynth.set(\wetReverbs, ~tidalWetReverbs);
+				~masterSynth.set(\wetSums, ~tidalWetSums);
+			};
+		);
+	});
 
 	"_Init Midi X2.scd".loadRelative;
 
@@ -209,9 +210,9 @@ s.waitForBoot {
 	~tidalGuiElements[0][\eq][\element].valueAction_(1); // To update the number of FX Button
 	~tidalTrackSelectionButton.valueAction_(1); // Random Action on first 4 tracks (0 - ALL -> 3 - Track)
 
-	~tidalRytSNumBox.valueAction_(1); // 0 Rhythm Free -> 2 more square
+	~tidalRytSNumBox.valueAction_(0); // 0 Rhythm Free -> 2 more square
 	~tidalLegSNumBox.valueAction_(2); // 0 Duration Free (Sound Length) - 1 (No superposition) - 2 (Slider)
-	~tidalBufSNumBox.valueAction_(4); // 0 Buffer Bass Drum -> 4 more open
+	~tidalBufSNumBox.valueAction_(0); // 0 Buffer Bass Drum -> 4 more open
 
 	// JSON Presets control everything except Live Stage Limiter
 	// Then, it can replace action on ~tidalNumBox above & ~tidalResetAllButtonView
@@ -226,27 +227,112 @@ s.waitForBoot {
 	// ~stageMasterLimiterLevel.valueAction_(1);
 	// ~stageMasterHighEndDb.valueAction_(0.32);
 
-	~tidalMasterMulNumBox.valueAction_(-6); // Réécriture du Tidal Master Volume
+	// ~tidalMasterMulNumBox.valueAction_(-12); // Réécriture du Tidal Master Volume
+	~tidalMasterMulNumBox.valueAction_(-9);
 
 	// Global Presets
-	~tidalAllPresetListView.items_(["Null", "1", "2", "3", "4", "5", "6", "7", "8", "9"]).maxWidth_(40).maxHeight_(152)
-	.action_({ arg sbs;
-		case
-		{sbs.value == 1}
-		{
-			~tidalGuiElements[0][\preset][\value].valueAction_(1);
-			~tidalGuiElements[1][\preset][\value].valueAction_(2);
-			~tidalGuiElements[2][\preset][\value].valueAction_(3);
-			~tidalGuiElements[3][\preset][\value].valueAction_(4);
-		}
-		{sbs.value == 2}
-		{
-			~tidalGuiElements[0][\preset][\value].valueAction_(5);
-			~tidalGuiElements[1][\preset][\value].valueAction_(6);
-			~tidalGuiElements[2][\preset][\value].valueAction_(7);
-			~tidalGuiElements[3][\preset][\value].valueAction_(8);
-		}
-	});
+	(
+		~tidalAllPresetListView.items_(["Null","1","2","3","4","5","6","7","8","9","10","11","12"]).maxWidth_(40).maxHeight_(152)
+		.action_({ arg sbs;
+			case
+			{sbs.value == 0}
+			{
+				~tidalGuiElements[0][\preset][\value].valueAction_(1); ~tidalPresetPos[0] = 1;
+				~tidalGuiElements[1][\preset][\value].valueAction_(1); ~tidalPresetPos[1] = 1;
+				~tidalGuiElements[2][\preset][\value].valueAction_(1); ~tidalPresetPos[2] = 1;
+				~tidalGuiElements[3][\preset][\value].valueAction_(1); ~tidalPresetPos[3] = 1;
+			}
+			{sbs.value == 2}
+			{
+				~tidalGuiElements[0][\preset][\value].valueAction_(9); ~tidalPresetPos[0] = 9;
+				~tidalGuiElements[1][\preset][\value].valueAction_(10); ~tidalPresetPos[1] = 10;
+				~tidalGuiElements[2][\preset][\value].valueAction_(11); ~tidalPresetPos[2] = 11;
+				~tidalGuiElements[3][\preset][\value].valueAction_(12); ~tidalPresetPos[3] = 12;
+			}
+			{sbs.value == 1}
+			{
+				~tidalGuiElements[0][\preset][\value].valueAction_(15); ~tidalPresetPos[0] = 14;
+				~tidalGuiElements[1][\preset][\value].valueAction_(15); ~tidalPresetPos[1] = 14;
+				~tidalGuiElements[2][\preset][\value].valueAction_(1); ~tidalPresetPos[2] = 1;
+				~tidalGuiElements[3][\preset][\value].valueAction_(1); ~tidalPresetPos[3] = 1;
+			}
+			{sbs.value == 4}
+			{
+				~tidalGuiElements[0][\preset][\value].valueAction_(2); ~tidalPresetPos[0] = 2;
+				~tidalGuiElements[1][\preset][\value].valueAction_(4); ~tidalPresetPos[1] = 4;
+				~tidalGuiElements[2][\preset][\value].valueAction_(5); ~tidalPresetPos[2] = 5;
+				~tidalGuiElements[3][\preset][\value].valueAction_(6); ~tidalPresetPos[3] = 6;
+			}
+			{sbs.value == 3}
+			{
+				~tidalGuiElements[0][\preset][\value].valueAction_(5); ~tidalPresetPos[0] = 5;
+				~tidalGuiElements[1][\preset][\value].valueAction_(6); ~tidalPresetPos[1] = 6;
+				~tidalGuiElements[2][\preset][\value].valueAction_(7); ~tidalPresetPos[2] = 7;
+				~tidalGuiElements[3][\preset][\value].valueAction_(8); ~tidalPresetPos[3] = 8;
+			}
+			{sbs.value == 5}
+			{
+				~tidalGuiElements[0][\preset][\value].valueAction_(15); ~tidalPresetPos[0] = 15;
+				~tidalGuiElements[1][\preset][\value].valueAction_(15); ~tidalPresetPos[1] = 15;
+				~tidalGuiElements[2][\preset][\value].valueAction_(3); ~tidalPresetPos[2] = 3;
+				~tidalGuiElements[3][\preset][\value].valueAction_(3); ~tidalPresetPos[3] = 3;
+			}
+			{sbs.value == 6}
+			{
+				~tidalGuiElements[0][\preset][\value].valueAction_(17); ~tidalPresetPos[0] = 17;
+				~tidalGuiElements[1][\preset][\value].valueAction_(20); ~tidalPresetPos[1] = 20;
+				~tidalGuiElements[2][\preset][\value].valueAction_(22); ~tidalPresetPos[2] = 22;
+				~tidalGuiElements[3][\preset][\value].valueAction_(23); ~tidalPresetPos[3] = 23;
+			}
+			{sbs.value == 7}
+			{
+				~tidalGuiElements[0][\preset][\value].valueAction_(22); ~tidalPresetPos[0] = 22;
+				~tidalGuiElements[1][\preset][\value].valueAction_(27); ~tidalPresetPos[1] = 27;
+				~tidalGuiElements[2][\preset][\value].valueAction_(42); ~tidalPresetPos[2] = 42;
+				~tidalGuiElements[3][\preset][\value].valueAction_(25); ~tidalPresetPos[3] = 25;
+			}
+			{sbs.value == 8}
+			{
+				~tidalGuiElements[0][\preset][\value].valueAction_(19); ~tidalPresetPos[0] = 19;
+				~tidalGuiElements[1][\preset][\value].valueAction_(31); ~tidalPresetPos[1] = 31;
+				~tidalGuiElements[2][\preset][\value].valueAction_(5); ~tidalPresetPos[2] = 5;
+				~tidalGuiElements[3][\preset][\value].valueAction_(7); ~tidalPresetPos[3] = 7;
+			}
+			{sbs.value == 9}
+			{
+				/*~tidalGuiElements[0][\preset][\value].valueAction_(36); ~tidalPresetPos[0] = 36;
+				~tidalGuiElements[1][\preset][\value].valueAction_(59); ~tidalPresetPos[1] = 59;
+				~tidalGuiElements[2][\preset][\value].valueAction_(31); ~tidalPresetPos[2] = 31;
+				~tidalGuiElements[3][\preset][\value].valueAction_(52); ~tidalPresetPos[3] = 52;*/
+				~tidalGuiElements[0][\preset][\value].valueAction_(25); ~tidalPresetPos[0] = 25;
+				~tidalGuiElements[1][\preset][\value].valueAction_(32); ~tidalPresetPos[1] = 32;
+				~tidalGuiElements[2][\preset][\value].valueAction_(4); ~tidalPresetPos[2] = 4;
+				~tidalGuiElements[3][\preset][\value].valueAction_(40); ~tidalPresetPos[3] = 40;
+			}
+			{sbs.value == 10}
+			{
+				~tidalGuiElements[0][\preset][\value].valueAction_(12); ~tidalPresetPos[0] = 12;
+				~tidalGuiElements[1][\preset][\value].valueAction_(55); ~tidalPresetPos[1] = 55;
+				~tidalGuiElements[2][\preset][\value].valueAction_(21); ~tidalPresetPos[2] = 21;
+				~tidalGuiElements[3][\preset][\value].valueAction_(25); ~tidalPresetPos[3] = 25;
+			}
+			{sbs.value == 11}
+			{
+				~tidalGuiElements[0][\preset][\value].valueAction_(14); ~tidalPresetPos[0] = 15;
+				~tidalGuiElements[1][\preset][\value].valueAction_(51); ~tidalPresetPos[1] = 51;
+				~tidalGuiElements[2][\preset][\value].valueAction_(4); ~tidalPresetPos[2] = 4;
+				~tidalGuiElements[3][\preset][\value].valueAction_(57); ~tidalPresetPos[3] = 57;
+			}
+			{sbs.value == 12}
+			{
+				~tidalGuiElements[0][\preset][\value].valueAction_(15); ~tidalPresetPos[0] = 15;
+				~tidalGuiElements[1][\preset][\value].valueAction_(41); ~tidalPresetPos[1] = 41;
+				~tidalGuiElements[2][\preset][\value].valueAction_(24); ~tidalPresetPos[2] = 24;
+				~tidalGuiElements[3][\preset][\value].valueAction_(38); ~tidalPresetPos[3] = 38;
+			}
+
+		});
+	);
 
 };
 )
@@ -265,7 +351,10 @@ Ndef(\dirty).playN([0, 1], [1, 1], [0, 1]); // Stereo Classic
 
 // Outs, Amps, Ins
 Ndef(\dirty).playN([0, 1], [1, 1], [0, 1]); // Stereo Classic
-Ndef(\dirty).playN([0, 7, 1, 2], [1, 1, 0.7, 0.7], [0, 0, 1, 1], fadeTime: 3); // Stereo Double
+Ndef(\dirty).playN([0, 7, 1, 2], [1, 1, 0.9, 0.9], [0, 0, 1, 1], fadeTime: 3); // Stereo Double G/D
+Ndef(\dirty).playN([0, 1, 7, 2], [1, 1, 0.9, 0.9], [0, 0, 1, 1], fadeTime: 3); // Stereo Double F/R
+Ndef(\dirty).playN([0, 2, 7, 1], [1, 1, 0.9, 0.9], [0, 0, 1, 1], fadeTime: 3); // Stereo Double
+
 Ndef(\dirty).playN([0, 6, 7], [1, 0.5, 0.7], [0, 1, 0], fadeTime: 3);
 
 
@@ -402,6 +491,7 @@ Server.killAll;
 
 
 
+// Posting-tidal-parameters.scd
 
 // To post info about event arguments
 (
@@ -447,6 +537,15 @@ s.waitForBoot {
 
 
 
+SuperDirt
+DirtOrbit
+DirtEvent
+DirtModule
+DirtPan
+DirtPanBalance2
+DirtSplay2
+DirtSplayAz
+
 // SuperDirt StartUp Help Example
 
 (
@@ -460,10 +559,10 @@ s.options.numOutputBusChannels = ~numOutputBusChannels; // set this to your hard
 s.options.numInputBusChannels = 2; // set this to your hardware input channel size, if necessary
 // boot the server and start SuperDirt
 s.waitForBoot {
-    ~dirt = SuperDirt(~numOutputBusChannels, s); // two output channels, increase if you want to pan across more channels
-    ~dirt.loadSoundFiles;   // load samples (path containing a wildcard can be passed in)
-    s.sync; // wait for samples to be read
-    ~dirt.start(57120, [0, 0]);   // start listening on port 57120, create two orbits, each sending audio to channel 0. You can direct sounds to the orbits from tidal e.g. by: `# orbit "0 1 1"
+	~dirt = SuperDirt(~numOutputBusChannels, s); // two output channels, increase if you want to pan across more channels
+	~dirt.loadSoundFiles;   // load samples (path containing a wildcard can be passed in)
+	s.sync; // wait for samples to be read
+	~dirt.start(57120, [0, 0]);   // start listening on port 57120, create two orbits, each sending audio to channel 0. You can direct sounds to the orbits from tidal e.g. by: `# orbit "0 1 1"
 }
 // now you should be able to send from tidal via port 57120
 )
@@ -505,4 +604,60 @@ DirtPan.defaultMixingFunction
 (type:\dirt, orbit:0, s: \clubkick, \pan: 0, \channel: 0, \panwidth: 0).play
 (type:\dirt, orbit:0, s: \clubkick, \pan: 0, \channel: 0, \splay: 0).play
 (type:\dirt, orbit:0, s: \clubkick, \pan: 0, \channel: 0, \orientation: 0).play
+
+
+
+
+// https://github.com/musikinformatik/SuperDirt/issues/36
+// let's sort out the panning scheme
+// DirtPan
+
+(
+DirtPan.defaultMixingFunction = #{ |channels|
+	channels.flop.collect { |ch, i| ch[i] ?? { DC.ar(0) } }
+};
+~dirt.loadSynthDefs;
+)
+
+(
+DirtPan.defaultMixingFunction = #{ |channels|
+	var which = MouseX.kr(0, 1);
+	var first, second;
+	first = channels.first.size.collect({ |i| channels @@ i @ i });
+	second = channels.collect({ |x, i| x.rotate(i.neg) });
+	LinXFade2.ar(first, second, which * 2 - 1)
+	//first;
+	//channels @@ 0
+};
+~dirt.loadSynthDefs;
+)
+
+// back to "normal"
+(
+DirtPan.defaultMixingFunction = #{ |channels|
+	channels.postcs;
+	channels.sum
+};
+~dirt.loadSynthDefs;
+)
+
+(
+DirtPan.defaultPanningFunction = #{ | signals, numChannels, pan, mul |
+	var channels, inNumChannels;
+	var spread, width, splay, orientation;
+	//pan.poll;
+	width = \panwidth.ir(2);
+	spread = \spread.ir(1);
+	orientation = \orientation.ir(0.5);
+	if(numChannels > 2) {
+		signals.collect { |x, i|
+			PanAz.ar(numChannels, x, (i / numChannels * 2 * spread) + pan + 1, width: width, orientation: orientation)
+		}.sum;
+	} {
+		//DirtSplay2.ar(signals, \spread.ir(1), pan, mul)
+		DirtPanFixed2.ar(signals, \spread.ir(1), pan, mul)
+	}
+};
+~dirt.loadSynthDefs;
+)
 
