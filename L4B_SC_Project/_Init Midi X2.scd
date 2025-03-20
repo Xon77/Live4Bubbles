@@ -32,14 +32,14 @@
 
 
 ~tidalAllPresetsPos = 0;
-~tidalAllPresetsLine = (1 .. 9 /*~tidalTrackPresetListView.items.size*/);
+~tidalAllPresetsLine = (1 .. 13/*~tidalAllPresetListView.items.size*/-1 /*~tidalTrackPresetListView.items.size*/);
 
 ~tidalAllPresetsFuncP = { |tr|
-	~tidalAllPresetsPos = ~tidalAllPresetsPos+1; if (~tidalAllPresetsPos >= 9, {~tidalAllPresetsPos = 0});
+	~tidalAllPresetsPos = ~tidalAllPresetsPos+1; if (~tidalAllPresetsPos >= 13 /*~tidalAllPresetListView.items.size*/, {~tidalAllPresetsPos = 0});
 	{~tidalAllPresetListView.valueAction_(~tidalAllPresetsLine[~tidalAllPresetsPos])}.defer;
 };
 ~tidalAllPresetsFuncM = { |tr|
-	~tidalAllPresetsPos = (~tidalAllPresetsPos-1); if ((~tidalAllPresetsPos) <= (-1), {~tidalAllPresetsPos = (9-1)});
+	~tidalAllPresetsPos = (~tidalAllPresetsPos-1); if ((~tidalAllPresetsPos) <= (-1), {~tidalAllPresetsPos = (/*~tidalAllPresetListView.items.size*/13-1)});
 	{~tidalAllPresetListView.valueAction_(~tidalAllPresetsLine[~tidalAllPresetsPos])}.defer;
 };
 
