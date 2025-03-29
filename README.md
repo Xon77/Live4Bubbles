@@ -8,16 +8,18 @@
 **Project to come on controlling Live Coding.**
 **More to come in the following months from May 2025.**
 
-This project is an extension based on [SuperDirMixer](https://github.com/thgrund/SuperDirtMixer) from Thomas Grund. 
-But, it is not just a mixer for Tidal. It also allows you to control lines of code in Tidal and  tons of parameters (tempo, duration, buffer folder and file, functions on the patterns and effects) within Tidal and SuperCollider.
+This project is an extension based on [SuperDirMixer](https://github.com/thgrund/SuperDirtMixer) from Thomas Grund.
+ 
+But, it is not just a mixer for Tidal. 
+It also allows you to control lines of code in Tidal and tons of parameters (tempo, duration, buffer folder and file, functions on the patterns and effects) within Tidal and SuperCollider.
 
 ## Installation
 
-1. You have to install SuperDirtMixer and therefore follow the instructions in SuperDirtMixer to install [its requirements](https://github.com/thgrund/SuperDirtMixer?tab=readme-ov-file#requirements), like Tidal Cycles and SuperDirt Quark.
+1. You have to install SuperDirtMixer. Therefore follow the instructions in SuperDirtMixer to install [its requirements](https://github.com/thgrund/SuperDirtMixer?tab=readme-ov-file#requirements), like Tidal Cycles and SuperDirt Quark.
 
-2. You have to put the folder [L4B_SC_Extensions](https://github.com/Xon77/Live4Bubbles/tree/main/L4B_SC_Extensions) into your SiperCollider extensions folder.
+2. You have to put the folder [L4B_SC_Extensions](https://github.com/Xon77/Live4Bubbles/tree/main/L4B_SC_Extensions) into your SuperCollider extensions folder.
 
-3. You have to evaluate the 3 steps within the file [ControlTidal.tidal](https://github.com/Xon77/Live4Bubbles/blob/main/L4B_Tidal/ControlTidal.tidal) within Pulsar, open the file [DJCode1.tidal](https://github.com/Xon77/Live4Bubbles/blob/main/L4B_Tidal/DJCode1.tidal) in the first tab of Pulsat to be able to Tidal code lines.
+3. You have to evaluate the 3 steps within the file [ControlTidal.tidal](https://github.com/Xon77/Live4Bubbles/blob/main/L4B_Tidal/ControlTidal.tidal) within Pulsar, open the file [DJCode1.tidal](https://github.com/Xon77/Live4Bubbles/blob/main/L4B_Tidal/DJCode1.tidal) in the first tab of Pulsar, as well as the other files in the following tabs, to be able to Tidal code lines.
 
 4. The path of the sound folder has to structured in the same way as the [sound data base of my other project _Live 4 Life_](https://github.com/Xon77/L4LSoundsDataBase/tree/main/SoundFolder), except that the space should be replaced by "_", like "DB_MBass".
 
