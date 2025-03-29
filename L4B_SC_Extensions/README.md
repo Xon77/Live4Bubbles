@@ -1,4 +1,6 @@
-# Modified Version by Xon based on SuperDirtMixer (MrReason setup version)
+# Modified Version by Xon based on 
+
+# SuperDirtMixer (MrReason setup version)
 
 What follows come the ReadMe of the SuperCollider Quark SuperDirtMixer.
 
