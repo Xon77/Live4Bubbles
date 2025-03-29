@@ -728,12 +728,20 @@ MasterUIX : UIFactories {
 			5,
 
 			// if (this.prMasterBus.isNil.not, { HLayout(leftMasterIndicator,rightMasterIndicator).spacing_(0)}),
-			HLayout(~tidalMuteAllButton = Button.new.maxWidth_(80).states_([["Mute All", Color.black, Color.white], ["Mute All", Color.white, Color.red]])
+			HLayout(
+				~tidalMuteAllButton = Button.new.maxWidth_(40).states_([["M All", Color.black, Color.white], ["M All", Color.white, Color.red]])
 				.action_({ |view|
 					// (0..(dirt.orbits.size - 1)).do({ |i| muteButtons[i].value_(view.value) });
 					// Comment mettre à jour chaque bouton mute de chaque piste ???
 					{if (view.value == 1, { ~tidalNbOfOrbits.do { |i| ~tidalGuiElements[i][\mute][\value].valueAction_(1) } }, { ~tidalNbOfOrbits.do { |i| ~tidalGuiElements[i][\mute][\value].valueAction_(0) } }) }.defer;
-			})),
+			}),
+			~tidalMute2AllButton = Button.new.maxWidth_(40).states_([["X All", Color.black, Color.white], ["X All", Color.white, Color.red]])
+				.action_({ |view|
+					// (0..(dirt.orbits.size - 1)).do({ |i| muteButtons[i].value_(view.value) });
+					// Comment mettre à jour chaque bouton mute de chaque piste ???
+					{if (view.value == 1, { ~tidalNbOfOrbits.do { |i| ~tidalGuiElements[i][\mute2][\value].valueAction_(1) } }, { ~tidalNbOfOrbits.do { |i| ~tidalGuiElements[i][\mute2][\value].valueAction_(0) } }) }.defer;
+			})
+			),
 			5,
 			HLayout(Button.new.maxWidth_(50).string_("Res EQ").action_({
 				/*equiView.value = EQuiParams.new();

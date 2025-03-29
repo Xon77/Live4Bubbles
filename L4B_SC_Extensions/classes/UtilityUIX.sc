@@ -48,12 +48,12 @@ UtilityUIX {
 		// Implementation of a local Track Preset on some parameters except Volume / Mute / Solo & Reverb
 		this.prLoadTrackPresetFiles;
 
-		~tidalAllPresetListView = ListView(nil,Rect(10,10,30,30)).selectedStringColor_(Color.white)
+		~tidalAllPresetListView = ListView(nil,Rect(10,10,30,30)).minHeight_(200).selectedStringColor_(Color.white)
 		// PopUpMenu.allowsReselection_(true)
 		.action_({ arg sbs;
 		}).maxWidth_(112 /*150*/)/*.maxHeight_(200)*/;
 
-		~tidalTrackPresetListView = ListView(nil,Rect(10,10,80,30)).minWidth_(80).selectedStringColor_(Color.white)
+		~tidalTrackPresetListView = ListView(nil,Rect(10,10,80,30)).minWidth_(80).maxHeight_(100).selectedStringColor_(Color.white)
 		.items_(presetTrackFiles)
 		.action_({ arg sbs;
 			~tidalAllPresetNb = ~tidalTrackPresetListView.items[sbs.value]; // .value returns the integer
@@ -276,6 +276,8 @@ UtilityUIX {
 			.action_({
 				|view|
 				handler.emitEvent(\resetAll);
+				~tidalMuteAllButton.valueAction_(0);
+				~tidalMute2AllButton.valueAction_(0);
 			})
 		)
 	}
