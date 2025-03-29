@@ -52,7 +52,7 @@ I would like to especially thank Thomas Grund, without whom this project would n
 
 © 2025 - End of the world ∞ Christophe Lengelé
 
-***Live 4 Life*** is an open source software: you can redistribute it and/or modify it under the terms of **Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International license** (CC BY-NC-SA 4.0). 
+***Live 4 Bubbles*** is an open source software: you can redistribute it and/or modify it under the terms of **Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International license** (CC BY-NC-SA 4.0). 
 
 :warning: **You may not use it for commercial purposes.**
 
