@@ -19,9 +19,7 @@ This project is an extension of [SuperDirMixer](https://github.com/thgrund/Super
 
 4. The path of the sound folder has to structured in the same way as the [sound data base of my other project _Live 4 Life_](https://github.com/Xon77/L4LSoundsDataBase/tree/main/SoundFolder), except that the space should be replaced by "_", like "DB_MBass".
 
-**More to come in the following months in May 2025. Be patient.**
-
-
+**More to come in the following months in May 2025.**
 
 ## Licence
 
