@@ -8,7 +8,7 @@
 **Project to come on controlling Live Coding.**
 **More to come in the following months from May 2025.**
 
-This project is an extension based on [SuperDirMixer](https://github.com/thgrund/SuperDirtMixer) from Thomas Grund.
+This project is an extension and modified version based on [SuperDirMixer](https://github.com/thgrund/SuperDirtMixer) from Thomas Grund.
  
 But, it is not just a mixer for Tidal. 
 It also allows you to control lines of code in Tidal and tons of parameters (tempo, duration, buffer folder and file, functions on the patterns and effects) within Tidal and SuperCollider.
