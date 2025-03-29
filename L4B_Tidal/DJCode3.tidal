@@ -90,3 +90,8 @@ d3 $ u1d3 $ u2d3 $ f1d3 $ f2d3 $ striate "^d3" $ dud3 $ sound "^3Fol" # n (irand
 d3 $ u1d3 $ u2d3 $ f1d3 $ f2d3 $ slice "^d3" "[<0*8 0*2> 3*4 2 4] [4 .. 7]*[^d3]" $ dud3 $ sound "^3Fol" # n (irand 200)
 d3 $ u1d3 $ u2d3 $ f1d3 $ f2d3 $ slice "^d3" "7 6 5 4 3 2 1 0" $ dud3 $ sound "^3Fol" # n (irand 200)
 d3 $ u1d3 $ u2d3 $ f1d3 $ f2d3 $ slice "^d3" "7 6 5 4 3 2 1 0" $ dud3 $ sound "^3Fol" # n (run 200)
+
+
+
+d3 silence
+xfadeIn 3 4 silence -- perform a crossfade transition to silence in 4 cycles

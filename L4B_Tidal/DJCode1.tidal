@@ -93,13 +93,65 @@ d1 $ u1d1 $ u2d1 $ f1d1 $ f2d1 $ slice "^d1" "7 6 5 4 3 2 1 0" $ dud1 $ sound "^
 
 
 
+d1 silence
+xfadeIn 1 4 silence -- perform a crossfade transition to silence in 4 cycles
+clutchIn 1 4 silence -- clutch degrades the current pattern while undegrading the next -- better on a longer number of cycles 8 ?
+interpolateIn 1 4 silence -- Morph control values between patterns in a given number of cycles -- The number of cycles has no effect with silence -- stops immediately -- Other way to stop nicer than Mute -- equivalent to silence ?
+
+-- Other ways to stop a pattern which is too long ?
+
+histpan 1 4 silence -- This will pan the last four patterns on the d1 channel from left to right, the most recent on the left -- Weird panning effect ?
+
+hush -- stops everything or Ctrl + Shift + h
+
+
+
+-- Tests sans structure ryhtmique, juste vitesse du "tempo"
+d1 $ u1d1 $ u2d1 $ f1d1 $ f2d1 $ dud1 $ sound "[^1Fol]*[^d1]" # n "^1Buf" -- |+ n (run 200)
+
+-- Mask to integrate in functions u to play with timing ?
+d1 $ u1d1 $ u2d1 $ f1d1 $ f2d1 $ dud1 $ mask "1 0" $ sound "[^1Fol]*[^d1]" # n "^1Buf" -- |+ n (run 20)
+d1 $ u1d1 $ u2d1 $ f1d1 $ f2d1 $ dud1 $ mask "1 0 0 0" $ sound "[^1Fol]*[^d1]" # n "^1Buf" |+ n (run 20)
+d1 $ u1d1 $ u2d1 $ f1d1 $ f2d1 $ dud1 $ mask "1 0 0 0 1 0 0 0" $ sound "[^1Fol]*[^d1]" # n "^1Buf" |+ n (run 20)
+d1 $ u1d1 $ u2d1 $ f1d1 $ f2d1 $ dud1 $ mask "1 0 0 1 1 0 1 0" $ sound "[^1Fol]*[^d1]" # n "^1Buf" |+ n (run 20)
+d1 $ u1d1 $ u2d1 $ f1d1 $ f2d1 $ dud1 $ mask "[1 0 0 1 1 0 1 0]/2" $ sound "[^1Fol]*[^d1]" # n "^1Buf" |+ n (run 20)
+d1 $ u1d1 $ u2d1 $ f1d1 $ f2d1 $ dud1 $ mask "[1 0 0 1 1 0 1 0]*8" $ sound "[^1Fol]*[^d1]" # n "^1Buf" |+ n (run 20)
+d1 $ u1d1 $ u2d1 $ f1d1 $ f2d1 $ dud1 $ mask "[1 0 0 1 1 0 1 0]*8" $ sound "[^1Fol]*[^d1]" # n "^1Buf" |+ n (irand 6)
+
+-- Mask and Markov chains -- Tempo sur le sound
+d1 $ u1d1 $ u2d1 $ f1d1 $ f2d1 $ dud1 $ mask "[1 0 0 0 1 0 1 0]*2" $ sound "[^1Fol]*[^d1]" # n "^1Buf" |+ n (fmap ([0, 1, 2, 3]!!) (markovPat 16 0 [ [ 0.1, 1.1, 0.9, 0.1 ], [ 0.9, 0.1, 1.1, 1.1 ], [ 0.5, 0.5, 0.05, 1 ], [ 0.5, 0.5, 0.75, 0.25 ] ] ))
+
+-- Tempo sur le sound & duration of markovPat -- Coodinates the tempo with randomness of markov
+d1 $ u1d1 $ u2d1 $ f1d1 $ f2d1 $ dud1 $ mask "[1 0 0 0 1 0 1 0]*2" $ sound "[^1Fol]*[^d1]" # n "^1Buf" |+ n (fmap ([0, 1, 2, 3]!!) (markovPat "[^d1]" 0 [ [ 0.1, 1.1, 0.9, 0.1 ], [ 0.9, 0.1, 1.1, 1.1 ], [ 0.5, 0.5, 0.05, 1 ], [ 0.5, 0.5, 0.75, 0.25 ] ] ))
+
+d1 $ u1d1 $ u2d1 $ f1d1 $ f2d1 $ dud1 $ mask "[1 0 0 0 0 0 1 0]*2" $ sound "[^1Fol]*[^d1]" # n "^1Buf" |+ n (fmap ([0, 1, 2, 3]!!) (markovPat "[^d1]" 0 [ [ 0.1, 1.1, 0.9, 0.1 ], [ 0.9, 0.1, 1.1, 1.1 ], [ 0.5, 0.5, 0.05, 1 ], [ 0.5, 0.5, 0.75, 0.25 ] ] ))
+
+d1 $ u1d1 $ u2d1 $ f1d1 $ f2d1 $ dud1 $ mask "[1 0 1 0 0 1 0 1]*2" $ sound "[^1Fol]*[^d1]" # n "^1Buf" |+ n (fmap ([0, 1, 2, 3]!!) (markovPat "[^d1]" 0 [ [ 0.1, 1.1, 0.9, 0.1 ], [ 0.9, 0.1, 1.1, 1.1 ], [ 0.5, 0.5, 0.05, 1 ], [ 0.5, 0.5, 0.75, 0.25 ] ] ))
+
+d1 $ u1d1 $ u2d1 $ f1d1 $ f2d1 $ dud1 $ mask "[1 0 0 0 0 1 0 1]*2" $ sound "[^1Fol]*[^d1]" # n "^1Buf" |+ n (fmap ([0, 1, 2, 3]!!) (markovPat "[^d1]" 0 [ [ 0.1, 1.1, 0.9, 0.1 ], [ 0.9, 0.1, 1.1, 1.1 ], [ 0.5, 0.5, 0.05, 1 ], [ 0.5, 0.5, 0.75, 0.25 ] ] ))
+
+-- Adding of run on n
+d1 $ u1d1 $ u2d1 $ f1d1 $ f2d1 $ dud1 $ mask "[1 0 1 0 0 1 0 1]*2" $ sound "[^1Fol]*[^d1]" # n "^1Buf" |+ n (run 100) |+ n (fmap ([0, 1, 2, 3]!!) (markovPat "[^d1]" 0 [ [ 0.1, 1.1, 0.9, 0.1 ], [ 0.9, 0.1, 1.1, 1.1 ], [ 0.5, 0.5, 0.05, 1 ], [ 0.5, 0.5, 0.75, 0.25 ] ] ))
+
+-- Tempo sur le sound & duration of markovPat & Mask -- very agressive if too much 1 in masks
+d1 $ u1d1 $ u2d1 $ f1d1 $ f2d1 $ dud1 $ mask "[1 0 0 0 1 0 1 0]*[^d1]" $ sound "[^1Fol]*[^d1]" # n "^1Buf" |+ n (fmap ([0, 1, 2, 3]!!) (markovPat "[^d1]" 0 [ [ 0.1, 1.1, 0.9, 0.1 ], [ 0.9, 0.1, 1.1, 1.1 ], [ 0.5, 0.5, 0.05, 1 ], [ 0.5, 0.5, 0.75, 0.25 ] ] ))
+
+
+
  -- n (run 20 |+ 120)
+
+
+
+d1 $ gain "1~~1.~~~1.~~1~.~" # s "808"
+d1 $ gain "1~~1.~~~1.~~1~.~" $ s "808"
+-- maybe "0@3 0@4 0@3 0@6" # s "808" (unless you actually care about the gaps)
 
 
 
 -- every 2 (degradeBy 0.4) -> très cool (à faire en preset)
 -- every 2 (degradeBy 0.15)
 -- degradeBy 0.4 -> la dégradation est la même sur chaque piste ? Comment avoir un aléatoire différent pour chaque piste ?
+
 
 
 -- Euclidean Rhythms

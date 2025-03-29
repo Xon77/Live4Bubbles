@@ -92,9 +92,16 @@ d2 $ u1d2 $ u2d2 $ f1d2 $ f2d2 $ slice "^d2" "7 6 5 4 3 2 1 0" $ dud2 $ sound "^
 d2 $ u1d2 $ u2d2 $ f1d2 $ f2d2 $ slice "^d2" "7 6 5 4 3 2 1 0" $ dud2 $ sound "^2Fol" # n (run 200)
 
 
+
+d2 silence
+xfadeIn 2 4 silence -- perform a crossfade transition to silence in 4 cycles
+
+
+
 -- Find & Replace
 -- d2
 -- "^2
+-- also xfadeIn
 
 -- ^d2 -- pas necessaire
 

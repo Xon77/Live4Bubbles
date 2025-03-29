@@ -144,6 +144,7 @@ MixerUIX : UIFactories {
 				guiElements[item.orbitIndex][\masterGain][\element].value_((item.get(\masterGain) + 1).curvelin(1,3, 0,1, curve: 3));
 				guiElements[item.orbitIndex][\masterGain][\value].value_(item.get(\masterGain));
 				guiElements[item.orbitIndex][\mute][\value]./*value_*/valueAction_(item.get(\mute)); // added & valueAction to be taken into account
+				guiElements[item.orbitIndex][\mute2][\value]./*value_*/valueAction_(item.get(\mute2));
 				guiElements[item.orbitIndex][\reverb][\element].value_(item.get(reverbVariableName));
 
 				guiElements[item.orbitIndex][\orbitLabel][\element].background = (Color.fromHexString(item.get(\color)));
@@ -278,6 +279,7 @@ MixerUIX : UIFactories {
 				guiElements[item.orbitIndex][\masterGain][\element].value_(2.curvelin(1,3,0,1, curve: 3));
 				guiElements[item.orbitIndex][\masterGain][\value].valueAction_(1.0);
 				guiElements[item.orbitIndex][\mute][\value].valueAction_(0);
+				guiElements[item.orbitIndex][\mute2][\value].valueAction_(0);
 				guiElements[item.orbitIndex][\reverb][\element].valueAction_(0.0);
 
 				guiElements[item.orbitIndex][\orbitLabel][\element].background = Color.fromHexString("#D9D9D9");
@@ -354,7 +356,7 @@ MixerUIX : UIFactories {
 		var orbitMixerViews = Array.new((orbits.size * 2) - 1);
 
 		defaultParentEvent = [
-			\preset, 1, \seqLine, 1, \ryt, 0, \rytS, 0, \leg, 1.curvelin(0,20,0,1,4), \legS, 0, \bufS, 0, \buf, 0, \buf2, 0, \buf2R, 0, \fxs, 0, \fxs2, 0, \fxx, 0, \fxx2, 0, \fxt, 0, \fxt2, 0, \fxp, 0, \fxp2, 0, \fxv, 0, \fxv2, 0, \fus, 0, \fus2, 0, \fux, 0, \fux2, 0, \fut, 0, \fut2, 0, \fup, 0, \fup2, 0, \fuv, 0, \fuv2, 0, \pan, 0.5, \masterGain, 1.0, \mute, 0, reverbVariableName.asSymbol, 0.0, \color, "#D9D9D9", \label, "" // changed compared to the original
+			\preset, 1, \seqLine, 1, \ryt, 0, \rytS, 0, \leg, 1.curvelin(0,20,0,1,4), \legS, 0, \bufS, 0, \buf, 0, \buf2, 0, \buf2R, 0, \fxs, 0, \fxs2, 0, \fxx, 0, \fxx2, 0, \fxt, 0, \fxt2, 0, \fxp, 0, \fxp2, 0, \fxv, 0, \fxv2, 0, \fus, 0, \fus2, 0, \fux, 0, \fux2, 0, \fut, 0, \fut2, 0, \fup, 0, \fup2, 0, \fuv, 0, \fuv2, 0, \pan, 0.5, \masterGain, 1.0, \mute, 0, \mute2, 0, reverbVariableName.asSymbol, 0.0, \color, "#D9D9D9", \label, "" // changed compared to the original
 		];
 
 		/*defaultParentEvent = [
@@ -422,6 +424,7 @@ MixerUIX : UIFactories {
 				// handler.emitEvent(\updateUI); // updates all orbits or tracks - Too much
 				// handler.emitEvent(\updateTrackUI); // tries to update only the track // not necessary - triggered by the NumBox
 				~previousPresetNb[orbit.orbitIndex] = (((~tidalTrackPresetListView.items.size-1)*a.value)+1).asInteger;
+				// ~tidalPresetPos[orbit.orbitIndex] = ~presetNb[orbit.orbitIndex];
 			});
 			// Why the code below has steps ??? but it also generates too much action
 			/*var preset = (((~tidalTrackPresetListView.items.size-1)*a.value)+1).asInteger;
@@ -443,6 +446,7 @@ MixerUIX : UIFactories {
 			this.loadTrackPresetK((a.value-1).asInteger, orbit.orbitIndex);
 			handler.emitEvent(\updateTrackUI /*\updateUI*/);
 			presetLabelView.string_((~tidalTrackPresetListView.items[(a.value-1).asInteger].split($.)[1]));
+			// ~tidalPresetPos[orbit.orbitIndex] =a.value.asInteger;
 		});
 
 		var presetLabelView = StaticText.new.string_(~tidalTrackPresetListView.items[0].split($.)[1]).maxWidth_(65).font_(Font.sansSerif(10)/*Font("Arial", 9)*/).align_(\center);
@@ -462,6 +466,7 @@ MixerUIX : UIFactories {
 			seqLineKnob.value_((a.value-~tidalEvalLine[orbit.orbitIndex][0])/(~tidalEvalLine[orbit.orbitIndex].size-1));
 			orbit.set(\seqLine,a.value.asInteger);
 			~tidalEvalAddr.sendMsg("/pulsar/eval", \type, 'line', 'tab', orbit.orbitIndex /*%4*/, \row, a.value, \column, 1);
+			if (~tidalGuiElements[orbit.orbitIndex][\mute2][\value].value == 1, { ~tidalGuiElements[orbit.orbitIndex][\mute2][\value].valueAction_(0) });
 		});
 
 		var rytSNumBox = NumberBox().normalColor_(Color.blue).background_(Color.new255(255, 165, 0)).font_(Font.monospace(13,true)).maxWidth_(25).maxHeight_(15)
@@ -909,8 +914,36 @@ MixerUIX : UIFactories {
 		.value_(orbit.get(\mute))
 		.action_({ |a|
 			orbit.set(\mute, a.value);
+
+			// Difference between Mute and Silence ? except that Mute cuts the volume and silence ends the pattern ?
+			// But in terms of audible effect in muting/unmuting vs. silencing/unsilencing, there is no difference apparently ?
 			if(a.value == 0) { tidalNetAddr.sendMsg("/unmute",orbit.orbitIndex + 1) };
 			if(a.value == 1) { tidalNetAddr.sendMsg("/mute",orbit.orbitIndex + 1) };
+
+			/*if (a.value == 1, {
+			~tidalEvalAddr.sendMsg("/pulsar/eval", \type, 'line', 'tab', orbit.orbitIndex, \row, ~tidalSilenceLine, \column, 1);
+			},{
+~tidalEvalAddr.sendMsg("/pulsar/eval", \type, 'line', 'tab', orbit.orbitIndex, \row, ~tidalGuiElements[orbit.orbitIndex][\seqLine][\value].value /*~tidalEvalPos[0]*/, \column, 1);
+			})*/
+
+		});
+
+		var mute2Button = Button.new.maxWidth_(20) // Fade Out even if it is called mute2
+		.states_([["X", Color.black, Color.white], ["X", Color.white, Color.red]])
+		.value_(orbit.get(\mute2))
+		.action_({ |a|
+			orbit.set(\mute2, a.value);
+
+			if (a.value == 1, {
+			~tidalEvalAddr.sendMsg("/pulsar/eval", \type, 'line', 'tab', orbit.orbitIndex, \row, ~tidalXfadeOutLine, \column, 1);
+			},{
+~tidalEvalAddr.sendMsg("/pulsar/eval", \type, 'line', 'tab', orbit.orbitIndex, \row, ~tidalGuiElements[orbit.orbitIndex][\seqLine][\value].value /*~tidalEvalPos[0]*/, \column, 1);
+				if(~tidalMute2AllButton.value == 1, {
+					{~tidalMute2AllButton.value_(0);}.defer;
+					try {~xExitOn.value_(0)} ; // To Improve to know if the controller is On XXX
+				});
+			})
+
 		});
 
 		var contextMenuLabelView = TextView.new.string_(orbit.get(\label)).fixedHeight_(30);
@@ -954,6 +987,7 @@ MixerUIX : UIFactories {
 			, \reverb, Dictionary.newFrom([\element, reverbKnob])
 			, \eq, Dictionary.newFrom([\element, eqButton])
 			, \mute, Dictionary.newFrom([\value, muteButton])
+			, \mute2, Dictionary.newFrom([\value, mute2Button])
 			, \orbitWrapper, Dictionary.newFrom([\element, composite])
 			, \colorPicker, Dictionary.newFrom([\element, colorPicker])
 		]);
@@ -1021,7 +1055,7 @@ MixerUIX : UIFactories {
 			HLayout(gainNumBox),
 			// StaticText.new.string_("FX - Reverb").align_(\center),
 			reverbKnob,
-			HLayout(muteButton
+			HLayout(muteButton, mute2Button
 				/*Button.new.maxWidth_(20)
 				.states_([["M", Color.black, Color.white], ["M", Color.white, Color.blue]])
 				.action_({
