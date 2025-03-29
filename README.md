@@ -21,10 +21,30 @@ But, it is not just a mixer for Tidal. It also allows you to control lines of co
 
 4. The path of the sound folder has to structured in the same way as the [sound data base of my other project _Live 4 Life_](https://github.com/Xon77/L4LSoundsDataBase/tree/main/SoundFolder), except that the space should be replaced by "_", like "DB_MBass".
 
+...
+
+## Setup
+
+To come
+
+## Contribute
+
+If you would like to contribute, please get in touch with me in order to organise further development.
+
+You can also support thanks to donations via [**Ko-fi**](https://ko-fi.com/live4life) or get specific support and courses via [**Patreon**](https://www.patreon.com/live4life)</mark>. :grin:
+
+[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/Live4Life)
+
+<a href="https://www.patreon.com/Live4Life">
+	<img src="https://c5.patreon.com/external/logo/become_a_patron_button@2x.png" width="160">
+</a>
+
 ## Acknowledgements
 
 
-As [mentioned in my previous project](https://github.com/Xon77/Live4Life?tab=readme-ov-file#acknowledgements) **_Live 4 Life_**, I would have been unable to build this tool without the help of the SuperCollider online community, who always answered my questions and even provided me with some examples of codes and classes. I would like to especially thank Thomas Grund, without whom this project would not have come to life—not only thanks to the Quark [SuperDirMixer](https://github.com/thgrund/SuperDirtMixer) but also for implementing the feature allowing the evaluation of Tidal code lines in Atom/Pulsar, which I had suggested on [Github](https://github.com/tidalcycles/pulsar-tidalcycles/issues/119).
+As [mentioned in my previous project](https://github.com/Xon77/Live4Life?tab=readme-ov-file#acknowledgements) **_Live 4 Life_**, I would have been unable to build this tool without the help of the SuperCollider online community, who always answered my questions and even provided me with some examples of codes and classes. 
+
+I would like to especially thank Thomas Grund, without whom this project would not have come to life—not only thanks to the Quark [SuperDirMixer](https://github.com/thgrund/SuperDirtMixer) but also for implementing the feature allowing the evaluation of Tidal code lines in Atom/Pulsar, which I had suggested on [Github](https://github.com/tidalcycles/pulsar-tidalcycles/issues/119).
 
 ## Licence
 
