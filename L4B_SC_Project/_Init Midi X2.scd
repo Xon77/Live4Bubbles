@@ -830,7 +830,16 @@ if (v.value > 0, {~xLo1Off.value_(1)}, {~xLo1On.value_(1)});*/
 ~xSli4.action_({ |v| {~tidalGuiElements[3][\masterGain][\element].valueAction_(v.value)}.defer });
 
 
-~xExitOn = ~xController.elementAt(\ExitOn); ~xExitOn.action_({ |v| 4.do { |tr| ~dirt.orbits[tr].freeSynths /*.release(0)*//*cmdPeriod*//*initNodeTree*//*freeSynths*/ }; "Free Synths".postln; });
+~tidalMute2Switch = 0;
+~xExitOn = ~xController.elementAt(\ExitOn); ~xExitOn.action_({ |v|
+// 4.do { |tr| ~dirt.orbits[tr].freeSynths /*.release(0)*//*cmdPeriod*//*initNodeTree*//*freeSynths*/ }; "Free Synths".postln;
+	// {~tidalMute2AllButton.valueAction_(1);}.defer; "Fade Out Synths".postln;
+	if (~tidalMute2Switch == 0, {
+		~tidalMute2Switch = 1; {~tidalMute2AllButton.valueAction_(1);}.defer; ~xExitOn.value_(1); "Fade Out Synths".postln;
+	},{
+		~tidalMute2Switch = 0; {~tidalMute2AllButton.valueAction_(0);}.defer; ~xExitOn.value_(0); "Trigger Synths".postln;
+	});
+});
 
 // 4.do { |tr| ~dirt.orbits[tr].initNoteTree };
 // ~dirt.orbits[0].group.free

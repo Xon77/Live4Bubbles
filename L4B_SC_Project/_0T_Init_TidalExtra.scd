@@ -1,8 +1,7 @@
-// Extra TidalCycles Personal configuration - with SuperDirt / SuperDirtMixer / TidalLooper / mi-ugens synthDefs
-// Example for loading SuperDirt TidalCycles if you also want to use TidalCycles on main Server s
-// -> ~mainServer1Window sould be put at 0 in the file "_0B_Init_Config"
-// Synchronization via Ableton Link
-
+// TidalCycles Live Coding with GUI & Controllers - with SuperDirt & SuperDirtMixer
+// ~mainServer1Window sould be set at 0 in the file "_0B_Init_Config" in Live 4 Life Project if both are used simultaneously
+// To include TidalLooper / mi-ugens synthDefs
+// Synchronization via Ableton Link to check
 
 
 ( // TIDAL Xon - Live 4 Bubbles
@@ -65,6 +64,8 @@ s.options.maxNodes = /*1024 * 256*/ (8192*500);
 ~tidalSeqLineEnd = /*26*/ 92; // Put the number of lines in Pulsar Tidal code XXXXXXXXXXXX
 ~tidalEvalLine = (1..~tidalSeqLineEnd) ! ~tidalNbOfOrbits;
 // ~tidalEvalLine[0] = (1..26); ~tidalEvalLine[1] = (1..26); ~tidalEvalLine[2] = (1..26); ~tidalEvalLine[3] = (1..26);
+// ~tidalSilenceLine = 96; // Line in Pulsar to silence the Track
+~tidalXfadeOutLine = 97; // Line in Pulsar to fade out the Track with interpolateIn
 
 ~tidalnumEffects = 122; // Put the value of fxR in Tidal Cycles (-1?)
 ~tidalnumFunctions = 255; // Put the value of fuR in Tidal Cycles (-1?)
@@ -87,6 +88,8 @@ s.options.maxNodes = /*1024 * 256*/ (8192*500);
 ~tidalPresetLineBegin = 1;
 ~tidalPresetLineEnd = ~tidalPresetTrackSize;
 
+~tidalValhallaReverbOn = 0;
+
 ~superDirtOSC = NetAddr.new("127.0.0.1", 57120);
 
 s.waitForBoot {
@@ -105,7 +108,7 @@ s.waitForBoot {
 	~tidalX.setOrbitLabels(["1 Fuk", "2 Pee", "3 Pou", "4 Nah", "5 Lead", "6 Bass", "7 Key", "8 Pad"]);
 	~tidalX.setMasterBus(0);
 
-	if (~tidalOutputChannels != 32, {
+	if (~tidalOutputChannels != 32 and: {~tidalValhallaReverbOn == 1}, {
 
 		( // Réverb Custom VST
 			~dirtNumChannels = ~dirt.numChannels;
@@ -338,6 +341,7 @@ s.waitForBoot {
 )
 
 
+
 // Live spatialisation over many channels / multichannel routing across non-adjacent channels (SuperDirt Hacks)
 // Getting tidal output into node proxies
 // But Loss of EQ in SuperDirtMixer
@@ -358,12 +362,14 @@ Ndef(\dirty).playN([0, 2, 7, 1], [1, 1, 0.9, 0.9], [0, 0, 1, 1], fadeTime: 3); /
 Ndef(\dirty).playN([0, 6, 7], [1, 0.5, 0.7], [0, 1, 0], fadeTime: 3);
 
 
+
 // Le jux ne marche pas bien dans les configs multicanales ?
 // Le bypass du compresseur n'a pas l'air de marcher ? -> est bypassé au départ, mais dès qu'on l'enclenche, on ne peut plus le bypasser
 // Res EQ -> ne marche pas ?
 // When you move all SeqLine together besides S0, It makes freeze Hydra & even cuts sound from SC ???
 // Si le son ne marche plus :
 Server.killAll;
+
 
 
 // Ajustement de la taille de l'EQ et du Compresseur
@@ -491,6 +497,67 @@ Server.killAll;
 
 
 
+
+
+
+// Test Code Evaluation
+
+// osc-loader de Hydra.js in lib
+
+// Before without pane attribution via OSC -> selects the tab of the pane selected
+                /*if (resultDict['tab'] !== undefined) {
+                  atom.workspace.getPanes()[0].setActiveItem(atom.workspace.getTextEditors()[resultDict['tab']])
+                }*/
+
+// After With pane attribution via OSC
+// The attribution number of pane goes from left to right (if any), and then from top to down.
+if (resultDict['tab'] !== undefined) {
+	if (resultDict['pane'] !== undefined) {
+		const targetPane = atom.workspace.getPanes()[resultDict['pane']];
+		const targetItem = targetPane.getItems()[resultDict['tab']];
+		targetPane.activate();
+		targetPane.setActiveItem(targetItem);
+                    /*atom.workspace.getPanes()[resultDict['pane']].activate();
+                    atom.workspace.getPanes()[resultDict['pane']].setActiveItem(atom.workspace.getPanes()[resultDict['pane']].getItems()[resultDict['tab']])*/
+	} else {
+		// atom.workspace.getPanes()[0].activate(); // not necessary ? Yes because of getTextEditors
+		atom.workspace.getPanes()[0].setActiveItem(atom.workspace.getTextEditors()[resultDict['tab']])
+	}
+}
+
+// Affichage dans la console JS ou dans la fenêtre post de Tidal Cycles
+
+/*console.log("Nombre de panes :", atom.workspace.getPanes().length);
+                console.log("Nombre d'éditeurs :", atom.workspace.getTextEditors().length);
+
+                // Inspecter chaque pane
+                atom.workspace.getPanes().forEach((pane, index) => {
+                console.log(`Pane ${index} :`, pane);
+                });
+
+                // Inspecter chaque éditeur
+                atom.workspace.getTextEditors().forEach((editor, index) => {
+                console.log(`Editeur ${index} :`, editor.getPath());
+                });*/
+
+o = NetAddr.new("127.0.0.1", 3333);
+o.sendMsg("/pulsar/eval", \type, 'line', \tab, 0, \row, 1, \column, 1);
+o.sendMsg("/pulsar/eval", \type, 'line', \tab, 1, \row, 1, \column, 1);
+o.sendMsg("/pulsar/eval", \type, 'line', \tab, 2, \row, 1, \column, 1);
+o.sendMsg("/pulsar/eval", \type, 'line', \pane, 0, \tab, 0, \row, 1, \column, 1);
+o.sendMsg("/pulsar/eval", \type, 'line', \pane, 0, \tab, 1, \row, 1, \column, 1);
+o.sendMsg("/pulsar/eval", \type, 'line', \pane, 1, \tab, 0, \row, 1, \column, 1);
+o.sendMsg("/pulsar/eval", \type, 'line', \pane, 1, \tab, 1, \row, 1, \column, 1);
+o.sendMsg("/pulsar/eval", \type, 'line', \pane, 2, \tab, 0, \row, 1, \column, 1); // si le pane n'est pas available, sélectionne le projet, le post window ou le browser selon l'ordre, et déclence le dernier pane ?
+o.sendMsg("/pulsar/eval", \type, 'line', \pane, 2, \tab, 1, \row, 1, \column, 1);
+o.sendMsg("/pulsar/eval", \type, 'line', \pane, 2, \tab, 2, \row, 1, \column, 1);
+
+
+
+
+
+
+
 // Posting-tidal-parameters.scd
 
 // To post info about event arguments
@@ -507,6 +574,8 @@ Server.killAll;
 
 // remove it again:
 ~dirt.removeModule(\post);
+
+
 
 
 
@@ -537,6 +606,8 @@ s.waitForBoot {
 
 
 
+
+
 SuperDirt
 DirtOrbit
 DirtEvent
@@ -551,7 +622,7 @@ DirtSplayAz
 (
 // configure the sound server: here you could add hardware specific options
 // see http://doc.sccode.org/Classes/ServerOptions.html
-~numOutputBusChannels = 4;
+~numOutputBusChannels = 2; // If not 2, it will not go on main outputs 0 & 1
 s.options.numBuffers = 1024 * 16; // increase this if you need to load more samples
 s.options.memSize = 8192 * 16; // increase this if you get "alloc failed" messages
 s.options.maxNodes = 1024 * 32; // increase this if you are getting drop outs and the message "too many nodes"
@@ -604,7 +675,6 @@ DirtPan.defaultMixingFunction
 (type:\dirt, orbit:0, s: \clubkick, \pan: 0, \channel: 0, \panwidth: 0).play
 (type:\dirt, orbit:0, s: \clubkick, \pan: 0, \channel: 0, \splay: 0).play
 (type:\dirt, orbit:0, s: \clubkick, \pan: 0, \channel: 0, \orientation: 0).play
-
 
 
 
