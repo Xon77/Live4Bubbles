@@ -5,9 +5,11 @@
 
 ## Overview
 
-Project to come on controlling Live Coding.
+**Project to come on controlling Live Coding.**
+**More to come in the following months from May 2025.**
 
-This project is an extension of [SuperDirMixer](https://github.com/thgrund/SuperDirtMixer) from Thomas Grund. But, it is not just a mixer for Tidal, but allows you to control lines of code in Tidal and  tons of parameters (tempo, duration, buffer folder and file, functions on the patterns and effects).
+This project is an extension based on [SuperDirMixer](https://github.com/thgrund/SuperDirtMixer) from Thomas Grund. 
+But, it is not just a mixer for Tidal. It also allows you to control lines of code in Tidal and  tons of parameters (tempo, duration, buffer folder and file, functions on the patterns and effects) within Tidal and SuperCollider.
 
 ## Installation
 
@@ -19,7 +21,10 @@ This project is an extension of [SuperDirMixer](https://github.com/thgrund/Super
 
 4. The path of the sound folder has to structured in the same way as the [sound data base of my other project _Live 4 Life_](https://github.com/Xon77/L4LSoundsDataBase/tree/main/SoundFolder), except that the space should be replaced by "_", like "DB_MBass".
 
-**More to come in the following months in May 2025.**
+## Acknowledgements
+
+
+As [mentioned in my previous project](https://github.com/Xon77/Live4Life?tab=readme-ov-file#acknowledgements) **_Live 4 Life_**, I would have been unable to build this tool without the help of the SuperCollider online community, who always answered my questions and even provided me with some examples of codes and classes. I would like to especially thank Thomas Grund, without whom this project would not have come to life—not only thanks to the Quark [SuperDirMixer](https://github.com/thgrund/SuperDirtMixer) but also for implementing the feature allowing the evaluation of Tidal code lines in Atom/Pulsar, which I had suggested on [Github](https://github.com/tidalcycles/pulsar-tidalcycles/issues/119).
 
 ## Licence
 
