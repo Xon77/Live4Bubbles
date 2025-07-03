@@ -8,6 +8,7 @@ StageMaster
 SuperDirtMixerX {
 	var dirt;
 	var <>presetPath = "../presets/";
+	// var <>presetPath = "../../../downloaded-quarks/SuperDirtMixer/presets/";
 	var <>prMasterBus;
 	var <>switchControlButtonEvent;
 	var >midiInternalOut;
@@ -18,7 +19,7 @@ SuperDirtMixerX {
 	var freeAction, addRemoteControlAction;
 
 	*new { |dirt|
-		^super.newCopyArgs(dirt).init
+		^super.newCopyArgs(dirt).init;
 	}
 
 	/* INITIALIZATION */
@@ -47,6 +48,7 @@ SuperDirtMixerX {
 			);
 
 			"SuperDirtMixer was successfully initialized".postln;
+			presetPath.postln
 		}
 	}
 
@@ -61,7 +63,8 @@ SuperDirtMixerX {
 
 	prLoadSynthDefs { |path|
 		var filePaths;
-		path = path ?? { "../synths".resolveRelative };
+		// path = path ?? { "../synths".resolveRelative };
+		path = path ?? { "../../../downloaded-quarks/SuperDirtMixer/synths".resolveRelative };
 		filePaths = pathMatch(standardizePath(path +/+ "*"));
 
 		filePaths.do { |filepath|
@@ -131,13 +134,13 @@ SuperDirtMixerX {
 		var mixerContainer, fxContainer, settingsContainer, midiContainer, masterContainer;
 		var masterUI, mixerUI, utilityUI, equalizerUI, midiControlUI, compressorUI;
 
-		~tidalWindow = Window.new("Live 4 Bubbles (Love & Fuck) ——— All 4 Poutchou!", bounds: Rect(~tidalWindowPosX /*0*/, ~tidalWindowPosY /*80*/, ~tidalWindowSize /*820*/ /*430*/, 1040 /*493*/)).alwaysOnTop_(true);
+		~tidalWindow = Window.new("Live 4 Bubbles (Love & Fuck) ——— All 4 Poutchou!", bounds: Rect(~tidalWindowPosX /*0*/, ~tidalWindowPosY /*80*/, ~tidalWindowSize /*820*/ /*430*/, 1100 /*493*/)).alwaysOnTop_(true);
 
-		mixerContainer = ScrollView(~tidalWindow /*window*/, Rect(10, 10, 380, 500)).background_(Color.gray(0.7)).fixedWidth_(~tidalWindowMixerSize)/*.maxWidth_(~tidalWindowMixerSize)*//*.minWidth_(~tidalWindowMixerSize/*592*/)*/.minHeight_(1032); // Add minWidth & minHeight - other way ?
+		mixerContainer = ScrollView(~tidalWindow /*window*/, Rect(10, 10, 380, 500)).background_(Color.gray(0.7)).fixedWidth_(~tidalWindowMixerSize)/*.maxWidth_(~tidalWindowMixerSize)*//*.minWidth_(~tidalWindowMixerSize/*592*/)*/.minHeight_(1092); // Add minWidth & minHeight - other way ?
 		fxContainer = ScrollView(~tidalWindow /*window*/, Rect(10, 310, 450, 380)).background_(Color.gray(0.7))/*.minWidth_(1200)*/.minHeight_(380 /*410*/); // Add minWidth & minHeight - other way ?
 		settingsContainer = CompositeView(~tidalWindow /*window*/, Rect(0, 0, 135, 500)).background_(Color.gray(0.85));
 		midiContainer = CompositeView(~tidalWindow /*window*/, Rect(0, 0, 135, 500)).background_(Color.gray(0.85));
-		masterContainer = CompositeView(~tidalWindow /*window*/, Rect(0, 0, 135 /*80*/, 500)).background_(Color.gray(0.85))/*.minWidth_(200).maxWidth_(80)*/.maxWidth_(~tidalWindowMasterSize /*200*/).maxHeight_(1030); // Add maxWidth & maxHeight - other way ?
+		masterContainer = CompositeView(~tidalWindow /*window*/, Rect(0, 0, 135 /*80*/, 500)).background_(Color.gray(0.85))/*.minWidth_(200).maxWidth_(80)*/.maxWidth_(~tidalWindowMasterSize /*200*/).maxHeight_(1090); // Add maxWidth & maxHeight - other way ?
 
 		masterUI = MasterUIX.new(eventHandler);
 		mixerUI = MixerUIX.new(eventHandler, dirt.orbits);
@@ -184,7 +187,7 @@ SuperDirtMixerX {
 		// Create a window
 		// window = Window.new("Mixer", Rect(0,0,300,1000), scroll: true);
 
-		~tidalWindowS = ScrollView.new(~tidalWindow, bounds: Rect(-7,-6, ~tidalWindowSize+10 /*830*/ /*686*/ /*436*/, 1040 /*493*/));
+		~tidalWindowS = ScrollView.new(~tidalWindow, bounds: Rect(-7,-6, ~tidalWindowSize+10 /*830*/ /*686*/ /*436*/, 1112 /*493*/));
 		~tidalWindowS.hasBorder = 0;
 		~tidalWindowS.resize = 5;
 

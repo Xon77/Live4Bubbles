@@ -306,13 +306,21 @@ EqualizerUIX : UIFactories{ // WARNING: keyword arg 'uiCallback' not found in ca
 
 		this.setBypassButtonState(bypassButton, false, activeOrbit, \activeEq);
 
-		this.eqFilterButtonFactory(\hiPassBypass, "../assets/images/highPass.svg".resolveRelative);
+		this.eqFilterButtonFactory(\hiPassBypass, "../../../downloaded-quarks/SuperDirtMixer/assets/images/highPass.svg".resolveRelative);
+		this.eqFilterButtonFactory(\loShelfBypass, "../../../downloaded-quarks/SuperDirtMixer/assets/images/lowShelf.svg".resolveRelative);
+		this.eqFilterButtonFactory(\loPeakBypass, "../../../downloaded-quarks/SuperDirtMixer/assets/images/peak.svg".resolveRelative);
+		this.eqFilterButtonFactory(\midPeakBypass, "../../../downloaded-quarks/SuperDirtMixer/assets/images/peak.svg".resolveRelative);
+		this.eqFilterButtonFactory(\hiPeakBypass, "../../../downloaded-quarks/SuperDirtMixer/assets/images/peak.svg".resolveRelative);
+		this.eqFilterButtonFactory(\hiShelfBypass, "../../../downloaded-quarks/SuperDirtMixer/assets/images/highShelf.svg".resolveRelative );
+		this.eqFilterButtonFactory(\loPassBypass, "../../../downloaded-quarks/SuperDirtMixer/assets/images/lowPass.svg".resolveRelative);
+
+/*this.eqFilterButtonFactory(\hiPassBypass, "../assets/images/highPass.svg".resolveRelative);
 		this.eqFilterButtonFactory(\loShelfBypass, "../assets/images/lowShelf.svg".resolveRelative);
 		this.eqFilterButtonFactory(\loPeakBypass, "../assets/images/peak.svg".resolveRelative);
 		this.eqFilterButtonFactory(\midPeakBypass, "../assets/images/peak.svg".resolveRelative);
 		this.eqFilterButtonFactory(\hiPeakBypass, "../assets/images/peak.svg".resolveRelative);
 		this.eqFilterButtonFactory(\hiShelfBypass, "../assets/images/highShelf.svg".resolveRelative );
-		this.eqFilterButtonFactory(\loPassBypass, "../assets/images/lowPass.svg".resolveRelative);
+		this.eqFilterButtonFactory(\loPassBypass, "../assets/images/lowPass.svg".resolveRelative);*/
 
 		equalizerComposite.layout = VLayout(
 			HLayout(
