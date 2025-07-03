@@ -97,6 +97,8 @@ MixerUIX : UIFactories {
 				// guiElements[item.orbitIndex][\buf][\label2].string_/*value_*/(~arrayOfFolderNames4Tidal[item.get(\buf)].split($_)[1]/*item.get(\label2)*/); // updated by value
 				// guiElements[item.orbitIndex][\buf2][\element]./*value_*/valueAction_(item.get(\buf2)); // updated by value
 				guiElements[item.orbitIndex][\buf2][\value]./*value_*/valueAction_(item.get(\buf2));
+				guiElements[item.orbitIndex][\rat][\value]./*value_*/valueAction_(item.get(\rat));
+
 				// guiElements[item.orbitIndex][\fxs][\element].value_(item.get(\fxs));
 				guiElements[item.orbitIndex][\fxs][\value]./*value_*/valueAction_(item.get(\fxs));
 				// guiElements[item.orbitIndex][\fxs2][\element].value_(item.get(\fxs2));
@@ -170,11 +172,14 @@ MixerUIX : UIFactories {
 
 				guiElements[~orbitUpdateNb][\rytS][\value]./*value_*/valueAction_(item.get(\rytS));
 				guiElements[~orbitUpdateNb][\ryt][\value]./*value_*/valueAction_(item.get(\ryt));
-				guiElements[~orbitUpdateNb][\legS][\value]./*value_*/valueAction_(item.get(\legS));
+
+if (~tidalLegSwitch == 0, { guiElements[~orbitUpdateNb][\legS][\value]./*value_*/valueAction_(item.get(\legS)) } );
+if (~tidalFolSwitch == 0, { guiElements[~orbitUpdateNb][\bufS][\value]./*value_*/valueAction_(item.get(\bufS)) } );
+
 				guiElements[~orbitUpdateNb][\leg][\value]./*value_*/valueAction_(item.get(\leg));
-				guiElements[~orbitUpdateNb][\bufS][\value]./*value_*/valueAction_(item.get(\bufS));
 				guiElements[~orbitUpdateNb][\buf][\value]./*value_*/valueAction_(item.get(\buf));
 				guiElements[~orbitUpdateNb][\buf2][\value]./*value_*/valueAction_(item.get(\buf2));
+				guiElements[~orbitUpdateNb][\rat][\value]./*value_*/valueAction_( 1 /*item.get(\rat)*/);
 				guiElements[~orbitUpdateNb][\fxs][\value]./*value_*/valueAction_(item.get(\fxs));
 				guiElements[~orbitUpdateNb][\fxs2][\value]./*value_*/valueAction_(item.get(\fxs2));
 				guiElements[~orbitUpdateNb][\fxx][\value]./*value_*/valueAction_(item.get(\fxx));
@@ -224,7 +229,7 @@ MixerUIX : UIFactories {
 				guiElements[item.orbitIndex][\rytS][\value].valueAction_(0);
 				// guiElements[item.orbitIndex][\ryt][\element].valueAction_(0); // updated by value
 				guiElements[item.orbitIndex][\ryt][\value].valueAction_(0);
-				guiElements[item.orbitIndex][\legS][\value].valueAction_(0);
+				guiElements[item.orbitIndex][\legS][\value].valueAction_(1);
 				// guiElements[item.orbitIndex][\leg][\element].valueAction_(1.curvelin(0,20,0,1,4)); // updated by value
 				guiElements[item.orbitIndex][\leg][\value].valueAction_(1);
 				guiElements[item.orbitIndex][\bufS][\value].valueAction_(0);
@@ -234,6 +239,7 @@ MixerUIX : UIFactories {
 				// guiElements[item.orbitIndex][\buf][\label2].string_(~arrayOfFolderNames4Tidal[0].split($_)[1]); // updated by value
 				// guiElements[item.orbitIndex][\buf2][\element].valueAction_(0); // updated by value
 				guiElements[item.orbitIndex][\buf2][\value].valueAction_(0);
+				guiElements[item.orbitIndex][\rat][\value].valueAction_(1);
 				// guiElements[item.orbitIndex][\fxs][\element].valueAction_(0);
 				guiElements[item.orbitIndex][\fxs][\value].valueAction_(0);
 				// guiElements[item.orbitIndex][\fxs2][\element].valueAction_(0);
@@ -322,7 +328,7 @@ MixerUIX : UIFactories {
 		// var defaultTrackEvents = JSONlib.convertToSC(File.readAllString(("../presetsTr/" /*presetTrackPath*/ ++ ~tidalTrackPresetListView.items[presetNb] /*~tidalTrackPresetListView.item*/ /*presetTrackFile*/).resolveRelative, "r"));
 
 		// Apparemment problème avec resolveRelative - to Define XXX
-		var defaultTrackEvents = JSONlib.convertToSC(File.readAllString(("/Users/xon/Library/Application Support/SuperCollider/Extensions/SuperDirtMixerX/presetsTr/" ++ ~tidalTrackPresetListView.items[presetNb].split($.)[1].stripWhiteSpace/*.replace(" ")*/ ++ ".json" /*~tidalTrackPresetListView.item*/ /*presetTrackFile*/)/*.resolveRelative*/, "r"));
+		var defaultTrackEvents = JSONlib.convertToSC(File.readAllString((/*"/Users/xon/Library/Application Support/SuperCollider/Extensions/SuperDirtMixerX/presetsTr/"*/~tidalPresetTrackXPath ++ ~tidalTrackPresetListView.items[presetNb].split($.)[1].stripWhiteSpace/*.replace(" ")*/ ++ ".json" /*~tidalTrackPresetListView.item*/ /*presetTrackFile*/)/*.resolveRelative*/, "r"));
 
 		// ("/Users/xon/Library/Application Support/SuperCollider/Extensions/SuperDirtMixerX/presetsTr/" + ~tidalTrackPresetListView.items[presetNb].split($. )[1].stripWhiteSpace/*.replace(" ")*/ ++ ".json").postln;
 
@@ -334,13 +340,18 @@ MixerUIX : UIFactories {
 		defaultTrackEvents.class.postln;
 		defaultTrackEvents.postln;*/
 
+		var update = [\seqLine, \ryt, \rytS, \leg, \legS, \bufS, \buf, \buf2, \buf2R, \rat, \fxs, \fxs2, \fxx, \fxx2, \fxt, \fxt2, \fxp, \fxp2, \fxv, \fxv2, \fus, \fus2, \fux, \fux2, \fut, \fut2, \fup, \fup2, \fuv, \fuv2, \pan];
+		if (~tidalLegSwitch == 1, {update.remove(\legS)} );
+		if (~tidalFolSwitch == 1, {update.remove(\bufS)} );
+		// update.postln;
+
 		defaultTrackEvents /*~tidalPresetsData[presetNb]*/ .do({
 			arg defaultEvent /*, index*/;
 			// defaultEvent.postln;
 
 			/*defaultParentEvent.keysValuesDo*/
-			[\seqLine, \ryt, \rytS, \leg, \legS, \bufS, \buf, \buf2, \buf2R, \fxs, \fxs2, \fxx, \fxx2, \fxt, \fxt2, \fxp, \fxp2, \fxv, \fxv2, \fus, \fus2, \fux, \fux2, \fut, \fut2, \fup, \fup2, \fuv, \fuv2, \pan /*, \masterGain, \mute, reverbVariableName.asSymbol*/
-			].do({|key, val| // key.postln;
+			/*[\seqLine, \ryt, \rytS, \leg, \legS, \bufS, \buf, \buf2, \buf2R, \rat, \fxs, \fxs2, \fxx, \fxx2, \fxt, \fxt2, \fxp, \fxp2, \fxv, \fxv2, \fus, \fus2, \fux, \fux2, \fut, \fut2, \fup, \fup2, \fuv, \fuv2, \pan /*, \masterGain, \mute, reverbVariableName.asSymbol*/
+			]*/ update.do({|key, val| // key.postln;
 				if (defaultEvent.keys.includes(key) == false, {defaultEvent.put(key, val)})
 			});
 
@@ -356,7 +367,7 @@ MixerUIX : UIFactories {
 		var orbitMixerViews = Array.new((orbits.size * 2) - 1);
 
 		defaultParentEvent = [
-			\preset, 1, \seqLine, 1, \ryt, 0, \rytS, 0, \leg, 1.curvelin(0,20,0,1,4), \legS, 0, \bufS, 0, \buf, 0, \buf2, 0, \buf2R, 0, \fxs, 0, \fxs2, 0, \fxx, 0, \fxx2, 0, \fxt, 0, \fxt2, 0, \fxp, 0, \fxp2, 0, \fxv, 0, \fxv2, 0, \fus, 0, \fus2, 0, \fux, 0, \fux2, 0, \fut, 0, \fut2, 0, \fup, 0, \fup2, 0, \fuv, 0, \fuv2, 0, \pan, 0.5, \masterGain, 1.0, \mute, 0, \mute2, 0, reverbVariableName.asSymbol, 0.0, \color, "#D9D9D9", \label, "" // changed compared to the original
+			\preset, 1, \seqLine, 1, \ryt, 0, \rytS, 0, \leg, 1.curvelin(0,20,0,1,4), \legS, 0, \bufS, 0, \buf, 0, \buf2, 0, \buf2R, 0, \rat, 1, \fxs, 0, \fxs2, 0, \fxx, 0, \fxx2, 0, \fxt, 0, \fxt2, 0, \fxp, 0, \fxp2, 0, \fxv, 0, \fxv2, 0, \fus, 0, \fus2, 0, \fux, 0, \fux2, 0, \fut, 0, \fut2, 0, \fup, 0, \fup2, 0, \fuv, 0, \fuv2, 0, \pan, 0.5, \masterGain, 1.0, \mute, 0, \mute2, 0, reverbVariableName.asSymbol, 0.0, \color, "#D9D9D9", \label, "" // changed compared to the original
 		];
 
 		/*defaultParentEvent = [
@@ -414,24 +425,24 @@ MixerUIX : UIFactories {
 		// mode & step does not work ???
 		// .mode_(\vertcial).step_(1/(~tidalTrackPresetListView.items.size-1)).keystep_(1/(~tidalTrackPresetListView.items.size-1))
 		.action_({|a|
-			~presetNb[orbit.orbitIndex] = (((~tidalTrackPresetListView.items.size-1)*a.value)+1).asInteger;
-			if (~presetNb[orbit.orbitIndex] != ~previousPresetNb[orbit.orbitIndex], {
-				//~presetNb[orbit.orbitIndex].postln;
-				orbit.set(\preset,~presetNb[orbit.orbitIndex]);
+			~tidalPresetNb[orbit.orbitIndex] = (((~tidalTrackPresetListView.items.size-1)*a.value)+1).asInteger;
+			if (~tidalPresetNb[orbit.orbitIndex] != ~tidalPreviousPresetNb[orbit.orbitIndex], {
+				//~tidalPresetNb[orbit.orbitIndex].postln;
+				orbit.set(\preset,~tidalPresetNb[orbit.orbitIndex]);
 				~orbitUpdateNb = orbit.orbitIndex;
-				presetNumBox.valueAction_(~presetNb[orbit.orbitIndex]);
-				// this.loadTrackPresetK(~presetNb[orbit.orbitIndex]-1, orbit.orbitIndex); // not necessary - triggered by the NumBox
+				presetNumBox.valueAction_(~tidalPresetNb[orbit.orbitIndex]);
+				// this.loadTrackPresetK(~tidalPresetNb[orbit.orbitIndex]-1, orbit.orbitIndex); // not necessary - triggered by the NumBox
 				// handler.emitEvent(\updateUI); // updates all orbits or tracks - Too much
 				// handler.emitEvent(\updateTrackUI); // tries to update only the track // not necessary - triggered by the NumBox
-				~previousPresetNb[orbit.orbitIndex] = (((~tidalTrackPresetListView.items.size-1)*a.value)+1).asInteger;
-				// ~tidalPresetPos[orbit.orbitIndex] = ~presetNb[orbit.orbitIndex];
+				~tidalPreviousPresetNb[orbit.orbitIndex] = (((~tidalTrackPresetListView.items.size-1)*a.value)+1).asInteger;
+				// ~tidalPresetPos[orbit.orbitIndex] = ~tidalPresetNb[orbit.orbitIndex];
 			});
 			// Why the code below has steps ??? but it also generates too much action
 			/*var preset = (((~tidalTrackPresetListView.items.size-1)*a.value)+1).asInteger;
 			orbit.set(\preset,preset);
 			presetNumBox.valueAction_(preset);
 			this.loadTrackPreset(preset-1);
-			~presetNb[orbit.orbitIndex].postln;
+			~tidalPresetNb[orbit.orbitIndex].postln;
 			handler.emitEvent(\updateUI);*/
 		});
 
@@ -445,18 +456,23 @@ MixerUIX : UIFactories {
 			// ~tidalEvalAddr.sendMsg("/pulsar/eval", \type, 'line', 'tab', orbit.orbitIndex%4, \row, a.value, \column, 1);
 			this.loadTrackPresetK((a.value-1).asInteger, orbit.orbitIndex);
 			handler.emitEvent(\updateTrackUI /*\updateUI*/);
-			presetLabelView.string_((~tidalTrackPresetListView.items[(a.value-1).asInteger].split($.)[1]));
-			// ~tidalPresetPos[orbit.orbitIndex] =a.value.asInteger;
+			presetLabelView.string_((~tidalTrackPresetListView.items[(a.value-1).asInteger].split($ )[1]));
+			~tidalPresetNb[orbit.orbitIndex] = a.value.asInteger;
 		});
 
-		var presetLabelView = StaticText.new.string_(~tidalTrackPresetListView.items[0].split($.)[1]).maxWidth_(65).font_(Font.sansSerif(10)/*Font("Arial", 9)*/).align_(\center);
+		var presetLabelView = StaticText.new.string_(~tidalTrackPresetListView.items[0].split($.)[1]).minWidth_(65).font_(Font.sansSerif(10)/*Font("Arial", 9)*/).align_(\center);
 
 		var seqLineKnob = Knob().value_(orbit.get(\seqLine)).centered_(false).color_([Color.blue,Color.blue,Color.yellow,Color.yellow]).action_({|a|
 			var line = ~tidalEvalLine[orbit.orbitIndex][(~tidalEvalLine[orbit.orbitIndex].size-1)*a.value];
-			// line.postln;
-			orbit.set(\seqLine,line);
-			seqLineNumBox.valueAction_(line);
-			// ~tidalEvalAddr.sendMsg("/pulsar/eval", \type, 'line', 'tab', orbit.orbitIndex /*%4*/, \row, line /*a.value*/, \column, 1);
+			if (line != ~tidalPreviousEvalLine[orbit.orbitIndex], {
+				// to avoid the evaluation of code lines which are the same
+				// but does not avoid t>  tida t> l> in the post window of Tidal and
+				// line.postln;
+				orbit.set(\seqLine,line);
+				seqLineNumBox.valueAction_(line);
+				~tidalPreviousEvalLine[orbit.orbitIndex] = line;
+				// ~tidalEvalAddr.sendMsg("/pulsar/eval", \type, 'line', 'tab', orbit.orbitIndex /*%4*/, \row, line /*a.value*/, \column, 1);
+			});
 		});
 
 		var seqLineNumBox = NumberBox().normalColor_(Color.yellow).background_(Color.blue).font_(Font.monospace(14,true)).maxWidth_(44).maxHeight_(15)
@@ -471,7 +487,7 @@ MixerUIX : UIFactories {
 
 		var rytSNumBox = NumberBox().normalColor_(Color.blue).background_(Color.new255(255, 165, 0)).font_(Font.monospace(13,true)).maxWidth_(25).maxHeight_(15)
 		.decimals_(0)
-		.clipLo_(0).clipHi_(2).align_(\center)
+		.clipLo_(0).clipHi_(5).align_(\center)
 		.step_(1).scroll_step_(1)/*.value_(orbit.get(\buf))*/.action_({|a|
 			orbit.set(\rytS,a.value);
 			~patternSpeedSwitch[orbit.orbitIndex] = a.value;
@@ -481,8 +497,15 @@ MixerUIX : UIFactories {
 			{~patternSpeedSwitch[orbit.orbitIndex] == 1}
 			{~patternSpeeds[orbit.orbitIndex] = [0, 1, 2, 3, 4, 6, 8, 12, 16, 24, 32, 48, 64]}
 			{~patternSpeedSwitch[orbit.orbitIndex] == 2}
-			{~patternSpeeds[orbit.orbitIndex] = [0, 1, 2, 4, 8, 16, 32, 64]};
+			{~patternSpeeds[orbit.orbitIndex] = [0, 1, 2, 4, 8, 16, 32, 64]} // Originel
+			{~patternSpeedSwitch[orbit.orbitIndex] == 3}
+			{~patternSpeeds[orbit.orbitIndex] = [0, 1, 2, 3, 4, 5, 6, 7, 8]}
+			{~patternSpeedSwitch[orbit.orbitIndex] == 4}
+			{~patternSpeeds[orbit.orbitIndex] = [0, 1, 2, 3, 4, 6, 8, 12, 16]}
+			{~patternSpeedSwitch[orbit.orbitIndex] == 5}
+			{~patternSpeeds[orbit.orbitIndex] = [0, 1, 2, 4, 6, 8, 12, 16, 24, 32, 64, 96, 128]};
 			~patternSpeedsSize[orbit.orbitIndex] = ~patternSpeeds[orbit.orbitIndex].size-1;
+			~tidalGuiElements[orbit.orbitIndex][\ryt][\value].clipHi_(~patternSpeeds[orbit.orbitIndex].last);
 		});
 
 		var rytKnob = Knob().value_(orbit.get(\ryt)).centered_(false).color_([Color.new255(255, 165, 0),Color.new255(255, 165, 0),Color.yellow,Color.blue]).action_({|a|
@@ -532,7 +555,7 @@ MixerUIX : UIFactories {
 
 		var legSNumBox = NumberBox().normalColor_(Color.yellow).background_(Color.new255(139, 58, 58)).font_(Font.monospace(13,true)).maxWidth_(25).maxHeight_(15)
 		.decimals_(0)
-		.clipLo_(0).clipHi_(9).align_(\center)
+		.clipLo_(0).clipHi_(~tidalnumDurAlgs).align_(\center)
 		.step_(1).scroll_step_(1)/*.value_(orbit.get(\buf))*/.action_({|a|
 			orbit.set(\legS,a.value);
 			tidalNetAddr.sendMsg("/ctrl", ["1LegS", "2LegS", "3LegS", "4LegS", "5LegS", "6LegS", "7LegS", "8LegS"][orbit.orbitIndex], a.value.asInteger);
@@ -551,6 +574,7 @@ MixerUIX : UIFactories {
 			// (~arrayOfFolderNames4TidalSize[orbit.orbitIndex]*a.value).asInteger.postln;
 			buf2NumBox.value_((buf2Knob.value*~tidalFolderSizes[(~arrayOfFolderNames4TidalSize[orbit.orbitIndex]*a.value).asInteger]).asInteger);
 			tidalNetAddr.sendMsg("/ctrl", ["1Fol", "2Fol", "3Fol", "4Fol", "5Fol", "6Fol", "7Fol", "8Fol"][orbit.orbitIndex], ~arrayOfFolderNames4Tidal[(a.value*~arrayOfFolderNames4TidalSize[orbit.orbitIndex]).asInteger]);
+			tidalNetAddr.sendMsg("/ctrl", ["1FolN", "2FolN", "3FolN", "4FolN", "5FolN", "6FolN", "7FolN", "8FolN"][orbit.orbitIndex], a.value);
 		});
 
 		var bufNumBox = NumberBox().normalColor_(Color.white).background_(Color.red(0.7)).font_(Font.monospace(13,true)).maxWidth_(25).maxHeight_(15)
@@ -595,21 +619,40 @@ MixerUIX : UIFactories {
 			orbit.set(\buf2, val);
 			buf2NumBox.value_(val);
 			tidalNetAddr.sendMsg("/ctrl", ["1Buf", "2Buf", "3Buf", "4Buf", "5Buf", "6Buf", "7Buf", "8Buf"][orbit.orbitIndex], val);
+			tidalNetAddr.sendMsg("/ctrl", ["1BufN", "2BufN", "3BufN", "4BufN", "5BufN", "6BufN", "7BufN", "8BufN"][orbit.orbitIndex], a.value);
 		});
 
 		var buf2NumBox = NumberBox().normalColor_(Color.yellow).background_(Color.magenta(0.7)).font_(Font.monospace(13,true)).maxWidth_(44).maxHeight_(15)
 		.decimals_(0)
 		.clipLo_(0).clipHi_(~tidalFolderSizes[orbit.get(\buf)?0]).align_(\center)
 		.step_(1).scroll_step_(1)/*.value_(orbit.get(\buf))*/.action_({|a|
+			var val = a.value/~tidalFolderSizes[orbit.get(\buf)];
 			orbit.set(\buf2, a.value);
-			orbit.set(\bu2fR, a.value/~tidalFolderSizes[orbit.get(\buf)]);
+			orbit.set(\bu2fR, val);
 			buf2Knob.value_(a.value/~tidalFolderSizes[orbit.get(\buf)?0]);
 			tidalNetAddr.sendMsg("/ctrl", ["1Buf", "2Buf", "3Buf", "4Buf", "5Buf", "6Buf", "7Buf", "8Buf"][orbit.orbitIndex], a.value);
+			tidalNetAddr.sendMsg("/ctrl", ["1BufN", "2BufN", "3BufN", "4BufN", "5BufN", "6BufN", "7BufN", "8BufN"][orbit.orbitIndex], val);
 		});
 
-		var bufLabelView = StaticText.new.string_((~arrayOfFolderNames4Tidal[0].split($_)[0])).maxWidth_(15).font_(Font("Arial", 10)).align_(\left);
+		var bufLabelView = StaticText.new.string_((~arrayOfFolderNames4Tidal[0].split($_)[0])).maxWidth_(15).font_(Font("Arial", 11)).align_(\left);
 
-		var bufLabelView2 = StaticText.new.string_((~arrayOfFolderNames4Tidal[0].split($_)[1])).maxWidth_(45).font_(Font.sansSerif(10)/*Font("Arial", 9)*/).align_(\centre);
+		var bufLabelView2 = StaticText.new.string_((~arrayOfFolderNames4Tidal[0].split($_)[1])).maxWidth_(50).font_(Font.sansSerif(11)/*Font("Arial", 9)*/).align_(\centre);
+
+		var ratKnob = Knob().value_(orbit.get(\rat)).centered_(false).color_([Color.gray, Color.gray, Color.yellow,Color.yellow]).action_({|a|
+			var rat = a.value * 2 /*.lincurve(0,1,0,20,4)*/;
+			orbit.set(\rat, rat);
+			ratNumBox.value_(rat);
+			tidalNetAddr.sendMsg("/ctrl", ["1Rat", "2Rat", "3Rat", "4Rat", "5Rat", "6Rat", "7Rat", "8Rat"][orbit.orbitIndex], rat);
+		}).value_( 0.5 /*1.linlin(0,2,0,1)*/);
+
+		var ratNumBox = NumberBox().normalColor_(Color.yellow).background_(Color.gray).font_(Font.monospace(13,true)).maxWidth_(44).maxHeight_(15)
+		.decimals_(2)
+		.clipLo_(0.01).clipHi_(2).align_(\center)
+		.step_(0.01).scroll_step_(0.01)/*.value_(orbit.get(\buf))*/.action_({|a|
+			orbit.set(\rat,a.value);
+			ratKnob.value_(a.value / 2 /*.curvelin(0,20,0,1,4)*/);
+			tidalNetAddr.sendMsg("/ctrl", ["1Rat", "2Rat", "3Rat", "4Rat", "5Rat", "6Rat", "7Rat", "8Rat"][orbit.orbitIndex], a.value.asInteger);
+		}).value_(1);
 
 		var fxsNumBox = NumberBox().normalColor_(Color.yellow).background_(Color.green(0.6)).font_(Font.monospace(10,true)).maxWidth_(16).maxHeight_(15)
 		.decimals_(0)
@@ -935,7 +978,7 @@ MixerUIX : UIFactories {
 			orbit.set(\mute2, a.value);
 
 			if (a.value == 1, {
-			~tidalEvalAddr.sendMsg("/pulsar/eval", \type, 'line', 'tab', orbit.orbitIndex, \row, ~tidalXfadeOutLine, \column, 1);
+				~tidalEvalAddr.sendMsg("/pulsar/eval", \type, 'line', 'tab', orbit.orbitIndex, \row, ~tidalXfadeOutLine, \column, 1);
 			},{
 ~tidalEvalAddr.sendMsg("/pulsar/eval", \type, 'line', 'tab', orbit.orbitIndex, \row, ~tidalGuiElements[orbit.orbitIndex][\seqLine][\value].value /*~tidalEvalPos[0]*/, \column, 1);
 				if(~tidalMute2AllButton.value == 1, {
@@ -961,6 +1004,7 @@ MixerUIX : UIFactories {
 			, \buf, Dictionary.newFrom([\element, bufKnob, \value, bufNumBox, \label, bufLabelView, \label2, bufLabelView2])
 			, \bufS, Dictionary.newFrom([\value, bufSNumBox])
 			, \buf2, Dictionary.newFrom([\element, buf2Knob, \value, buf2NumBox])
+			, \rat, Dictionary.newFrom([\element, ratKnob, \value, ratNumBox])
 			, \fxs, Dictionary.newFrom([\value, fxsNumBox])
 			, \fxs2, Dictionary.newFrom([\value, fxs2NumBox])
 			, \fxx, Dictionary.newFrom([\value, fxxNumBox])
@@ -1023,6 +1067,8 @@ MixerUIX : UIFactories {
 			bufKnob,
 			HLayout(buf2NumBox),
 			buf2Knob,
+			HLayout(ratNumBox),
+			ratKnob,
 			HLayout(fxsNumBox, 8, fxs2NumBox),
 			HLayout(fxtNumBox,fxt2NumBox),
 			HLayout(fxtKnob,fxt2Knob),

@@ -261,7 +261,7 @@ MasterUIX : UIFactories {
 				~tidalSeqLineBeginNumBox = NumberBox.new.maxWidth_(24).maxHeight_(15).background_(Color.white).stringColor_(Color.black).normalColor_(Color.black).clipLo_(1).clipHi_(~tidalEvalLine[0].last).align_(\center)
 				.action_({ |v|
 					~tidalNbOfOrbits.do { |i|
-						~tidalSeqLineBegin = v.value;
+						~tidalSeqLineBegin = v.value.asInteger;
 						~tidalEvalLine[i] = (~tidalSeqLineBegin..~tidalSeqLineEnd)
 						// ~tidalGuiElementsidalGuiElements[i][\ryt][\value].valueAction_(0);
 					};
@@ -271,7 +271,7 @@ MasterUIX : UIFactories {
 				~tidalSeqLineEndNumBox = NumberBox.new.maxWidth_(24).maxHeight_(15).background_(Color.white).stringColor_(Color.black).normalColor_(Color.black).clipLo_(1).clipHi_(~tidalEvalLine[0].last).align_(\center).value_(~tidalSeqLineEnd)
 				.action_({ |v|
 					~tidalNbOfOrbits.do { |i|
-						~tidalSeqLineEnd = v.value;
+						~tidalSeqLineEnd = v.value.asInteger;
 						~tidalEvalLine[i] = (~tidalSeqLineBegin..~tidalSeqLineEnd)
 						// ~tidalGuiElementsidalGuiElements[i][\ryt][\value].valueAction_(0);
 					};
@@ -281,7 +281,7 @@ MasterUIX : UIFactories {
 				~tidalSeqLineNumBox = Button.new.maxWidth_(30).maxHeight_(15).states_([["Sel", Color.white, Color.blue]])
 				.action_({ |v|
 					~tidalSeqLineBeginNumBox.valueAction_(1);
-					~tidalSeqLineEndNumBox.valueAction_(26)
+					~tidalSeqLineEndNumBox.valueAction_(~tidalSeqLineEndR)
 				}),
 			),
 
@@ -295,7 +295,7 @@ MasterUIX : UIFactories {
 						~tidalGuiElements[i][\ryt][\element].valueAction_(0);
 					};
 				}),
-				~tidalRytSNumBox = NumberBox.new.maxWidth_(14).background_(Color.new255(255, 165, 0)).stringColor_(Color.blue).normalColor_(Color.blue).clipLo_(0).clipHi_(2)
+				~tidalRytSNumBox = NumberBox.new.maxWidth_(14).background_(Color.new255(255, 165, 0)).stringColor_(Color.blue).normalColor_(Color.blue).clipLo_(0).clipHi_(5)
 				.action_({ |v|
 					/*8*/ ~tidalTrackSelection.do { |i|
 						~tidalGuiElements[i][\rytS][\value].valueAction_(v.value);
@@ -319,26 +319,80 @@ MasterUIX : UIFactories {
 			),
 
 			HLayout(
-				~tidalLeg0ARand = Button.new.maxWidth_(24).states_([["D0", Color.yellow, Color.new255(139, 58, 58)]])
+				~tidalLegP1 = Button.new.maxWidth_(20).states_([["S0", Color.yellow, Color.new255(139, 58, 58)]])
+				.action_({ |v|
+					~tidalTrackSelection.do { |i|
+						~tidalGuiElements[i][\legS][\value].valueAction_(0);
+					};
+				}),
+				~tidalLegP2 = Button.new.maxWidth_(20).states_([["C1", Color.yellow, Color.new255(139, 58, 58)]])
+				.action_({ |v|
+					~tidalTrackSelection.do { |i|
+						~tidalGuiElements[i][\legS][\value].valueAction_(1);
+					};
+				}),
+				~tidalLegP3 = Button.new.maxWidth_(20).states_([["L1", Color.yellow, Color.new255(139, 58, 58)]])
+				.action_({ |v|
+					~tidalTrackSelection.do { |i|
+						~tidalGuiElements[i][\legS][\value].valueAction_(2);
+					};
+				}),
+				~tidalLegP4 = Button.new.maxWidth_(20).states_([["L2", Color.yellow, Color.new255(139, 58, 58)]])
+				.action_({ |v|
+					~tidalTrackSelection.do { |i|
+						~tidalGuiElements[i][\legS][\value].valueAction_(5);
+					};
+				}),
+			),
+
+			HLayout(
+				~tidalLegP5 = Button.new.maxWidth_(20).states_([["L", Color.yellow, Color.new255(139, 58, 58)]])
+				.action_({ |v|
+					~tidalTrackSelection.do { |i|
+						~tidalGuiElements[i][\legS][\value].valueAction_(10);
+					};
+				}),
+				~tidalLegP6 = Button.new.maxWidth_(20).states_([["LS", Color.yellow, Color.new255(139, 58, 58)]])
+				.action_({ |v|
+					~tidalTrackSelection.do { |i|
+						~tidalGuiElements[i][\legS][\value].valueAction_(15);
+					};
+				}),
+				~tidalLegP7 = Button.new.maxWidth_(20).states_([["S1", Color.yellow, Color.new255(139, 58, 58)]])
+				.action_({ |v|
+					~tidalTrackSelection.do { |i|
+						~tidalGuiElements[i][\legS][\value].valueAction_(21);
+					};
+				}),
+				~tidalLegP8 = Button.new.maxWidth_(20).states_([["C-", Color.yellow, Color.new255(139, 58, 58)]])
+				.action_({ |v|
+					~tidalTrackSelection.do { |i|
+						~tidalGuiElements[i][\legS][\value].valueAction_(39);
+					};
+				}),
+			),
+
+			HLayout(
+				~tidalLeg0ARand = Button.new.maxWidth_(20).states_([["D0", Color.yellow, Color.new255(139, 58, 58)]])
 				.action_({ |v|
 					~tidalTrackSelection.do { |i|
 						~tidalGuiElements[i][\legS][\value].valueAction_(0);
 						~tidalGuiElements[i][\leg][\value].valueAction_(1.0)
 					};
 				}),
-				~tidalLegSNumBox = NumberBox.new.maxWidth_(14).background_(Color.new255(139, 58, 58)).stringColor_(Color.yellow).normalColor_(Color.yellow).clipLo_(0).clipHi_(9)
+				~tidalLegSNumBox = NumberBox.new.maxWidth_(26).background_(Color.white/*Color.new255(139, 58, 58)*/).stringColor_(Color.black/*yellow*/).normalColor_(Color.black/*yellow*/).align_(\center).clipLo_(0).clipHi_(~tidalnumDurAlgs)
 				.action_({ |v|
 					~tidalTrackSelection.do { |i|
 						~tidalGuiElements[i][\legS][\value].valueAction_(v.value);
 					};
-				}),
-				~tidalLegSARand = Button.new.maxWidth_(24).states_([["DS", Color.yellow, Color.new255(139, 58, 58)]])
+				}).value_(1),
+				~tidalLegSARand = Button.new.maxWidth_(20).states_([["DS", Color.yellow, Color.new255(139, 58, 58)]])
 				.action_({ |v|
 					~tidalTrackSelection.do { |i|
-						~tidalGuiElements[i][\legS][\value].valueAction_(10.rand)
+						~tidalGuiElements[i][\legS][\value].valueAction_(41.rand)
 					};
 				}),
-				~tidalLegARand = Button.new.maxWidth_(24).states_([["Du", Color.yellow, Color.new255(139, 58, 58)]])
+				~tidalLegARand = Button.new.maxWidth_(20).states_([["Du", Color.yellow, Color.new255(139, 58, 58)]])
 				.action_({ |v|
 					~tidalTrackSelection.do { |i|
 						~tidalGuiElements[i][\leg][\element].valueAction_(1.0.rand)

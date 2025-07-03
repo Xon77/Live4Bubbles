@@ -6,7 +6,14 @@
 ## Overview
 
 **Project to come on controlling Live Coding.**
-**More to come in the following months from May 2025.**
+**More to come in the following months in Summer 2025. 
+This project, briefly introduced during Composite Montréal in June 2025 through a 5-minute pitch, will be presented in full in September 2025 as part of a three-hour public experimental workshop at [Eastern Bloc](https://www.easternbloc.ca). The event will include a short performance and a participatory exploration session with the audience. I warmly thank Eastern Bloc and [CALQ](https://www.calq.gouv.qc.ca/en/) for their support in making this presentation possible.**
+
+<p align="center">
+<b>The performance tool in context with all its controllers in 2021</b>
+<!--<a href="#> <b>The performance tool in context with all its controllers</b> </a> <br> -->
+<img src="Images/Live coding Screen 1 - Tidal Cycles SuperCollider Hydra.jpg" />
+</p>
 
 This project is an extension and modified version based on [SuperDirMixer](https://github.com/thgrund/SuperDirtMixer) from Thomas Grund.
  
@@ -47,6 +54,8 @@ You can also support thanks to donations via [**Ko-fi**](https://ko-fi.com/live4
 As [mentioned in my previous project](https://github.com/Xon77/Live4Life?tab=readme-ov-file#acknowledgements) **_Live 4 Life_**, I would have been unable to build this tool without the help of the SuperCollider online community, who always answered my questions and even provided me with some examples of codes and classes. 
 
 I would like to especially thank Thomas Grund, without whom this project would not have come to life—not only thanks to the Quark [SuperDirMixer](https://github.com/thgrund/SuperDirtMixer) but also for implementing the feature allowing the evaluation of Tidal code lines in Atom/Pulsar, which I had suggested on [Github](https://github.com/tidalcycles/pulsar-tidalcycles/issues/119).
+
+Last, but not least, I would like to thank [CALQ](https://www.calq.gouv.qc.ca/en/), who supported me in this project.
 
 ## Licence
 
