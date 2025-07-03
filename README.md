@@ -14,8 +14,6 @@ This project, briefly introduced during Composite Montréal in June 2025 through
 <b>The performance tool (SuperCollider - Tidal Cycles - Hydra)</b>
 <!--<a href="#> <b>The performance tool (SuperCollider - Tidal Cycles - Hydra)</b> </a> <br> -->
 <img src="Images/Live coding Screen 1 - Tidal Cycles SuperCollider Hydra.jpg" />
-<img src="Images/Live coding Screen 2 - Tidal Cycles SuperCollider Hydra.jpg" />
-<img src="Images/Live coding Screen 3 - Tidal Cycles SuperCollider Hydra.jpg" />
 </p>
 
 This project is an extension and modified version based on [SuperDirMixer](https://github.com/thgrund/SuperDirtMixer) from Thomas Grund.
