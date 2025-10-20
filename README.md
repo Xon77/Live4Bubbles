@@ -1,17 +1,16 @@
 # Welcome to ***Live 4 Bubbles*** ! &nbsp;&nbsp; <span class="badge-licence"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" title="Licence"><img src="https://licensebuttons.net/l/by-nc-sa/3.0/88x31.png" alt="Licence link" /></a></span> &nbsp;&nbsp; <span class="badge-buymeacoffee"><a href="https://ko-fi.com/Live4Life" title="Donate to this project using Buy Me A Coffee"><img src="https://img.shields.io/badge/buy%20me%20a%20coffee-donate-yellow.svg" alt="Buy Me A Coffee donate button" /></a></span> &nbsp;&nbsp; <span class="badge-patreon"><a href="https://patreon.com/Live4Life" title="Donate to this project using Patreon"><img src="https://img.shields.io/badge/patreon-donate-yellow.svg" alt="Patreon donate button" /></a></span>
 
+<p align="center">
+<b>The performance tool live 4 Bubbles (SuperCollider - Tidal Cycles - Hydra)</b>
+<!--<a href="#> <b>The performance tool (SuperCollider - Tidal Cycles - Hydra)</b> </a> <br> -->
+<img src="Images/live4bubbles_overview.gif" />
+</p>
 
 | [**Overview**](#overview) | [**Usage**](#usage) | [**Platform**](#platform-support------) | [**Installation**](#installation) | [**Setup**](#setup) | [**References**](#references) | [**Contribute**](#contribute) | [**Acknowledgements**](#acknowledgements) | [**Licence**](#licence) |
 
 ## Overview
 
 **A system on controlling Live Coding Data Bases from Tidal Cycles or Hydra with SuperCollider GUI or controllers.**
-
-<p align="center">
-<b>The performance tool (SuperCollider - Tidal Cycles - Hydra)</b>
-<!--<a href="#> <b>The performance tool (SuperCollider - Tidal Cycles - Hydra)</b> </a> <br> -->
-<img src="Images/live4bubbles_overview.gif" />
-</p>
 
 This project is an extension and modified version based on [SuperDirMixer](https://github.com/thgrund/SuperDirtMixer) from Thomas Grund. But, it is not just a mixer for Tidal. 
 It also allows you to control lines of code in Tidal and tons of parameters (tempo, duration, buffer folder and file, functions on the patterns and effects) within Tidal and SuperCollider.
