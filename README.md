@@ -10,7 +10,7 @@
 <p align="center">
 <b>The performance tool (SuperCollider - Tidal Cycles - Hydra)</b>
 <!--<a href="#> <b>The performance tool (SuperCollider - Tidal Cycles - Hydra)</b> </a> <br> -->
-<img src="Images/Live4Bubbles_overview.gif" />
+<img src="Images/live4bubbles_overview.gif" />
 </p>
 
 This project is an extension and modified version based on [SuperDirMixer](https://github.com/thgrund/SuperDirtMixer) from Thomas Grund. But, it is not just a mixer for Tidal. 
