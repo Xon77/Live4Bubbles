@@ -315,25 +315,25 @@ if (v.value == 1, { ~tidalPresetFuncM.(i) /*("down"+i).postln*/}, { ~tidalPreset
 ~xEnc1On.action_({ |v|
 	// ~tidalEvalAddr.sendMsg("/pulsar/eval", \type, 'line', 'tab', (4), \row, ~tidalEvalLine[0].choose.postln, \column, 1);
 	// ~superDirtOSC.sendMsg("/SuperDirtMixer/seqLine", 0, ~tidalEvalLine[0].choose); // "Enc1On".postln
-	{~tidalGuiElements[0][\preset][\value].valueAction_(~tidalPresetLine[0][~tidalPresetNb[0]]);
+	{~tidalGuiElements[0][\preset][\value].valueAction_(~tidalPresetLine[0][~tidalPresetNb[0]-1]);
 		~tidalGuiElements[0][\eq][\element].valueAction_(1)}.defer;
 	~xEnc1On.value_(1); ~xEnc2On.value_(0); ~xEnc3On.value_(0); ~xEnc4On.value_(0);
 });
 
 ~xEnc2On.action_({ |v|
-	{~tidalGuiElements[1][\preset][\value].valueAction_(~tidalPresetLine[1][~tidalPresetNb[1]]);
+	{~tidalGuiElements[1][\preset][\value].valueAction_(~tidalPresetLine[1][~tidalPresetNb[1]-1]);
 		~tidalGuiElements[1][\eq][\element].valueAction_(1)}.defer;
 	~xEnc1On.value_(0); ~xEnc2On.value_(1); ~xEnc3On.value_(0); ~xEnc4On.value_(0);
 });
 
 ~xEnc3On.action_({ |v|
-	{~tidalGuiElements[2][\preset][\value].valueAction_(~tidalPresetLine[2][~tidalPresetNb[2]]);
+	{~tidalGuiElements[2][\preset][\value].valueAction_(~tidalPresetLine[2][~tidalPresetNb[2]-1]);
 		~tidalGuiElements[2][\eq][\element].valueAction_(1)}.defer;
 	~xEnc1On.value_(0); ~xEnc2On.value_(0); ~xEnc3On.value_(1); ~xEnc4On.value_(0);
 });
 
 ~xEnc4On.action_({ |v|
-	{~tidalGuiElements[3][\preset][\value].valueAction_(~tidalPresetLine[3][~tidalPresetNb[3]]);
+	{~tidalGuiElements[3][\preset][\value].valueAction_(~tidalPresetLine[3][~tidalPresetNb[3]-1]);
 		~tidalGuiElements[3][\eq][\element].valueAction_(1)}.defer;
 	~xEnc1On.value_(0); ~xEnc2On.value_(0); ~xEnc3On.value_(0); ~xEnc4On.value_(1);
 });
@@ -649,11 +649,22 @@ if (v.value > 0, {~xLo1Off.value_(1)}, {~xLo1On.value_(1)});*/
 		if (~tidalSwitchRev1 == 1, {
 			// ~tidalX.setReverbVariableName(\room); "Native Reverb".postln;
 			~tidalprevRev1Value = ~tidalGuiElements[0][\reverb][\element].value/*.postln*/;
-			~tidalGuiElements[0][\reverb][\element].valueAction_(0); ~xAOn.value_(0); ~tidalSwitchRev1 = 0;
-			~xBOn.valueAction_(1); ~xCOn.valueAction_(1); ~xDOn.valueAction_(1);
+			~tidalprevRev2Value = ~tidalGuiElements[1][\reverb][\element].value/*.postln*/;
+			~tidalprevRev3Value = ~tidalGuiElements[2][\reverb][\element].value/*.postln*/;
+			~tidalprevRev4Value = ~tidalGuiElements[3][\reverb][\element].value/*.postln*/;
+			~tidalGuiElements[0][\reverb][\element].valueAction_(0);
+			~tidalGuiElements[1][\reverb][\element].valueAction_(0);
+			~tidalGuiElements[2][\reverb][\element].valueAction_(0);
+			~tidalGuiElements[3][\reverb][\element].valueAction_(0);
+			~xAOn.value_(0); ~tidalSwitchRev1 = 0;  ~tidalSwitchRev2 = 0;  ~tidalSwitchRev3 = 0;  ~tidalSwitchRev4 = 0;
+			// ~xBOn.valueAction_(1); ~xCOn.valueAction_(1); ~xDOn.valueAction_(1);
 		},{ // ~tidalX.setReverbVariableName(\room);
-			~tidalGuiElements[0][\reverb][\element].valueAction_(~tidalprevRev1Value); ~xAOn.value_(1); ~tidalSwitchRev1 = 1;
-			~xBOn.valueAction_(0); ~xCOn.valueAction_(0); ~xDOn.valueAction_(0);
+			~tidalGuiElements[0][\reverb][\element].valueAction_(~tidalprevRev1Value);
+			~tidalGuiElements[1][\reverb][\element].valueAction_(~tidalprevRev2Value);
+			~tidalGuiElements[2][\reverb][\element].valueAction_(~tidalprevRev3Value);
+			~tidalGuiElements[3][\reverb][\element].valueAction_(~tidalprevRev4Value);
+			~xAOn.value_(1); ~tidalSwitchRev1 = 1; ~tidalSwitchRev2 = 1; ~tidalSwitchRev3 = 1; ~tidalSwitchRev4 = 1;
+			// ~xBOn.valueAction_(0); ~xCOn.valueAction_(0); ~xDOn.valueAction_(0);
 			// ~tidalprevRev1Value = ~tidalGuiElements[0][\reverb][\element].value.postln;
 		})
 	}.defer
@@ -663,12 +674,17 @@ if (v.value > 0, {~xLo1Off.value_(1)}, {~xLo1On.value_(1)});*/
 ~xBOn.action_({ |v|
 	// ~tidalNetAddr.sendMsg("/ctrl", "1Fol", "DB_MoOKick"); ~tidalNetAddr.sendMsg("/ctrl", "2Fol", "DB_PulsarB"); "DB_MoOKick".postln
 	{
-		if (~tidalSwitchRev2 == 1, {
+		/*if (~tidalSwitchRev2 == 1, {
 			~tidalprevRev2Value = ~tidalGuiElements[1][\reverb][\element].value/*.postln*/;
 			~tidalGuiElements[1][\reverb][\element].valueAction_(0); ~xBOn.value_(0); ~tidalSwitchRev2 = 0;
 		},{
 			~tidalGuiElements[1][\reverb][\element].valueAction_(~tidalprevRev2Value); ~xBOn.value_(1); ~tidalSwitchRev2 = 1;
-		})
+		})*/
+		if (~tidalXFadeA - ~tidalMainControlInterpolationA == 6, {
+			~tidalXFadeANumBox.valueAction_(0); ~xBOn.value_(0);
+		},{
+			~tidalXFadeANumBox.valueAction_(6); ~xBOn.value_(1);
+		});
 	}.defer
 });
 
@@ -676,12 +692,13 @@ if (v.value > 0, {~xLo1Off.value_(1)}, {~xLo1On.value_(1)});*/
 ~xCOn.action_({ |v|
 	// ~tidalNetAddr.sendMsg("/ctrl", "1Fol", "DB_PulsarB"); ~tidalNetAddr.sendMsg("/ctrl", "2Fol", "DB_TechGab"); "DB_PulsarB".postln
 	{
-		if (~tidalSwitchRev3 == 1, {
+		/*if (~tidalSwitchRev3 == 1, {
 			~tidalprevRev3Value = ~tidalGuiElements[2][\reverb][\element].value/*.postln*/;
 			~tidalGuiElements[2][\reverb][\element].valueAction_(0); ~xCOn.value_(0); ~tidalSwitchRev3 = 0;
 		},{
 			~tidalGuiElements[2][\reverb][\element].valueAction_(~tidalprevRev3Value); ~xCOn.value_(1); ~tidalSwitchRev3 = 1;
-		})
+		})*/
+		~tidalTrigTempButton1.valueAction_(1);
 	}.defer
 });
 
@@ -689,24 +706,27 @@ if (v.value > 0, {~xLo1Off.value_(1)}, {~xLo1On.value_(1)});*/
 ~xDOn.action_({ |v|
 	// ~tidalNetAddr.sendMsg("/ctrl", "1Fol", "DB_TechGab"); ~tidalNetAddr.sendMsg("/ctrl", "2Fol", "DB_A0KikCE"); "DB_TechGab".postln
 	{
-		if (~tidalSwitchRev4 == 1, {
+		/*if (~tidalSwitchRev4 == 1, {
 			~tidalprevRev4Value = ~tidalGuiElements[3][\reverb][\element].value/*.postln*/;
 			~tidalGuiElements[3][\reverb][\element].valueAction_(0); ~xDOn.value_(0); ~tidalSwitchRev4 = 0;
 		},{
 			~tidalGuiElements[3][\reverb][\element].valueAction_(~tidalprevRev4Value); ~xDOn.value_(1); ~tidalSwitchRev4 = 1;
-		})
+		})*/
+		~tidalTrigTempButton2.valueAction_(1);
 	}.defer
 });
 
 ~xEOn.action_({ |v|
-	{~tidalGuiElements[0][\seqLine][\value].valueAction_(~tidalRecSeqline[~tidalRecTrack][0]);
+	{/*~tidalGuiElements[0][\seqLine][\value].valueAction_(~tidalRecSeqline[~tidalRecTrack][0]);
 		~tidalGuiElements[0][\rytS][\value].valueAction_(~tidalRecRytS[~tidalRecTrack][0]);
 		~tidalGuiElements[0][\ryt][\value].valueAction_(~tidalRecRyt[~tidalRecTrack][0]);
 		~tidalGuiElements[0][\legS][\value].valueAction_(~tidalRecLegS[~tidalRecTrack][0]);
 		~tidalGuiElements[0][\leg][\value].valueAction_(~tidalRecLeg[~tidalRecTrack][0]);
 		~tidalGuiElements[0][\bufS][\value].valueAction_(~tidalRecBufS[~tidalRecTrack][0]);
 		~tidalGuiElements[0][\buf][\value].valueAction_(~tidalRecBuf[~tidalRecTrack][0]);
-		~tidalGuiElements[0][\buf2][\value].valueAction_(~tidalRecBuf2[~tidalRecTrack][0]);}.defer;
+		~tidalGuiElements[0][\buf2][\value].valueAction_(~tidalRecBuf2[~tidalRecTrack][0]);*/
+	~tidalTrigTempButton3.valueAction_(1);
+	}.defer;
 	/*~tidalEvalAddr.sendMsg("/pulsar/eval", \type, 'line', 'tab', (4), \row, 73, \column, 1);
 ~tidalEvalAddr.sendMsg("/pulsar/eval", \type, 'line', 'tab', (5), \row, 73, \column, 1);
 ~tidalEvalAddr.sendMsg("/pulsar/eval", \type, 'line', 'tab', (6), \row, 73, \column, 1);
@@ -718,42 +738,48 @@ if (v.value > 0, {~xLo1Off.value_(1)}, {~xLo1On.value_(1)});*/
 });*/
 
 ~xFOn.action_({ |v|
-	{~tidalGuiElements[1][\seqLine][\value].valueAction_(~tidalRecSeqline[~tidalRecTrack][1]);
+	{/*~tidalGuiElements[1][\seqLine][\value].valueAction_(~tidalRecSeqline[~tidalRecTrack][1]);
 		~tidalGuiElements[1][\rytS][\value].valueAction_(~tidalRecRytS[~tidalRecTrack][1]);
 		~tidalGuiElements[1][\ryt][\value].valueAction_(~tidalRecRyt[~tidalRecTrack][1]);
 		~tidalGuiElements[1][\legS][\value].valueAction_(~tidalRecLegS[~tidalRecTrack][1]);
 		~tidalGuiElements[1][\leg][\value].valueAction_(~tidalRecLeg[~tidalRecTrack][1]);
 		~tidalGuiElements[1][\bufS][\value].valueAction_(~tidalRecBufS[~tidalRecTrack][1]);
 		~tidalGuiElements[1][\buf][\value].valueAction_(~tidalRecBuf[~tidalRecTrack][1]);
-		~tidalGuiElements[1][\buf2][\value].valueAction_(~tidalRecBuf2[~tidalRecTrack][1]);}.defer;
+		~tidalGuiElements[1][\buf2][\value].valueAction_(~tidalRecBuf2[~tidalRecTrack][1]);*/
+	~tidalTrigTempButton4.valueAction_(1);
+	}.defer;
 	/*~tidalEvalAddr.sendMsg("/pulsar/eval", \type, 'line', 'tab', (4), \row, 92, \column, 1);
 ~tidalEvalAddr.sendMsg("/pulsar/eval", \type, 'line', 'tab', (5), \row, 117, \column, 1);
 ~tidalEvalAddr.sendMsg("/pulsar/eval", \type, 'line', 'tab', (6), \row, 81, \column, 1); [92, 117, 81].postln*/
 });
 
 ~xGOn.action_({ |v|
-	{~tidalGuiElements[2][\seqLine][\value].valueAction_(~tidalRecSeqline[~tidalRecTrack][2]);
+	{/*~tidalGuiElements[2][\seqLine][\value].valueAction_(~tidalRecSeqline[~tidalRecTrack][2]);
 		~tidalGuiElements[2][\rytS][\value].valueAction_(~tidalRecRytS[~tidalRecTrack][2]);
 		~tidalGuiElements[2][\ryt][\value].valueAction_(~tidalRecRyt[~tidalRecTrack][2]);
 		~tidalGuiElements[2][\legS][\value].valueAction_(~tidalRecLegS[~tidalRecTrack][2]);
 		~tidalGuiElements[2][\leg][\value].valueAction_(~tidalRecLeg[~tidalRecTrack][2]);
 		~tidalGuiElements[2][\bufS][\value].valueAction_(~tidalRecBufS[~tidalRecTrack][2]);
 		~tidalGuiElements[2][\buf][\value].valueAction_(~tidalRecBuf[~tidalRecTrack][2]);
-		~tidalGuiElements[2][\buf2][\value].valueAction_(~tidalRecBuf2[~tidalRecTrack][2]);}.defer;
+		~tidalGuiElements[2][\buf2][\value].valueAction_(~tidalRecBuf2[~tidalRecTrack][2]);*/
+	~tidalTrigTempButton5.valueAction_(1);
+	}.defer;
 	/*~tidalEvalAddr.sendMsg("/pulsar/eval", \type, 'line', 'tab', (4), \row, 93, \column, 1);
 ~tidalEvalAddr.sendMsg("/pulsar/eval", \type, 'line', 'tab', (5), \row, 102, \column, 1);
 ~tidalEvalAddr.sendMsg("/pulsar/eval", \type, 'line', 'tab', (6), \row, 81, \column, 1); [93, 102, 81].postln*/
 });
 
 ~xHOn.action_({ |v|
-	{~tidalGuiElements[3][\seqLine][\value].valueAction_(~tidalRecSeqline[~tidalRecTrack][3]);
+	{/*~tidalGuiElements[3][\seqLine][\value].valueAction_(~tidalRecSeqline[~tidalRecTrack][3]);
 		~tidalGuiElements[3][\rytS][\value].valueAction_(~tidalRecRytS[~tidalRecTrack][3]);
 		~tidalGuiElements[3][\ryt][\value].valueAction_(~tidalRecRyt[~tidalRecTrack][3]);
 		~tidalGuiElements[3][\legS][\value].valueAction_(~tidalRecLegS[~tidalRecTrack][3]);
 		~tidalGuiElements[3][\leg][\value].valueAction_(~tidalRecLeg[~tidalRecTrack][3]);
 		~tidalGuiElements[3][\bufS][\value].valueAction_(~tidalRecBufS[~tidalRecTrack][3]);
 		~tidalGuiElements[3][\buf][\value].valueAction_(~tidalRecBuf[~tidalRecTrack][3]);
-		~tidalGuiElements[3][\buf2][\value].valueAction_(~tidalRecBuf2[~tidalRecTrack][3]);}.defer;
+		~tidalGuiElements[3][\buf2][\value].valueAction_(~tidalRecBuf2[~tidalRecTrack][3]);*/
+	~tidalTrigTempButton6.valueAction_(1);
+	}.defer;
 	/*~tidalEvalAddr.sendMsg("/pulsar/eval", \type, 'line', 'tab', (4), \row, 102, \column, 1);
 ~tidalEvalAddr.sendMsg("/pulsar/eval", \type, 'line', 'tab', (5), \row, 117, \column, 1);
 ~tidalEvalAddr.sendMsg("/pulsar/eval", \type, 'line', 'tab', (6), \row, 81, \column, 1); [102, 117, 81].postln*/

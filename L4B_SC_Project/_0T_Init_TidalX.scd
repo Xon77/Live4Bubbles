@@ -7,14 +7,17 @@
 // https://tidalcycles.org/docs/configuration/MIDIOSC/midi#synchronising-midi-clock-using-the-link-protocol
 // https://club.tidalcycles.org/t/olatency-positive-or-negative-value/4812
 
-// NetAddr// soon.localIP, network, localEndPoint, port in next relaease
+// NetAddr // soon.localIP, network, localEndPoint, port in next release
+
 
 Server.killAll;
 
+
 ( // TIDAL Xon - Live 4 Bubbles
 
-~tidalOutputChannels = 2; // Nb of Channels in Tidal XXXXXXXXX - Error with Mi-UGens with 8 channels
-~tidalNbOfLoudspeakers = 2; // Nb of Loudspeakers XXXXXXXXX - Error with Mi-UGens with 8 channels
+~tidalHydra = 1; // Send OSC data to (Fizzy) Hydra (RMS / Event data per channel & other controls
+~tidalOutputChannels = 4; // Nb of Channels in Tidal XXXXXXXXX - Error with Mi-UGens with 8 channels
+~tidalNbOfLoudspeakers = 4; // Nb of Loudspeakers XXXXXXXXX - Error with Mi-UGens with 8 channels
 
 // GUI Size and Position parameters
 // Size for 4 Tracks
@@ -66,6 +69,7 @@ s.options.maxNodes = 8192 * 500; /*1024 * 256*/
 ~patternSpeeds = (0..64) ! ~tidalNbOfOrbits;
 ~patternSpeedsSize = (~patternSpeeds[0].size-1) ! ~tidalNbOfOrbits;
 
+// TIDAL LINE EVALUATION
 ~tidalEvalPos = 0 ! ~tidalNbOfOrbits; // not used ???
 ~tidalSeqLineBegin = 1;
 ~tidalSeqLineEndR = (476/2).asInteger; // Set the number of lines that can be triggered in Pulsar Tidal code XXXXXXXXXXXX
@@ -75,13 +79,21 @@ s.options.maxNodes = 8192 * 500; /*1024 * 256*/
 // ~tidalEvalLine[0] = (1..26); ~tidalEvalLine[1] = (1..26); ~tidalEvalLine[2] = (1..26); ~tidalEvalLine[3] = (1..26);
 // ~tidalSilenceLine = 96; // Line in Pulsar to silence the Track
 ~tidalXfadeOutLine = ~tidalSeqLineEndR*2.asInteger + 6; // Line in Pulsar to fade out the Track XXXXXXXXX
-~tidalEvalTabPaneSwitch = 0; // 1 Pulsar display in panes / splits - 0 Pulsar dispaly in tab
+~tidalEvalTabPaneSwitch = 1; // 1 Pulsar display in panes / splits - 0 Pulsar dispaly in tab
 
+~tidalMainControlPane = 0; // For main controls
+~tidalMainControlTab = 4;
+~tidalMainControlInterpolationA = 2;
+~tidalMainControlBPMA = 22;
+~tidalMainControlBPMADur = 47;
+
+// TIDAL Nb of FX & functions
 ~tidalnumEffects = 122; // Set the value of fxR in Tidal Cycles XXXXXXXXX
 ~tidalnumFunctions = 264; // Set the value of fuR in Tidal Cycles XXXXXXXXX
-~tidalnumSwitchX = 24; // Set the last number of the list sfxx / sfux -> just to indicate the highest value of NumberBox XXXXXXXXX
-~tidalnumWhenS = 39; // Set the last number of the list below sfxx / sfux XXXXXXXXX
-~tidalnumDurAlgs = 44; // Set the last number of dur (Nb of duration algorhythms)
+~tidalnumSwitchX = 24; // Set the last number of the list sfxx / sfux (superposition / jusxtaposition types with offset or alone) -> just to indicate the highest value of NumberBox XXXXXXXXX
+~tidalnumWhenS = 39; // Set the last number of the list below fx / fu XXXXXXXXX
+~tidalnumDurAlgs = 44; // Set the last number of dur (Nb of duration algorhithms)
+~tidalnumSpaAlgs = 29; // // Set the last number of Spa (Channel algorhithm)
 
 ~tidalTrackSelection = (0..7);
 ~tidalCurrentOrbit = 0;
@@ -111,7 +123,7 @@ s.options.maxNodes = 8192 * 500; /*1024 * 256*/
 // -> ["acid309", "bass8", "cs80leadClick", "cs80lead", "fmtribe", "pbass", "rhodes"]
 // 3 Other Synths (default?) :
 // -> ["super808", "superhat", "superclap"]
-// 40 AndreaBertagnolli (Synths Extra) :
+// 40 AndreaBertagnolli  P(Synths Extra) :
 // -> ["plastickystrings", "plucking", "pitchednoise", "werkit", "trianglewavebells", "voicform", "synchronicity", "spook", "spook2", "sosbell", "apad", "babbl", "bbdd", "beating", "blips1", "blowbotl", "cymbal808_ryan", "flute", "forestbird", "goeysynth", "handclapsmash", "handclapsmash2", "harpsichord", "hat", "snare", "kick", "impulsetrain", "jilet", "justwannahavefun", "kick_oto309", "laserbeam", "mrostinato", "noisy", "oneclap_thor", "organdonor", "ping_mh", "sillyVoice", "situationsynth", "yazoodelayeffect", "snare_oto309"]
 // 10 Loopier-RogerPibernat
 // -> ["fmbass", "lpg", "hammondserrano", "bytebeat", "tb303", "mogo", "velobass", "reslab", "supersine", "guitar"].size
@@ -313,11 +325,13 @@ s.waitForBoot {
 		);
 	});
 
+   ~tidalEvalAddr = NetAddr.new("127.0.0.1", 3333); // necessaire pour ~tidalXFadeANumBox & ~tidalBPMANumBox dans Utility ?
+   // ~tidalNetAddr = NetAddr.new("127.0.0.1", 6010); /*~tidalMixer.tidalNetAddr*/ // plus besoin initialisé dans MixerUI.sc, mais aussi besoin dans MasterUI, donc variable d'environnement préférable -> non ...
+
 	~tidalX.gui;
 
-	"_Init Midi X2.scd".loadRelative;
-
-	// ~tidalNetAddr = NetAddr.new("127.0.0.1", 6010); /*~tidalMixer.tidalNetAddr*/ // plus besoin initialisé dans MixerUI.sc, mais aussi besoin dans MasterUI, donc variable d'environnement préférable -> non ...
+	"_Init Midi X2.scd".loadRelative; // Xone K2
+	"_Init Midi T4.scd".loadRelative; // Midi Fighter Twister Version 4
 
 	// Initialisation of All / Some parameters of SuperDirtMixer
 	// Reset All act on everything except Bypass (EQ & Compressor) & all Compressor & EQ on other tracks than the one selected
@@ -349,10 +363,110 @@ s.waitForBoot {
 	// ~stageMasterHighEndDb.valueAction_(0.32);
 
 	// ~tidalMasterMulNumBox.valueAction_(-12); // Réécriture du Tidal Master Volume
-	~tidalMasterMulNumBox.valueAction_(-9);
+	~tidalMasterMulNumBox.valueAction_(-6);
+
+	// RMS Volume per track & events per track & parameter for Hydra
+
+	if (~tidalHydra == 1, {
+		(
+			// Run this to start sending the RMS OSC messages to SC.
+			// ~dirt.startSendRMS(60, 0.1);
+			// ~dirt.startSendRMS(30, 0.5);
+
+			// The bridge will be listening to OSC messages on port UDP 4444.
+			~tidalOSCAdress = NetAddr.new("127.0.0.1", 4444);
+
+			// This is the RMS OSC handler, here we'll forward these messages to our bridge
+			~tidalRMSFunc = OSCFunc({ |msg|
+				// msg.postln;
+				// Forward OSC message
+				~tidalOSCAdress.sendMsg("/rms", *msg);
+			}, "/rms");
+
+			~tidalDirtMsgFunc = OSCFunc({ |msg, time, tidalAddr|
+				var latency = time - Main.elapsedTime;
+				// var addr = NetAddr.new("127.0.0.1", 4444 /*3333*/);
+				msg = msg ++ ["time", time, "latency", latency];
+				// msg.postln;
+			/*addr*/ ~tidalOSCAdress.sendBundle(latency, msg)
+		}, '/dirt/play' /*'/play2'*/).fix;
+
+			// Fonction pour changer tidalDirtMsgActions
+			~setTidalMode = { |mode = 9|
+				// Validation de la valeur (0-23)
+				mode = mode.clip(0, 23);
+
+				// Envoyer le message OSC vers Hydra
+				~tidalOSCAdress.sendMsg("/tidalDirtMsgActions", mode);
+
+				// Affichage local pour confirmation
+				// ("OSC: tidalDirtMsgActions set to " ++ mode).postln;
+			};
+
+			~setSourceMode = { |mode = 0|
+				// mode = mode.clip(0, 23);
+
+				// Envoyer le message OSC vers Hydra
+				~tidalOSCAdress.sendMsg("/tidalSourceMsgActions", mode);
+
+				// Affichage local pour confirmation
+				// ("OSC: tidalSourceMsgActions set to " ++ mode).postln;
+			};
+
+			// [/dirt/play, _id_, 1, begin, 0.9375, cps, 0.5625, cut, 1, cycle, 244.01042175293, delta, 0.0092590004205704, djf, 0.5, end, 0.95833331346512, n, 89.0, orbit, 0, pan, 1.0, s, DS_ViRide, speed, 1.0, time, 71301.815930501, latency, 0.18750583507062]
+
+		);
+	});
 
 };
 )
+
+
+
+
+
+~setTidalMode.(0);
+~setTidalMode.(1);
+~setTidalMode.(7);
+~setTidalMode.(8);
+~setTidalMode.(9);
+
+~setSourceMode.(0);
+~setSourceMode.(1);
+~setSourceMode.(2);
+
+// Pour changer automatiquement pendant une performance
+~tidalModeSequence = Routine({
+	loop {
+		~setTidalMode.(9);    // Tracks
+		4.wait;               // Attendre 4 secondes
+		~setTidalMode.(8);    // Random
+		2.wait;
+		~setTidalMode.(7);    // All
+		3.wait;
+	};
+});
+
+// Démarrer la séquence
+~tidalModeSequence.play;
+
+// Arrêter la séquence
+~tidalModeSequence.stop;
+
+// Pour intégrer dans vos patterns existants
+Pdef(\tidalModeChanger,
+	Pbind(
+		\type, \rest,
+		\dur, Prand([2, 3, 4, 6], inf),
+		\mode, Prand([0, 7, 8, 9], inf),
+		\func, Pfunc({ |event|
+			~setTidalMode.(event[\mode]);
+		})
+	)
+);
+
+// Jouer le pattern
+Pdef(\tidalModeChanger).play;
 
 
 
@@ -462,7 +576,8 @@ Server.killAll;
 
 (
 // Run this to start sending the RMS OSC messages to SC.
-~dirt.startSendRMS(60, 0.1);
+// ~dirt.startSendRMS(60, 0.1);
+~dirt.startSendRMS(30, 0.5);
 
 // The bridge will be listening to OSC messages on port UDP 9130.
 ~tidalOSCAdress = NetAddr.new("127.0.0.1", 4444);
@@ -477,7 +592,7 @@ Server.killAll;
 
 ~tidalRMSFunc.free
 
-
+~dirt.stopSendRMS
 
 // Parameter for sending RMS
 ~dirt.startSendRMS(20, 3); // Default (rmsReplyRate: 20, rmsPeakLag: 3)
@@ -619,7 +734,8 @@ if (resultDict['tab'] !== undefined) {
 
 o = NetAddr.new("127.0.0.1", 3333);
 o.sendMsg("/pulsar/eval", \type, 'line', \tab, 0, \row, 1, \column, 1);
-o.sendMsg("/pulsar/eval", \type, 'line', \tab, 1, \row, 1, \column, 1);
+o.sendMsg("/pulsar/eval", \type, 'line', \tab, 0, \row, 1, \column, 1);
+o.sendMsg("/pulsar/eval", \type, 'line', \tab, 1, \row, 100, \column, 10);
 o.sendMsg("/pulsar/eval", \type, 'line', \tab, 2, \row, 1, \column, 1);
 o.sendMsg("/pulsar/eval", \type, 'line', \pane, 0, \tab, 0, \row, 1, \column, 1);
 o.sendMsg("/pulsar/eval", \type, 'line', \pane, 0, \tab, 1, \row, 1, \column, 1);

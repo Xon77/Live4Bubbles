@@ -46,19 +46,86 @@
 
 		1.wait;
 
-		~tidalrytValues = 4.collect { NumericControlValue(spec:[0, 1]) };
-		4.do { |i|
-		~twister.knobs[i].knobCV = ~tidalrytValues[i];
-		~twister.knobs[i].ledColor_(Color.yellow);
-		}
+		~tidalRatValues = 4.collect { NumericControlValue(spec:[0, 1]) };
+		~tidalRanValues = 4.collect { NumericControlValue(spec:[0, 1]) };
+		~tidalSpaValues = 4.collect { NumericControlValue(spec:[0, 25]) };
+		~tidalRevValues = 4.collect { NumericControlValue(spec:[0, 1]) };
 
+		~tidalRatButtons = 4.collect { OnOffControlValue() };
+		~tidalRanButtons = 4.collect { OnOffControlValue() };
+		~tidalSpaButtons = 4.collect { OnOffControlValue() };
+		~tidalRevButtons = 4.collect { OnOffControlValue() };
 
-	});
+		~tidalRatButtons.do { |i, id| i.signal(\off).connectToUnique({"test".postln; ~tidalGuiElements[id][\rat][\element].valueAction_(0.5) }) };
+		~tidalRatButtons.do { |i, id| i.signal(\on).connectToUnique({"test".postln; ~tidalGuiElements[id][\rat][\element].valueAction_(0.5) }) };
 
+		// ~tidalGuiElements[0][\rat][\element].valueAction_(0.5)
 
+		~connectionsTidalRatMake = {
+
+			4.do { |i|
+
+				~twister.knobs[i].knobCV = ~tidalRatValues[i];
+				~twister.knobs[i].buttonCV = ~tidalRatButtons[i];
+				// ~twister.buttons[i].cv = ~tidalRatButtons[i];
+				~tidalRatValues[i].value = 0.5;
+				~twister.knobs[i].ledColor_(Color.green);
+
+				~twister.knobs[i+4].knobCV = ~tidalRanValues[i];
+				~twister.knobs[i+4].buttonCV = ~tidalRanButtons[i];
+				~tidalRanValues[i].value = 0.5;
+				~twister.knobs[i+4].ledColor_(Color.grey);
+
+				~twister.knobs[i+8].knobCV = ~tidalSpaValues[i];
+				~twister.knobs[i+8].buttonCV = ~tidalSpaButtons[i];
+				~tidalSpaValues[i].value = 0;
+				~twister.knobs[i+8].ledColor_(Color.yellow);
+
+				~twister.knobs[i+12].knobCV = ~tidalRevValues[i];
+				~twister.knobs[i+12].buttonCV = ~tidalRevButtons[i];
+				~tidalRevValues[i].value = 0;
+				~twister.knobs[i+12].ledColor_(Color.blue);
+			};
+
+			~tidalRatButtons.[0].value.postln;
+			// ~tidalRatButtons.[0].signal(\off);
+			// ~tidalRatValues[0].value
+			// ~tidalRatButtons.do { |i, id| i.signal(\off).connectToUnique({ ~tidalRatValues[id].value = 0.5; }); i.postln; };
+
+			~connectionsTidalRat = ConnectionList.make {
+
+				4.do { |i|
+					[~tidalRatValues[i]].connectEach(\value, [~tidalGuiElements[i][\rat][\element]], _.valueSlot(\valueAction));
+					[~tidalGuiElements[i][\rat][\element]].connectEach(\value, [~tidalRatValues[i]], _.valueSlot);
+					ViewActionUpdater.enable(~tidalGuiElements[i][\rat][\value]);
+
+					[~tidalRanValues[i]].connectEach(\value, [~tidalGuiElements[i][\ran][\element]], _.valueSlot(\valueAction));
+					[~tidalGuiElements[i][\ran][\element]].connectEach(\value, [~tidalRanValues[i]], _.valueSlot);
+					ViewActionUpdater.enable(~tidalGuiElements[i][\ran][\value]);
+
+					[~tidalSpaValues[i]].connectEach(\value, [~tidalGuiElements[i][\spa][\value]], _.valueSlot(\valueAction));
+					[~tidalGuiElements[i][\spa][\value]].connectEach(\value, [~tidalSpaValues[i]], _.valueSlot);
+					ViewActionUpdater.enable(~tidalGuiElements[i][\spa][\value]);
+
+					[~tidalRevValues[i]].connectEach(\value, [~tidalGuiElements[i][\reverb][\element]], _.valueSlot(\valueAction));
+					[~tidalGuiElements[i][\reverb][\element]].connectEach(\value, [~tidalRevValues[i]], _.valueSlot);
+					ViewActionUpdater.enable(~tidalGuiElements[i][\reverb][\element]);
+				};
+
+			// ~tidalRatButtons.do { |i, id| i.signal(\off).connectToUnique({ {~tidalGuiElements[id][\rat][\element].valueAction_(0.5)}.defer; i.postln; }) };
+			~tidalRatButtons.do { |i, id| i.signal(\on).connectToUnique({ {~tidalGuiElements[id][\rat][\element].valueAction_(0.5)}.defer }) };
+
+			};
+		};
 
 		"Twister connected".postln;
 
-	// });
+	});
 
-}.fork;
+	~connectionsTidalRatMake.();
+	~connectionsTidalRat.connect;
+
+}.fork(AppClock);
+
+
+// ~tidalRatButtons[0].signal(\off).connectToUnique({ ~tidalGuiElements[id][\rat][\element].valueAction_(0.5) })
