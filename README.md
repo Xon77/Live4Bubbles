@@ -7,19 +7,13 @@
 
 **A system on controlling Live Coding Data Bases from Tidal Cycles or Hydra with SuperCollider GUI or controllers.**
 
-**Additional documentation will come in the following months.** 
-
-This project, briefly introduced during Composite Montréal in June 2025 through a 5-minute pitch, has been presented in October 2025 as part of a three-hour public experimental workshop at [Eastern Bloc](https://www.easternbloc.ca). The event included a short performance and a participatory exploration session with the audience. I warmly thank Eastern Bloc and [CALQ](https://www.calq.gouv.qc.ca/en/) for their support in making this presentation possible.
-
 <p align="center">
 <b>The performance tool (SuperCollider - Tidal Cycles - Hydra)</b>
 <!--<a href="#> <b>The performance tool (SuperCollider - Tidal Cycles - Hydra)</b> </a> <br> -->
-<img src="Images/live4bubbles_overview.gif" />
+<img src="Images/Live4Bubbles_overview.gif" />
 </p>
 
-This project is an extension and modified version based on [SuperDirMixer](https://github.com/thgrund/SuperDirtMixer) from Thomas Grund.
- 
-But, it is not just a mixer for Tidal. 
+This project is an extension and modified version based on [SuperDirMixer](https://github.com/thgrund/SuperDirtMixer) from Thomas Grund. But, it is not just a mixer for Tidal. 
 It also allows you to control lines of code in Tidal and tons of parameters (tempo, duration, buffer folder and file, functions on the patterns and effects) within Tidal and SuperCollider.
 
 ## Installation
@@ -36,7 +30,13 @@ It also allows you to control lines of code in Tidal and tons of parameters (tem
 
 ## Setup
 
-To come
+**To come**
+
+**Additional documentation will come in the following days, weeks and months.** 
+
+## References
+
+This project, briefly introduced during Composite Montréal in June 2025 through a 5-minute pitch, has been presented in October 2025 as part of a three-hour public experimental workshop at [Eastern Bloc](https://www.easternbloc.ca). The event included a short performance and a participatory exploration session with the audience. I warmly thank Eastern Bloc and [CALQ](https://www.calq.gouv.qc.ca/en/) for their support in making this presentation possible.
 
 ## Contribute
 
