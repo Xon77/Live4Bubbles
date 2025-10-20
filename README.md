@@ -2,18 +2,31 @@
 
 <p align="center">
 <b>A performance tool on controlling Live Coding Data Bases<br>from Tidal Cycles or Hydra with SuperCollider GUI or controllers</b>
+<br><br>
 <!--<a href="#> <b>A performance tool on controlling Live Coding Data Bases<br>from Tidal Cycles or Hydra with SuperCollider GUI or controllers</b> </a> <br> -->
 <img src="Images/live4bubbles_overview.gif" />
 </p>
 
-| [**Overview**](#overview) | [**Usage**](#usage) | [**Platform**](#platform-support------) | [**Installation**](#installation) | [**Setup**](#setup) | [**References**](#references) | [**Contribute**](#contribute) | [**Acknowledgements**](#acknowledgements) | [**Licence**](#licence) |
+<div align="center">
 
-## Overview
+| [**Overview**](#-overview) | [**Installation**](#-installation) | [**Setup**](#%EF%B8%8F-setup) | [**References**](#-references) | [**Contribute**](#-contribute) | [**Acknowledgements**](#-acknowledgements) | [**Licence**](#-licence) |
+
+</div>
+
+---
+
+# 📖 Overview
+
+---
 
 This project is an extension and modified version based on [SuperDirMixer](https://github.com/thgrund/SuperDirtMixer) from Thomas Grund. But, it is not just a mixer for Tidal. 
 It also allows you to control lines of code in Tidal and tons of parameters (tempo, duration, buffer folder and file, functions on the patterns and effects) within Tidal and SuperCollider.
 
-## Installation
+---
+
+# 💿 Installation
+
+---
 
 1. You have to install SuperDirtMixer. Therefore follow the instructions in SuperDirtMixer to install [its requirements](https://github.com/thgrund/SuperDirtMixer?tab=readme-ov-file#requirements), like Tidal Cycles and SuperDirt Quark.
 
@@ -25,17 +38,29 @@ It also allows you to control lines of code in Tidal and tons of parameters (tem
 
 ...
 
-## Setup
+---
+
+# ⚙️ Setup
+
+---
 
 **To come**
 
-**Additional documentation will come in the following days, weeks and months.** 
+**Additional documentation will come in the following days, weeks and months.**
 
-## References
+---
+
+# 📚 References
+
+---
 
 This project, briefly introduced during Composite Montréal in June 2025 through a 5-minute pitch, has been presented in October 2025 as part of a three-hour public experimental workshop at [Eastern Bloc](https://www.easternbloc.ca). The event included a short performance and a participatory exploration session with the audience. I warmly thank Eastern Bloc and [CALQ](https://www.calq.gouv.qc.ca/en/) for their support in making this presentation possible.
 
-## Contribute
+---
+
+# 🤝 Contribute
+
+---
 
 If you would like to contribute, please get in touch with me in order to organise further development.
 
@@ -47,7 +72,11 @@ You can also support thanks to donations via [**Ko-fi**](https://ko-fi.com/live4
 	<img src="https://c5.patreon.com/external/logo/become_a_patron_button@2x.png" width="160">
 </a>
 
-## Acknowledgements
+---
+
+# 🙏 Acknowledgements
+
+---
 
 
 As [mentioned in my previous project](https://github.com/Xon77/Live4Life?tab=readme-ov-file#acknowledgements) **_Live 4 Life_**, I would have been unable to build this tool without the help of the SuperCollider online community, who always answered my questions and even provided me with some examples of codes and classes. 
@@ -56,7 +85,11 @@ I would like to especially thank Thomas Grund, without whom this project would n
 
 Last, but not least, I would like to thank [CALQ](https://www.calq.gouv.qc.ca/en/), who supported me in this project.
 
-## Licence
+---
+
+# 📄 Licence
+
+---
 
 © 2025 - End of the world ∞ Christophe Lengelé
 
