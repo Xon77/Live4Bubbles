@@ -16,7 +16,7 @@
 
 ---
 
-**A performance tool on controlling Live Coding Data Bases from Tidal Cycles or Hydra with SuperCollider GUI or controllers.**
+**A performance tool on controlling Live Coding Data Bases from [Tidal Cycles](https://tidalcycles.org/) or [Hydra](https://hydra.ojack.xyz/) with [SuperCollider](https://supercollider.github.io/) GUI or controllers.**
 
 This project is an extension and modified version based on [SuperDirMixer](https://github.com/thgrund/SuperDirtMixer) from Thomas Grund. But, it is not just a mixer for Tidal.
 It also allows you to control lines of code in Tidal and tons of parameters (tempo, duration, buffer folder and file, functions on the patterns and effects) within Tidal and SuperCollider.
