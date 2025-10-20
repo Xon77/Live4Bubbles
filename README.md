@@ -5,10 +5,11 @@
 
 ## Overview
 
-**Project to come on controlling Live Coding.**
-**More to come in the following months in Summer 2025.** 
+**A system on controlling Live Coding Data Bases from Tidal Cycles or Hydra with SuperCollider GUI or controllers.**
 
-This project, briefly introduced during Composite Montréal in June 2025 through a 5-minute pitch, will be presented in full in September 2025 as part of a three-hour public experimental workshop at [Eastern Bloc](https://www.easternbloc.ca). The event will include a short performance and a participatory exploration session with the audience. I warmly thank Eastern Bloc and [CALQ](https://www.calq.gouv.qc.ca/en/) for their support in making this presentation possible.
+**Additional documentation will come in the following months.** 
+
+This project, briefly introduced during Composite Montréal in June 2025 through a 5-minute pitch, has been presented in October 2025 as part of a three-hour public experimental workshop at [Eastern Bloc](https://www.easternbloc.ca). The event included a short performance and a participatory exploration session with the audience. I warmly thank Eastern Bloc and [CALQ](https://www.calq.gouv.qc.ca/en/) for their support in making this presentation possible.
 
 <p align="center">
 <b>The performance tool (SuperCollider - Tidal Cycles - Hydra)</b>
