@@ -58,7 +58,6 @@ EqualizerUIX : UIFactories{ // WARNING: keyword arg 'uiCallback' not found in ca
 				this.disableUI();
 				this.updateGlobalEffect(activeOrbit);
 			});
-
 		});
 
 
@@ -299,7 +298,7 @@ EqualizerUIX : UIFactories{ // WARNING: keyword arg 'uiCallback' not found in ca
 
 		/* DEFINE EQ GUI */
 
-		var equalizerComposite = CompositeView(container, Rect(5, 5, 386 /*466*/ /*700*/,  container.bounds.height - 16 /*15*/));
+		var equalizerComposite = CompositeView(container, Rect(5, 5, 434 /*386*/ /*466*/ /*700*/,  container.bounds.height - 16 /*15*/));
 		var userView = UserView(equalizerComposite).minHeight_(equalizerComposite.bounds.height-80);
 
 		equalizerComposite.background_(Color.gray(0.85));
@@ -405,14 +404,6 @@ EqualizerUIX : UIFactories{ // WARNING: keyword arg 'uiCallback' not found in ca
 				controlBusHandlers[orbitIndex][param].linkDown.stop;
 				controlBusHandlers[orbitIndex].removeAt(param);
 			});
-
-			/*if (reset, {
-				orbits[orbitIndex].set(param, loadedOrbitsPreset[orbitIndex][param]);
-
-				{
-					this.updateEQ(orbits.at(orbitIndex));
-				}.defer;
-			});*/
 		})
 	}
 

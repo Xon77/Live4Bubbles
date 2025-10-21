@@ -40,12 +40,15 @@ CompressorUIX : UIFactories {
 
 		if (orbits.isNil.not, {
 
+			var effect = GlobalDirtEffect(\dirt_global_compressor, [\activeCompressor, \cpAttack, \cpRelease, \cpThresh, \cpTrim, \cpGain, \cpRatio, \cpLookahead, \cpSaturate, \cpHpf, \cpKnee, \cpBias]);
+			effect.active_(false);
+
 			activeOrbit = orbits[0];
 			this.setOrbits(defaultParentEvent);
 
 			orbits.do({|orbit|
 				globalEffects.addGlobalEffect(
-					orbit, GlobalDirtEffect(\dirt_global_compressor, [\activeCompressor, \cpAttack, \cpRelease, \cpThresh, \cpTrim, \cpGain, \cpRatio, \cpLookahead, \cpSaturate, \cpHpf, \cpKnee, \cpBias]))});
+					orbit, effect)});
 
 		});
 
@@ -245,7 +248,7 @@ CompressorUIX : UIFactories {
 	createUI {
 		| container |
 
-		var compressorComposite = CompositeView(container, Rect(396 /*710*/, 5, 390 /*540*/,  container.bounds.height - 15)).background_(Color.grey(0.85));
+		var compressorComposite = CompositeView(container, Rect(444 /*396*/ /*710*/, 5, 390 /*540*/,  container.bounds.height - 15)).background_(Color.grey(0.85));
 		var compressorFeedback = CompositeView.new.fixedHeight_(height).fixedWidth_(width).background_(Color.grey(0.95));
 
 		var gainReductionSlider;

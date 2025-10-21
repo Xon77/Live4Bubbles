@@ -11,6 +11,7 @@ SuperDirtMixerX {
 	// var <>presetPath = "../../../downloaded-quarks/SuperDirtMixer/presets/";
 	var <>prMasterBus;
 	var <>switchControlButtonEvent;
+	var >switchLiveButtonEvent;
 	var >midiInternalOut;
 	var reverbVariableName = \room;
 	var reverbNativeSize = 0.95;
@@ -32,7 +33,8 @@ SuperDirtMixerX {
 
 			defaultParentEvent = Dictionary.new;
 
-			dirt.startSendRMS;
+			dirt.startSendRMS(30, 0.5);
+			// (rmsReplyRate: 20, rmsPeakLag: 3) by default
 
 			dirt.orbits.do({
 				|orbit, i|
@@ -133,16 +135,16 @@ SuperDirtMixerX {
 
 		var mixerContainer, fxContainer, settingsContainer, midiContainer, masterContainer;
 		var masterUI, mixerUI, utilityUI, equalizerUI, midiControlUI, compressorUI;
+// "Live 4 Bubbles (Love & Fuck) ——— All 4 Poutchou!"
+		~tidalWindow = Window.new("Live 4 Bubbles XY", bounds: Rect(~tidalWindowPosX /*0*/, ~tidalWindowPosY /*80*/, ~tidalWindowSize /*820*/ /*430*/, 1230 /*493*/), scroll: false/*, resizable: false*/).alwaysOnTop_(true);
 
-		~tidalWindow = Window.new("Live 4 Bubbles (Love & Fuck) ——— All 4 Poutchou!", bounds: Rect(~tidalWindowPosX /*0*/, ~tidalWindowPosY /*80*/, ~tidalWindowSize /*820*/ /*430*/, 1100 /*493*/)).alwaysOnTop_(true);
-
-		mixerContainer = ScrollView(~tidalWindow /*window*/, Rect(10, 10, 380, 500)).background_(Color.gray(0.7)).fixedWidth_(~tidalWindowMixerSize)/*.maxWidth_(~tidalWindowMixerSize)*//*.minWidth_(~tidalWindowMixerSize/*592*/)*/.minHeight_(1092); // Add minWidth & minHeight - other way ?
+		mixerContainer = ScrollView(~tidalWindow /*window*/, Rect(10, 10, 380, 500)).background_(Color.gray(0.7)).fixedWidth_(~tidalWindowMixerSize)/*.maxWidth_(~tidalWindowMixerSize)*//*.minWidth_(~tidalWindowMixerSize/*592*/)*/.minHeight_(1222/*1192*/); // Add minWidth & minHeight - other way ?
 		fxContainer = ScrollView(~tidalWindow /*window*/, Rect(10, 310, 450, 380)).background_(Color.gray(0.7))/*.minWidth_(1200)*/.minHeight_(380 /*410*/); // Add minWidth & minHeight - other way ?
 		settingsContainer = CompositeView(~tidalWindow /*window*/, Rect(0, 0, 135, 500)).background_(Color.gray(0.85));
 		midiContainer = CompositeView(~tidalWindow /*window*/, Rect(0, 0, 135, 500)).background_(Color.gray(0.85));
-		masterContainer = CompositeView(~tidalWindow /*window*/, Rect(0, 0, 135 /*80*/, 500)).background_(Color.gray(0.85))/*.minWidth_(200).maxWidth_(80)*/.maxWidth_(~tidalWindowMasterSize /*200*/).maxHeight_(1090); // Add maxWidth & maxHeight - other way ?
+		masterContainer = CompositeView(~tidalWindow /*window*/, Rect(0, 0, 135 /*80*/, 500)).background_(Color.gray(0.85))/*.minWidth_(200).maxWidth_(80)*/.maxWidth_(~tidalWindowMasterSize /*200*/).maxHeight_(1215); // Add maxWidth & maxHeight - other way ?
 
-		masterUI = MasterUIX.new(eventHandler);
+		masterUI = MasterUIX.new(eventHandler, switchLiveButtonEvent);
 		mixerUI = MixerUIX.new(eventHandler, dirt.orbits);
 		utilityUI =  UtilityUIX.new(eventHandler, dirt.orbits, presetPath, defaultParentEvent);
 		equalizerUI = EqualizerUIX.new(eventHandler, dirt.orbits, dirt.controlBusses, fxContainer);
@@ -187,9 +189,10 @@ SuperDirtMixerX {
 		// Create a window
 		// window = Window.new("Mixer", Rect(0,0,300,1000), scroll: true);
 
-		~tidalWindowS = ScrollView.new(~tidalWindow, bounds: Rect(-7,-6, ~tidalWindowSize+10 /*830*/ /*686*/ /*436*/, 1112 /*493*/));
+		~tidalWindowS = ScrollView.new(~tidalWindow, bounds: Rect(-7,-6, ~tidalWindowSize+10 /*830*/ /*686*/ /*436*/, 1238 /*493*/));
 		~tidalWindowS.hasBorder = 0;
 		~tidalWindowS.resize = 5;
+		~tidalWindowS.autohidesScrollers = false;
 
 		/*~tidalWindow*/ ~tidalWindowS.canvas = View().layout_(
 			VLayout(
@@ -236,10 +239,24 @@ SuperDirtMixerX {
 			eventHandler.emitEvent(\destroy);
 			// eventHandler.emitEvent(\releaseAll);
 			// dirt.stopSendRMS;
+
+			// Other means to clean connections with Twister and Quark Connection with NumericControlValue
+			if (~twisterIndex1.notNil, {
+			if (~connectionsTidalPre.notNil, {~connectionsTidalPre.disconnect});
+			if (~connectionsTidalBuf.notNil, {~connectionsTidalBuf.disconnect});
+			if (~connectionsTidalRat.notNil, {~connectionsTidalRat.disconnect});
+				Twister(\twister).free;
+			});
+			if (~twisterIndex2.notNil, { Twister(\twister2).free } );
+			if (~twisterIndex3.notNil, { Twister(\twister3).free } );
+
 			~dirt.free; /*s*/ ~dirt.server.quit; // To keep ?
 			// ~tidalX.disableMasterPeakRMS;
 		});
+
 		~tidalWindow.front;
+
+		// eventHandler.emitEvent(\resetAll); // Error if triggered
 
 		/*window.onClose_({
 			eventHandler.emitEvent(\destroy);

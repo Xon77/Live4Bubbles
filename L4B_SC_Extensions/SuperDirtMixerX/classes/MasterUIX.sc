@@ -1,17 +1,20 @@
 MasterUIX : UIFactories {
 	var handler;
+	var switchLiveButtonEvent;
 	var leftMasterIndicator, rightMasterIndicator;
 	var stageMaster;
-	var synth;
+	var synth, masterGainSynth;
 
-	*new { | initHandler |
-		^super.new.init(initHandler);
+	*new { | initHandler, initSwitchLiveButtonEvent |
+		^super.new.init(initHandler, initSwitchLiveButtonEvent);
 	}
 
 	init {
-		| initHandler |
+		| initHandler, initSwitchLiveButtonEvent |
 		var uiKnobFactories = UIKnobFactories();
 		handler = initHandler;
+		switchLiveButtonEvent = initSwitchLiveButtonEvent;
+
 		stageMaster = Dictionary.new;
 
 		leftMasterIndicator = LevelIndicator.new.minHeight_(120).maxWidth_(12).drawsPeak_(true).warning_(0.9).critical_(1.0);
@@ -35,6 +38,9 @@ MasterUIX : UIFactories {
 					synth.run(false);
 					this.changeButtonsStatus(false);
 				});
+
+				switchLiveButtonEvent.value(button.value);
+
 			})
 		]));
 
@@ -77,11 +83,18 @@ MasterUIX : UIFactories {
 
 		this.addMasterLevelOSCFunc;
 
+		~tidalPresetTrackSize = PathName(~tidalPresetTrackXPath).files.size;
+		~tidalPresetLineBegin = 1 ! ~tidalNbOfOrbits;
+		~tidalPresetLineEnd = ~tidalPresetTrackSize ! ~tidalNbOfOrbits;
+		~tidalSeqLineBegin = 1 ! ~tidalNbOfOrbits;
+		~tidalSeqLineEnd = /*~tidalEvalLine[0][~tidalEvalLine[0].size-1]*/ ~tidalEvalLine[0].last ! ~tidalNbOfOrbits;
+
 	}
 
 	handleEvent { |eventName, eventData|
 		if (eventName == \releaseAll, {
 			synth.free;
+			masterGainSynth.free;
 		});
 	}
 
@@ -96,14 +109,22 @@ MasterUIX : UIFactories {
 	createUI {
 		|container, prMasterBus|
 
+		var gainSlider = Slider.new.fixedWidth_(25).value_(/*0.4*/ 0.5 ).action_({
+			| slider |
+			masterGainSynth.set(\masterGain, slider.value.linlin(0,1,0,2/*5*/));
+			(slider.value*2).round(0.01).postln; // added // linlin not really necessary if only multiplied by 2
+		});
+
 		if (prMasterBus.isNil, {
 			stageMaster[\live][\element].enabled_(false);
 			stageMaster[\live][\element].states_([["Live", Color.grey(0.4), Color.white]]);
 		},{
-			if (synth.isNil.not, {synth.set(\out, prMasterBus)})
+			if (synth.isNil.not, {synth.set(\out, prMasterBus)});
+			if (masterGainSynth.isNil.not, {masterGainSynth.set(\out, prMasterBus)});
 		});
 
 		if (synth.isNil && currentEnvironment[\SuperDirtMixer][\wasStageMasterSynthCreated] == false, {
+			masterGainSynth = Synth.new(\masterGain, target: RootNode(~dirt.server), addAction: \addToTail);
 			synth = Synth.newPaused(\stageMaster, target: RootNode(~dirt.server), addAction: \addToTail);
 			currentEnvironment[\SuperDirtMixer].put(\wasStageMasterSynthCreated, true);
 		});
@@ -114,8 +135,8 @@ MasterUIX : UIFactories {
         ~eZRanger = EZRanger(/*~tidalWindow*/ /*container*/ ~eZRangerView, 400@16, " test  ", \freq, { |v| v.value.postln }, [50, 2000], unitWidth: 30);*/
 
 		// To change the Master View
-		~scrollMeterView = ScrollView(container,Rect(-20, 0, 20, 20));
-		~scrollMeterView.canvas = (~dirt.server.meter.serverMeter.window.asView.bounds_(Rect(0, 0, 20, 20)));
+		~scrollMeterView = ScrollView(container,Rect(-20, 0, 20, 20)).minHeight_(100).maxHeight_(250);
+		~scrollMeterView.canvas = (~dirt.server.meter/*.serverMeter*/.window.asView.bounds_(Rect(0, 0, 20, 20)));
 
 		container.layout = VLayout(
 			// Large additions
@@ -136,7 +157,7 @@ MasterUIX : UIFactories {
 					{~tidalTrackSelection = [~tidalTrackSelectionNumBox.value-1]}
 				}),
 
-				~tidalTrackSelectionNumBox = NumberBox.new.maxWidth_(24).background_(Color.black).stringColor_(Color.white).normalColor_(Color.white).clipLo_(1).clipHi_(8).align_(\center)
+				~tidalTrackSelectionNumBox = NumberBox.new.maxWidth_(24).background_(Color.black).stringColor_(Color.white).normalColor_(Color.white).clipLo_(1).clipHi_(8).step_(1).align_(\center)
 				.action_({ |v|
 					case
 					{~tidalTrackSelectionButton.value == 0}
@@ -195,7 +216,7 @@ MasterUIX : UIFactories {
 					}
 				}),
 				~tidalPresetNumBox = NumberBox.new.maxWidth_(24).background_(Color.red).stringColor_(Color.white).normalColor_(Color.white)
-				.clipLo_(1).clipHi_(~tidalTrackPresetListView.items.size).align_(\center)
+				.clipLo_(1).clipHi_(~tidalTrackPresetListView.items.size).step_(1).align_(\center)
 				.action_({ |v|
 					~tidalTrackSelection.do { |i|
 						~tidalGuiElements[i][\preset][\value].valueAction_(v.value);
@@ -213,42 +234,52 @@ MasterUIX : UIFactories {
 
 			HLayout(
 				// HLayout(~eZRangerView), // Does not work ???
-				~tidalPresetLineBeginNumBox = NumberBox.new.maxWidth_(40).maxHeight_(15).background_(Color.white).stringColor_(Color.red).normalColor_(Color.red).clipLo_(1).clipHi_(~tidalEvalLine[0].last).align_(\center)
+				~tidalPresetLineBeginNumBox = NumberBox.new.maxWidth_(28).maxHeight_(15).background_(Color.white).stringColor_(Color.red).normalColor_(Color.red).clipLo_(1).clipHi_(~tidalPresetLine[0].last).step_(1).align_(\center)
 				.action_({ |v|
 					~tidalNbOfOrbits.do { |i|
-						~tidalPresetLineBegin = v.value;
-						~tidalEvalLine[i] = (~tidalPresetLineBegin..~tidalPresetLineEnd)
-						// ~tidalGuiElementsidalGuiElements[i][\ryt][\value].valueAction_(0);
+						~tidalPresetLineBegin[i] = v.value.asInteger;
+						~tidalPresetLine[i] = (~tidalPresetLineBegin[i]..~tidalPresetLineEnd[i]);
+						~tidalGuiElements[i][\presetMin][\value].valueAction_(~tidalPresetLineBegin[i]);
+						~tidalGuiElements[i][\preset][\value].clipLo_(~tidalPresetLineBegin[i]);
 					};
-					~tidalPresetLineBeginNumBox.clipHi_(~tidalPresetLineEnd);
+					// ~tidalPresetLineBeginNumBox.clipHi_(~tidalPresetLineEnd[i]);
+					// ~tidalPresetLine = (~tidalPresetLineBegin .. ~tidalPresetLineEnd /*~tidalTrackPresetListView.items.size*/);
+
 				}),
 
-				~tidalPresetLineEndNumBox = NumberBox.new.maxWidth_(40).maxHeight_(15).background_(Color.white).stringColor_(Color.red).normalColor_(Color.red).clipLo_(1).clipHi_(~tidalEvalLine[0].last).align_(\center).value_(~tidalPresetLineEnd)
+				~tidalPresetLineEndNumBox = NumberBox.new.maxWidth_(28).maxHeight_(15).background_(Color.red).stringColor_(Color.white).normalColor_(Color.white).clipLo_(1).clipHi_(~tidalPresetLine[0].last).step_(1).align_(\center).value_(~tidalPresetLineEnd[0])
 				.action_({ |v|
 					~tidalNbOfOrbits.do { |i|
-						~tidalPresetLineEnd = v.value;
-						~tidalEvalLine[i] = (~tidalPresetLineBegin..~tidalPresetLineEnd)
-						// ~tidalGuiElementsidalGuiElements[i][\ryt][\value].valueAction_(0);
+						~tidalPresetLineEnd[i] = v.value.asInteger;
+						~tidalPresetLine[i] = (~tidalPresetLineBegin[i]..~tidalPresetLineEnd[i]);
+						~tidalGuiElements[i][\presetMax][\value].valueAction_(~tidalPresetLineEnd[i]);
+						~tidalGuiElements[i][\preset][\value].clipHi_(~tidalPresetLineEnd[i]);
 					};
-					~tidalPresetLineEndNumBox.clipLo_(~tidalPresetLineBegin);
-				});
+					// ~tidalPresetLineEndNumBox.clipLo_(~tidalPresetLineBegin[i]);
+					// ~tidalPresetLine = (~tidalPresetLineBegin .. ~tidalPresetLineEnd /*~tidalTrackPresetListView.items.size*/);
+				}),
+				~tidalPresetLineNumBox = Button.new.maxWidth_(22).maxHeight_(15).states_([["Sel", Color.white, Color.red]])
+				.action_({ |v|
+					~tidalPresetLineBeginNumBox.valueAction_(1);
+					~tidalPresetLineEndNumBox.valueAction_(~tidalTrackPresetListView.items.size)
+				}),
 			),
 
 			HLayout(
-				~tidalSeq0ARand = Button.new.maxWidth_(24).states_([["S1", Color.white, Color.blue]])
+				~tidalSeq0ARand = Button.new.maxWidth_(20).states_([["S1", Color.white, Color.blue]])
 				.action_({ |v|
 					// 4.do { |i| seqLineKnobs[3-i].valueAction_(1.0.rand) };
 					~tidalTrackSelection.do { |i|
 						~tidalGuiElements[i][\seqLine][\value].valueAction_(1)
 					}
 				}),
-				~tidalSeqNumBox = NumberBox.new.maxWidth_(24).background_(Color.blue).stringColor_(Color.white).normalColor_(Color.white).clipLo_(1).clipHi_(~tidalEvalLine[0].last).align_(\center)
+				~tidalSeqNumBox = NumberBox.new.maxWidth_(30).background_(Color.blue).stringColor_(Color.white).normalColor_(Color.white).clipLo_(1).clipHi_(~tidalEvalLine[0].last).step_(1).align_(\center)
 				.action_({ |v|
 					~tidalTrackSelection.do { |i|
 						~tidalGuiElements[i][\seqLine][\value].valueAction_(v.value);
 					};
 				}),
-				~tidalSeqARand = Button.new.maxWidth_(30).states_([["Seq", Color.white, Color.blue]])
+				~tidalSeqARand = Button.new.maxWidth_(28).states_([["Seq", Color.white, Color.blue]])
 				.action_({ |v|
 					~tidalTrackSelection.do { |i|
 						~tidalGuiElements[i][\seqLine][\value].valueAction_(~tidalEvalLine[i].choose)
@@ -258,27 +289,28 @@ MasterUIX : UIFactories {
 
 			HLayout(
 				// HLayout(~eZRangerView), // Does not work ???
-				~tidalSeqLineBeginNumBox = NumberBox.new.maxWidth_(24).maxHeight_(15).background_(Color.white).stringColor_(Color.black).normalColor_(Color.black).clipLo_(1).clipHi_(~tidalEvalLine[0].last).align_(\center)
+				~tidalSeqLineBeginNumBox = NumberBox.new.maxWidth_(28).maxHeight_(15).background_(Color.white).stringColor_(Color.black).normalColor_(Color.black).clipLo_(1).clipHi_(~tidalEvalLine[0].last).step_(1).align_(\center)
 				.action_({ |v|
 					~tidalNbOfOrbits.do { |i|
-						~tidalSeqLineBegin = v.value.asInteger;
-						~tidalEvalLine[i] = (~tidalSeqLineBegin..~tidalSeqLineEnd)
-						// ~tidalGuiElementsidalGuiElements[i][\ryt][\value].valueAction_(0);
+						~tidalSeqLineBegin[i] = v.value.asInteger;
+						~tidalEvalLine[i] = (~tidalSeqLineBegin[i]..~tidalSeqLineEnd[i]);
+						~tidalGuiElements[i][\seqLineMin][\value].valueAction_(~tidalSeqLineBegin[i]);
+						// ~tidalSeqLineBeginNumBox.clipHi_(~tidalSeqLineEnd[i]);
 					};
-					~tidalSeqLineBeginNumBox.clipHi_(~tidalSeqLineEnd);
 				}),
 
-				~tidalSeqLineEndNumBox = NumberBox.new.maxWidth_(24).maxHeight_(15).background_(Color.white).stringColor_(Color.black).normalColor_(Color.black).clipLo_(1).clipHi_(~tidalEvalLine[0].last).align_(\center).value_(~tidalSeqLineEnd)
+				~tidalSeqLineEndNumBox = NumberBox.new.maxWidth_(28).maxHeight_(15).background_(Color.blue).stringColor_(Color.yellow).normalColor_(Color.yellow).clipLo_(1).clipHi_(~tidalEvalLine[0].last).step_(1).align_(\center).value_(~tidalEvalLine[0].last)
 				.action_({ |v|
 					~tidalNbOfOrbits.do { |i|
-						~tidalSeqLineEnd = v.value.asInteger;
-						~tidalEvalLine[i] = (~tidalSeqLineBegin..~tidalSeqLineEnd)
-						// ~tidalGuiElementsidalGuiElements[i][\ryt][\value].valueAction_(0);
+						~tidalSeqLineEnd[i] = v.value.asInteger;
+						~tidalEvalLine[i] = (~tidalSeqLineBegin[i]..~tidalSeqLineEnd[i]);
+						~tidalGuiElements[i][\seqLineMax][\value].valueAction_(~tidalSeqLineEnd[i]);
+						// ~tidalGuiElements[i][\seqLineMax][\value].clipHi_(~tidalSeqLineEnd)
 					};
-					~tidalSeqLineEndNumBox.clipLo_(~tidalSeqLineBegin);
+					// ~tidalSeqLineEndNumBox.clipLo_(~tidalSeqLineBegin[i]);
 				}),
 
-				~tidalSeqLineNumBox = Button.new.maxWidth_(30).maxHeight_(15).states_([["Sel", Color.white, Color.blue]])
+				~tidalSeqLineNumBox = Button.new.maxWidth_(22).maxHeight_(15).states_([["Sel", Color.white, Color.blue]])
 				.action_({ |v|
 					~tidalSeqLineBeginNumBox.valueAction_(1);
 					~tidalSeqLineEndNumBox.valueAction_(~tidalSeqLineEndR)
@@ -295,7 +327,7 @@ MasterUIX : UIFactories {
 						~tidalGuiElements[i][\ryt][\element].valueAction_(0);
 					};
 				}),
-				~tidalRytSNumBox = NumberBox.new.maxWidth_(14).background_(Color.new255(255, 165, 0)).stringColor_(Color.blue).normalColor_(Color.blue).clipLo_(0).clipHi_(5)
+				~tidalRytSNumBox = NumberBox.new.maxWidth_(14).background_(Color.new255(255, 165, 0)).stringColor_(Color.blue).normalColor_(Color.blue).clipLo_(0).clipHi_(5).step_(1)
 				.action_({ |v|
 					/*8*/ ~tidalTrackSelection.do { |i|
 						~tidalGuiElements[i][\rytS][\value].valueAction_(v.value);
@@ -380,7 +412,7 @@ MasterUIX : UIFactories {
 						~tidalGuiElements[i][\leg][\value].valueAction_(1.0)
 					};
 				}),
-				~tidalLegSNumBox = NumberBox.new.maxWidth_(26).background_(Color.white/*Color.new255(139, 58, 58)*/).stringColor_(Color.black/*yellow*/).normalColor_(Color.black/*yellow*/).align_(\center).clipLo_(0).clipHi_(~tidalnumDurAlgs)
+				~tidalLegSNumBox = NumberBox.new.maxWidth_(24).background_(Color.white/*Color.new255(139, 58, 58)*/).stringColor_(Color.black/*yellow*/).normalColor_(Color.black/*yellow*/).align_(\center).clipLo_(0).clipHi_(~tidalnumDurAlgs).step_(1)
 				.action_({ |v|
 					~tidalTrackSelection.do { |i|
 						~tidalGuiElements[i][\legS][\value].valueAction_(v.value);
@@ -396,6 +428,50 @@ MasterUIX : UIFactories {
 				.action_({ |v|
 					~tidalTrackSelection.do { |i|
 						~tidalGuiElements[i][\leg][\element].valueAction_(1.0.rand)
+					};
+				})
+			),
+
+			HLayout(
+				~tidalCut0Rand = Button.new.maxWidth_(22).states_([["CO", Color.yellow, Color.black]])
+				.action_({ |v|
+					~tidalTrackSelection.do { |i|
+						~tidalGuiElements[i][\xon][\value].valueAction_(i+1);
+					};
+				}),
+				~tidalCut1Rand = Button.new.maxWidth_(22).states_([["C1", Color.yellow, Color.black]])
+				.action_({ |v|
+					~tidalTrackSelection.do { |i|
+						~tidalGuiElements[i][\xon][\value].valueAction_(1);
+					};
+				}),
+				~tidalCut2Rand = Button.new.maxWidth_(20).states_([["C2", Color.yellow, Color.black]])
+				.action_({ |v|
+					~tidalTrackSelection.do { |i|
+						~tidalGuiElements[i][\xon][\value].valueAction_([1,1,3,3,5,5,7,7][i]);
+					};
+				}),
+				~tidalCutARand = Button.new.maxWidth_(20).states_([["CR", Color.yellow, Color.black]])
+				.action_({ |v|
+					~tidalTrackSelection.do { |i|
+						~tidalGuiElements[i][\xon][\value].valueAction_(~tidalNbOfOrbits.rand);
+					};
+				})
+			),
+
+			// 5,
+
+			HLayout(
+				~tidalBufSyn0Rand = Button.new.maxWidth_(34).maxHeight_(18).states_([["B", Color.white, Color.red(0.7)], ["S", Color.red(0.7), Color.white]])
+				.action_({ |v|
+					~tidalTrackSelection.do { |i|
+						~tidalGuiElements[i][\bufS2][\value].valueAction_(v.value);
+					};
+				}),
+				~tidalBufSynRand = Button.new.maxWidth_(34).maxHeight_(18).states_([["BR", Color.white, Color.red(0.7)], ["SR", Color.red(0.7), Color.white]])
+				.action_({ |v|
+					~tidalTrackSelection.do { |i|
+						~tidalGuiElements[i][\bufS2][\value].valueAction_(2.rand);
 					};
 				})
 			),
@@ -419,7 +495,7 @@ MasterUIX : UIFactories {
 						};
 					});
 				}),
-				~tidalBufSNumBox = NumberBox.new.maxWidth_(14).background_(Color.red(0.7)).stringColor_(Color.yellow).normalColor_(Color.yellow).clipLo_(0).clipHi_(4)
+				~tidalBufSNumBox = NumberBox.new.maxWidth_(14).background_(Color.red(0.7)).stringColor_(Color.yellow).normalColor_(Color.yellow).clipLo_(0).clipHi_(4).step_(1)
 				.action_({ |v|
 					~tidalTrackSelection.do { |i|
 						~tidalGuiElements[i][\bufS][\value].valueAction_(v.value);
@@ -440,7 +516,30 @@ MasterUIX : UIFactories {
 				})
 			),
 
-			5,
+			HLayout(
+				~tidalR0Rand = Button.new.maxWidth_(24).states_([["R0", Color.yellow, Color.green(0.4)]])
+				.action_({ |v|
+					~tidalTrackSelection.do { |i|
+						~tidalGuiElements[i][\rat][\element].valueAction_(0.5);
+						~tidalGuiElements[i][\ran][\element].valueAction_(0.5)
+					};
+				}),
+				~tidalRatARand = Button.new.maxWidth_(24).states_([["Rt", Color.yellow, Color.green(0.4)]])
+				.action_({ |v|
+					~tidalTrackSelection.do { |i| // bufKnobs[3-i].valueAction_(1.0.rand) };
+						// ~superDirtOSC.sendMsg("/SuperDirtMixer/buf", i, ((1.0.rand*~arrayOfFolderNames4TidalSize[0]).asInteger))
+						~tidalGuiElements[i][\rat][\element].valueAction_(1.0.rand)
+					};
+				}),
+				~tidalRanARand = Button.new.maxWidth_(24).states_([["Ra", Color.yellow, Color.gray(0.4)]])
+				.action_({ |v|
+					~tidalTrackSelection.do { |i|
+						~tidalGuiElements[i][\ran][\element].valueAction_(1.0.rand)
+					};
+				})
+			),
+
+			// 5,
 
 			HLayout(
 				~tidalF0ARand = Button.new.maxWidth_(24).states_([["0", Color.black, Color.white], ["1", Color.black, Color.white]])
@@ -733,6 +832,30 @@ MasterUIX : UIFactories {
 				})
 			),
 
+			HLayout(
+				~tidalSpa0ARand = Button.new.maxWidth_(25).states_([["S0", Color.black, Color.yellow/*, Color.new255(139, 58, 58)*/]])
+				.action_({ |v|
+					~tidalTrackSelection.do { |i|
+						~tidalGuiElements[i][\spa][\value].valueAction_(1);
+					};
+				}),
+				~tidalSpaANumBox = NumberBox.new.maxWidth_(25).background_(Color.yellow/*Color.new255(139, 58, 58)*/).stringColor_(Color.black).normalColor_(Color.black).align_(\center).clipLo_(0).clipHi_(~tidalnumSpaAlgs).step_(1)
+				.action_({ |v|
+					~tidalTrackSelection.do { |i|
+						~tidalGuiElements[i][\spa][\value].valueAction_(v.value);
+					};
+				}).value_(1),
+				~tidalSpaARand = Button.new.maxWidth_(25).states_([["SR", Color.black, Color.yellow /*, Color.new255(139, 58, 58)*/]])
+				.action_({ |v|
+					~tidalTrackSelection.do { |i|
+						~tidalGuiElements[i][\spa][\value].valueAction_(~tidalnumSpaAlgs.rand)
+					};
+				})
+			),
+
+			5,
+			HLayout(StaticText.new.string_("---------------").fixedHeight_(15).maxWidth_(100).align_(\center)),
+
 
 			/* DEFINE MASTER UI : EXTRACT -> Stage master */
 			/*2,
@@ -751,6 +874,9 @@ MasterUIX : UIFactories {
 			HLayout(stageMaster[\highEndDb][\title]),
 			HLayout(~stageMasterHighEndDb = stageMaster[\highEndDb][\element]),
 			HLayout(stageMaster[\highEndDb][\value]),
+			5,
+
+			HLayout(StaticText.new.string_("---------------").fixedHeight_(15).maxWidth_(100).align_(\center)),
 			5,
 
 			HLayout(if (prMasterBus.isNil.not, { StaticText.new.string_("Master")/*.minWidth_(40 /*100*/)*/.maxWidth_(38).maxHeight_(30).align_(\center).font = Font(/*"Monaco"*/ /*"Verdana"*/ "Arial", 12, bold: true);
@@ -777,7 +903,8 @@ MasterUIX : UIFactories {
 			// HLayout(if (prMasterBus.isNil.not, { HLayout(leftMasterIndicator,rightMasterIndicator).spacing_(4)})),
 
 			// Trial to get an ServerMeter within a ScrollView, but not resizable - To do it with another way XXX
-			HLayout(if (prMasterBus.isNil.not, { ~scrollMeterView })).spacing_(0).margins_(0),
+			// HLayout(leftMasterIndicator,rightMasterIndicator, gainSlider).spacing_(0),
+			HLayout(gainSlider, if (prMasterBus.isNil.not, { ~scrollMeterView })).spacing_(0).margins_(0),
 
 			5,
 
@@ -788,15 +915,15 @@ MasterUIX : UIFactories {
 					// (0..(dirt.orbits.size - 1)).do({ |i| muteButtons[i].value_(view.value) });
 					// Comment mettre à jour chaque bouton mute de chaque piste ???
 					{if (view.value == 1, { ~tidalNbOfOrbits.do { |i| ~tidalGuiElements[i][\mute][\value].valueAction_(1) } }, { ~tidalNbOfOrbits.do { |i| ~tidalGuiElements[i][\mute][\value].valueAction_(0) } }) }.defer;
-			}),
-			~tidalMute2AllButton = Button.new.maxWidth_(40).states_([["X All", Color.black, Color.white], ["X All", Color.white, Color.red]])
+				}),
+				~tidalMute2AllButton = Button.new.maxWidth_(40).states_([["X All", Color.black, Color.white], ["X All", Color.white, Color.red]])
 				.action_({ |view|
 					// (0..(dirt.orbits.size - 1)).do({ |i| muteButtons[i].value_(view.value) });
 					// Comment mettre à jour chaque bouton mute de chaque piste ???
 					{if (view.value == 1, { ~tidalNbOfOrbits.do { |i| ~tidalGuiElements[i][\mute2][\value].valueAction_(1) } }, { ~tidalNbOfOrbits.do { |i| ~tidalGuiElements[i][\mute2][\value].valueAction_(0) } }) }.defer;
-			})
+				})
 			),
-			5,
+			2,
 			HLayout(Button.new.maxWidth_(50).string_("Res EQ").action_({
 				/*equiView.value = EQuiParams.new();
 				equiView.target = activeOrbit.globalEffects[0].synth;*/
