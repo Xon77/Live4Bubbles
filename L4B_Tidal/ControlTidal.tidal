@@ -1,8 +1,48 @@
--- Initialisation : index of tracks, control lists and functions XXX
-let t1 = (1/8); t2 = (2/8); t3 = (3/8); t4 = (4/8); t5 = (5/8); t6 = (6/8); t7 = (7/8); t8 = (8/8)
-    -- Listes de contrôle hormis ryt pour le tempo
+-- To Do or tests
+-- Set d as a float or .5 steps, not only an integer -> to test in rhythms to speed up
+
+-- Initialisation of timing structure XXX
+let makeStr base n = parseBP_E $ base ++ "*[^d" ++ show n ++ "]"
+    str1 = "<[t ~ ~ ~]!15 t(<1 2>,32) [t ~ ~ ~]!15 [t t? t? t?] [t ~ ~ ~]!15 [[t t?] t? t? t?]>"
+    str2 = "[t ~]"
+    str3 = "[~ t]"
+    str4 = "[t ~ ~ ~]"
+    str5 = "[t ~ t? ~]"
+    str6 = "[t ~ t? t?]"
+    str7 = "[t t? t? t?]"
+    str8 = "[~ ~ t ~ ~ t ~ ~]"
+    str9 = "<[t ~ ~ ~]!15 [t ~ t ~]>"
+    str10 = "<[t ~ ~ ~]!7 [t ~ t ~]>"
+    str11 = "<[t ~ ~ ~]!3 [t ~ t ~]>"
+    str12 = "<[t ~ ~ ~]!3 [t t t t?]>"
+    str13 = "<[t ~ ~ ~]!15 t(<1 2 4>,32) [t ~ ~ ~]!15 [t t? t? t?] [t ~ ~ ~]!15 [[t t?] t? t? t?]>"
+    str14 = "<[t ~ ~ ~]!15 t(<3 2 6>,32) [t ~ ~ ~]!15 [t t? t? t?] [t ~ ~ ~]!15 [[t t?] t? t? t?] [t ~ ~ ~]!15 [[t t?] t? [t? t?] t?]>"
+    str15 = "<[t ~ ~ ~]!15, t(<8 4 3 2 6>,32), [t ~ ~ ~]!15 [t t? t? t?], [t ~ ~ ~]!15 [[t t?], t? t? t?]>"
+    str16 = "<[t ~ ~ ~]!15, t(<16 4 3 2>,32), [t ~ ~ ~]!15 [t t? t? t?] [t ~ ~ ~]!15, [[t t?] t? t? t?]>"
+    strs = [str1, str2, str3, str4, str5, str6, str7, str8, str9, str10, str11, str12, str13, str14, str15, str16]
+    stAll = map (\str -> map (makeStr str) [1..8]) strs
+    [st1All, st2All, st3All, st4All, st5All, st6All, st7All, st8All, st9All, st10All, st11All, st12All, st13All, st14All, st15All, st16All] = stAll
+    [s1d1, s1d2, s1d3, s1d4, s1d5, s1d6, s1d7, s1d8] = st1All
+    [s2d1, s2d2, s2d3, s2d4, s2d5, s2d6, s2d7, s2d8] = st2All
+    [s3d1, s3d2, s3d3, s3d4, s3d5, s3d6, s3d7, s3d8] = st3All
+    [s4d1, s4d2, s4d3, s4d4, s4d5, s4d6, s4d7, s4d8] = st4All
+    [s5d1, s5d2, s5d3, s5d4, s5d5, s5d6, s5d7, s5d8] = st5All
+    [s6d1, s6d2, s6d3, s6d4, s6d5, s6d6, s6d7, s6d8] = st6All
+    [s7d1, s7d2, s7d3, s7d4, s7d5, s7d6, s7d7, s7d8] = st7All
+    [s8d1, s8d2, s8d3, s8d4, s8d5, s8d6, s8d7, s8d8] = st8All
+    [s9d1, s9d2, s9d3, s9d4, s9d5, s9d6, s9d7, s9d8] = st9All
+    [s10d1, s10d2, s10d3, s10d4, s10d5, s10d6, s10d7, s10d8] = st10All
+    [s11d1, s11d2, s11d3, s11d4, s11d5, s11d6, s11d7, s11d8] = st11All
+    [s12d1, s12d2, s12d3, s12d4, s12d5, s12d6, s12d7, s12d8] = st12All
+    [s13d1, s13d2, s13d3, s13d4, s13d5, s13d6, s13d7, s13d8] = st13All
+    [s14d1, s14d2, s14d3, s14d4, s14d5, s14d6, s14d7, s14d8] = st14All
+    [s15d1, s15d2, s15d3, s15d4, s15d5, s15d6, s15d7, s15d8] = st15All
+    [s16d1, s16d2, s16d3, s16d4, s16d5, s16d6, s16d7, s16d8] = st16All
+    -- Initialisation : index of tracks, control lists and functions XXX
+    t1 = (1/8); t2 = (2/8); t3 = (3/8); t4 = (4/8); t5 = (5/8); t6 = (6/8); t7 = (7/8); t8 = (8/8)
+    -- Control lists except d for the tempo & FolN & BufN for normalized values
     leg = [ "^1Leg", "^2Leg", "^3Leg", "^4Leg", "^5Leg", "^6Leg", "^7Leg", "^8Leg" ]
-    legS = ["^1LegS", "^2LegS", "^3LegS", "^4LegS", "^5LegS", "^6LegS", "^7LegS", "^8LegS" ]
+    legS = [ "^1LegS", "^2LegS", "^3LegS", "^4LegS", "^5LegS", "^6LegS", "^7LegS", "^8LegS" ]
     fol = [ "^1Fol", "^2Fol", "^3Fol", "^4Fol", "^5Fol", "^6Fol", "^7Fol", "^8Fol" ]
     buf = [ "^1Buf", "^2Buf", "^3Buf", "^4Buf", "^5Buf", "^6Buf", "^7Buf", "^8Buf" ]
     fxs = [ "^1fxs", "^2fxs", "^3fxs", "^4fxs", "^5fxs", "^6fxs", "^7fxs", "^8fxs" ]
@@ -25,15 +65,17 @@ let t1 = (1/8); t2 = (2/8); t3 = (3/8); t4 = (4/8); t5 = (5/8); t6 = (6/8); t7 =
     fut2 = [ "^1fut2", "^2fut2", "^3fut2", "^4fut2", "^5fut2", "^6fut2", "^7fut2", "^8fut2" ]
     fup2 = [ "^1fup2", "^2fup2", "^3fup2", "^4fup2", "^5fup2", "^6fup2", "^7fup2", "^8fup2" ]
     fuv2 = [ "^1fuv2", "^2fuv2", "^3fuv2", "^4fuv2", "^5fuv2", "^6fuv2", "^7fuv2", "^8fuv2" ]
+    spa = [ "^1Spa", "^2Spa", "^3Spa", "^4Spa", "^5Spa", "^6Spa", "^7Spa", "^8Spa" ]
     fxpL = [ "1fxp", "2fxp", "3fxp", "4fxp", "5fxp", "6fxp", "7fxp", "8fxp" ] -- Access without ref
     fxpL2 = [ "1fxp2", "2fxp2", "3fxp2", "4fxp2", "5fxp2", "6fxp2", "7fxp2", "8fxp2" ]
     fupL = [ "1fup", "2fup", "3fup", "4fup", "5fup", "6fup", "7fup", "8fup" ]
     fupL2 = [ "1fup2", "2fup2", "3fup2", "4fup2", "5fup2", "6fup2", "7fup2", "8fup2" ]
-    legSL = ["1LegS", "2LegS", "3LegS", "4LegS", "5LegS", "6LegS", "7LegS", "8LegS" ]
+    legSL = [ "1LegS", "2LegS", "3LegS", "4LegS", "5LegS", "6LegS", "7LegS", "8LegS" ]
     -- Initialisation des variables de contrôle - Nb de pistes contrôlable XXX
     -- e.g. setI "d1" (cI 4 "d1"); setI "d2" (cI 4 "d2"); ...
     initializeControls :: Int -> IO ()
     initializeControls n = do
+      setI "xFadeA" (cI 0 "xFadeA")
       -- Tempo
       mapM_ (\i -> setI ("d" ++ show i) (cI 4 ("d" ++ show i))) [1..n]
       -- Duration
@@ -42,8 +84,21 @@ let t1 = (1/8); t2 = (2/8); t3 = (3/8); t4 = (4/8); t5 = (5/8); t6 = (6/8); t7 =
       mapM_ (\i -> setF (show i ++ "LegS") (cF 0 (show i ++ "LegS"))) [1..n]
       -- Sound folder
       mapM_ (\i -> setS (show i ++ "Fol") (cS "DB_A0KikCE" (show i ++ "Fol"))) [1..n]
+      -- Sound folder normalized from 0 to 1
+      mapM_ (\i -> setF (show i ++ "FolN") (cF 0 (show i ++ "FolN"))) [1..n]
       -- Sound buffer
-      mapM_ (\i -> setI (show i ++ "Buf") (cI 0 (show i ++ "Buf"))) [1..n]
+      mapM_ (\i -> setF (show i ++ "Buf") (cF 0 (show i ++ "Buf"))) [1..n]
+      -- Sound buffer normalized from 0 to 1
+      mapM_ (\i -> setF (show i ++ "BufN") (cF 0 (show i ++ "BufN"))) [1..n]
+      -- Playback speed
+      mapM_ (\i -> setF (show i ++ "Rat") (cF 1 (show i ++ "Rat"))) [1..n]
+      -- Other parameter depending on the line of code
+      mapM_ (\i -> setF (show i ++ "Ran") (cF 0.5 (show i ++ "Ran"))) [1..n]
+      -- Orbit to group sounds and cut within them - below to get the default from 0 to 7
+      -- mapM_ (\i -> setI (show i ++ "Xon") (cI 0 (show i ++ "Xon"))) [1..n]
+      mapM_ (\i -> setI (show i ++ "Xon") (cI (i - 1) (show i ++ "Xon"))) [1..n]
+      -- Spat - 1 for stereo
+      mapM_ (\i -> setI (show i ++ "Spa") (cI 1 (show i ++ "Spa"))) [1..n]
       -- FX Switch, Timing, Position, Valeur
       mapM_ (\i -> mapM_ (\fx -> setF (show i ++ fx) (cF 0 (show i ++ fx))) ["fxs", "fxx", "fxt", "fxp", "fxv"]) [1..n]
       -- FX 2 Switch, Timing, Position, Valeur
@@ -218,31 +273,36 @@ let t1 = (1/8); t2 = (2/8); t3 = (3/8); t4 = (4/8); t5 = (5/8); t6 = (6/8); t7 =
       let fxR = fromIntegral (length lfx) :: Double -- fromIntegral convertit un type qui est une instance de la classe Integral (comme Int ou Integer) en un type plus général compatible avec Num (comme Float, Double, etc.)
       let sfx = select (select t fxp) lfx
       -- let fxt2 = (fmap (round . (* 10)) (select "^tr" fxt))
-      let sfxx = selectF (fmap (/ 20) (select t fxx))
+      -- The list below is updated only when Tidal Cycles is reevaluated -- no direct update -- ??? XXX
+      let sfxx = selectF (fmap (/ 24) (select t fxx))
             [ (# sfx) -- 0 Effet seul
             -- The superimpose plays a modified version of a pattern 'on top of' the original pattern, resulting in the modified and original version of the patterns being played at the same time. Implemented with sfux.
             -- 1 superposition originel et effet
             , superimpose (# sfx)
             -- off is similar to superimpose, in that it applies a function to a pattern, and layers up the results on top of the original pattern. The difference is that off takes an extra pattern being a time (in cycles) to shift the transformed version of the pattern by.
-            , off 0.125 (# sfx) -- 2 superposition avec décalage
-            , off 0.25 (# sfx) -- 3 superposition avec décalage
-            , off 0.33 (# sfx) -- 4 superposition avec décalage
-            , off 0.5 (# sfx) -- 5 superposition avec décalage
-            , off 0.75 (# sfx) -- 6 superposition avec décalage
-            , off 1 (# sfx) -- 7 superposition avec décalage
-            , off 2 (# sfx) -- 8 superposition avec décalage
-            , off 4 (# sfx) -- 9 superposition avec décalage
-            , off "<0.125 0.25 0.5 1>" (# sfx) -- 10 superposition avec décalage
-            , off "<0.25 0.75 0.5 0.125>" (# sfx) -- 11 superposition avec décalage
-            , off "<0.33 0.25 0.66 0.5>" (# sfx) -- 12 superposition avec décalage
-            , jux (# sfx) -- 13
-            , juxBy 0.75 (# sfx) -- 14
-            , juxBy 0.5 (# sfx) -- 15
-            , juxBy 0.25 (# sfx) -- 16
-            , jux (rev . (# sfx)) -- 17
-            , juxBy 0.75 (rev . (# sfx)) -- 18
-            , juxBy 0.5 (rev . (# sfx)) -- 19
-            , juxBy 0.25 (rev . (# sfx)) -- 20
+            , off "0.5s" (# sfx) -- 2 superposition avec décalage -- For a 32nd -> 0.0624/2
+            , off "s" (# sfx) -- 3 superposition avec décalage -- s = 0.0624 (sixteenth)
+            , off 0.125 (# sfx) -- 4 superposition avec décalage -- e = 0.125 (eighth)
+            , off 0.2 (# sfx) -- 5 superposition avec décalage -- f = 0.2 (fifth)
+            , off 0.25 (# sfx) -- 6 superposition avec décalage -- q = 0.25 (quarter)
+            , off "t" (# sfx) -- 7 superposition avec décalage -- t = 1/3 (third)
+            , off "2f" (# sfx) -- 8 superposition avec décalage -- f = 0.4 (2 fifths)
+            , off 0.5 (# sfx) -- 9 superposition avec décalage -- h = 0.5 (half)
+            , off 0.75 (# sfx) -- 10 superposition avec décalage
+            , off 1 (# sfx) -- 11 superposition avec décalage -- w = 1 (whole)
+            , off 2 (# sfx) -- 12 superposition avec décalage
+            , off 4 (# sfx) -- 13 superposition avec décalage
+            , off "<0.125 0.25 0.5 1>" (# sfx) -- 14 superposition avec décalage
+            , off "<0.25 0.75 0.5 0.125>" (# sfx) -- 15 superposition avec décalage
+            , off "<0.33 0.25 0.66 0.5>" (# sfx) -- 16 superposition avec décalage
+            , jux (# sfx) -- 17 -- The jux function creates strange stereo effects, by applying a function to a pattern, but only in the right-hand channel.
+            , juxBy 0.75 (# sfx) -- 18 -- The variant juxBy has an additional parameter, which brings the channel closer to the centre.
+            , juxBy 0.5 (# sfx) -- 19
+            , juxBy 0.25 (# sfx) -- 20
+            , jux (rev . (# sfx)) -- 21
+            , juxBy 0.75 (rev . (# sfx)) -- 22
+            , juxBy 0.5 (rev . (# sfx)) -- 23
+            , juxBy 0.25 (rev . (# sfx)) -- 24
             -- , off 0.25 (# sfx) $ off 0.75 (# sfx)
             -- , weave 16 (pan sine) [(# sfx), slow 2 (# sfx), fast 2 (# sfx)]
             -- , stack [(# sfx), off 0.25 (# sfx), off 0.5 (# sfx)]
@@ -257,7 +317,7 @@ let t1 = (1/8); t2 = (2/8); t3 = (3/8); t4 = (4/8); t5 = (5/8); t6 = (6/8); t7 =
                   -- , (sometimesBy (select t fxt) sfxx)
                   -- , (someCyclesBy (select t fxt) sfxx)]
       let fx = while ((> 0) <$> (select t fxs))
-            (selectF (fmap (/ 40) (select t fxs))
+            (selectF (fmap (/ 39) (select t fxs))
                 [
                 -- 0 Not used - No Effect
                 (every 77 (sfxx))
@@ -297,7 +357,7 @@ let t1 = (1/8); t2 = (2/8); t3 = (3/8); t4 = (4/8); t5 = (5/8); t6 = (6/8); t7 =
                 , (sometimesBy (select t fxt) (sfxx))
                 -- 10 Sometimes X at each Cycle
                 , (someCyclesBy (select t fxt) (sfxx))
-                -- inside : carries out an peration 'inside' a cycle. What this function is really doing is 'slowing down' the pattern by a given factor, applying the given function to it, and then 'speeding it up' by the same factor. 'inside 2 rev' is like : 'fast 2 $ rev $ slow 2', so the 1st half of a cycle is reversed.
+                -- inside : carries out an operation 'inside' a cycle. What this function is really doing is 'slowing down' the pattern by a given factor, applying the given function to it, and then 'speeding it up' by the same factor. 'inside 2 rev' is like : 'fast 2 $ rev $ slow 2', so the 1st half of a cycle is reversed.
                 -- 11 Effet ?
                 , (inside (fmap (fromIntegral . round) (range 1 16 (select t fxt))) (sfxx))
                 -- 12
@@ -664,31 +724,43 @@ let t1 = (1/8); t2 = (2/8); t3 = (3/8); t4 = (4/8); t5 = (5/8); t6 = (6/8); t7 =
             (233, "Rot", rot "<0 0 1 2>"),
             (234, "Rot", rot "<0 1 3 2>"),
             (235, "Rot", rot "<3 2 1 0>"),
-            (236, "Rot", rot "<3 2 1 0>"),
+            (236, "Rot", rot "<0 1 2 3>"),
             (237, "Rot", rot "<1 0 3 2 1 0>"),
             (238, "Rot", rot "<1 3 0 1 1 0>"),
             (239, "Rot", rot "<1 0 3 2 0 1 2 3>"),
             (240, "Rot", rot "<2 3 2 1 1 0 2 3>"),
+            -- ~> rotates the rhythm, the structure around too
             (241, "Shift", ((sel t fuv) ~>)),
             (242, "Shift", (0.25 ~>)),
             (243, "Shift", (0.5 ~>)),
-            (243, "Shift", (0.75 ~>)),
+            (244, "Shift", (0.75 ~>)),
             (245, "Shift", ("<0 0.25 0.75>" ~>)),
-            (246, "Shift", ("<0 0.25 0.5 0.75>" ~>)),
-            (247, "Palindrome", palindrome),
+            (246, "Shift", ("<0 0.25 0 0.75>" ~>)),
+            (247, "Shift", ("<0 0 0.5 0.25>" ~>)),
+            (248, "Shift", ("<0.25 0.75 0.5 0>" ~>)),
+            (249, "Shift", ((sel t fuv) <~)),
+            -- Inverse <~
+            (250, "Shift", (0.25 <~)),
+            (251, "Shift", (0.5 <~)),
+            (252, "Shift", (0.75 <~)),
+            (253, "Shift", ("<0 0.25 0.75>" <~)),
+            (254, "Shift", ("<0 0.25 0.5 0.75>" <~)),
+            (255, "Shift", ("<0 0 0.5 0.25>" <~)),
+            (256, "Shift", ("<0.25 0.75 0.5 0>" <~)),
+            (257, "Palindrome", palindrome),
             -- The loopFirst takes a pattern and loops only the first cycle of the pattern. This function combines with sometimes to insert events from the first cycle randomly into subsequent cycles of the pattern.
-            (248, "LoopFirst", loopFirst),
-            (249, "Rev", rev),
-            (250, "Jux Rev", jux rev),
+            (258, "LoopFirst", loopFirst),
+            (259, "Rev", rev),
+            (260, "Jux Rev", jux rev),
             -- Sampling
-            (251, "Chop", chop "<[16 64 32]>*[^d1]"), -- Comment remplacer [^d1] par [^d2]... ?
-            (252, "Chop", chop "<[16 128 32]>"),
-            (253, "Chop", chop "<4 8 12>*[^d1]"),
-            (254, "Chop", chop (max 1 (round <$> (* 128) <$> sel t fuv)))
+            (261, "Chop", chop "<[16 64 32]>*[^d1]"), -- Comment remplacer [^d1] par [^d2]... ?
+            (262, "Chop", chop "<[16 128 32]>"),
+            (263, "Chop", chop "<4 8 12>*[^d1]"),
+            (264, "Chop", chop (max 1 (round <$> (* 128) <$> sel t fuv)))
             -- (# chop (range 1 32 $ slow 10 sine)) - To test ?
             -- (224, "Rand Slice", randslice (max 1 (round <$> (* 16) <$> sel t fuv)))
             -- (50, "Slice", slice "^d1" "[<0*8 0*2> 3*4 2 4] [4 .. 7]*[^d1]"),
-            -- (11, "Splice", slice "^d1" "7 6 5 4 3 2 1 0"),
+            -- (11, "Slice", slice "^d1" "7 6 5 4 3 2 1 0"),
             -- (103, "Splice", splice (max 2 (round <$> (* 7) <$> sel t fuv)) "7 6 5 4 3 2 1 2 0 0")
             -- (9, "Striate", striate "^d1"),
             -- (100, "Striate", striate (max 1 (round <$> (* 12) <$> sel t fuv))), -- peut générer de nombreux late and skip
@@ -700,32 +772,36 @@ let t1 = (1/8); t2 = (2/8); t3 = (3/8); t4 = (4/8); t5 = (5/8); t6 = (6/8); t7 =
       let fuR = fromIntegral (length lfu) :: Double
       let sfu = selectF (select t fup) lfu
       -- let sfux = if select t fux == 0 then sfu else superimpose (sfu)
-      let sfux = selectF (fmap (/ 20) (select t fux))
+      let sfux = selectF (fmap (/ 24) (select t fux))
             [ sfu -- 0 Effet seul
             , superimpose (sfu) -- 1 superposition originel et effet
-            , off 0.125 (sfu) -- 2 superposition avec décalage
-            , off 0.25 (sfu) -- 3 superposition avec décalage
-            , off 0.33 (sfu) -- 4 superposition avec décalage
-            , off 0.5 (sfu) -- 5 superposition avec décalage
-            , off 0.75 (sfu) -- 6 superposition avec décalage
-            , off 1 (sfu) -- 7 superposition avec décalage
-            , off 2 (sfu) -- 8 superposition avec décalage
-            , off 4 (sfu) -- 9 superposition avec décalage
-            , off "<0.125 0.25 0.5 1>" (sfu) -- 10 superposition avec décalage
-            , off "<0.25 0.75 0.5 0.125>" (sfu) -- 11 superposition avec décalage
-            , off "<0.33 0.25 0.66 0.5>" (sfu) -- 12 superposition avec décalage
-            , jux (sfu) -- 13
-            , juxBy 0.75 (sfu) -- 14
-            , juxBy 0.5 (sfu) -- 15
-            , juxBy 0.25 (sfu) -- 16
-            , jux (rev . sfu) -- 17
-            , juxBy 0.75 (rev . sfu) -- 18
-            , juxBy 0.5 (rev . sfu) -- 19
-            , juxBy 0.25 (rev . sfu) -- 20
+            , off "0.5s" (sfu) -- 2 superposition avec décalage
+            , off "s" (sfu) -- 3 superposition avec décalage
+            , off 0.125 (sfu) -- 4 superposition avec décalage
+            , off 0.2 (sfu) -- 5 superposition avec décalage
+            , off 0.25 (sfu) -- 6 superposition avec décalage
+            , off "t" (sfu) -- 7 superposition avec décalage
+            , off "2f" (sfu) -- 8 superposition avec décalage
+            , off 0.5 (sfu) -- 9 superposition avec décalage
+            , off 0.75 (sfu) -- 10 superposition avec décalage
+            , off 1 (sfu) -- 11 superposition avec décalage
+            , off 2 (sfu) -- 12 superposition avec décalage
+            , off 4 (sfu) -- 13 superposition avec décalage
+            , off "<0.125 0.25 0.5 1>" (sfu) -- 14 superposition avec décalage
+            , off "<0.25 0.75 0.5 0.125>" (sfu) -- 15 superposition avec décalage
+            , off "<0.33 0.25 0.66 0.5>" (sfu) -- 16 superposition avec décalage
+            , jux (sfu) -- 17
+            , juxBy 0.75 (sfu) -- 18
+            , juxBy 0.5 (sfu) -- 19
+            , juxBy 0.25 (sfu) -- 20
+            , jux (rev . sfu) -- 21
+            , juxBy 0.75 (rev . sfu) -- 22
+            , juxBy 0.5 (rev . sfu) -- 23
+            , juxBy 0.25 (rev . sfu) -- 24
             ]
       -- let fu = selectF (fmap (/ 3) (select t fus)) [(every (fmap round (range 10 0 (select t fut))) (sfu)), (sometimesBy (select t fut) (sfu)), (someCyclesBy (select t fut) (sfu))]
       let fu = while ((> 0) <$> (select t fus))
-            (selectF (fmap (/ 40) (select t fus))
+            (selectF (fmap (/ 39) (select t fus))
                 [
                 -- 0 Not used - No Effect
                 (every 77 (sfux))
@@ -788,6 +864,7 @@ let t1 = (1/8); t2 = (2/8); t3 = (3/8); t4 = (4/8); t5 = (5/8); t6 = (6/8); t7 =
                 -- 29
                 , fromWithin rand (sfux)
                 -- 30
+                -- chunk divides a pattern into a given number of parts, then cycles through those parts in turn, applying the given function to each part in turn
                 , chunk 4 (sfux)
                 -- 31
                 , chunk 8 (sfux)
@@ -814,32 +891,171 @@ let t1 = (1/8); t2 = (2/8); t3 = (3/8); t4 = (4/8); t5 = (5/8); t6 = (6/8); t7 =
     -- Voire comment alterner pas de legato et legato 1/2 ou autres ?
     updateDur legS leg t = do
       let dur = while ((> 0) <$> (select t legS))
-            (selectF (fmap (/ 7) (select t legS))
-                [
+            (selectF (fmap (/ 44) (select t legS))
+                [ -- To reorganize -- Add Sustain & cut to stop when another begins ??? XXX
                 -- (# legato 0) -- Pas de legato pour 0
                 (# legato 0) -- duration of the sound / no intervention on the duration
                 -- 1
-                , (# legato 1) -- stops when another begins
+                , (# cut "1") -- plays until the beginning of a sound on the same group
                 -- 2
-                , (# legato (select t leg))
+                , (# legato 1) -- plays the duration of the rhythm
                 -- 3
-                , (# (legato (select t leg) |* legato "1 6"))
+                , (# legato 1.25)
                 -- 4
-                , (# (legato (select t leg) |* legato "<1 6>"))
+                , (# legato 1.5)
                 -- 5
-                , (# (legato (select t leg) |* legato "<60>")) -- does not seem to work ?
+                , (# legato 2)
                 -- 6
-                , (# (legato (select t leg) |* legato rand))
+                , (# legato 3)
                 -- 7
-                , (# (legato (select t leg) |* legato saw))
+                , (# legato 6)
                 -- 8
-                , (# (legato (select t leg) |* legato "6" |* legato rand))
+                , (# legato 9)
                 -- 9
+                , (# legato 12)
+                -- 10
+                , (# legato (select t leg))
+                -- 11
+                , (# (legato (select t leg) |* legato "1 6"))
+                -- 12
+                , (# (legato (select t leg) |* legato "<1 6>"))
+                -- 13
+                , (# (legato (select t leg) |* legato "<1 3 6 12>")) -- does not seem to work ?
+                -- 14
+                , (# (legato (select t leg) |* legato "2" |* legato rand))
+                -- 15
+                , (# (legato (select t leg) |* legato "2" |* legato saw))
+                -- 16
+                , (# (legato (select t leg) |* legato "6" |* legato rand))
+                -- 17
                 , (# (legato (select t leg) |* legato "6" |* legato saw))
+                -- 18
+                , (# (legato (select t leg) |* legato (irand 12)))
+                -- 19
+                , (# (legato (select t leg) |* legato (irand 24)))
+                -- 20
+                , (# sustain 0.5) -- plays the duration in seconds
+                -- 21
+                , (# sustain 1)
+                -- 22
+                , (# sustain 2)
+                -- 23
+                , (# sustain (select t leg)) -- plays the duration in seconds
+                -- 24
+                , (# (sustain (select t leg) |* sustain "1 6"))
+                -- 25
+                , (# (sustain (select t leg) |* sustain "<1 6>"))
+                -- 26
+                , (# (sustain (select t leg) |* sustain "<1 3 6 12>")) -- does not seem to work ?
+                -- 27
+                , (# (sustain (select t leg) |* sustain "2" |* sustain rand))
+                -- 28
+                , (# (sustain (select t leg) |* sustain "2" |* sustain saw))
+                -- 29
+                , (# (sustain (select t leg) |* sustain "6" |* sustain rand))
+                -- 30
+                , (# (sustain (select t leg) |* sustain "6" |* sustain saw))
+                -- TidalCycles Tutorial #14: truncating samples with "cut"
+                -- https://www.youtube.com/watch?v=hwe4kSB-4ms
+                -- 31
+                , (# cut "1") -- plays until the beginning of a sound on the same group
+                -- several tracks do not interact with each other on the same group ???
+                -- 32
+                , (# cut "2") -- works but when changed, can trigger longer sounds
+                -- 33
+                , (# cut "3")
+                -- 34
+                , (# cut "4")
+                -- 35
+                , (# cut "5")
+                -- 36
+                , (# cut "6")
+                -- 37
+                , (# cut "7")
+                -- 38
+                , (# cut "8")
+                -- 39
+                , (# cut "-1") -- plays until the beginning of the sound of another folder ?
+                -- 40
+                , (# cut "[1 2 3 4]")
+                -- 41
+                , (# cut "[1 2 3 4]/3")
+                -- 41
+                , (# cut (choose[1,2..5])) -- (choose[1,2,3,4,5]
+                -- 42
+                , (# cut (choose[1,2]))
+                -- 43
+                , (# cut (irand 3))
+                -- 44
+                , (# legato 0) -- No sound
                 ])
       return (dur)
+    -- Spatialization of 4 channels - to Adapt for X channels
+    updateSpa spa t = do
+      let spat = (selectF (fmap (/ 29) (select t spa))
+            [
+            {- -- for 8 channels
+            (# channel "1") -- 0
+            , (# channel "2") -- 1
+            , (# channel "3") -- 2
+            , (# channel "4") -- 3
+            , (# channel "5") -- 4
+            , (# channel "6") -- 5
+            , (# channel "7") -- 6
+            , (# channel "8") -- 7
+            , (# channel "1 [5 2] [4 2 6] [7 2 3] 2 8 4") -- 8
+            , (# channel "1 [[2 5 3] 6 2] [4 5 1] [1 [2 7 4 3]] 2 6 4") -- 9
+            , (# channel (irand 8)) -- 10
+            , (# channel (run 8)) -- 11
+            , (# channel (rev $ run 8)) -- 12
+            , (# channel (every 2 rev $ run 8)) -- 13
+            , (# channel (palindrome $ run 8)) -- 14
+            , (# channel (fast 4 (run 8))) -- 15
+            , (# channel (fast 4 $ rev (run 8))) -- 16
+            , (# channel (fast 8 (run 8))) -- 17
+            , (# channel (fast 8 $ rev (run 8))) -- 18
+            , (# channel (fast 16 (run 8))) -- 19
+            , (# channel (fast 16 $ rev (run 8))) -- 20
+            , (# channel (fast 0.5 (run 8))) -- 21
+            , (# channel (fast 0.5 $ rev (run 8))) -- 22
+            , (# channel (fast 0.25 (run 8))) -- 23
+            , (# channel (fast 0.25 $ rev (run 8))) -- 24
+            -}
+              (# channel "1") -- 0
+              , (# channel "2") -- 1
+              , (# channel "3") -- 2
+              , (# channel "4") -- 3
+              , (# channel "2 4") -- 4
+              , (# channel "1 3") -- 5
+              , (# channel "1 2 3 4") -- 6
+              , (# channel "4 3 2 1") -- 7
+              , (# channel "1 [3 2] [4 2 1] [1 2 3] 2 3 4") -- 8
+              , (# channel "1 [[2 1 3] 3 2] [4 2*2 1] [1 [2 1 4 3]] 2 3 4") -- 9
+              , (# channel (irand 4)) -- 10
+              , (# channel (slow 2 $ irand 4)) -- 11
+              , (# channel (slow 4 $ irand 4)) -- 12
+              , (# channel (slow 8 $ irand 4)) -- 13
+              , (# channel (slow 16 $ irand 4)) -- 14
+              , (# channel (run 4)) -- 15
+              , (# channel (rev $ run 4)) -- 16
+              , (# channel (every 2 rev $ run 4)) -- 17
+              , (# channel (palindrome $ run 4)) -- 18
+              , (# channel (fast 4 (run 4))) -- 19
+              , (# channel (fast 4 $ rev (run 4))) -- 20
+              , (# channel (fast 8 (run 4))) -- 21
+              , (# channel (fast 8 $ rev (run 4))) -- 22
+              , (# channel (fast 16 (run 4))) -- 23
+              , (# channel (fast 16 $ rev (run 4))) -- 24
+              , (# channel (fast 0.5 (run 4))) -- 25
+              , (# channel (fast 0.5 $ rev (run 4))) -- 26
+              , (# channel (fast 0.25 (run 4))) -- 27
+              , (# channel (fast 0.25 $ rev (run 4))) -- 28
+              , (# channel (iter 4 $ "1 2 3 4")) -- 29
+              -- , (# channel (segment 100 (run 4))) -- X
+            ])
+      return (spat)
     -- Définition combinée pour mettre à jour fx et fu XXX
-    updateAll fxs fxx fxt fxp fxv fxs2 fxx2 fxt2 fxp2 fxv2 fus fux fut fup fuv fus2 fux2 fut2 fup2 fuv2 legS leg t1 t2 t3 t4 t5 t6 t7 t8 = do
+    updateAll fxs fxx fxt fxp fxv fxs2 fxx2 fxt2 fxp2 fxv2 fus fux fut fup fuv fus2 fux2 fut2 fup2 fuv2 legS leg spa t1 t2 t3 t4 t5 t6 t7 t8 = do
         -- Mise à jour de fx1, fx2, fu1 fu2 et dud
         (listfx11, lfx11, sfx11, sfxx11, f1d1, fxR) <- updateFx fxs fxx fxt fxp fxv t1
         (listfx21, lfx21, sfx21, sfxx21, f2d1, fxR) <- updateFx fxs2 fxx2 fxt2 fxp2 fxv2 t1
@@ -859,7 +1075,7 @@ let t1 = (1/8); t2 = (2/8); t3 = (3/8); t4 = (4/8); t5 = (5/8); t6 = (6/8); t7 =
         (listfx28, lfx28, sfx28, sfxx28, f2d8, fxR) <- updateFx fxs2 fxx2 fxt2 fxp2 fxv2 t8
         -- let fx14 = (listfx11, lfx11, sfx11, f1d1, listfx21, lfx21, sfx21, f2d1, listfx12, lfx12, sfx12, f1d2, listfx22, lfx22, sfx22, f2d2, listfx13, lfx13, sfx13, f1d3, listfx23, lfx23, sfx23, f2d3, listfx14, lfx14, sfx14, f1d4, listfx24, lfx24, sfx24, f2d4, listfx15, lfx15, sfx15, f1d5, listfx25, lfx25, sfx25, f2d5, listfx16, lfx16, sfx16, f1d6, listfx26, lfx26, sfx26, f2d6, listfx17, lfx17, sfx17, f1d7, listfx27, lfx27, sfx27, f2d7, listfx18, lfx18, sfx18, f1d8, listfx28, lfx28, sfx28, f2d8, fxR)
         -- Ici, obligé de diviser le grand tuple en plusieurs sous-tuples de taille acceptable (64 éléments ou moins).
-        -- Mais, au lieu d'utiliser des tuples, on peut envisager d'utiliser des types de données personnalisés ou des structures comme des listes, des maps, ou même des records pour organiser tes données -> TO DO
+        -- Mais, au lieu d'utiliser des tuples, on peut envisager d'utiliser des types de données personnalisés ou des structures comme des listes, des maps, ou même des records pour organiser les données -> TO DO
         let fx14 = (listfx11, lfx11, sfx11, sfxx11, listfx21, lfx21, sfx21, sfxx21, listfx12, lfx12, sfx12, sfxx21, listfx22, lfx22, sfx22, sfxx22, listfx13, lfx13, sfx13, sfxx13, listfx23, lfx23, sfx23, sfxx23, listfx14, lfx14, sfx14, sfxx14, listfx24, lfx24, sfx24, sfxx24) -- actuellement 32 éléments
         let fx58 = (listfx15, lfx15, sfx15, sfxx15, listfx25, lfx25, sfx25, sfxx25, listfx16, lfx16, sfx16,  sfxx16, listfx26, lfx26, sfx26, sfxx26, listfx17, lfx17, sfx17, sfxx17, listfx27, lfx27, sfx27, sfxx27, listfx18, lfx18, sfx18, sfxx18, listfx28, lfx28, sfx28,  sfxx28, fxR)
         (listfu11, lfu11, sfu11, sfux11, u1d1, fuR) <- updateFu fus fux fut fup fuv t1
@@ -884,18 +1100,93 @@ let t1 = (1/8); t2 = (2/8); t3 = (3/8); t4 = (4/8); t5 = (5/8); t6 = (6/8); t7 =
         (dud3) <- updateDur legS leg t3; (dud4) <- updateDur legS leg t4
         (dud5) <- updateDur legS leg t5; (dud6) <- updateDur legS leg t6
         (dud7) <- updateDur legS leg t7; (dud8) <- updateDur legS leg t8
-        return (fx14, fx58, f1d1, f2d1, f1d2, f2d2, f1d3, f2d3, f1d4, f2d4, f1d5, f2d5, f1d6, f2d6, f1d7, f2d7, f1d8, f2d8, fxR, fu14, fu58, u1d1, u2d1, u1d2, u2d2, u1d3, u2d3, u1d4, u2d4, u1d5, u2d5, u1d6, u2d6, u1d7, u2d7, u1d8, u2d8, fuR, dud1, dud2, dud3, dud4, dud5, dud6, dud7, dud8)
+        (spa1) <- updateSpa spa t1; (spa2) <- updateSpa spa t2
+        (spa3) <- updateSpa spa t3; (spa4) <- updateSpa spa t4
+        (spa5) <- updateSpa spa t5; (spa6) <- updateSpa spa t6
+        (spa7) <- updateSpa spa t7; (spa8) <- updateSpa spa t8
+        return (fx14, fx58, f1d1, f2d1, f1d2, f2d2, f1d3, f2d3, f1d4, f2d4, f1d5, f2d5, f1d6, f2d6, f1d7, f2d7, f1d8, f2d8, fxR, fu14, fu58, u1d1, u2d1, u1d2, u2d2, u1d3, u2d3, u1d4, u2d4, u1d5, u2d5, u1d6, u2d6, u1d7, u2d7, u1d8, u2d8, fuR, dud1, dud2, dud3, dud4, dud5, dud6, dud7, dud8, spa1, spa2, spa3, spa4, spa5, spa6, spa7, spa8)
 
 -- Possibilité d'évaluer tout d'un seul coup : la fonction et son évaluation ?
-
--- Initialisation des variables de contrôle
 initializeControls 8
 
 -- Mise à jour de tous les FX et fonctions d'un seul coup XXX
-(fx14, fx58, f1d1, f2d1, f1d2, f2d2, f1d3, f2d3, f1d4, f2d4, f1d5, f2d5, f1d6, f2d6, f1d7, f2d7, f1d8, f2d8, fxR, fu14, fu58, u1d1, u2d1, u1d2, u2d2, u1d3, u2d3, u1d4, u2d4, u1d5, u2d5, u1d6, u2d6, u1d7, u2d7, u1d8, u2d8, fuR, dud1, dud2, dud3, dud4, dud5, dud6, dud7, dud8) <- updateAll fxs fxx fxt fxp fxv fxs2 fxx2 fxt2 fxp2 fxv2 fus fux fut fup fuv fus2 fux2 fut2 fup2 fuv2 legS leg t1 t2 t3 t4 t5 t6 t7 t8
+(fx14, fx58, f1d1, f2d1, f1d2, f2d2, f1d3, f2d3, f1d4, f2d4, f1d5, f2d5, f1d6, f2d6, f1d7, f2d7, f1d8, f2d8, fxR, fu14, fu58, u1d1, u2d1, u1d2, u2d2, u1d3, u2d3, u1d4, u2d4, u1d5, u2d5, u1d6, u2d6, u1d7, u2d7, u1d8, u2d8, fuR, dud1, dud2, dud3, dud4, dud5, dud6, dud7, dud8, spa1, spa2, spa3, spa4, spa5, spa6, spa7, spa8) <- updateAll fxs fxx fxt fxp fxv fxs2 fxx2 fxt2 fxp2 fxv2 fus fux fut fup fuv fus2 fux2 fut2 fup2 fuv2 legS leg spa t1 t2 t3 t4 t5 t6 t7 t8
+
+-- Initialisation Xfades - 12 possibilities between 0 no Xfade to Xfade
+-- Tester 0.25 et voir pour le supprimer
+-- x = 7 -- To test clutchIn 1 2
+x = 0 -- No interpolation
+-- 1 TO 6 for xfadeIn / 7 to 9 for clutchIn / 10 to 12 for interpolateIn
+fullChainD1 = u1d1 . u2d1 . f1d1 . f2d1 . dud1
+fullChainD2 = u1d2 . u2d2 . f1d2 . f2d2 . dud2
+fullChainD3 = u1d3 . u2d3 . f1d3 . f2d3 . dud3
+fullChainD4 = u1d4 . u2d4 . f1d4 . f2d4 . dud4
+fullChainD5 = u1d5 . u2d5 . f1d5 . f2d5 . dud5
+fullChainD6 = u1d6 . u2d6 . f1d6 . f2d6 . dud6
+fullChainD7 = u1d7 . u2d7 . f1d7 . f2d7 . dud7
+fullChainD8 = u1d8 . u2d8 . f1d8 . f2d8 . dud8
+-- Integration of xfade and spatialization
+td1 x = \pat -> ( [d1, xfadeIn 1 0.25, xfadeIn 1 0.5, xfadeIn 1 1, xfadeIn 1 2, xfadeIn 1 4, xfadeIn 1 8, clutchIn 1 2, clutchIn 1 4, clutchIn 1 8, interpolateIn 1 2, interpolateIn 1 4, interpolateIn 1 8] !! x ) (spa1 $ fullChainD1 pat)
+td2 x = \pat -> ( [d2, xfadeIn 2 0.25, xfadeIn 2 0.5, xfadeIn 2 1, xfadeIn 2 2, xfadeIn 2 4, xfadeIn 2 8, clutchIn 2 2, clutchIn 2 4, clutchIn 2 8, interpolateIn 2 2, interpolateIn 2 4, interpolateIn 2 8] !! x ) (spa2 $ fullChainD2 pat)
+td3 x = \pat -> ( [d3, xfadeIn 3 0.25, xfadeIn 3 0.5, xfadeIn 3 1, xfadeIn 3 2, xfadeIn 3 4, xfadeIn 3 8, clutchIn 3 2, clutchIn 3 4, clutchIn 3 8, interpolateIn 3 2, interpolateIn 3 4, interpolateIn 3 8] !! x ) (spa3 $ fullChainD3 pat)
+td4 x = \pat -> ( [d4, xfadeIn 4 0.25, xfadeIn 4 0.5, xfadeIn 4 1, xfadeIn 4 2, xfadeIn 4 4, xfadeIn 4 8, clutchIn 4 2, clutchIn 4 4, clutchIn 4 8, interpolateIn 4 2, interpolateIn 4 4, interpolateIn 4 8] !! x ) (spa4 $ fullChainD4 pat)
+td5 x = \pat -> ( [d5, xfadeIn 5 0.25, xfadeIn 5 0.5, xfadeIn 5 1, xfadeIn 5 2, xfadeIn 5 4, xfadeIn 5 8, clutchIn 5 2, clutchIn 5 4, clutchIn 5 8, interpolateIn 5 2, interpolateIn 5 4, interpolateIn 5 8] !! x ) (spa5 $ fullChainD5 pat)
+td6 x = \pat -> ( [d6, xfadeIn 6 0.25, xfadeIn 6 0.5, xfadeIn 6 1, xfadeIn 6 2, xfadeIn 6 4, xfadeIn 6 8, clutchIn 6 2, clutchIn 6 4, clutchIn 6 8, interpolateIn 6 2, interpolateIn 6 4, interpolateIn 6 8] !! x ) (spa6 $ fullChainD6 pat)
+td7 x = \pat -> ( [d7, xfadeIn 7 0.25, xfadeIn 7 0.5, xfadeIn 7 1, xfadeIn 7 2, xfadeIn 7 4, xfadeIn 7 8, clutchIn 7 2, clutchIn 7 4, clutchIn 7 8, interpolateIn 7 2, interpolateIn 7 4, interpolateIn 7 8] !! x ) (spa7 $ fullChainD7 pat)
+td8 x = \pat -> ( [d8, xfadeIn 8 0.25, xfadeIn 8 0.5, xfadeIn 8 1, xfadeIn 8 2, xfadeIn 8 4, xfadeIn 8 8, clutchIn 8 2, clutchIn 8 4, clutchIn 8 8, interpolateIn 8 2, interpolateIn 8 4, interpolateIn 8 8] !! x ) (spa8 $ fullChainD8 pat)
+
+
 
 fxR -- Number of Effects
 fuR -- Number of Functions
 length sfxx -- ?
 
+
+
 hush
+panic -- ERROR in SuperCollider : Primitive '_BasicAt' failed. with SuperDirtMixer
+once $ sound "superpanic" -- ERROR in SuperCollider : Primitive '_BasicAt' failed. with SuperDirtMixer
+
+
+
+-- Silence in a dramatic way (without using “panic”)
+-- https://club.tidalcycles.org/t/silence-in-a-dramatic-way-without-using-panic/4121
+-- bus signal send/control, 0.5 is full vol
+d1 $ ampbus 1 $ sine
+d1 $ ampbus 1 0.5
+d2 $ ampbus 1 0.6
+
+p "ampBus" $ ampbus 1 0.5
+-- turn it off
+p "ampBus" $ ampbus 1 0.0
+-- sound
+# amprecv 1
+
+d1 $ sound "dsynth"
+
+
+
+x1 $
+ stack [
+-- Equalizer
+   every 2 rev $ loShelfFreq "100"
+      <| loShelfGain
+      (segment 64 $ range "-8" 16 sine)
+  ,loPeakGain "<-10 -5 8>"
+      <| (slow 2 $ loPeakFreq
+      (segment 64 $ range 100 5000 sine))
+  , midPeakGain "<10>"
+      <| midPeakFreq
+      (slow 2 $ segment 64 $ range 400 2000 isaw)
+  , hiPeakGain "<12 -6 -8>"
+      <| hiPeakFreq
+      (slow 2 $ segment 64 $ range 8000 1000 cosine)
+  , loPassFreq "<7000 5000 10000 1000>"
+  , loPassBypass "<1 0>"
+  , hiShelfFreq "7000"
+    <| hiShelfGain
+    (segment 64 $ range "-8" 16 sine)
+  -- Compressor
+  , cpThresh "<-40 -20 -10 0>" <| cpRatio "1 2 3 4" # cpGain "<10 4 2 0>"
+  , pan "[0 0.25 0.5 0.75 1]"
+]
