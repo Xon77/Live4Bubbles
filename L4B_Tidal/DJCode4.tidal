@@ -1,97 +1,482 @@
-d4 $ u1d4 $ u2d4 $ f1d4 $ f2d4 $ slow 2 $ struct "<[t ~ ~ ~]!15 t(<1 2>,32) [t ~ ~ ~]!15 [t t? t? t?] [t ~ ~ ~]!15 [[t t?] t? t? t?]>*[^d4]" $ dud4 $ sound "^4Fol" # n "^4Buf" |+ n (run 77)
-d4 $ u1d4 $ u2d4 $ f1d4 $ f2d4 $ slow 2 $ struct "<[t ~ ~ ~]!15 t(<1 2>,32) [t ~ ~ ~]!15 [t t? t? t?] [t ~ ~ ~]!15 [[t t?] t? t? t?]>*[^d4]" $ dud4 $ sound "^4Fol" # n "^4Buf" |+ n "0 1"
-d4 $ u1d4 $ u2d4 $ f1d4 $ f2d4 $ slow 2 $ struct "<[t ~ ~ ~]!15 t(<1 2>,32) [t ~ ~ ~]!15 [t t? t? t?] [t ~ ~ ~]!15 [[t t?] t? t? t?]>*[^d4]" $ dud4 $ sound "^4Fol" # n "^4Buf" |+ n "0 1 2"
-d4 $ u1d4 $ u2d4 $ f1d4 $ f2d4 $ slow 2 $ struct "<[t ~ ~ ~]!15 t(<1 2>,32) [t ~ ~ ~]!15 [t t? t? t?] [t ~ ~ ~]!15 [[t t?] t? t? t?]>*[^d4]" $ dud4 $ sound "^4Fol" # n "^4Buf" |+ n "0 1 2 3"
-d4 $ u1d4 $ u2d4 $ f1d4 $ f2d4 $ slow 2 $ struct "<[t ~ ~ ~]!15 t(<1 2>,32) [t ~ ~ ~]!15 [t t? t? t?] [t ~ ~ ~]!15 [[t t?] t? t? t?]>*[^d4]" $ dud4 $ sound "^4Fol" # n "^4Buf" |+ n "0 1 2 3 4"
-d4 $ u1d4 $ u2d4 $ f1d4 $ f2d4 $ slow 2 $ struct "<[t ~ ~ ~]!15 t(<1 2>,32) [t ~ ~ ~]!15 [t t? t? t?] [t ~ ~ ~]!15 [[t t?] t? t? t?]>*[^d4]" $ dud4 $ sound "^4Fol" # n "^4Buf" |+ n "0 1 2 3 10 10"
-d4 $ u1d4 $ u2d4 $ f1d4 $ f2d4 $ slow 2 $ struct "<[t ~ ~ ~]!15 t(<1 2>,32) [t ~ ~ ~]!15 [t t? t? t?] [t ~ ~ ~]!15 [[t t?] t? t? t?]>*[^d4]" $ dud4 $ sound "^4Fol" # n "^4Buf" |+ n "0 1 2 7 8 9 14 3 2 1 3 10 10"
-d4 $ u1d4 $ u2d4 $ f1d4 $ f2d4 $ slow 2 $ struct "<[t ~ ~ ~]!15 t(<1 2>,32) [t ~ ~ ~]!15 [t t? t? t?] [t ~ ~ ~]!15 [[t t?] t? t? t?]>*[^d4]" $ dud4 $ sound "^4Fol" # n "^4Buf" |+ n (choose [0,2,3]) -- -- Répétera l'aléatoire en fonction du chiffre de d4 - Random by Cycle ?
-d4 $ u1d4 $ u2d4 $ f1d4 $ f2d4 $ slow 2 $ struct "<[t ~ ~ ~]!15 t(<1 2>,32) [t ~ ~ ~]!15 [t t? t? t?] [t ~ ~ ~]!15 [[t t?] t? t? t?]>*[^d4]" $ dud4 $ sound "^4Fol" # n "^4Buf" |+ n (cycleChoose [0,2,3]) -- only picks once per cycle -- Identique
-d4 $ u1d4 $ u2d4 $ f1d4 $ f2d4 $ slow 2 $ struct "<[t ~ ~ ~]!15 t(<1 2>,32) [t ~ ~ ~]!15 [t t? t? t?] [t ~ ~ ~]!15 [[t t?] t? t? t?]>*[^d4]" $ dud4 $ fast "^d4" $ sound "^4Fol" # n "^4Buf" |+ n (choose [0,2,3]) -- Utilisation de fast pour avoir un aléatoire constant - Possibilité de jouer sur la répétition en modifiant d4
-d4 $ u1d4 $ u2d4 $ f1d4 $ f2d4 $ slow 2 $ struct "<[t ~ ~ ~]!15 t(<1 2>,32) [t ~ ~ ~]!15 [t t? t? t?] [t ~ ~ ~]!15 [[t t?] t? t? t?]>*[^d4]" $ dud4 $ sound "^4Fol" # n (irand 77) -- Aléatoire complet
-d4 $ u1d4 $ u2d4 $ f1d4 $ f2d4 $ slow 2 $ struct "<[t ~ ~ ~]!15 t(<1 2>,32) [t ~ ~ ~]!15 [t t? t? t?] [t ~ ~ ~]!15 [[t t?] t? t? t?]>*[^d4]" $ dud4 $ fast "^d4" $ sound "^4Fol" # n (irand 77) -- Aléatoire complet Rapide
-d4 $ u1d4 $ u2d4 $ f1d4 $ f2d4 $ slow 2 $ struct "<[t ~ ~ ~]!15 t(<1 2>,32) [t ~ ~ ~]!15 [t t? t? t?] [t ~ ~ ~]!15 [[t t?] t? t? t?]>*[^d4]" $ dud4 $ sound "^4Fol" # n "^4Buf" |+ n (wchoose [(0,0.9),(2,0.25),(3,0.75)]) -- -- Choose with weight
-d4 $ u1d4 $ u2d4 $ f1d4 $ f2d4 $ slow 2 $ struct "<[t ~ ~ ~]!15 t(<1 2>,32) [t ~ ~ ~]!15 [t t? t? t?] [t ~ ~ ~]!15 [[t t?] t? t? t?]>*[^d4]" $ dud4 $ fast "^d4" $ sound "^4Fol" # n "^4Buf" |+ n (wchoose [(0,0.8),(2,0.15),(3,0.05)]) -- Choose with weight 2
-d4 $ u1d4 $ u2d4 $ f1d4 $ f2d4 $ slow 8 $ struct "[t t? t? t?]*[^d4]" $ dud4 $ sound "^4Fol" # n "^4Buf" |+ n "6 2 3 5 0 8 7 87 2 23 7 78 3 5 6 2"
-d4 $ u1d4 $ u2d4 $ f1d4 $ f2d4 $ chop "<[16 64 32]>*[^d4]" $ sound "^4Fol" # n (irand 200)
-d4 $ u1d4 $ u2d4 $ f1d4 $ f2d4 $ jux rev $ chop "<4 8 12>*[^d4]" $ sound "^4Fol" # n (irand 200)
-d4 $ u1d4 $ u2d4 $ f1d4 $ f2d4 $ jux rev $ chop "^d4" $ sound "^4Fol" # n (run 200)
-d4 $ u1d4 $ u2d4 $ f1d4 $ f2d4 $ jux rev $ chop "^d4" $ sound "^4Fol" # n (irand 200)
-d4 $ u1d4 $ u2d4 $ f1d4 $ f2d4 $ jux rev $ chop "^d4" $ fast 2 $ sound "^4Fol" # n (irand 200)
-d4 $ u1d4 $ u2d4 $ f1d4 $ f2d4 $ jux rev $ chop "^d4" $ fast 4 $ sound "^4Fol" # n (irand 200)
-d4 $ u1d4 $ u2d4 $ f1d4 $ f2d4 $ jux rev $ chop "^d4" $ fast 8 $ sound "^4Fol" # n (irand 200)
-d4 $ u1d4 $ u2d4 $ f1d4 $ f2d4 $ striate "^d4" $ sound "^4Fol" # n (irand 200) -- ???
-d4 $ u1d4 $ u2d4 $ f1d4 $ f2d4 $ slice "^d4" "[<0*8 0*2> 3*4 2 4] [4 .. 7]*[^d4]" $ sound "^4Fol" # n (irand 200)
-d4 $ u1d4 $ u2d4 $ f1d4 $ f2d4 $ slice "^d4" "7 6 5 4 3 2 1 0" $ sound "^4Fol" # n (irand 200)
-d4 $ u1d4 $ u2d4 $ f1d4 $ f2d4 $ slice "^d4" "7 6 5 4 3 2 1 0" $ sound "^4Fol" # n (run 200)
-d4 $ u1d4 $ u2d4 $ f1d4 $ f2d4 $ struct "[t ~ t/16 ~]" $ fast "[^d4]" $ dud4 $ sound "^4Fol" -- different "^d4" ?
-d4 $ u1d4 $ u2d4 $ f1d4 $ f2d4 $ struct "[t ~]*[^d4]" $ dud4 $ sound "^4Fol" # n "^4Buf" -- # n 0
-d4 $ u1d4 $ u2d4 $ f1d4 $ f2d4 $ echoWith 4 (1/("^d4")) (|* speed "0.9 1.1 0.7 0.8") $ struct "[t ~]*[^d4]" $ dud4 $ sound "^4Fol" # n "^4Buf" -- # n 0
-d4 $ u1d4 $ u2d4 $ f1d4 $ f2d4 $ struct "[~ t]*[^d4]" $ dud4 $ sound "^4Fol" # n "^4Buf" -- # n 0
-d4 $ u1d4 $ u2d4 $ f1d4 $ f2d4 $ struct "[t ~]*[^d4]" $ dud4 $ sound "^4Fol" # n (irand 200)
-d4 $ u1d4 $ u2d4 $ f1d4 $ f2d4 $ struct "[~ t]*[^d4]" $ dud4 $ sound "^4Fol" # n (irand 200)
-d4 $ u1d4 $ u2d4 $ f1d4 $ f2d4 $ struct "[~ ~ t ~ ~ t ~ ~]*[^d4]" $ dud4 $ sound "^4Fol" # n "^4Buf" -- # n 0
-d4 $ u1d4 $ u2d4 $ f1d4 $ f2d4 $ struct "[~ ~ t ~ ~ t ~ ~]*[^d4]" $ dud4 $ sound "^4Fol" # n (irand 200)
-d4 $ u1d4 $ u2d4 $ f1d4 $ f2d4 $ struct "<[t ~ ~ ~]!15 [t ~ t ~]>*[^d4]" $ dud4 $ sound "^4Fol" # n "^4Buf"
-d4 $ u1d4 $ u2d4 $ f1d4 $ f2d4 $ struct "<[t ~ ~ ~]!7 [t ~ t ~]>*[^d4]" $ dud4 $ sound "^4Fol" # n "^4Buf"
-d4 $ u1d4 $ u2d4 $ f1d4 $ f2d4 $ struct "<[t ~ ~ ~]!3 [t ~ t ~]>*[^d4]" $ dud4 $ sound "^4Fol" # n "^4Buf"
-d4 $ u1d4 $ u2d4 $ f1d4 $ f2d4 $ struct "<[t*8 t*4] t*[^d4]>" $ dud4 $ sound "^4Fol" # n "^4Buf"
-d4 $ u1d4 $ u2d4 $ f1d4 $ f2d4 $ struct "<[t ~ ~ ~]!15 [t ~ t ~]>*[^d4]" $ dud4 $ sound "^4Fol" # n ("6 2 0 8"+"^4Buf")
-d4 $ u1d4 $ u2d4 $ f1d4 $ f2d4 $ struct "<[t ~ ~ ~]!15 [t ~ t ~]>*[^d4]" $ dud4 $ sound "^4Fol" # n ("16 10 8"+"^4Buf")
-d4 $ u1d4 $ u2d4 $ f1d4 $ f2d4 $ struct "<[t ~ ~ ~]!15 [t ~ t ~]>*[^d4]" $ dud4 $ sound "^4Fol" # n ("8 10 9 9 7"+"^4Buf")
-d4 $ u1d4 $ u2d4 $ f1d4 $ f2d4 $ struct "<[t ~ ~ ~]!15 [t ~ t ~]>*[^d4]" $ dud4 $ sound "^4Fol" # n ("8 10 9 9 7"+"^4Buf") # distort "<0 0.03 0.05 0.1>"
-d4 $ u1d4 $ u2d4 $ f1d4 $ f2d4 $ struct "<[t ~ ~ ~]!15 [t ~ t ~]>*[^d4]" $ dud4 $ sound "^4Fol" # n ("8 10 9 9 7 8 14 18 8"+"^4Buf")
-d4 $ u1d4 $ u2d4 $ f1d4 $ f2d4 $ struct "<[t ~ ~ ~]!15 [t ~ t ~]>*[^d4]" $ dud4 $ sound "^4Fol" # n ("8 10 9 9 7 8 14 18 8"+"^4Buf") # legato "3" -- legato & dud en conflit
-d4 $ u1d4 $ u2d4 $ f1d4 $ f2d4 $ struct "<[t ~ ~ ~]!15 [t ~ t ~]>*[^d4]" $ dud4 $ sound "^4Fol" # n ("8 20 8 14 6 7 8 7 18 6"+"^4Buf") # legato "3" -- legato & dud en conflit
-d4 $ u1d4 $ u2d4 $ f1d4 $ f2d4 $ struct "<[t ~ ~ ~]!15 [t ~ t ~]>*[^d4]" $ dud4 $ sound "^4Fol" # n ("<8 20 8 14 6 7 8 7 18 6>"+"^4Buf") # legato "3" -- legato & dud en conflit
-d4 $ u1d4 $ u2d4 $ f1d4 $ f2d4 $ struct "<[t ~ ~ ~]!15 [t ~ t ~]>*[^d4]" $ dud4 $ sound "^4Fol" # n ("<8 20 8 14 6 7 8 7 18 6 66>"+"^4Buf") # legato "3" -- legato & dud en conflit
-d4 $ u1d4 $ u2d4 $ f1d4 $ f2d4 $ struct "<[t ~ ~ ~]!15 [t ~ t ~]>*[^d4]" $ dud4 $ sound "^4Fol" # n ("<8 20 8 14 6 7 8 7 18 6 6>"+"^4Buf") # legato "6" -- legato & dud en conflit
-d4 $ u1d4 $ u2d4 $ f1d4 $ f2d4 $ struct "<[t ~ ~ ~]!15 [t ~ t ~]>*[^d4]" $ dud4 $ sound "^4Fol" # n ("<8 20 8 14 6 7 8 7 18 6 6>"+"^4Buf") # legato "6" # lpf (range 60 5000 $ perlin2With (cosine*2) (sine*2)) -- legato & dud en conflit
-d4 $ u1d4 $ u2d4 $ f1d4 $ f2d4 $ struct "<[t ~ ~ ~]!15 [t ~ t ~]>*[^d4]" $ dud4 $ sound "^4Fol" # n ("<16 10 8 14>"+"^4Buf")
-d4 $ u1d4 $ u2d4 $ f1d4 $ f2d4 $ struct "<[t ~ ~ ~]!15 [t ~ t ~]>*[^d4]" $ dud4 $ sound "^4Fol" # n (irand 10)
-d4 $ u1d4 $ u2d4 $ f1d4 $ f2d4 $ struct "<[t ~ ~ ~]!15 [t ~ t ~]>*[^d4]" $ dud4 $ sound "^4Fol" # n (irand 200)
-d4 $ u1d4 $ u2d4 $ f1d4 $ f2d4 $ struct "<[t ~ ~ ~]!15 [t ~ t ~]>*[^d4]" $ dud4 $ sound "^4Fol" # n ("^4Buf" |+ (run 16))
-d4 $ u1d4 $ u2d4 $ f1d4 $ f2d4 $ struct "<[t ~ ~ ~]!15 [t ~ t ~]>*[^d4]" $ dud4 $ sound "^4Fol" # n (run (irand 10))
-d4 $ u1d4 $ u2d4 $ f1d4 $ f2d4 $ struct "<[t ~ ~ ~]!15 [t ~ t ~]>*[^d4]" $ dud4 $ sound "^4Fol" # n (run (irand 200))
-d4 $ u1d4 $ u2d4 $ f1d4 $ f2d4 $ struct "<[t ~ ~ ~]!15 [t ~ t ~]>*[^d4]" $ dud4 $ sound "^4Fol" # n (irand 100)
-d4 $ u1d4 $ u2d4 $ f1d4 $ f2d4 $ struct "<[t ~ ~ ~]!15 [t ~ t ~]>*[^d4]" $ dud4 $ sound "^4Fol" # n ("^4Buf" |+ (run 10)) -- (n (run 10) ~> "^4Buf") -- n (run 10)+"^4Buf"
-d4 $ u1d4 $ u2d4 $ f1d4 $ f2d4 $ struct "<[t ~ ~ ~]!15 [t t t t]>*[^d4]" $ dud4 $ sound "^4Fol" # n (irand 18) # legato "7" # distort "<0 0.3 0.2 0.1>" # lpf (range 60 5000 $ perlin2With (cosine*2) (sine*2)) -- legato & dud en conflit
-d4 $ u1d4 $ u2d4 $ f1d4 $ f2d4 $ struct "<[t ~ ~ ~]!15 [t t t t]>*[^d4]" $ dud4 $ sound "^4Fol" # n (irand 18) # legato "2" # distort "<0 0.3 0.2 0.1>" # lpf (range 60 5000 $ perlin2With (cosine*2) (sine*2)) -- legato & dud en conflit
-d4 $ u1d4 $ u2d4 $ f1d4 $ f2d4 $ struct "<[t ~ ~ ~]!15 [t t t t]>*[^d4]" $ dud4 $ sound "^4Fol" # distort "<0 0.3 0.2 0.1>" # n "^4Buf"
-d4 $ u1d4 $ u2d4 $ f1d4 $ f2d4 $ struct "<[t ~ ~ ~]!15 [t t t t]>*[^d4]" $ dud4 $ sound "^4Fol" # crush "12 8 12 16" # n "^4Buf"
-d4 $ u1d4 $ u2d4 $ f1d4 $ f2d4 $ struct "<[t ~ ~ ~]!15 [t t t t]>*[^d4]" $ dud4 $ sound "^4Fol" # freeze "0.1 0.2 0.4" # n "^4Buf"
-d4 $ u1d4 $ u2d4 $ f1d4 $ f2d4 $ fast "^d4" $ slow 3 $ euclid "<3 5>" "[8 16]/4" $ dud4 $ sound "^4Fol" # n "^4Buf"
-d4 $ u1d4 $ u2d4 $ f1d4 $ f2d4 $ fast "^d4" $ slow 3 $ euclid 2 5 $ dud4 $ sound "^4Fol" # n ("^4Buf" |+ (run 2))
-d4 $ u1d4 $ u2d4 $ f1d4 $ f2d4 $ fast "^d4" $ slow 3 $ euclid 3 4 $ dud4 $ sound "^4Fol" # n ("^4Buf" |+ (run 3))
-d4 $ u1d4 $ u2d4 $ f1d4 $ f2d4 $ fast "^d4" $ slow 3 $ euclid 3 5 $ dud4 $ sound "^4Fol" # n ("^4Buf" |+ (run 3))
-d4 $ u1d4 $ u2d4 $ f1d4 $ f2d4 $ fast "^d4" $ slow 3 $ euclid 3 7 $ dud4 $ sound "^4Fol" # n ("^4Buf" |+ (run 3))
-d4 $ u1d4 $ u2d4 $ f1d4 $ f2d4 $ fast "^d4" $ slow 3 $ euclid 3 8 $ dud4 $ sound "^4Fol" # n ("^4Buf" |+ (run 3))
-d4 $ u1d4 $ u2d4 $ f1d4 $ f2d4 $ fast "^d4" $ slow 3 $ euclid 4 7 $ dud4 $ sound "^4Fol" # n ("^4Buf" |+ (run 4))
-d4 $ u1d4 $ u2d4 $ f1d4 $ f2d4 $ fast "^d4" $ slow 3 $ euclid 4 9 $ dud4 $ sound "^4Fol" # n ("1 2 0 8"+"^4Buf")
-d4 $ u1d4 $ u2d4 $ f1d4 $ f2d4 $ fast "^d4" $ slow 3 $ euclid 4 11 $ dud4 $ sound "^4Fol" # n ("4 5 6 2 0 8"+"^4Buf")
-d4 $ u1d4 $ u2d4 $ f1d4 $ f2d4 $ fast "^d4" $ slow 3 $ euclid 5 6 $ dud4 $ sound "^4Fol" # n ("6 7 2 0 8"+"^4Buf")
-d4 $ u1d4 $ u2d4 $ f1d4 $ f2d4 $ fast "^d4" $ slow 3 $ euclid 5 7 $ dud4 $ sound "^4Fol" # n ("7 2 0 8"+"^4Buf")
-d4 $ u1d4 $ u2d4 $ f1d4 $ f2d4 $ fast "^d4" $ slow 3 $ euclid 5 8 $ dud4 $ sound "^4Fol" # n ("6 10 2 0 8"+"^4Buf")
-d4 $ u1d4 $ u2d4 $ f1d4 $ f2d4 $ fast "^d4" $ slow 3 $ euclid 5 9 $ dud4 $ sound "^4Fol" # n ("6 7 8"+"^4Buf")
-d4 $ u1d4 $ u2d4 $ f1d4 $ f2d4 $ fast "^d4" $ slow 3 $ euclid 5 11 $ dud4 $ sound "^4Fol" # n ("0 2 0 8"+"^4Buf")
-d4 $ u1d4 $ u2d4 $ f1d4 $ f2d4 $ fast "^d4" $ slow 3 $ euclid 5 12 $ dud4 $ sound "^4Fol" # n ("0 2 1 7 0 8"+"^4Buf")
-d4 $ u1d4 $ u2d4 $ f1d4 $ f2d4 $ fast "^d4" $ slow 3 $ euclid 5 16 $ dud4 $ sound "^4Fol" # n ("6 2 0 3 8"+"^4Buf")
-d4 $ u1d4 $ u2d4 $ f1d4 $ f2d4 $ fast "^d4" $ slow 3 $ euclid 7 8 $ dud4 $ sound "^4Fol" # n ("6 2 4 8"+"^4Buf")
-d4 $ u1d4 $ u2d4 $ f1d4 $ f2d4 $ fast "^d4" $ slow 3 $ euclid 5 8 $ dud4 $ sound "^4Fol" # n "^4Buf" # legato 100 -- legato & dud en conflit
-d4 $ u1d4 $ u2d4 $ f1d4 $ f2d4 $ fast "^d4" $ slow 3 $ euclid 3 4 $ dud4 $ sound "^4Fol" # n (run 200)
-d4 $ u1d4 $ u2d4 $ f1d4 $ f2d4 $ fast "^d4" $ slow 3 $ euclid 3 5 $ dud4 $ sound "^4Fol" # n (run 200)
-d4 $ u1d4 $ u2d4 $ f1d4 $ f2d4 $ fast "^d4" $ slow 3 $ euclid 3 8 $ dud4 $ sound "^4Fol" # n (run 200)
-d4 $ u1d4 $ u2d4 $ f1d4 $ f2d4 $ fast "^d4" $ slow 3 $ euclid 5 8 $ dud4 $ sound "^4Fol" # n (run 200)
-d4 $ u1d4 $ u2d4 $ f1d4 $ f2d4 $ chop "<[16 64 32]>*[^d4]" $ dud4 $ sound "^4Fol" # n (irand 200)
-d4 $ u1d4 $ u2d4 $ f1d4 $ f2d4 $ jux rev $ chop "<4 8 12>*[^d4]" $ dud4 $ sound "^4Fol" # n (irand 200)
-d4 $ u1d4 $ u2d4 $ f1d4 $ f2d4 $ jux rev $ chop "^d4" $ dud4 $ sound "^4Fol" # n (run 200)
-d4 $ u1d4 $ u2d4 $ f1d4 $ f2d4 $ jux rev $ chop "^d4" $ dud4 $ sound "^4Fol" # n (irand 200)
-d4 $ u1d4 $ u2d4 $ f1d4 $ f2d4 $ striate "^d4" $ dud4 $ sound "^4Fol" # n (irand 200) -- ???
-d4 $ u1d4 $ u2d4 $ f1d4 $ f2d4 $ slice "^d4" "[<0*8 0*2> 3*4 2 4] [4 .. 7]*[^d4]" $ dud4 $ sound "^4Fol" # n (irand 200)
-d4 $ u1d4 $ u2d4 $ f1d4 $ f2d4 $ slice "^d4" "7 6 5 4 3 2 1 0" $ dud4 $ sound "^4Fol" # n (irand 200)
-d4 $ u1d4 $ u2d4 $ f1d4 $ f2d4 $ slice "^d4" "7 6 5 4 3 2 1 0" $ dud4 $ sound "^4Fol" # n (run 200)
+-- DJ Code 4
+td4 x $ slow 2 $ struct s1d4 $ sound "^4Fol" # n "^4Buf" |+ n (run 77) # orbit "^4Xon" # speed "^4Rat" # djf "^4Ran" -- s1d4 -> "<[t ~ ~ ~]!15 t(<1 2>,32) [t ~ ~ ~]!15 [t t? t? t?] [t ~ ~ ~]!15 [[t t?] t? t? t?]>*[^d4]"
+
+td4 x $ slow 2 $ struct s1d4 $ sound "^4Fol" # n "^4Buf" |+ n "0 1" # orbit "^4Xon" # speed "^4Rat" # djf "^4Ran"
+
+td4 x $ slow 2 $ struct s1d4 $ sound "^4Fol" # n "^4Buf" |+ n "0 1 2" # orbit "^4Xon" # speed "^4Rat" # djf "^4Ran"
+
+td4 x $ slow 2 $ struct s1d4 $ sound "^4Fol" # n "^4Buf" |+ n "0 1 2 3" # orbit "^4Xon" # speed "^4Rat" # djf "^4Ran"
+
+td4 x $ slow 2 $ struct s1d4 $ sound "^4Fol" # n "^4Buf" |+ n "0 1 2 3 4" # orbit "^4Xon" # speed "^4Rat" # djf "^4Ran"
+
+td4 x $ slow 2 $ struct s1d4 $ sound "^4Fol" # n "^4Buf" |+ n "0 1 2 3 10 10" # orbit "^4Xon" # speed "^4Rat" # djf "^4Ran"
+
+td4 x $ slow 2 $ struct s1d4 $ sound "^4Fol" # n "^4Buf" |+ n "0 1 2 7 8 9 14 3 2 1 3 10 10" # orbit "^4Xon" # speed "^4Rat" # djf "^4Ran" -- |> speed "1 1.5 0.7" -- |* speed "^4Rat" -- |* djf "0.7 1.3"
+
+td4 x $ slow 2 $ struct s1d4 $ sound "^4Fol" # n "^4Buf" |+ n (choose [0,2,3]) # orbit "^4Xon" # speed "^4Rat" # djf "^4Ran" -- Répétera l'aléatoire en fonction du chiffre de d4 - Random by Cycle ?
+
+td4 x $ slow 2 $ struct s1d4 $ sound "^4Fol" # n "^4Buf" |+ n (cycleChoose [0,2,3]) # orbit "^4Xon" # speed "^4Rat" # djf "^4Ran" -- only picks once per cycle -- Identique
+
+td4 x $ slow 2 $ struct s1d4 $ fast "^d4" $ sound "^4Fol" # n "^4Buf" |+ n (choose [0,2,3]) # orbit "^4Xon" # speed "^4Rat" # djf "^4Ran" -- Utilisation de fast pour avoir un aléatoire constant - Possibilité de jouer sur la répétition en modifiant d4
+
+td4 x $ slow 2 $ struct s1d4 $ sound "^4Fol" # n (irand 77) # orbit "^4Xon" # speed "^4Rat" # djf "^4Ran" -- Aléatoire complet
+
+td4 x $ slow 2 $ struct s1d4 $ fast "^d4" $ sound "^4Fol" # n (irand 77) # orbit "^4Xon" # speed "^4Rat" # djf "^4Ran" -- Aléatoire complet Rapide
+
+td4 x $ slow 2 $ struct s1d4 $ sound "^4Fol" # n "^4Buf" |+ n (wchoose [(0,0.5),(2,0.35),(3,0.15)]) # orbit "^4Xon" # speed "^4Rat" # djf "^4Ran" -- Choose with weight
+
+td4 x $ slow 2 $ struct s2d4 $ fast "^d4" $ sound "^4Fol" # n "^4Buf" |+ n (wchoose [(0,0.8),(2,0.15),(3,0.05)]) # orbit "^4Xon" # speed "^4Rat" # djf "^4Ran" -- Choose with weight 2
+
+td4 x $ slow 8 $ struct s7d4 $ sound "^4Fol" # n "^4Buf" |+ n "6 2 3 5 0 8 7 87 2 23 7 78 3 5 6 2" # orbit "^4Xon" # speed "^4Rat" # djf "^4Ran"
+
+td4 x $ chop "<[16 64 32]>*[^d4]" $ sound "^4Fol" # n (irand 200) # orbit "^4Xon" # speed "^4Rat" # djf "^4Ran"
+
+td4 x $ jux rev $ chop "<4 8 12>*[^d4]" $ sound "^4Fol" # n (irand 200) # orbit "^4Xon" # speed "^4Rat" # djf "^4Ran"
+
+td4 x $ jux rev $ chop "^d4" $ sound "^4Fol" # n (run 100) # orbit "^4Xon" # speed "^4Rat" # djf "^4Ran"
+
+td4 x $ jux rev $ chop "^d4" $ sound "^4Fol" # n (irand 200) # orbit "^4Xon" # speed "^4Rat" # djf "^4Ran"
+
+td4 x $ jux rev $ chop "^d4" $ fast 2 $ sound "^4Fol" # n (irand 200) # orbit "^4Xon" # speed "^4Rat" # djf "^4Ran"
+
+td4 x $ jux rev $ chop "^d4" $ fast 4 $ sound "^4Fol" # n (irand 200) # orbit "^4Xon" # speed "^4Rat" # djf "^4Ran" -- # speed 1 |*| speed "1 2 0.5 2 1 1.5 0.7"
+
+td4 x $ jux rev $ chop "^d4" $ fast 8 $ sound "^4Fol" # n (irand 200) # orbit "^4Xon" # speed "^4Rat" # djf "^4Ran"
+
+td4 x $ striate "^d4" $ sound "^4Fol" # n (irand 200) # orbit "^4Xon" # speed "^4Rat" # djf "^4Ran" -- ???
+
+td4 x $ slice "^d4" "[<0*8 0*2> 3*4 2 4] [4 .. 7]*[^d4]" $ sound "^4Fol" # n (irand 200) # orbit "^4Xon" # speed "^4Rat" # djf "^4Ran" -- # cps (slow 2 $ (sine * 0.5) + 0.2) -- error if O in d / tempo -- # cps (135/60/4)
+
+td4 x $ slice "^d4" "7 6 5 4 3 2 1 0" $ sound "^4Fol" # n (irand 200) # orbit "^4Xon" # speed "^4Rat" # djf "^4Ran"
+
+td4 x $ slice "^d4" "7 6 5 4 3 2 1 0" $ sound "^4Fol" # n (run 200) # orbit "^4Xon" # speed "^4Rat" # djf "^4Ran" -- New à partir de là
+
+td4 x $ struct "[t ~ t/16 ~]" $ fast "[^d4]" $ sound "^4Fol" # orbit "^4Xon" # speed "^4Rat" # djf "^4Ran" -- different "^d4" ?
+
+td4 x $ struct s2d4 $ sound "^4Fol" # n "^4Buf" # orbit "^4Xon" # speed "^4Rat" # djf "^4Ran" -- # n 0
+
+td4 x $ echoWith 4 (1/("^d4")) (|* speed "0.9 1.1 0.7 0.8") $ struct s2d4 $ sound "^4Fol" # n "^4Buf" # orbit "^4Xon" # speed "^4Rat" # djf "^4Ran" -- # n 0
+
+td4 x $ struct s3d4 $ sound "^4Fol" # n "^4Buf" # orbit "^4Xon" # speed "^4Rat" # djf "^4Ran" -- # n 0
+
+td4 x $ struct s2d4 $ sound "^4Fol" # n (irand 200) # orbit "^4Xon" # speed "^4Rat" # djf "^4Ran"
+
+td4 x $ struct s3d4 $ sound "^4Fol" # n (irand 200) # orbit "^4Xon" # speed "^4Rat" # djf "^4Ran"
+
+td4 x $ struct s8d4 $ sound "^4Fol" # n "^4Buf" # orbit "^4Xon" # speed "^4Rat" # djf "^4Ran" -- # n 0
+
+td4 x $ struct s8d4 $ sound "^4Fol" # n (irand 200) # orbit "^4Xon" # speed "^4Rat" # djf "^4Ran"
+
+td4 x $ struct s9d4 $ sound "^4Fol" # n "^4Buf" # orbit "^4Xon" # speed "^4Rat" # djf "^4Ran"
+
+td4 x $ struct s10d4 $ sound "^4Fol" # n "^4Buf" # orbit "^4Xon" # speed "^4Rat" # djf "^4Ran"
+
+td4 x $ struct s11d4 $ sound "^4Fol" # n "^4Buf" # orbit "^4Xon" # speed "^4Rat" # djf "^4Ran"
+
+td4 x $ struct "<[t*8 t*4] t*[^d4]>" $ sound "^4Fol" # n "^4Buf" # orbit "^4Xon" # speed "^4Rat" # djf "^4Ran" -- better not to automatize the struct
+
+td4 x $ struct s9d4 $ sound "^4Fol" # n ("6 2 0 8"+"^4Buf") # orbit "^4Xon" # speed "^4Rat" # djf "^4Ran"
+
+td4 x $ struct s9d4 $ sound "^4Fol" # n ("16 10 8"+"^4Buf") # orbit "^4Xon" # speed "^4Rat" # djf "^4Ran"
+
+td4 x $ struct s9d4 $ sound "^4Fol" # n ("8 10 9 9 7"+"^4Buf") # orbit "^4Xon" # speed "^4Rat" # djf "^4Ran"
+
+td4 x $ struct s9d4 $ sound "^4Fol" # n ("8 10 9 9 7"+"^4Buf") # distort "<0 0.03 0.05 0.1>" # orbit "^4Xon" # speed "^4Rat" # djf "^4Ran"
+
+td4 x $ struct s9d4 $ sound "^4Fol" # n ("8 10 9 9 7 8 14 18 8"+"^4Buf") # orbit "^4Xon" # speed "^4Rat" # djf "^4Ran"
+
+td4 x $ struct s9d4 $ sound "^4Fol" # n ("8 10 9 9 7 8 14 18 8"+"^4Buf") # legato "3" # orbit "^4Xon" # speed "^4Rat" # djf "^4Ran" -- legato & dud en conflit
+
+td4 x $ struct s9d4 $ sound "^4Fol" # n ("8 20 8 14 6 7 8 7 18 6"+"^4Buf") # legato "3" # orbit "^4Xon" # speed "^4Rat" # djf "^4Ran" -- legato & dud en conflit
+
+td4 x $ struct s9d4 $ sound "^4Fol" # n ("<8 20 8 14 6 7 8 7 18 6>"+"^4Buf") # legato "3" # orbit "^4Xon" # speed "^4Rat" # djf "^4Ran" -- legato & dud en conflit
+
+td4 x $ struct s9d4 $ sound "^4Fol" # n ("<8 20 8 14 6 7 8 7 18 6 66>"+"^4Buf") # legato "3" # orbit "^4Xon" # speed "^4Rat" # djf "^4Ran" -- legato & dud en conflit
+
+td4 x $ struct s9d4 $ sound "^4Fol" # n ("<8 20 8 14 6 7 8 7 18 6 6>"+"^4Buf") # legato "6" # orbit "^4Xon" # speed "^4Rat" # djf "^4Ran" -- legato & dud en conflit
+
+td4 x $ struct s9d4 $ sound "^4Fol" # n ("<8 20 8 14 6 7 8 7 18 6 6>"+"^4Buf") # legato "6" # lpf (range 60 5000 $ perlin2With (cosine) (sine)) # orbit "^4Xon" # speed "^4Rat" # djf "^4Ran" -- legato & dud en conflit -- Why perlin2With give late messages ?
+
+td4 x $ struct s9d4 $ sound "^4Fol" # n ("<16 10 8 14>"+"^4Buf") # orbit "^4Xon" # speed "^4Rat" # djf "^4Ran"
+
+td4 x $ struct s9d4 $ sound "^4Fol" # n (irand 10) # orbit "^4Xon" # speed "^4Rat" # djf "^4Ran"
+
+td4 x $ struct s9d4 $ sound "^4Fol" # n (irand 200) # orbit "^4Xon" # speed "^4Rat" # djf "^4Ran"
+
+td4 x $ struct s9d4 $ sound "^4Fol" # n ("^4Buf" |+ (run 16)) # orbit "^4Xon" # speed "^4Rat" # djf "^4Ran"
+
+td4 x $ struct s9d4 $ sound "^4Fol" # n (run (irand 10)) # orbit "^4Xon" # speed "^4Rat" # djf "^4Ran"
+
+td4 x $ struct s9d4 $ sound "^4Fol" # n (run (irand 200)) # orbit "^4Xon" # speed "^4Rat" # djf "^4Ran"
+
+td4 x $ struct s9d4 $ sound "^4Fol" # n (irand 100) # orbit "^4Xon" # speed "^4Rat" # djf "^4Ran"
+
+td4 x $ struct s9d4 $ sound "^4Fol" # n ("^4Buf" |+ (run 10)) # orbit "^4Xon" # speed "^4Rat" # djf "^4Ran" -- (n (run 10) ~> "^4Buf") -- n (run 10)+"^4Buf"
+
+td4 x $ struct s12d4 $ sound "^4Fol" # n (irand 18) # legato "7" # distort "<0 0.3 0.5 0.1>" # orbit "^4Xon" # speed "^4Rat" # djf "^4Ran" -- # lpf (range 60 5000 $ perlin2With (cosine) (sine)) -- (cosine*2) (sine*2))-- legato & dud en conflit
+
+td4 x $ struct s12d4 $ sound "^4Fol" # n (irand 18) # legato "2" # distort "<0 0.3 0.2 0.1>" # lpf (range 60 5000 $ perlin2With (rand) (rand)) # orbit "^4Xon" # speed "^4Rat" # djf "^4Ran" -- (cosine*2) (sine*2)) -- legato & dud en conflit -- triggers a lot of late messages
+
+td4 x $ struct s12d4 $ sound "^4Fol" # distort "<0 0.3 0.2 0.1>" # n "^4Buf" # orbit "^4Xon" # speed "^4Rat" # djf "^4Ran"
+
+td4 x $ struct s12d4 $ sound "^4Fol" # crush "12 8 12 16" # n "^4Buf" # orbit "^4Xon" # speed "^4Rat" # djf "^4Ran"
+
+td4 x $ struct s12d4 $ sound "^4Fol" # n "^4Buf" # orbit "^4Xon" # speed "^4Rat" # djf "^4Ran" -- # freeze "0.1" -- # freeze "0.1 0.2 0.4" -- makes crash the server ???
+
+td4 x $ fast "^d4" $ slow 3 $ euclid "<3 5>" "[8 16]/4" $ sound "^4Fol" # n "^4Buf" # orbit "^4Xon" # speed "^4Rat" # djf "^4Ran" -- XXX -- XXX
+
+td4 x $ fast "^d4" $ slow 3 $ euclid 2 5 $ sound "^4Fol" # n "^4Buf" # orbit "^4Xon" # speed "^4Rat" # djf "^4Ran" -- # n ("^4Buf" + (run 2))
+
+td4 x $ fast "^d4" $ slow 3 $ euclid 3 4 $ sound "^4Fol" # n "^4Buf" # orbit "^4Xon" # speed "^4Rat" # djf "^4Ran" -- # n ("^4Buf" + (run 3))
+
+td4 x $ fast "^d4" $ slow 3 $ euclid 3 5 $ sound "^4Fol" # n "^4Buf" # orbit "^4Xon" # speed "^4Rat" # djf "^4Ran" -- # n ("^4Buf" + (run 3))
+
+td4 x $ fast "^d4" $ slow 3 $ euclid 3 7 $ sound "^4Fol" # n "^4Buf" # orbit "^4Xon" # speed "^4Rat" # djf "^4Ran" -- # n ("^4Buf" + (run 3))
+
+td4 x $ fast "^d4" $ slow 3 $ euclid 3 8 $ sound "^4Fol" # n "^4Buf" # orbit "^4Xon" # speed "^4Rat" # djf "^4Ran" -- # n ("^4Buf" + (run 3))
+
+td4 x $ fast "^d4" $ slow 3 $ euclid 4 7 $ sound "^4Fol" # n "^4Buf" # orbit "^4Xon" # speed "^4Rat" # djf "^4Ran" -- # n ("^4Buf" + (run 4))
+
+td4 x $ fast "^d4" $ slow 3 $ euclid 4 9 $ sound "^4Fol" # n "^4Buf" # orbit "^4Xon" # speed "^4Rat" # djf "^4Ran" -- # n ("1 2 0 8"+"^4Buf")
+
+td4 x $ fast "^d4" $ slow 3 $ euclid 4 11 $ sound "^4Fol" # n "^4Buf" # orbit "^4Xon" # speed "^4Rat" # djf "^4Ran" -- # n ("4 5 6 2 0 8"+"^4Buf")
+
+td4 x $ fast "^d4" $ slow 3 $ euclid 5 6 $ sound "^4Fol" # n "^4Buf" # orbit "^4Xon" # speed "^4Rat" # djf "^4Ran" -- # n ("1 7 2 0 8"+"^4Buf")
+
+td4 x $ fast "^d4" $ slow 3 $ euclid 5 7 $ sound "^4Fol" # n "^4Buf" # orbit "^4Xon" # speed "^4Rat" # djf "^4Ran" -- # n ("7 2 0 8"+"^4Buf")
+
+td4 x $ fast "^d4" $ slow 3 $ euclid 5 8 $ sound "^4Fol" # n "^4Buf" # orbit "^4Xon" # speed "^4Rat" # djf "^4Ran" -- # n ("6 10 2 0 8"+"^4Buf")
+
+td4 x $ fast "^d4" $ slow 3 $ euclid 5 9 $ sound "^4Fol" # n "^4Buf" # orbit "^4Xon" # speed "^4Rat" # djf "^4Ran" -- # n ("6 7 8"+"^4Buf")
+
+td4 x $ fast "^d4" $ slow 3 $ euclid 5 11 $ sound "^4Fol" # n "^4Buf" # orbit "^4Xon" # speed "^4Rat" # djf "^4Ran" -- # n ("0 2 0 8"+"^4Buf")
+
+td4 x $ fast "^d4" $ slow 3 $ euclid 5 12 $ sound "^4Fol" # n "^4Buf" # orbit "^4Xon" # speed "^4Rat" # djf "^4Ran" -- # n ("0 2 1 7 0 8"+"^4Buf")
+
+td4 x $ fast "^d4" $ slow 3 $ euclid 5 16 $ sound "^4Fol" # n "^4Buf" # orbit "^4Xon" # speed "^4Rat" # djf "^4Ran" -- # n ("6 2 0 3 8"+"^4Buf")
+
+td4 x $ fast "^d4" $ slow 3 $ euclid 7 8 $ sound "^4Fol" # n "^4Buf" # orbit "^4Xon" # speed "^4Rat" # djf "^4Ran" -- # n ("6 2 4 8"+"^4Buf")
+
+td4 x $ fast "^d4" $ slow 3 $ euclid 5 8 $ sound "^4Fol" # n "^4Buf" # legato 100 # orbit "^4Xon" # speed "^4Rat" # djf "^4Ran" -- legato & dud en conflit
+
+td4 x $ fast "^d4" $ slow 3 $ euclid 3 4 $ sound "^4Fol" # n "^4Buf" # orbit "^4Xon" # speed "^4Rat" # djf "^4Ran" -- # n (run 64)  -- Late messages from 57 XXX Interesting effect
+
+td4 x $ fast "^d4" $ slow 3 $ euclid 3 5 $ sound "^4Fol" # n "^4Buf" # orbit "^4Xon" # speed "^4Rat" # djf "^4Ran" -- # n (run 8)
+
+td4 x $ fast "^d4" $ slow 3 $ euclid 3 8 $ sound "^4Fol" # n "^4Buf" # orbit "^4Xon" # speed "^4Rat" # djf "^4Ran" -- # n (run "^d4")
+
+td4 x $ fast "^d4" $ slow 3 $ euclid 5 8 $ sound "^4Fol" # n (irand 200) # orbit "^4Xon" # speed "^4Rat" # djf "^4Ran" --  |+ n (run 12)
+
+td4 x $ chop "<[16 64 32]>*[^d4]" $ sound "^4Fol" # n (irand 200) # orbit "^4Xon" # speed "^4Rat" # djf "^4Ran"
+
+td4 x $ jux rev $ chop "<4 8 12>*[^d4]" $ sound "^4Fol" # n (irand 200) # orbit "^4Xon" # speed "^4Rat" # djf "^4Ran"
+
+td4 x $ jux rev $ chop "^d4" $ sound "^4Fol" # n (run 100) # orbit "^4Xon" # speed "^4Rat" # djf "^4Ran"
+
+td4 x $ jux rev $ chop "^d4" $ sound "^4Fol" # n (irand 200) # orbit "^4Xon" # speed "^4Rat" # djf "^4Ran"
+
+td4 x $ striate "^d4" $ sound "^4Fol" # n (irand 200) # orbit "^4Xon" # speed "^4Rat" # djf "^4Ran" -- ???
+
+td4 x $ slice "^d4" "[<0*8 0*2> 3*4 2 4] [4 .. 7]*[^d4]" $ sound "^4Fol" # n (irand 200) # orbit "^4Xon" # speed "^4Rat" # djf "^4Ran"
+
+td4 x $ slice "^d4" "7 6 5 4 3 2 1 0" $ sound "^4Fol" # n (irand 200) # orbit "^4Xon" # speed "^4Rat" # djf "^4Ran"
+
+td4 x $ slice "^d4" "7 6 5 4 3 2 1 0" $ sound "^4Fol" # n (run 100) # orbit "^4Xon" # speed "^4Rat" # djf "^4Ran" -- from below New Additions from 64 to 79
+
+td4 x $ slow 4 $ euclid 2 5 $ sound "[^4Fol]*[^d4]" # n ("^4Buf" + (run 2)) # orbit "^4Xon" # speed "^4Rat" # djf "^4Ran" -- same as 64 with different n & slow before euclid ...
+
+td4 x $ slow 4 $ euclid 3 4 $ sound "[^4Fol]*[^d4]" # n ("^4Buf" + (run 3)) # orbit "^4Xon" # speed "^4Rat" # djf "^4Ran"
+
+td4 x $ slow 4 $ euclid 3 5 $ sound "[^4Fol]*[^d4]" # n ("^4Buf" + (run 4)) # orbit "^4Xon" # speed "^4Rat" # djf "^4Ran"
+
+td4 x $ slow 4 $ euclid 3 7 $ sound "[^4Fol]*[^d4]" # n ("^4Buf" + (run 6)) # orbit "^4Xon" # speed "^4Rat" # djf "^4Ran"
+
+td4 x $ slow 4 $ euclid 3 8 $ sound "[^4Fol]*[^d4]" # n ("^4Buf" + (run 7)) # orbit "^4Xon" # speed "^4Rat" # djf "^4Ran"
+
+td4 x $ slow 4 $ euclid 4 7 $ sound "[^4Fol]*[^d4]" # n ("^4Buf" + (run 77)) # orbit "^4Xon" # speed "^4Rat" # djf "^4Ran"
+
+td4 x $ slow 4 $ euclid 4 7 $ sound "[^4Fol]*[^d4]" # n ("^4Buf" + (slow 3 $ range 1 12 sine)) # orbit "^4Xon" # speed "^4Rat" # djf "^4Ran"
+
+td4 x $ slow 4 $ euclid 4 7 $ sound "[^4Fol]*[^d4]" # n ("^4Buf" + (slow 2 $ range 6 18 saw)) # orbit "^4Xon" # speed "^4Rat" # djf "^4Ran"
+
+td4 x $ slow 4 $ euclid 4 7 $ sound "[^4Fol]*[^d4]" # n "^4Buf" |+ n (fast "1 0.5 2" (run 17)) # orbit "^4Xon" # speed "^4Rat" # djf "^4Ran"
+
+td4 x $ slow 4 $ euclid 3 4 $ sound "[^4Fol]*[^d4]" # n "^4Buf" |+ n (run "^d4") # orbit "^4Xon" # speed "^4Rat" # djf "^4Ran"
+
+td4 x $ slow 4 $ euclid 4 9 $ sound "[^4Fol]*[^d4]" # n ("1 2 0 8"+"^4Buf") # orbit "^4Xon" # speed "^4Rat" # djf "^4Ran"
+
+td4 x $ slow 4 $ euclid 4 11 $ sound "[^4Fol]*[^d4]" # n ("4 5 6 2 0 8"+"^4Buf") # orbit "^4Xon" # speed "^4Rat" # djf "^4Ran"
+
+td4 x $ slow 4 $ euclid 5 6 $ sound "[^4Fol]*[^d4]" # n ("1 7 2 0 8"+"^4Buf") # orbit "^4Xon" # speed "^4Rat" # djf "^4Ran"
+
+td4 x $ slow 4 $ euclid 5 7 $ sound "[^4Fol]*[^d4]" # n ("7 2 0 8"+"^4Buf") # orbit "^4Xon" # speed "^4Rat" # djf "^4Ran"
+
+td4 x $ slow 4 $ euclid 5 8 $ sound "[^4Fol]*[^d4]" # n ("6 10 2 0 8"+"^4Buf") # orbit "^4Xon" # speed "^4Rat" # djf "^4Ran"
+
+td4 x $ slow 4 $ euclid 5 9 $ sound "[^4Fol]*[^d4]" # n ("6 7 8"+"^4Buf") # orbit "^4Xon" # speed "^4Rat" # djf "^4Ran"
+
+td4 x $ slow 4 $ euclid 5 11 $ sound "[^4Fol]*[^d4]" # n ("0 2 0 8"+"^4Buf") # orbit "^4Xon" # speed "^4Rat" # djf "^4Ran"
+
+td4 x $ slow 4 $ euclid 5 12 $ sound "[^4Fol]*[^d4]" # n ("0 2 1 7 0 8"+"^4Buf") # orbit "^4Xon" # speed "^4Rat" # djf "^4Ran"
+
+td4 x $ slow 4 $ euclid 5 16 $ sound "[^4Fol]*[^d4]" # n ("6 2 0 3 8"+"^4Buf") # orbit "^4Xon" # speed "^4Rat" # djf "^4Ran"
+
+td4 x $ slow 4 $ euclid 7 8 $ slow 4 $ sound "[^4Fol]*[^d4]" # n ("6 2 4 8"+"^4Buf") # orbit "^4Xon" # speed "^4Rat" # djf "^4Ran" -- same as 79 with different n & slow before euclid
+
+td4 x $ euclid 2 5 $ slow 4 $ sound "[^4Fol]*[^d4]" # n ("^4Buf" + (run 2)) # orbit "^4Xon" # speed "^4Rat" # djf "^4Ran" -- same as 64 with different n & slow after euclid ...
+
+td4 x $ euclid 3 4 $ slow 4 $ sound "[^4Fol]*[^d4]" # n ("^4Buf" + (run 3)) # orbit "^4Xon" # speed "^4Rat" # djf "^4Ran"
+
+td4 x $ euclid 3 5 $ slow 4 $ sound "[^4Fol]*[^d4]" # n ("^4Buf" + (run 4)) # orbit "^4Xon" # speed "^4Rat" # djf "^4Ran"
+
+td4 x $ euclid 3 7 $ slow 4 $ sound "[^4Fol]*[^d4]" # n ("^4Buf" + (run 6)) # orbit "^4Xon" # speed "^4Rat" # djf "^4Ran"
+
+td4 x $ euclid 3 8 $ slow 4 $ sound "[^4Fol]*[^d4]" # n ("^4Buf" + (run 7)) # orbit "^4Xon" # speed "^4Rat" # djf "^4Ran"
+
+td4 x $ euclid 4 7 $ slow 4 $ sound "[^4Fol]*[^d4]" # n ("^4Buf" + (run 77)) # orbit "^4Xon" # speed "^4Rat" # djf "^4Ran"
+
+td4 x $ euclid 4 7 $ slow 4 $ sound "[^4Fol]*[^d4]" # n ("^4Buf" + (slow 3 $ range 1 12 sine)) # orbit "^4Xon" # speed "^4Rat" # djf "^4Ran"
+
+td4 x $ euclid 4 7 $ slow 4 $ sound "[^4Fol]*[^d4]" # n ("^4Buf" + (slow 2 $ range 6 18 saw)) # orbit "^4Xon" # speed "^4Rat" # djf "^4Ran"
+
+td4 x $ euclid 4 7 $ slow 4 $ sound "[^4Fol]*[^d4]" # n "^4Buf" |+ n (fast "1 0.5 2" (run 17)) # orbit "^4Xon" # speed "^4Rat" # djf "^4Ran"
+
+td4 x $ euclid 3 4 $ slow 4 $ sound "[^4Fol]*[^d4]" # n "^4Buf" |+ n (run "^d4") # orbit "^4Xon" # speed "^4Rat" # djf "^4Ran"
+
+td4 x $ euclid 4 9 $ slow 4 $ sound "[^4Fol]*[^d4]" # n ("1 2 0 8"+"^4Buf") # orbit "^4Xon" # speed "^4Rat" # djf "^4Ran"
+
+td4 x $ euclid 4 11 $ slow 4 $ sound "[^4Fol]*[^d4]" # n ("4 5 6 2 0 8"+"^4Buf") # orbit "^4Xon" # speed "^4Rat" # djf "^4Ran"
+
+td4 x $ euclid 5 6 $ slow 4 $ sound "[^4Fol]*[^d4]" # n ("1 7 2 0 8"+"^4Buf") # orbit "^4Xon" # speed "^4Rat" # djf "^4Ran"
+
+td4 x $ euclid 5 7 $ slow 4 $ sound "[^4Fol]*[^d4]" # n ("7 2 0 8"+"^4Buf") # orbit "^4Xon" # speed "^4Rat" # djf "^4Ran"
+
+td4 x $ euclid 5 8 $ slow 4 $ sound "[^4Fol]*[^d4]" # n ("6 10 2 0 8"+"^4Buf") # orbit "^4Xon" # speed "^4Rat" # djf "^4Ran"
+
+td4 x $ euclid 5 9 $ slow 4 $ sound "[^4Fol]*[^d4]" # n ("6 7 8"+"^4Buf") # orbit "^4Xon" # speed "^4Rat" # djf "^4Ran"
+
+td4 x $ euclid 5 11 $ slow 4 $ sound "[^4Fol]*[^d4]" # n ("0 2 0 8"+"^4Buf") # orbit "^4Xon" # speed "^4Rat" # djf "^4Ran"
+
+td4 x $ euclid 5 12 $ slow 4 $ sound "[^4Fol]*[^d4]" # n ("0 2 1 7 0 8"+"^4Buf") # orbit "^4Xon" # speed "^4Rat" # djf "^4Ran"
+
+td4 x $ euclid 5 16 $ slow 4 $ sound "[^4Fol]*[^d4]" # n ("6 2 0 3 8"+"^4Buf") # orbit "^4Xon" # speed "^4Rat" # djf "^4Ran"
+
+td4 x $ euclid 7 8 $ slow 4 $ sound "[^4Fol]*[^d4]" # n ("6 2 4 8"+"^4Buf") # orbit "^4Xon" # speed "^4Rat" # djf "^4Ran" -- same as 79 with different n & slow after euclid
+
+td4 x $ euclid "^d4" 64 $ slow 3 $ sound "^4Fol" # n "^4Buf" # orbit "^4Xon" # speed "^4Rat" # djf "^4Ran" -- NEW with t euclid
+
+td4 x $ euclid "^d4" 64 $ slow 3 $ sound "^4Fol" # n "^4Buf" |+| n (run 2) # orbit "^4Xon" # speed "^4Rat" # djf "^4Ran"
+
+td4 x $ euclid "^d4" 64 $ slow 3 $ sound "^4Fol" # n "^4Buf" |+| n (run 3) # orbit "^4Xon" # speed "^4Rat" # djf "^4Ran"
+
+td4 x $ euclid "^d4" 64 $ slow 3 $ sound "^4Fol" # n "^4Buf" |+| n (run 5) # orbit "^4Xon" # speed "^4Rat" # djf "^4Ran"
+
+td4 x $ euclid "^d4" 64 $ fast 2 $ sound "^4Fol" # n "^4Buf" |+ n (run 6) # orbit "^4Xon" # speed "^4Rat" # djf "^4Ran"
+
+td4 x $ euclid "^d4" 64 $ slow 3 $ sound "^4Fol" # n "^4Buf" |+| n (run 7) # orbit "^4Xon" # speed "^4Rat" # djf "^4Ran"
+
+td4 x $ euclid "^d4" 64 $ slow 3 $ sound "^4Fol" # n "^4Buf" |+| n (run 10) # orbit "^4Xon" # speed "^4Rat" # djf "^4Ran"
+
+td4 x $ euclid "^d4" 64 $ slow 6 $ sound "[^4Fol]*[^d4]" # n "^4Buf" |+ n (run 12) # orbit "^4Xon" # speed "^4Rat" # djf "^4Ran"
+
+td4 x $ euclid "^d4" 64 $ slow 3 $ sound "^4Fol" # n "^4Buf" |+| n (run "^d4") # orbit "^4Xon" # speed "^4Rat" # djf "^4Ran"
+
+td4 x $ euclid "^d4" 64 $ slow 3 $ sound "^4Fol" # n "^4Buf" |+| n "<[1 2 3, 3 6 7 9*2, 16*2, 1 3]>" # orbit "^4Xon" # speed "^4Rat" # djf "^4Ran"
+
+td4 x $ euclid "^d4" 64 $ slow 3 $ sound "^4Fol" # n "^4Buf" |+| n "<[1 2*2 7, 3*2 6, 7 9*2, 16*2, 1 7 9 11, 2 5 8, 2 5 8]>" # orbit "^4Xon" # speed "^4Rat" # djf "^4Ran"
+
+td4 x $ slow 4 $ euclid "^d4" 64 $ sound "^4Fol" # n "^4Buf" # orbit "^4Xon" # speed "^4Rat" # djf "^4Ran"
+
+td4 x $ slow 4 $ euclid "^d4" 64 $ sound "^4Fol" # n "^4Buf" |+| n "1 2 9" # orbit "^4Xon" # speed "^4Rat" # djf "^4Ran"
+
+td4 x $ slow 4 $ euclid "^d4" 64 $ sound "^4Fol" # n "^4Buf" |+| n "1 2 3 4 6 7 10" # orbit "^4Xon" # speed "^4Rat" # djf "^4Ran"
+
+td4 x $ slow 4 $ euclid "^d4" 64 $ sound "^4Fol" # n "^4Buf" |+| n "1 2 3 6 10 15 16 18 20" # orbit "^4Xon" # speed "^4Rat" # djf "^4Ran"
+
+td4 x $ slow 4 $ euclid "^d4" 64 $ sound "^4Fol" # n "^4Buf" |+| n "[1 2 3, 3 6 7, 9*2, 1 3]" # orbit "^4Xon" # speed "^4Rat" # djf "^4Ran"
+
+td4 x $ slow 4 $ euclid "^d4" 64 $ sound "^4Fol" # n "^4Buf" |+| n (run "^d4") # orbit "^4Xon" # speed "^4Rat" # djf "^4Ran"
+
+td4 x $ slow 8 $ euclid "[^d4]" "[^d4]" $ sound "^4Fol" |+| n "[^1Buf]*[^d4]" |+| n (run 59) # orbit "^4Xon" # speed "^4Rat" # djf "^4Ran"
+
+td4 x $ euclid "[^d4]" "[^d4]" $ slow 8 $ sound "^4Fol" |+| n "[^1Buf]*[^d4]" |+| n (run 59) # orbit "^4Xon" # speed "^4Rat" # djf "^4Ran"
+
+td4 x $ mask "[1 0 1 0 1 0 1 0]*2" $ sound "[^4Fol]*[^d4]" # n "^4Buf" |+ n (fmap ([0, 1, 2, 3]!!) (markovPat "[^d4]" 0 [ [ 0.1, 1.1, 0.9, 0.1 ], [ 0.9, 0.1, 1.1, 1.1 ], [ 0.5, 0.5, 0.05, 1 ], [ 0.5, 0.5, 0.75, 0.25 ] ] )) # orbit "^4Xon" # speed "^4Rat" # djf "^4Ran" -- with Markov & Masks XXX
+
+td4 x $ mask "[1 0 0 0 1 0 1 0]*2" $ sound "[^4Fol]*[^d4]" # n "^4Buf" |+ n (fmap ([0, 2, 3, 4]!!) (markovPat "[^d4]" 0 [ [ 0.1, 1.1, 0.9, 0.1 ], [ 0.9, 0.1, 1.1, 1.1 ], [ 0.5, 0.5, 0.05, 1 ], [ 0.5, 0.5, 0.75, 0.25 ] ] )) # orbit "^4Xon" # speed "^4Rat" # djf "^4Ran"
+
+td4 x $ mask "[1 1 0 1 0 1 1 0]*4" $ sound "[^4Fol]*[^d4]" # n "^4Buf" |+ n (fmap ([0, 1, 2, 3]!!) (markovPat "[^d4]" 0 [ [ 0.1, 1.1, 0.9, 0.1 ], [ 0.9, 0.1, 1.1, 1.1 ], [ 0.5, 0.5, 0.05, 1 ], [ 0.5, 0.5, 0.75, 0.25 ] ] )) # orbit "^4Xon" # speed "^4Rat" # djf "^4Ran"
+
+td4 x $ mask "[1 1 1 0 1 1 0 1]*3" $ sound "[^4Fol]*[^d4]" # n "^4Buf" |+ n (run 77) |+ n (fmap ([0, 2, 3, 4]!!) (markovPat "[^d4]" 0 [ [ 0.1, 1.1, 0.9, 0.1 ], [ 0.9, 0.1, 1.1, 1.1 ], [ 0.5, 0.5, 0.05, 1 ], [ 0.5, 0.5, 0.75, 0.25 ] ] )) # orbit "^4Xon" # speed "^4Rat" # djf "^4Ran"
+
+td4 x $ mask "[1 1 1 0 1 1 0 1]/3" $ sound "[^4Fol]*[^d4]" # n "^4Buf" |+ n (run 10) |+ n (fmap ([0, 1, 2, 3]!!) (markovPat "[^d4]" 0 [ [ 0.1, 1.1, 0.9, 0.1 ], [ 0.9, 0.1, 1.1, 1.1 ], [ 0.5, 0.5, 0.05, 1 ], [ 0.5, 0.5, 0.75, 0.25 ] ] )) # orbit "^4Xon" # speed "^4Rat" # djf "^4Ran"
+
+td4 x $ mask "[1 0 1 0 0 1 0 1]*2" $ sound "[^4Fol]*[^d4]" # n "^4Buf" |+ n (run 100) |+ n (fmap ([0, 1, 2, 3]!!) (markovPat "[^d4]" 0 [ [ 0.1, 1.1, 0.9, 0.1 ], [ 0.9, 0.1, 1.1, 1.1 ], [ 0.5, 0.5, 0.05, 1 ], [ 0.5, 0.5, 0.75, 0.25 ] ] )) # orbit "^4Xon" # speed "^4Rat" # djf "^4Ran" -- Adding of run on n
+
+td4 x $ mask "[1 0 0 0 1 0 1 0]*[^d4]" $ sound "[^4Fol]*[^d4]" # n "^4Buf" |+ n (fmap ([0, 1, 2, 3]!!) (markovPat "[^d4]" 0 [ [ 0.1, 1.1, 0.9, 0.1 ], [ 0.9, 0.1, 1.1, 1.1 ], [ 0.5, 0.5, 0.05, 1 ], [ 0.5, 0.5, 0.75, 0.25 ] ] )) # orbit "^4Xon" # speed "^4Rat" # djf "^4Ran"
+
+td4 x $ struct s1d4 $ sound "[^4Fol]" # n "^4Buf" |+ n (fmap ([0, 1, 2, 3]!!) (markovPat 16 0 [ [ 0.1, 1.1, 0.9, 0.1 ], [ 0.9, 0.1, 1.1, 1.1 ], [ 0.5, 0.5, 0.05, 1 ], [ 0.5, 0.5, 0.75, 0.25 ] ] )) # orbit "^4Xon" # speed "^4Rat" # djf "^4Ran" -- with Markov & struct XXX
+
+td4 x $ struct s1d4 $ sound "[^4Fol]" # n "^4Buf" |+ n (fmap ([0, 1, 2, 3]!!) (markovPat "[^d4]" 0 [ [ 0.1, 1.1, 0.9, 0.1 ], [ 0.9, 0.1, 1.1, 1.1 ], [ 0.5, 0.5, 0.05, 1 ], [ 0.5, 0.5, 0.75, 0.25 ] ] )) # orbit "^4Xon" # speed "^4Rat" # djf "^4Ran" -- with Markov & struct XXX
+
+td4 x $ sound "[^4Fol]*[^d4]" # n "^4Buf" |+ n (run 77) # orbit "^4Xon" # speed "^4Rat" # djf "^4Ran"
+-- Section with Footworks
+td4 x $ sound "[^4Fol]*[^d4]" # foo2 "<5 10>" 1 # n "^4Buf" |+ n (fast 3 (run "<4 8 12>")) # orbit "^4Xon" # speed "^4Rat" # djf "^4Ran"
+
+td4 x $ sound "[^4Fol]*[^d4]" # foo2 "<10 25>" 1 # n "^4Buf" |+ n (run 7) # orbit "^4Xon" # speed "^4Rat" # djf "^4Ran"
+
+td4 x $ sound "[^4Fol]*[^d4]" # foo2 "<7 6 12>" 1 # n "^4Buf" |+ n (run 20) # orbit "^4Xon" # speed "^4Rat" # djf "^4Ran"
+
+td4 x $ sound "[^4Fol]*[^d4]" # foo2 "<3 10 7 4>" 1 # n "^4Buf" |+ n (run 77) # orbit "^4Xon" # speed "^4Rat" # djf "^4Ran"
+
+td4 x $ sound "[^4Fol]*[^d4]" # foo2 "<0 5 17 18>" 1 # n "^4Buf" |+ n (fast 5 (run 16)) # orbit "^4Xon" # speed "^4Rat" # djf "^4Ran"
+
+td4 x $ sound "[^4Fol]*[^d4]" # foo2 "<2 5 8 11>" 1 # n "^4Buf" |+ n (irand 16) # orbit "^4Xon" # speed "^4Rat" # djf "^4Ran"
+
+td4 x $ sound "[^4Fol]*[^d4]" # foo2 "<1 4 6>" 1 # n "^4Buf" |+ n (irand 32) # orbit "^4Xon" # speed "^4Rat" # djf "^4Ran"
+
+td4 x $ sound "[^4Fol]*[^d4]" # foo2 "<3 10 7>" 1 # n "^4Buf" |+ n (irand 77) # orbit "^4Xon" # speed "^4Rat" # djf "^4Ran"
+
+td4 x $ sound "[^4Fol]*[^d4]" # foo2 (run "<3 6 9 7>") 2 # n "^4Buf" |+ n (run 32) # orbit "^4Xon" # speed "^4Rat" # djf "^4Ran"
+
+td4 x $ sound "[^4Fol]*[^d4]" # foo2 (run "<1 3 5>") 1 # n "^4Buf" |+ n (fast "<2 5>" $ run 12) # orbit "^4Xon" # speed "^4Rat" # djf "^4Ran"
+
+td4 x $ sound "[^4Fol]*[^d4]" # foo2 (irand 16) 1 # n "^4Buf" |+ n (run "<6 3 9>") # orbit "^4Xon" # speed "^4Rat" # djf "^4Ran"
+
+td4 x $ sound "[^4Fol]*[^d4]" # foo2 (irand 24) 1 # n "^4Buf" |+ n (irand 77) # orbit "^4Xon" # speed "^4Rat" # djf "^4Ran"
+
+td4 x $ sound "[^4Fol]*[^d4]" # foo2 "<3 9> <4 2>" 1 # n "^4Buf" |+ n (run "<5 10 3>") # orbit "^4Xon" # speed "^4Rat" # djf "^4Ran"
+
+td4 x $ sound "[^4Fol]*[^d4]" # foo2 (randcat ["10 2", "6 4 11", "1 12 24 4","12 13 14 17"]) 1 # n "^4Buf" |+ n (fast 5 (run 16)) # orbit "^4Xon" # speed "^4Rat" # djf "^4Ran"
+
+td4 x $ sound "[^4Fol]*[^d4]" # foo2 (randcat ["1 2", "3 5", "7 11 13"]) 1 # n "^4Buf" |+ n (fast 2 $ run 12) # orbit "^4Xon" # speed "^4Rat" # djf "^4Ran"
+
+td4 x $ sound "[^4Fol]*[^d4]" # foo2 (randcat ["2 4 6", "1 8", "5"]) 1 # n "^4Buf" |+ n (fast 4 $ run 10) # orbit "^4Xon" # speed "^4Rat" # djf "^4Ran"
+
+td4 x $ sound "[^4Fol]*[^d4]" # foo2 (randcat [1, 7, 23, 24]) 1 # n "^4Buf" |+ n (fast 5 (run 16)) # orbit "^4Xon" # speed "^4Rat" # djf "^4Ran"
+
+td4 x $ sound "[^4Fol]*[^d4]" # foo2 (randcat ["0 5", "2 3", "4 7"]) 1 # n "^4Buf" |+ n (fast 3 $ irand 20) # orbit "^4Xon" # speed "^4Rat" # djf "^4Ran"
+
+td4 x $ sound "[^4Fol]*[^d4]" # foo2 (run "<6 24>") 1 # n "^4Buf" |+ n (fast 5 (run 16)) # orbit "^4Xon" # speed "^4Rat" # djf "^4Ran"
+
+td4 x $ sound "[^4Fol]*[^d4]" # foo2 (run "<7 35>") 1 # n "^4Buf" |+ n (irand 77) # orbit "^4Xon" # speed "^4Rat" # djf "^4Ran"
+
+td4 x $ beat "[3,4.2,9,11,14]" 16 $ sound "^4Fol" # n "^4Buf" # orbit "^4Xon" # speed "^4Rat" # djf "^4Ran" -- Beat works with Geikha extension.
+
+td4 x $ beat "[3,4,9,14]" 16 $ sound "^4Fol" # n "^4Buf" |+ n (irand 30) # orbit "^4Xon" # speed "^4Rat" # djf "^4Ran" -- Beat works with Geikha extension.
+
+td4 x $ beat "[3,4,9,14]" 16 $ fast 4 $ sound "^4Fol" # n "^4Buf" |+ n (irand 30) # orbit "^4Xon" # speed "^4Rat" # djf "^4Ran" -- Beat works with Geikha extension.
+
+td4 x $ beat "[1,3,4,8,9,14]" 16 $ fast 4 $ sound "^4Fol" # n "^4Buf" |+ n (irand 30) # orbit "^4Xon" # speed "^4Rat" # djf "^4Ran" -- Beat works with Geikha extension.
+
+td4 x $ slow 2 $ struct "<[t ~ ~ ~]!15 t(<1 2>,32) [t ~ ~ ~]!15 [t t? t? t?] [t ~ ~ ~]!15 [[t t?] t? t? t?]>*[^d4]" $ sound "^4Fol" # n "^4Buf" |+ n "[0 1 2 7 8 9 ]/8 [14 3 2 1 [3 10] 10]/3" # orbit "^4Xon" # speed "^4Rat" # djf "^4Ran" -- try slow down with /2 on 3 items or /3 on 4 items
+
+td4 x $ slow 2 $ struct "<[t ~ ~ ~]!15, t(<1 2>,32), [t ~ ~ ~]!15 [t t? t? t?] [t ~ ~ ~]!15, [[t t?] t? t? t?]>*[^d4]" $ sound "^4Fol" # n "^4Buf" |+ n "[0 1 2 7 8 9 ]/8 [14 3 2 1 [3 10] 10]/4" # gain 0.8 # orbit "^4Xon" # speed "^4Rat" # djf "^4Ran" -- Polyphony with , inside struct
+
+td4 x $ slow 2 $ struct s16d4 $ sound "^4Fol" # n "^4Buf" |+ n "[0 1 2 7 8 9 ]/8 [14 3 2 1 [3 10] 10]/4" # gain 0.8 # orbit "^4Xon" # speed "^4Rat" # djf "^4Ran" -- Polyphony with , inside struct -- Super with d4 of 4 et Buf à 45 & Fol de 4 XXX
+
+td4 x $ slow 2 $ struct s15d4 $ sound "^4Fol" # n "^4Buf" |+ n "[0 2 [4 5], 7 [9 11] 12]/8 [[14 10] 3, [2 [1 0]] [3 10] 10]/4" # gain 0.8 # orbit "^4Xon" # speed "^4Rat" # djf "^4Ran" -- Polyphony with , inside struct -- Super with d4 of 4 et Buf à 45 & Fol de 4 XXX -- ligne 189 triggers lots of lates & skip messages ???
+
+td4 x $ slow 2 $ struct s15d4 $ sound "^4Fol" # n "^4Buf" |+ n "[0 3 [6 9], 12 [15 18]]/8 [4 1, [7 2 5] [10 13]]/4" # gain 0.8 # orbit "^4Xon" # speed "^4Rat" # djf "^4Ran" -- Polyphony with , inside struct -- Super with d4 of 4 et Buf à 45 & Fol de 4 XXX
+
+td4 x  $ slow 2 $ struct s15d4 $ sound "^4Fol" # n "^4Buf" |+ n "[0 2 4 7, [11 13 14] [15 17]]/8 [5 3 [6 9], 12 [10 7 [4 1]]]/4" # gain 0.8 # orbit "^4Xon" # speed "^4Rat" # djf "^4Ran" -- Polyphony with , inside struct -- Super with d4 of 4 et Buf à 45 & Fol de 4 XXX - ligne 191 triggers lots of lates & skip messages ???
+
+td4 x $ slow 8 $ struct s15d4 $ sound "^4Fol" # n "^4Buf" |+ n "[[[0 13 7], [2 11]/3, [4 9 15]/5], [[3 10]/6, 5 14, [6 [8 12]]]/4, [1 6 9 13]/7]/8 [[14 2], [3 5 [10 0]], [[1 11]/2, 6]/3, [[7 4] [13 8]]]/5" # gain 0.7 # orbit "^4Xon" # speed "^4Rat" # djf "^4Ran" -- Polyphony with , inside struct -- Super with d4 of 4 et Buf à 45 & Fol de 4 XXX
+
+td4 x $ slow 2 $ struct s15d4 $ sound "^4Fol" # n "[0 1 2, 7 8 9]/8 [14 3, 2 1 3 10 10]/4" |+ n "^4Buf" # gain 0.8 # orbit "^4Xon" # speed "^4Rat" # djf "^4Ran"
+
+td4 x $ slow 2 $ n "[[0 1, 2 7 8, 9 ]/16 [14, 3 2, 1 [3 10], 10]/4]*[^d4]" # sound "^4Fol" |+ n "^4Buf" # gain 0.8 # orbit "^4Xon" # speed "^4Rat" # djf "^4Ran" -- n
+
+td4 x $ slow 2 $ n "[[0 1, 2 7 8 9 ]/16, [14, 3 2 1 [3 10], 10]/4]*[^d4]" # sound "^4Fol" |+ n "^4Buf" # gain 0.8 # orbit "^4Xon" # speed "^4Rat" # djf "^4Ran" -- n -- Cool with Buf 42 & Fol 2 ou Fol 5 & Buf 29 XXX
+
+td4 x $ slow 2 $ n "[[0 1, 2 7 8 9 ]/16, [14, 3 2 1 [3 10], 10]/4, [12 13 3, 9 10 12 ]/6]*[^d4]" # sound "^4Fol" |+ n "^4Buf" # gain 0.8 # orbit "^4Xon" # speed "^4Rat" # djf "^4Ran" -- to develop
+
+td4 x $ slow 2 $ n "[[1 0, 3 6 5]/16, [12, 4 5 [2 11], 9]/4, [10 11 2, 8 9 11]/6]*[^d4]" # sound "^4Fol" |+ n "^4Buf" # gain 0.8 # orbit "^4Xon" # speed "^4Rat" # djf "^4Ran" -- to develop
+
+td4 x $ slow 2 $ n (fit 1 [7,8,9,10,11,12,13,14,15,16] "[[1 5 7 9 10 0, 3 6 5]/16, [2, 4 5 [2 11],8]/4, [10 11 2, 8 9 11]/6]*[^d4]") # sound "^4Fol" |+ n "^4Buf" # gain 0.8 # orbit "^4Xon" # speed "^4Rat" # djf "^4Ran" -- Try 1
+
+td4 x $ slow 2 $ n "[[0 3 5 7]/16, [2 4 [6 8], 10]/4, [1 11 13]/6]*[^d4]" # sound "^4Fol" |+ n "^4Buf" # gain 0.8 # orbit "^4Xon" # speed "^4Rat" # djf "^4Ran"
+
+td4 x $ slow 2 $ n "[[2 2 2 2]/16, [5 5 5 5]/4, [9 9 9 9]/6]*[^d4]" # sound "^4Fol" |+ n "^4Buf" # gain 0.8 # orbit "^4Xon" # speed "^4Rat" # djf "^4Ran"
+
+td4 x $ slow 2 $ n "[[9 7 5 3 1]/16, [12 10 8 6]/4, [4 2 0]/6]*[^d4]" # sound "^4Fol" |+ n "^4Buf" # gain 0.8 # orbit "^4Xon" # speed "^4Rat" # djf "^4Ran" -- to develop
+
+td4 x $ slow 2 $ n "[0 1 2 7 8 9 ]/8 [14 3 2 1 [3 10] 10]/8*[^d4]" # sound "^4Fol" |+ n "^4Buf" # gain 0.8 # orbit "^4Xon" # speed "^4Rat" # djf "^4Ran" -- n
+
+td4 x $ n "[0 1 2 7 8 9 ]/8 [14 3 2 1 [3 10] 10*3]/8*[^d4]" # sound "^4Fol" |+ n "^4Buf" # gain 0.8 # orbit "^4Xon" # speed "^4Rat" # djf "^4Ran" -- n
+
+td4 x $ slow 2 $ n "[[0 1 2 7 8 9 ]/8 [14 3 2 1 [3 10] 10]/4]*[^d4]" # sound "^4Fol" |+ n "^4Buf" # gain 0.8 # orbit "^4Xon" # speed "^4Rat" # djf "^4Ran" -- n -- very cool with Fol 63 & Buf 27 ou 17
+
+td4 x $ slow 2 $ n "{[0 1 2 7 8 9 ]/8, [14 3 2 1 [3 10], 10]/4}*[^d4]" # sound "^4Fol" |+ n "^4Buf" # gain 0.8 # orbit "^4Xon" # speed "^4Rat" # djf "^4Ran" -- n
+
+td4 x $ jux rev $ arp "<updown thumbup pinkyupdown converge diverge>" $ n "<c4'maj'6 e4'min7'8 g5'maj'5 a5'maj'4>" # sound "^4Fol" |+ n "^4Buf" # orbit "^4Xon" # speed "^4Rat" # djf "^4Ran" -- # room 0.3 # sz 0.7
+
+td4 x $ jux rev $ arp "<updown thumbup pinkyupdown converge diverge>" $ n "<c4'maj'6 e4'min7'8 g5'maj'5 a5'maj'4>" # room 0.3 # sz 0.7 # s "superpiano" # gain 0.8 # orbit "^4Xon"
+
+td4 x $ jux rev $ slow 1 $ arp "<updown thumbup pinkyupdown converge diverge>" $ n "<c4'maj'6 e4'min7'8 g5'maj'5 a5'maj'4>" # room 0.3 # sz 0.7 # s "<superpiano superhoover>" # slide (sine/4) # accelerate (sine/8) # decay (sine/4) # gain 0.8 # orbit "^4Xon"
+
+td4 x $ arp "<updown thumbup pinkyupdown converge diverge>" $ n (slow 1 $ fmap (*0.5) $ "<c4'maj'6 e4'min7'8 g5'maj'5 a5'maj'4>") # s "superhoover" # slide (sine/4) # accelerate (sine/8) # decay (sine/4) # gain 0.8 # orbit "^4Xon"
+
+td4 x $ arp "up" $ n "c'maj'4" # sound "superhoover" # sustain 0.5 # gain 0.8 # orbit "^4Xon"
+
+td4 x $ arp "up" $ n "c'maj'4 e'min" # sound "superhoover" # sustain 0.5 # gain 0.77 # orbit "^4Xon"
+
+td4 x $ arp "pinkyup" $ n "c'maj'4 e'min" # sound "superhoover" # sustain 0.5 # gain 0.77 # orbit "^4Xon"
+
+td4 x $ arp "<pinkyup down thumbup up>" $ n "c'maj'4 e'min" # sound "superhoover" # sustain 0.5 # gain 0.77 # orbit "^4Xon"
+
+td4 x $ jux rev $ arp "<pinkyup down thumbup up>" $ n "<c'maj'4 e4'min'8 f4'maj'4>" # sound "superhoover" # sustain 2 # room 0.3 # sz 0.9 # gain 0.6 # orbit "^4Xon"
+
+td4 x $ chunk 4 (|- note 5) $ jux rev $ arp "<pinkyup down thumbup up>" $ n "<c'maj'4 e4'min'8 f4'maj'4>" # sound "superhoover" # sustain 2 # room 0.3 # sz 0.9 # gain 0.6 # orbit "^4Xon"
+-- https://tidalcycles.org/docs/patternlib/howtos/buildarpeggios#arpeggios-from-chords
+td4 x $ n "c'maj" # sound "supermandolin" # legato 2 # orbit "^4Xon"
+
+td4 x $ arp "up" $ n "c'maj" # sound "supermandolin" # orbit "^4Xon" # sustain 0.5
+
+td4 x $ arp "up" $ n "c'maj'4" # sound "supermandolin" # sustain 0.5 # orbit "^4Xon"
+
+td4 x $ arp "up" $ n "c'maj'4 e'min" # sound "supermandolin" # sustain 0.5 # orbit "^4Xon"
+
+td4 x $ arp "pinkyup" $ n "c'maj'4 e'min" # sound "supermandolin" # sustain 0.5 # orbit "^4Xon"
+
+td4 x $ arp "<pinkyup down thumbup up>" $ n "c'maj'4 e'min" # sound "supermandolin" # sustain 0.5 # orbit "^4Xon"
+
+td4 x $ jux rev $ arp "<pinkyup down thumbup up>" $ n "<c'maj'4 e4'min'8 f4'maj'4>" # sound "supermandolin" # sustain 2 # room 0.3 # sz 0.9 # orbit "^4Xon"
+
+td4 x $ chunk 4 (|- note 5) $ jux rev $ arp "<pinkyup down thumbup up>" $ n "<c'maj'4 e4'min'8 f4'maj'4>" # sound "supermandolin" # sustain 2 # room 0.3 # sz 0.9 # orbit "^4Xon"
+-- Variation 1: Aube Gymnopédique - La douceur du réveil
+td4 x $ slow 2 $ sometimesBy 0.2 (rev) $ arp "<converge diverge pinkyup thumbdown>" $ n (slow 3 $ "<e3'min7 a3'min7 d3'min7 g3'maj7>") # s "superhoover" # sustain 2 # room 0.8  # size 0.9 # gain 0.7 # orbit "^4Xon"
+-- Variation 2: Le Baiser de l'Aube - Plus expressif
+td4 x $ jux (iter 4) $ striate' 8 (1/4) $ every 3 (|+ n 2) $ arp "<up down converge diverge>" $ n "<e3'min9 a3'min9 d3'min9 g3'maj9>" # s "superpiano" # sustain 3 # room 0.8 # size 0.9 # lpf (slow 8 $ range 400 2000 sine) # gain 0.65 # orbit "^4Xon"
+-- Variation 3: Solitude du Matin - Mélancolique et flottante
+td4 x $ stack [slow 2 $ arp "pinkyup" $ n "<e3'min7 a3'min7 d3'min7 g3'maj7>" # s "superhoover" # gain 0.7 # room 0.7, slow 4 $ n (scale "minPent" $ scramble 8 $ run 8) # s "superhoover" # sustain 4 # lpf 1000 # gain 0.5] # room 0.8 # size 0.9 # orbit "^4Xon"
+-- Variation 4: Gymnopédie Explosive - Contraste entre calme et intensité
+td4 x $ whenmod 8 6 (|+ n 12) $ every 4 (fast 2) $ every 3 (stut 4 0.5 0.2) $ arp "<diverge updown pinkyupdown thumbup>" $ n "<e3'min7 a3'min7 c4'maj7 g3'maj7>" # s "superhoover" # sustain (slow 8 $ range 0.5 2 sine) # room 0.6 # size 0.8 # lpf (slow 4 $ range 300 3000 sine) # gain 0.6 # orbit "^4Xon"
+-- Variation 8: Solitude Impressionniste - Texture inspirée de Satie
+td4 x $ degradeBy 0.2 $ chunk 4 (|+ n 5) $ striate' 16 (1/4) $ arp "<converge diverge pinkyup thumbdown>" $ n "<e3'min11 a3'min11 c4'maj9 g3'maj9>" # s "superhoover" # sustain 2 # cutoff (slow 12 $ range 400 3000 sine) # resonance 0.2 # room 0.75 # size 0.9 # gain 0.4 # orbit "^4Xon"
+
+td4 x $ stack [slow 2 $ arp "pinkyup" $ n "<e3'min7 a3'min7 d3'min7 g3'maj7>" # s "skick gabkick" # gain 0.7 # room 0.7, slow 4 $ n (scale "minPent" $ scramble 8 $ run 8) # s "skick gabkick" # sustain 4 # lpf 1000 # gain 0.5] # room 0.8 # size 0.9 # orbit "^4Xon"
+
+td4 x $ degradeBy 0.2 $ chunk 4 (|+ n 5) $ striate' 16 (1/4) $ arp "<converge diverge pinkyup thumbdown>" $ n "<e3'min11 a3'min11 c4'maj9 g3'maj9>" # s "skick gabkick" # sustain 1 # cutoff (slow 12 $ range 400 3000 sine) # resonance 0.2 # room 0.75 # size 0.9 # gain 0.4 # orbit "^4Xon"
+-- Both codes below from Eris Fairbanks (she/her) on Discord in patterns-snippets — 04/03/2025 22:21 -- resetCycles
+do {resetCycles; d4 $ stutWith 4 (3/16) ((* speed 1.01).(* gain 0.78)) $ mask "{t f t t f t f t t f}%16" $ n "{0 0 3 5 0 0 7 0 8 7 0}%16" + n "{0 -12 12 0 0 12 0 -12}%8" # s "plaits" # engine 8 # timbre 0.9 # harm 0.3 # morph 0.99 # room 0.2 # sustain ("{4 2 1 4 2 4 1}%16" * 0.3) # gain 0.77}
+
+do {resetCycles; d4 $ n (toScale [0,2,3,5,7,8,11] ("{7 0 7 0 0 7 0 7 0}%16") + "[0,16,<7 5 7 4 3>]") + n "{-12 -12 -12 [0 12]}%4" # s "plaits" # engine "<0 3>/4" # timbre (slow 8 (sine * 0.2)) # legato (range 2 6 $ slow 4 $ saw) * legato "{1 0.5 0.8 0.25 0.3}%16" # morph (range 0.1 0.5 $ slow 8 $ sine) # harm "<0 0.96 0.25 1 0.5>/4" # room 0.3 # size 0.93 # gain 0.8}
+
+td4 x $ stack [slow 2 $ arp "pinkyup" $ n "<e3'min7 a3'min7 d3'min7 g3'maj7>" # s "supervibe" # gain 0.7 # room 0.7, slow 4 $ n (scale "minPent" $ scramble 8 $ run 8) # s "supervibe" # sustain 4 # lpf 1000 # gain 0.5] # room 0.8 # size 0.9 # orbit "^4Xon"
+
+td4 x $ stack [slow 2 $ arp "pinkyup" $ n "<e3'min7 a3'min7 d3'min7 g3'maj7>" # s "vibsawpluck" # gain 0.7 # room 0.7, slow 4 $ n (scale "minPent" $ scramble 8 $ run 8) # s "vibsawpluck" # sustain 4 # lpf 1000 # gain 0.5] # room 0.8 # size 0.9 # orbit "^4Xon"
+
+td4 x $ stack [slow 2 $ arp "pinkyup" $ n "<e3'min7 a3'min7 d3'min7 g3'maj7>" # s "[<donk, wub sinosc acid, ultrasaw futuresaw>]" # gain 0.7 # room 0.7, slow 4 $ n (scale "minPent" $ scramble 8 $ run 8) # s "[wob sinosc futuresaw, acid]" # sustain 4 # lpf 1000 # gain 0.5] # room 0.8 # size 0.9 # orbit "^4Xon"
+
+td4 x $ stack [slow 2 $ arp "pinkyup" $ n "<e3'min7 a3'min7 d3'min7 g3'maj7>" # s "[<pbass, bmoog sinosc acid, ultrasaw fmtribe>]" # gain 0.7 # room 0.7, slow 4 $ n (scale "minPent" $ scramble 8 $ run 8) # s "[cs80leadClick sawpluck rhodes, acid]" # sustain 4 # lpf 1000 # gain 0.5] # room 0.8 # size 0.9 # orbit "^4Xon"
+
+td4 x $ stack [slow 2 $ arp "pinkyup" $ n "<e3'min7 a3'min7 d3'min7 g3'maj7>" # s "bmoog super303" # gain 0.7 # room 0.7, slow 4 $ n (scale "minPent" $ scramble 8 $ run 8) # s "super303 bmoog" # sustain 4 # lpf 1000 # gain 0.5] # room 0.8 # size 0.9 # orbit "^4Xon"
 
 
 
-d4 silence
+d4 silence -- silence will stop your pattern next cycle
+
+do {d4 $ ampbus 4 $ sine; d4 silence}
+
 xfadeIn 4 4 silence -- perform a crossfade transition to silence in 4 cycles

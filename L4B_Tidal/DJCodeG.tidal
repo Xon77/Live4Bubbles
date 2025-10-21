@@ -1,0 +1,69 @@
+-- Interpolation
+x = 0 -- No Xfade
+x = 1 -- XfadeIn de 0.25 cycle
+x = 2 -- XfadeIn de 0.5 cycle
+x = 3 -- XfadeIn de 1 cycle
+x = 4 -- XfadeIn de 2 cycles
+x = 5 -- XfadeIn de 4 cycles XXX
+x = 6 -- XfadeIn de 8 cycles XXX
+x = 7 -- clutchIn de 2 cycles
+x = 8 -- clutchIn de 4 cycles
+x = 9 -- clutchIn de 8 cycles -- XXX weird
+x = 10 -- interpolateIn de 2 cycles -- ??? triggers lates
+x = 11 -- interpolateIn de 4 cycles -- ??? triggers lates
+x = 12 -- interpolateIn de 8 cycles -- ??? triggers lates
+
+
+
+getbpm
+setbpm 120 -- If connected with Live 4 Life big glitches and lates when setting higher BPM / stops the sound if lower
+
+-- Set BPM
+setcps (135/60/4) -- Default BPM -- 0.5625
+setcps 0.7
+setbpm 77
+setbpm 80
+setbpm 85
+setbpm 90
+setbpm 95
+setbpm 100
+setbpm 105
+setbpm 110
+setbpm 120
+setbpm 130
+setbpm 140
+setbpm 150
+setbpm 160
+setbpm 170
+setbpm 180
+setbpm 200
+setcps (saw * 0.5)
+setbpm (segment 128 $ range 100 160 $ slow 8 $ sine)
+setbpm (range 120 180 $ slow 4 $ segment 128 $ sine)
+setbpm (range 120 200 $ slow 6 $ segment 128 $ saw)
+setbpm (range 120 200 $ slow 24 $ segment 128 $ saw)
+setbpm (range 60 400 $ slow 12 $ segment 128 $ saw)
+setbpm (range 69 320 $ slow 48 $ segment 256 $ saw)
+setbpm (range 120 320 $ slow 4 $ segment 128 $ sine)
+setbpm (range 120 620 $ slow 16 $ segment 128 $ sine)
+setbpm (range 120 620 $ slow 32 $ segment 128 $ sine)
+setbpm (range 120 620 $ slow 48 $ segment 128 $ sine)
+setbpm (range 120 620 $ slow 64 $ segment 128 $ sine)
+setbpm (range 120 620 $ slow 64 $ segment 128 $ sine)
+setbpm (range 120 620 $ slow 128 $ segment 256 $ sine)
+setbpm (range 120 800 $ slow 64 $ segment 256 $ sine)
+setbpm (range 120 600 $ slow 48 $ segment 256 $ sine)
+setbpm (range 120 600 $ slow 32 $ segment 256 $ sine)
+setbpm (range 120 600 $ slow 16 $ segment 256 $ sine)
+setbpm (range 120 600 $ slow 8 $ segment 256 $ sine)
+setbpm 220
+setbpm 240
+setbpm 260
+setbpm 280
+setbpm 300
+setbpm 320
+setbpm 360
+setbpm 400
+setbpm 500
+setbpm 600
+setbpm 660
