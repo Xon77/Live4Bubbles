@@ -263,7 +263,7 @@ Each of the 8 tracks has access to the following parameters:
 
 ---
 
-This project, briefly introduced during Composite Montréal in June 2025 through a 5-minute pitch, has been presented in October 2025 as part of a three-hour public experimental workshop at [Eastern Bloc](https://www.easternbloc.ca). The event included a short performance and a participatory exploration session with the audience. I warmly thank Eastern Bloc and [CALQ](https://www.calq.gouv.qc.ca/en/) for their support in making this presentation possible.
+This project, briefly introduced during Composite Montréal in June 2025 through a 5-minute pitch, has been presented on Saturday, October 18, 2025 as part of a three-hour public experimental workshop at [Eastern Bloc](https://www.easternbloc.ca). The event included a short performance and a participatory exploration session with the audience. I warmly thank Eastern Bloc and [CALQ](https://www.calq.gouv.qc.ca/en/) for their support in making this presentation possible.
 
 ---
 
