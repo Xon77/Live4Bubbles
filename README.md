@@ -216,7 +216,7 @@ Each of the 8 tracks has access to the following parameters:
 **Spatial:**
 - `1Spa` to `8Spa` - Spatial positioning.
 
-See the [wiki](https://github.com/Xon77/Live4Bubbles/wiki) for more details.
+See the [wiki](https://github.com/Xon77/Live4Bubbles/wiki) for more details (under construction and constant updates).
 
 ---
 
