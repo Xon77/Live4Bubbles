@@ -129,7 +129,7 @@ Open all Tidal Cycles files from the [`L4B_Tidal/`](L4B_Tidal/) folder in Pulsar
 
 Other workflows are possible. For example, you can execute code lines by selecting different splits and tabs. (The images above represent four splits of the first tab.)
 
-**3. Initialize Control Variables**
+**3. Initialize Control Variables in Tidal Files**
 
 In [`ControlTidal.tidal`](L4B_Tidal/ControlTidal.tidal), evaluate the following sections in order with Ctrl+Enter (Cmd+Enter on macOS):
 
@@ -139,6 +139,8 @@ In [`ControlTidal.tidal`](L4B_Tidal/ControlTidal.tidal), evaluate the following 
 4. Evaluate [lines 1118 to 1136](L4B_Tidal/ControlTidal.tidal#L1118-L1136) - Final initialization for crossfades
 
 This sets up all control parameters for tempo, duration, sound folders, buffers, effects, and more.
+
+You can begin to play.
 
 ---
 
