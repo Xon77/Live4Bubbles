@@ -109,14 +109,14 @@ Edit the initialization files in [`L4B_SC/L4B_SC_Project/`](L4B_SC/L4B_SC_Projec
 **1. Start SuperCollider**
 
 Open SuperCollider and evaluate the initialization file:
-- Navigate to [`L4B_SC/L4B_SC_Project/`](L4B_SC/L4B_SC_Project/),
-- Open [`_0T_Init_TidalX.scd`](L4B_SC/L4B_SC_Project/_0T_Init_TidalX.scd),
+- Navigate to folder [`L4B_SC/L4B_SC_Project/`](L4B_SC/L4B_SC_Project/),
+- Open file [`_0T_Init_TidalX.scd`](L4B_SC/L4B_SC_Project/_0T_Init_TidalX.scd),
 - Evaluate the section in parentheses between [lines 16 and 422](L4B_SC/L4B_SC_Project/_0T_Init_TidalX.scd#L16-L422) within the file (Cmd+Enter on macOS, Ctrl+Enter on Windows/Linux).
 
 This will:
 - Boot the SuperCollider server,
-- Load SuperDirt,
-- Initialize the SuperDirtMixer GUI,
+- Load SuperDirt and *Live 4 Bubbles*,
+- Initialize the GUI ,
 - Setup all MIDI connections (if configured).
 
 **2. Launch Pulsar with Tidal Files to create a four-track code execution partition**
@@ -142,7 +142,7 @@ In [`ControlTidal.tidal`](L4B_Tidal/ControlTidal.tidal), evaluate the following 
 
 This sets up all control parameters for tempo, duration, sound folders, buffers, effects, and more.
 
-You can begin to play.
+You can begin to play!
 
 ---
 
@@ -162,7 +162,7 @@ To setup MIDI, simply connect your MIDI controller. For the MIDI Fighter Twister
 
 For a customized Pulsar appearance optimized for *Live 4 Bubbles*:
 
-1. Navigate to [`L4B_Pulsar/`](L4B_Pulsar/),
+1. Navigate to folder[`L4B_Pulsar/`](L4B_Pulsar/),
 2. Copy the styles from [`styles.less`](L4B_Pulsar/styles.less),
 3. Paste them into your Pulsar stylesheet (Edit → Stylesheet).
 
@@ -186,10 +186,10 @@ Each of the 8 tracks has access to the following parameters:
 
 **Playback:**
 - `1Rat` to `8Rat` - Playback rate/speed,
-- `1Ran` to `8Ran` - Random parameter (context-dependent),
+- `1Ran` to `8Ran` - Random parameter (context-dependent - filter by default),
 - `1Xon` to `8Xon` - Orbit assignment.
 
-**Effects (2 chains per track):**
+**Sound Effects (2 chains per track):**
 - `1fxs` to `8fxs` - Effect selection (chain 1),
 - `1fxx` to `8fxx` - Effect mix (chain 1),
 - `1fxt` to `8fxt` - Effect type parameter (chain 1),
@@ -199,10 +199,17 @@ Each of the 8 tracks has access to the following parameters:
 - `1fxx2` to `8fxx2` - Effect mix (chain 2),
 - (and so on for chain 2...).
 
-**User Functions:**
-- `1fus` to `8fus` - User function selection,
-- `1fux` to `8fux` - User function mix,
-- (and similar parameters for user functions).
+**Pattern Effects Functions:**
+- `1fus` to `8fus` - Pattern function selection (chain 1),
+- `1fux` to `8fux` - Pattern function mix (chain 1),
+- `1fut` to `8fut` - Pattern function type parameter (chain 1),
+- `1fup` to `8fup` - Pattern function parameter 1 (chain 1),
+- `1fuv` to `8fuv` - Pattern function parameter 2 (chain 1),
+- `1fus2` to `8fus2` - Pattern function selection (chain 2),
+- `1fux2` to `8fux2` - Pattern function mix (chain 2),
+- `1fut2` to `8fut2` - Pattern function type parameter (chain 2),
+- `1fup2` to `8fup2` - Pattern function parameter 1 (chain 2),
+- `1fuv2` to `8fuv2` - Pattern function parameter 2 (chain 2).
 
 **Spatial:**
 - `1Spa` to `8Spa` - Spatial positioning.
