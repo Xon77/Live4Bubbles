@@ -109,7 +109,7 @@ Edit the initialization files in [`L4B_SC/L4B_SC_Project/`](L4B_SC/L4B_SC_Projec
 Open SuperCollider and evaluate the initialization file:
 - Navigate to [`L4B_SC/L4B_SC_Project/`](L4B_SC/L4B_SC_Project/)
 - Open [`_0T_Init_TidalX.scd`](L4B_SC/L4B_SC_Project/_0T_Init_TidalX.scd)
-- Evaluate the entire file (Cmd+A then Cmd+Enter on macOS, Ctrl+A then Ctrl+Enter on Windows/Linux)
+- Evaluate the section in parentheses between [lines 16 and 422](L4B_SC/L4B_SC_Project/_0T_Init_TidalX.scd#L16-L422) within the file (Cmd+Enter on macOS, Ctrl+Enter on Windows/Linux)
 
 This will:
 - Boot the SuperCollider server
@@ -117,21 +117,21 @@ This will:
 - Initialize the SuperDirtMixer GUI
 - Setup all MIDI connections (if configured)
 
-**2. Launch Pulsar with Tidal Files**
+**2. Launch Pulsar with Tidal Files to create a four-track code execution partition**
 
-Open your Tidal Cycles files in Pulsar:
+Open all Tidal Cycles files from the [`L4B_Tidal/`](L4B_Tidal/) folder in Pulsar:
+1. Open [`L4B_Tidal/DJCode1.tidal`](L4B_Tidal/DJCode1.tidal) in tab 1
+2. Open [`L4B_Tidal/DJCode2.tidal`](L4B_Tidal/DJCode2.tidal) in tab 2
+3. Open [`L4B_Tidal/DJCode3.tidal`](L4B_Tidal/DJCode3.tidal) in tab 3
+4. Open [`L4B_Tidal/DJCode4.tidal`](L4B_Tidal/DJCode4.tidal) in tab 4
+5. Open [`L4B_Tidal/DJCodeG.tidal`](L4B_Tidal/DJCodeG.tidal) in tab 5 (for global control)
+6. Open [`L4B_Tidal/ControlTidal.tidal`](L4B_Tidal/ControlTidal.tidal) in tab 6 for initialization
 
-1. Open [`L4B_Tidal/ControlTidal.tidal`](L4B_Tidal/ControlTidal.tidal) first
-2. Evaluate the 3 initialization steps at the beginning of the file
-3. Open [`L4B_Tidal/DJCode1.tidal`](L4B_Tidal/DJCode1.tidal) in tab 1
-4. Open [`L4B_Tidal/DJCode2.tidal`](L4B_Tidal/DJCode2.tidal) in tab 2
-5. Open [`L4B_Tidal/DJCode3.tidal`](L4B_Tidal/DJCode3.tidal) in tab 3
-6. Open [`L4B_Tidal/DJCode4.tidal`](L4B_Tidal/DJCode4.tidal) in tab 4
-7. Open [`L4B_Tidal/DJCodeG.tidal`](L4B_Tidal/DJCodeG.tidal) in tab 5 (for global control)
+Other workflows are possible. For example, you can execute code lines by selecting different splits and tabs. (The images above represent four splits of the first tab.)
 
 **3. Initialize Control Variables**
 
-In [`ControlTidal.tidal`](L4B_Tidal/ControlTidal.tidal), evaluate the initialization function:
+In [`ControlTidal.tidal`](L4B_Tidal/ControlTidal.tidal), evaluate the 3 initialization steps at the [beginning of the file](L4B_Tidal/ControlTidal.tidal#L1-L3), then evaluate the initialization function:
 
 ```haskell
 initializeControls 8  -- Initialize controls for 8 tracks
@@ -143,13 +143,13 @@ This sets up all control parameters for tempo, duration, sound folders, buffers,
 
 ### 🎹 MIDI Controller Setup
 
-*Live 4 Bubbles* can support multiple MIDI controllers. The mapping has been done for the controllers:
+*Live 4 Bubbles* can support multiple MIDI controllers. The mapping has been done for the following controllers:
 
-- [`_Init Midi X2.scd`](L4B_SC/L4B_SC_Project/_Init%20Midi%20X2.scd) - Midi Xone K2 from Allen & Heath
-- [`_Init Midi T2.scd`](L4B_SC/L4B_SC_Project/_Init%20Midi%20T2.scd) - Midi Fighter Twister
-- [`_Init Midi LPX.scd`](L4B_SC/L4B_SC_Project/_Init%20Midi%20LPX.scd) - Launchpad X Novation
+- [`_Init Midi X2.scd`](L4B_SC/L4B_SC_Project/_Init%20Midi%20X2.scd) - Xone K2 from Allen & Heath
+- [`_Init Midi T2.scd`](L4B_SC/L4B_SC_Project/_Init%20Midi%20T2.scd) - MIDI Fighter Twister
+- [`_Init Midi LPX.scd`](L4B_SC/L4B_SC_Project/_Init%20Midi%20LPX.scd) - Launchpad X from Novation
 
-To setup MIDI, simply connect your MIDI controller. For the Midi Fighter Twister, name the controllers depending on how many you have: Midi Fighter Twister 1, Midi Fighter Twister 2, Midi Fighter Twister 3, as you can now connect up to 3 MidiFighter together. The controllers are initialized by evaluating [`_0T_Init_TidalX.scd`](L4B_SC/L4B_SC_Project/_0T_Init_TidalX.scd).
+To setup MIDI, simply connect your MIDI controller. For the MIDI Fighter Twister, name the controllers depending on how many you have: "MIDI Fighter Twister 1", "MIDI Fighter Twister 2", "MIDI Fighter Twister 3", as you can now connect up to 3 MIDI Fighters together. The controllers are initialized by evaluating [`_0T_Init_TidalX.scd`](L4B_SC/L4B_SC_Project/_0T_Init_TidalX.scd).
 
 ---
 
@@ -168,9 +168,9 @@ For a customized Pulsar appearance optimized for *Live 4 Bubbles*:
 **Key Files:**
 - [**ControlTidal.tidal**](L4B_Tidal/ControlTidal.tidal) - Main control definitions and initialization
 - [**DJCode1-4.tidal**](L4B_Tidal/) - Individual track patterns and code for main pattern variations
-- [**DJCodeG.tidal**](L4B_Tidal/DJCodeG.tidal) - Global controls, transitions and effects
+- [**DJCodeG.tidal**](L4B_Tidal/DJCodeG.tidal) - Global controls, transitions, and effects
 - [**_0T_Init_TidalX.scd**](L4B_SC/L4B_SC_Project/_0T_Init_TidalX.scd) - SuperCollider initialization
-- [**PresetsTrax.txt**](L4B_Tidal/PresetsTrax.txt) - Preset configurations file for quick recall
+- [**PresetsTrax.txt**](L4B_Tidal/PresetsTrax.txt) - Preset configuration file for quick recall
 
 ---
 
