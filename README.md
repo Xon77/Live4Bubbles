@@ -48,11 +48,13 @@ Before installing *Live 4 Bubbles*, you need to have the following installed:
 - **[Tidal Cycles](https://tidalcycles.org/)** - Live coding pattern language,
 - **[SuperDirt Quark](https://github.com/musikinformatik/SuperDirt)** - SuperCollider synthesizer for Tidal,
 - **[Pulsar](https://pulsar-edit.dev/)** - Text editor for live coding,
-- **[pulsar-tidalcycles](https://web.pulsar-edit.dev/packages/tidalcycles)** - Pulsar package for Tidal Cycles integration. You can use my variation of [pulsar-tidalcycles](https://github.com/Xon77/pulsar-tidalcycles) for the additional feature of selecting lines not only from different tabs but also from different splits.
+- **[pulsar-tidalcycles](https://web.pulsar-edit.dev/packages/tidalcycles)** - Pulsar package for Tidal Cycles integration. 
+
+You can use my variation of [pulsar-tidalcycles](https://github.com/Xon77/pulsar-tidalcycles) for the additional feature of selecting lines not only from different tabs but also from different splits.
 
 ---
 
-### 📥 Step-by-Step Installation
+### 📥 Next Step-by-Step Installation
 
 **1. Install SuperDirtMixer**
 
@@ -66,15 +68,15 @@ Clone or download the *Live 4 Bubbles* repository to your local machine:
 git clone https://github.com/Xon77/Live4Bubbles.git
 ```
 
-**3. Install SuperCollider Extensions**
+**3. Install *Live 4 Bubbles* in SuperCollider Extensions**
 
-Copy the [`SuperDirtMixerX`](L4B_SC/SuperDirtMixerX/) folder from [`L4B_SC/SuperDirtMixerX/`](L4B_SC/SuperDirtMixerX/) into your SuperCollider extensions folder:
+Copy the [`L4B_SC/SuperDirtMixerX/`](L4B_SC/SuperDirtMixerX/) folder into your SuperCollider extensions folder:
 
 - **macOS**: `~/Library/Application Support/SuperCollider/Extensions/`,
 - **Linux**: `~/.local/share/SuperCollider/Extensions/`,
 - **Windows**: `%USERPROFILE%\AppData\Local\SuperCollider\Extensions\`.
 
-**4. Setup Sound Database**
+**4. Setup your Sound Database**
 
 **Important**: Your sound folder must be structured following the [Live 4 Life sound database structure](https://github.com/Xon77/L4LSoundsDataBase/tree/main/SoundFolder), except that folder names should use underscores instead of spaces (e.g., `DB_MBass` instead of `DB MBass`).
 
@@ -89,7 +91,7 @@ YourSoundFolder/
 └── ...
 ```
 
-**5. Configure File Paths**
+**5. Configure File Paths in SuperCollider**
 
 Edit the initialization files in [`L4B_SC/L4B_SC_Project/`](L4B_SC/L4B_SC_Project/) to match your system paths:
 - Open [`_0T_Init_TidalX.scd`](L4B_SC/L4B_SC_Project/_0T_Init_TidalX.scd) in SuperCollider,
