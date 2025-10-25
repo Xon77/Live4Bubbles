@@ -68,7 +68,7 @@ git clone https://github.com/Xon77/Live4Bubbles.git
 
 **3. Install SuperCollider Extensions**
 
-Copy the `SuperDirtMixerX` folder from `L4B_SC/SuperDirtMixerX/` into your SuperCollider extensions folder:
+Copy the [`SuperDirtMixerX`](L4B_SC/SuperDirtMixerX/) folder from [`L4B_SC/SuperDirtMixerX/`](L4B_SC/SuperDirtMixerX/) into your SuperCollider extensions folder:
 
 - **macOS**: `~/Library/Application Support/SuperCollider/Extensions/`
 - **Linux**: `~/.local/share/SuperCollider/Extensions/`
