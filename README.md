@@ -18,7 +18,7 @@
 
 **A performance tool for controlling Live Coding Databases from [Tidal Cycles](https://tidalcycles.org/) and [Hydra](https://hydra.ojack.xyz/) with [SuperCollider](https://supercollider.github.io/) GUI and controllers. It is my new life-long project, for as many years as possible until the end of my life.**
 
-*Live 4 Bubbles* is an extension and modified version based on [SuperDirtMixer](https://github.com/thgrund/SuperDirtMixer) from Thomas Grund. But it goes far beyond a simple mixer for Tidal Cycles - it transforms your live coding setup into a comprehensive performance and control system with control over your rhythmic, spectral and spatial patterns of sound files and SuperCollider synthesis.
+*Live 4 Bubbles* is an extension and modified version based on [SuperDirtMixer](https://github.com/thgrund/SuperDirtMixer) from Thomas Grund. But it goes far beyond a mixer for Tidal Cycles - it transforms your live coding setup into a comprehensive performance and control system with control over your rhythmic, spectral and spatial patterns of sound files and SuperCollider synthesis.
 
 ### 🎛️ Core Features
 
@@ -47,8 +47,10 @@ Before installing *Live 4 Bubbles*, you need to have the following installed:
 - **[SuperCollider](https://supercollider.github.io/)** - Audio synthesis platform
 - **[Tidal Cycles](https://tidalcycles.org/)** - Live coding pattern language
 - **[SuperDirt Quark](https://github.com/musikinformatik/SuperDirt)** - SuperCollider synthesizer for Tidal
-- **[Pulsar](https://pulsar-edit.dev/)** (or Atom) - Text editor for live coding
+- **[Pulsar](https://pulsar-edit.dev/)** - Text editor for live coding
 - **[pulsar-tidalcycles](https://web.pulsar-edit.dev/packages/tidalcycles)** - Pulsar package for Tidal Cycles integration
+
+You can use my variation of [pulsar-tidalcycles](https://github.com/Xon77/pulsar-tidalcycles) with additional features.
 
 ---
 
