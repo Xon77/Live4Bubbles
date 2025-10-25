@@ -16,42 +16,23 @@
 
 ---
 
-**A performance tool on controlling Live Coding Data Bases from [Tidal Cycles](https://tidalcycles.org/) or [Hydra](https://hydra.ojack.xyz/) with [SuperCollider](https://supercollider.github.io/) GUI or controllers.**
+**A performance tool for controlling Live Coding Databases from [Tidal Cycles](https://tidalcycles.org/) and [Hydra](https://hydra.ojack.xyz/) with [SuperCollider](https://supercollider.github.io/) GUI and controllers. It is my new life-long project, for as many years as possible until the end of my life.**
 
-Live 4 Bubbles is an extension and modified version based on [SuperDirMixer](https://github.com/thgrund/SuperDirtMixer) from Thomas Grund. But it goes far beyond a simple mixer for Tidal Cycles - it transforms your live coding setup into a comprehensive performance system with unprecedented control over your sonic palette.
+Live 4 Bubbles is an extension and modified version based on [SuperDirtMixer](https://github.com/thgrund/SuperDirtMixer) from Thomas Grund. But it goes far beyond a simple mixer for Tidal Cycles - it transforms your live coding setup into a comprehensive performance and control system with control over your rhythmic, spectral and spatial patterns of sound files and SuperCollider synthesis.
 
 ### 🎛️ Core Features
 
-**Multi-Track Control System**
-- Control up to 8 independent tracks simultaneously
-- Real-time tempo and duration control per track
-- Dynamic sound folder and buffer selection
-- Advanced playback control (speed, direction, effects)
+**Multi-Track Control System of code execution with dynamic control over dozens of parameters**
+- Control up to 8 independent tracks simultaneously. (Above you can see images from a four-track representation).
+- Trigger and control Tidal Cycles code lines from SuperCollider GUI to switch between different code patterns on the fly.
+- Preset system for instant performance setup and transitions with crossfade between patterns.
+- Integration with MIDI controllers for hands-on control.
 
-**Flexible Code Execution**
-- Trigger and control Tidal Cycles code lines from SuperCollider GUI
-- Switch between different code patterns on the fly
-- Save and recall presets for instant performance setup
-- Integration with MIDI controllers for hands-on control
-
-**Advanced Parameter Management**
-- Control tempo (BPM) independently per track
-- Adjust duration and legato per sound
-- Select sound folders and specific buffers from your database
-- Apply effects with multiple parameter controls (2 effect chains per track)
+**Parameter Management:**
+- Speed of the pattern or the sound, duration and legato
+- Sound folder and buffer selection for quick navigation through sound libraries during performance
+- Filter & Database of Effects on the sound and the patterns with multiple parameter controls
 - Spatial positioning and orbit management
-
-**Database-Driven Sound Selection**
-- Organize sounds in a structured folder hierarchy
-- Quick navigation through sound libraries during performance
-- Normalized control values for seamless automation
-- Compatible with the [Live 4 Life sound database structure](https://github.com/Xon77/L4LSoundsDataBase)
-
-**Performance-Ready**
-- Preset system for quick setup and transitions
-- MIDI controller integration (with multiple mapping options)
-- CrossFade between patterns
-- Real-time visual feedback in SuperCollider GUI
 
 ---
 
@@ -273,7 +254,7 @@ This project, briefly introduced during Composite Montréal in June 2025 through
 
 If you would like to contribute, please get in touch with me in order to organise further development.
 
-You can also support thanks to donations via [**Ko-fi**](https://ko-fi.com/live4life) or get specific support and courses via [**Patreon**](https://www.patreon.com/live4life)</mark>. :grin:
+You can also support through donations via [**Ko-fi**](https://ko-fi.com/live4life) or get specific support and courses via [**Patreon**](https://www.patreon.com/live4life). :grin:
 
 [![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/Live4Life)
 
@@ -310,6 +291,6 @@ This program is distributed in the hope that it will be useful, but WITHOUT ANY 
 
 **I wish it would be used in the spirit of [*Free Party*](https://en.wikipedia.org/wiki/Free_party)**. Unfortunately, *Free* does not mean free in this commercial world, but invites to contribute to the costs and labor according to one's ability to give. I do not want this tool to be used, by any means, for personal profit.
 
-:warning: **Moreover, I do not want that this tool to be used by or in [Société des Arts Technologiques](https://sat.qc.ca)** without my consent, since this organisation never helped me in diffusing my spatial creations in their dome despite my previous proposals. (This restriction will be withdrawn only if I have the opportunity to play improvisations in their dome with an appropriate allowance. However, it will surely never happen, since I am no longer interested to send them applications and I am looking for more open spaces. But, Life is unpredictable;)
+:warning: **Moreover, I do not want this tool to be used by or in [Société des Arts Technologiques](https://sat.qc.ca)** without my consent, since this organization never helped me in diffusing my spatial creations in their dome despite my previous proposals. (This restriction will be withdrawn only if I have the opportunity to play improvisations in their dome with an appropriate allowance. However, it will surely never happen, since I am no longer interested in sending them applications and I am looking for more open spaces. But, life is unpredictable;)
 
 See the [License](/LICENCE.md) for more details.
