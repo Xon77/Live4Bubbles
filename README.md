@@ -23,9 +23,9 @@
 ### 🎛️ Core Features
 
 **Multi-Track Control System of code execution with dynamic control over dozens of parameters**
-- Control up to 8 independent tracks simultaneously. (Above you can see images from a four-track representation).
-- Trigger and control Tidal Cycles code lines from SuperCollider GUI to switch between different code patterns on the fly.
-- Preset system for instant performance setup and transitions with crossfade between patterns.
+- Control up to 8 independent tracks simultaneously. (Above you can see images from a four-track representation),
+- Trigger and control Tidal Cycles code lines from SuperCollider GUI to switch between different code patterns on the fly,
+- Preset system for instant performance setup and transitions with crossfade between patterns,
 - Integration with MIDI controllers for hands-on control.
 
 **Parameter Management:**
@@ -44,13 +44,11 @@
 
 Before installing *Live 4 Bubbles*, you need to have the following installed:
 
-- **[SuperCollider](https://supercollider.github.io/)** - Audio synthesis platform
-- **[Tidal Cycles](https://tidalcycles.org/)** - Live coding pattern language
-- **[SuperDirt Quark](https://github.com/musikinformatik/SuperDirt)** - SuperCollider synthesizer for Tidal
-- **[Pulsar](https://pulsar-edit.dev/)** - Text editor for live coding
-- **[pulsar-tidalcycles](https://web.pulsar-edit.dev/packages/tidalcycles)** - Pulsar package for Tidal Cycles integration
-
-You can use my variation of [pulsar-tidalcycles](https://github.com/Xon77/pulsar-tidalcycles) with additional features.
+- **[SuperCollider](https://supercollider.github.io/)** - Audio synthesis platform,
+- **[Tidal Cycles](https://tidalcycles.org/)** - Live coding pattern language,
+- **[SuperDirt Quark](https://github.com/musikinformatik/SuperDirt)** - SuperCollider synthesizer for Tidal,
+- **[Pulsar](https://pulsar-edit.dev/)** - Text editor for live coding,
+- **[pulsar-tidalcycles](https://web.pulsar-edit.dev/packages/tidalcycles)** - Pulsar package for Tidal Cycles integration. You can use my variation of [pulsar-tidalcycles](https://github.com/Xon77/pulsar-tidalcycles) for the additional feature of selecting lines not only from different tabs but also from different splits.
 
 ---
 
@@ -72,9 +70,9 @@ git clone https://github.com/Xon77/Live4Bubbles.git
 
 Copy the [`SuperDirtMixerX`](L4B_SC/SuperDirtMixerX/) folder from [`L4B_SC/SuperDirtMixerX/`](L4B_SC/SuperDirtMixerX/) into your SuperCollider extensions folder:
 
-- **macOS**: `~/Library/Application Support/SuperCollider/Extensions/`
-- **Linux**: `~/.local/share/SuperCollider/Extensions/`
-- **Windows**: `%USERPROFILE%\AppData\Local\SuperCollider\Extensions\`
+- **macOS**: `~/Library/Application Support/SuperCollider/Extensions/`,
+- **Linux**: `~/.local/share/SuperCollider/Extensions/`,
+- **Windows**: `%USERPROFILE%\AppData\Local\SuperCollider\Extensions\`.
 
 **4. Setup Sound Database**
 
@@ -94,9 +92,9 @@ YourSoundFolder/
 **5. Configure File Paths**
 
 Edit the initialization files in [`L4B_SC/L4B_SC_Project/`](L4B_SC/L4B_SC_Project/) to match your system paths:
-- Open [`_0T_Init_TidalX.scd`](L4B_SC/L4B_SC_Project/_0T_Init_TidalX.scd) in SuperCollider
-- Update the sound folder path to point to your sound database
-- Update any other paths as needed for your setup
+- Open [`_0T_Init_TidalX.scd`](L4B_SC/L4B_SC_Project/_0T_Init_TidalX.scd) in SuperCollider,
+- Update the sound folder path to point to your sound database,
+- Update any other paths as needed for your setup.
 
 ---
 
@@ -109,25 +107,25 @@ Edit the initialization files in [`L4B_SC/L4B_SC_Project/`](L4B_SC/L4B_SC_Projec
 **1. Start SuperCollider**
 
 Open SuperCollider and evaluate the initialization file:
-- Navigate to [`L4B_SC/L4B_SC_Project/`](L4B_SC/L4B_SC_Project/)
-- Open [`_0T_Init_TidalX.scd`](L4B_SC/L4B_SC_Project/_0T_Init_TidalX.scd)
-- Evaluate the section in parentheses between [lines 16 and 422](L4B_SC/L4B_SC_Project/_0T_Init_TidalX.scd#L16-L422) within the file (Cmd+Enter on macOS, Ctrl+Enter on Windows/Linux)
+- Navigate to [`L4B_SC/L4B_SC_Project/`](L4B_SC/L4B_SC_Project/),
+- Open [`_0T_Init_TidalX.scd`](L4B_SC/L4B_SC_Project/_0T_Init_TidalX.scd),
+- Evaluate the section in parentheses between [lines 16 and 422](L4B_SC/L4B_SC_Project/_0T_Init_TidalX.scd#L16-L422) within the file (Cmd+Enter on macOS, Ctrl+Enter on Windows/Linux).
 
 This will:
-- Boot the SuperCollider server
-- Load SuperDirt
-- Initialize the SuperDirtMixer GUI
-- Setup all MIDI connections (if configured)
+- Boot the SuperCollider server,
+- Load SuperDirt,
+- Initialize the SuperDirtMixer GUI,
+- Setup all MIDI connections (if configured).
 
 **2. Launch Pulsar with Tidal Files to create a four-track code execution partition**
 
 Open all Tidal Cycles files from the [`L4B_Tidal/`](L4B_Tidal/) folder in Pulsar:
-1. Open [`L4B_Tidal/DJCode1.tidal`](L4B_Tidal/DJCode1.tidal) in tab 1
-2. Open [`L4B_Tidal/DJCode2.tidal`](L4B_Tidal/DJCode2.tidal) in tab 2
-3. Open [`L4B_Tidal/DJCode3.tidal`](L4B_Tidal/DJCode3.tidal) in tab 3
-4. Open [`L4B_Tidal/DJCode4.tidal`](L4B_Tidal/DJCode4.tidal) in tab 4
-5. Open [`L4B_Tidal/DJCodeG.tidal`](L4B_Tidal/DJCodeG.tidal) in tab 5 (for global control)
-6. Open [`L4B_Tidal/ControlTidal.tidal`](L4B_Tidal/ControlTidal.tidal) in tab 6 for initialization
+1. Open [`L4B_Tidal/DJCode1.tidal`](L4B_Tidal/DJCode1.tidal) in tab 1,
+2. Open [`L4B_Tidal/DJCode2.tidal`](L4B_Tidal/DJCode2.tidal) in tab 2,
+3. Open [`L4B_Tidal/DJCode3.tidal`](L4B_Tidal/DJCode3.tidal) in tab 3,
+4. Open [`L4B_Tidal/DJCode4.tidal`](L4B_Tidal/DJCode4.tidal) in tab 4,
+5. Open [`L4B_Tidal/DJCodeG.tidal`](L4B_Tidal/DJCodeG.tidal) in tab 5 (for global control),
+6. Open [`L4B_Tidal/ControlTidal.tidal`](L4B_Tidal/ControlTidal.tidal) in tab 6 for initialization.
 
 Other workflows are possible. For example, you can execute code lines by selecting different splits and tabs. (The images above represent four splits of the first tab.)
 
@@ -135,10 +133,10 @@ Other workflows are possible. For example, you can execute code lines by selecti
 
 In [`ControlTidal.tidal`](L4B_Tidal/ControlTidal.tidal), evaluate the following sections in order with Ctrl+Enter (Cmd+Enter on macOS):
 
-1. Evaluate [lines 5 to 1107](L4B_Tidal/ControlTidal.tidal#L5-L1107) - Main control definitions and functions 
-2. Evaluate [line 1110](L4B_Tidal/ControlTidal.tidal#L1110) - Initialization of controls and variables
-3. Evaluate [line 1113](L4B_Tidal/ControlTidal.tidal#L1113) - Update of definitions and functions of step 1
-4. Evaluate [lines 1118 to 1136](L4B_Tidal/ControlTidal.tidal#L1118-L1136) - Final initialization for crossfades
+1. Evaluate [lines 5 to 1107](L4B_Tidal/ControlTidal.tidal#L5-L1107) - Main control definitions and functions,
+2. Evaluate [line 1110](L4B_Tidal/ControlTidal.tidal#L1110) - Initialization of controls and variables,
+3. Evaluate [line 1113](L4B_Tidal/ControlTidal.tidal#L1113) - Update of definitions and functions of step 1,
+4. Evaluate [lines 1118 to 1136](L4B_Tidal/ControlTidal.tidal#L1118-L1136) - Final initialization for crossfades.
 
 This sets up all control parameters for tempo, duration, sound folders, buffers, effects, and more.
 
@@ -150,9 +148,9 @@ You can begin to play.
 
 *Live 4 Bubbles* can support multiple MIDI controllers. The mapping has been done for the following controllers:
 
-- [`_Init Midi X2.scd`](L4B_SC/L4B_SC_Project/_Init%20Midi%20X2.scd) - Xone K2 from Allen & Heath
-- [`_Init Midi T2.scd`](L4B_SC/L4B_SC_Project/_Init%20Midi%20T2.scd) - MIDI Fighter Twister
-- [`_Init Midi LPX.scd`](L4B_SC/L4B_SC_Project/_Init%20Midi%20LPX.scd) - Launchpad X from Novation
+- [`_Init Midi X2.scd`](L4B_SC/L4B_SC_Project/_Init%20Midi%20X2.scd) - Xone K2 from Allen & Heath,
+- [`_Init Midi T2.scd`](L4B_SC/L4B_SC_Project/_Init%20Midi%20T2.scd) - MIDI Fighter Twister,
+- [`_Init Midi LPX.scd`](L4B_SC/L4B_SC_Project/_Init%20Midi%20LPX.scd) - Launchpad X from Novation.
 
 To setup MIDI, simply connect your MIDI controller. For the MIDI Fighter Twister, name the controllers depending on how many you have: "MIDI Fighter Twister 1", "MIDI Fighter Twister 2", "MIDI Fighter Twister 3", as you can now connect up to 3 MIDI Fighters together. The controllers are initialized by evaluating [`_0T_Init_TidalX.scd`](L4B_SC/L4B_SC_Project/_0T_Init_TidalX.scd).
 
@@ -162,9 +160,9 @@ To setup MIDI, simply connect your MIDI controller. For the MIDI Fighter Twister
 
 For a customized Pulsar appearance optimized for *Live 4 Bubbles*:
 
-1. Navigate to [`L4B_Pulsar/`](L4B_Pulsar/)
-2. Copy the styles from [`styles.less`](L4B_Pulsar/styles.less)
-3. Paste them into your Pulsar stylesheet (Edit → Stylesheet)
+1. Navigate to [`L4B_Pulsar/`](L4B_Pulsar/),
+2. Copy the styles from [`styles.less`](L4B_Pulsar/styles.less),
+3. Paste them into your Pulsar stylesheet (Edit → Stylesheet).
 
 
 ---
@@ -174,38 +172,38 @@ For a customized Pulsar appearance optimized for *Live 4 Bubbles*:
 Each of the 8 tracks has access to the following parameters:
 
 **Timing & Structure:**
-- `d1` to `d8` - Tempo/rhythm structure
-- `1Leg` to `8Leg` - Duration/legato
-- `1LegS` to `8LegS` - Duration algorithm switch
+- `d1` to `d8` - Tempo/rhythm structure,
+- `1Leg` to `8Leg` - Duration/legato,
+- `1LegS` to `8LegS` - Duration algorithm switch.
 
 **Sound Selection:**
-- `1Fol` to `8Fol` - Sound folder selection
-- `1Buf` to `8Buf` - Buffer selection within folder
-- `1FolN` to `8FolN` - Normalized folder index (0-1)
-- `1BufN` to `8BufN` - Normalized buffer index (0-1)
+- `1Fol` to `8Fol` - Sound folder selection,
+- `1Buf` to `8Buf` - Buffer selection within folder,
+- `1FolN` to `8FolN` - Normalized folder index (0-1),
+- `1BufN` to `8BufN` - Normalized buffer index (0-1).
 
 **Playback:**
-- `1Rat` to `8Rat` - Playback rate/speed
-- `1Ran` to `8Ran` - Random parameter (context-dependent)
-- `1Xon` to `8Xon` - Orbit assignment
+- `1Rat` to `8Rat` - Playback rate/speed,
+- `1Ran` to `8Ran` - Random parameter (context-dependent),
+- `1Xon` to `8Xon` - Orbit assignment.
 
 **Effects (2 chains per track):**
-- `1fxs` to `8fxs` - Effect selection (chain 1)
-- `1fxx` to `8fxx` - Effect mix (chain 1)
-- `1fxt` to `8fxt` - Effect type parameter (chain 1)
-- `1fxp` to `8fxp` - Effect parameter 1 (chain 1)
-- `1fxv` to `8fxv` - Effect parameter 2 (chain 1)
-- `1fxs2` to `8fxs2` - Effect selection (chain 2)
-- `1fxx2` to `8fxx2` - Effect mix (chain 2)
-- (and so on for chain 2...)
+- `1fxs` to `8fxs` - Effect selection (chain 1),
+- `1fxx` to `8fxx` - Effect mix (chain 1),
+- `1fxt` to `8fxt` - Effect type parameter (chain 1),
+- `1fxp` to `8fxp` - Effect parameter 1 (chain 1),
+- `1fxv` to `8fxv` - Effect parameter 2 (chain 1),
+- `1fxs2` to `8fxs2` - Effect selection (chain 2),
+- `1fxx2` to `8fxx2` - Effect mix (chain 2),
+- (and so on for chain 2...).
 
 **User Functions:**
-- `1fus` to `8fus` - User function selection
-- `1fux` to `8fux` - User function mix
-- (and similar parameters for user functions)
+- `1fus` to `8fus` - User function selection,
+- `1fux` to `8fux` - User function mix,
+- (and similar parameters for user functions).
 
 **Spatial:**
-- `1Spa` to `8Spa` - Spatial positioning
+- `1Spa` to `8Spa` - Spatial positioning.
 
 ---
 
