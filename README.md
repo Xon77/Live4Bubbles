@@ -18,7 +18,7 @@
 
 **A performance tool for controlling Live Coding Databases from [Tidal Cycles](https://tidalcycles.org/) and [Hydra](https://hydra.ojack.xyz/) with [SuperCollider](https://supercollider.github.io/) GUI and controllers. It is my new life-long project, for as many years as possible until the end of my life.**
 
-Live 4 Bubbles is an extension and modified version based on [SuperDirtMixer](https://github.com/thgrund/SuperDirtMixer) from Thomas Grund. But it goes far beyond a simple mixer for Tidal Cycles - it transforms your live coding setup into a comprehensive performance and control system with control over your rhythmic, spectral and spatial patterns of sound files and SuperCollider synthesis.
+*Live 4 Bubbles* is an extension and modified version based on [SuperDirtMixer](https://github.com/thgrund/SuperDirtMixer) from Thomas Grund. But it goes far beyond a simple mixer for Tidal Cycles - it transforms your live coding setup into a comprehensive performance and control system with control over your rhythmic, spectral and spatial patterns of sound files and SuperCollider synthesis.
 
 ### 🎛️ Core Features
 
@@ -42,7 +42,7 @@ Live 4 Bubbles is an extension and modified version based on [SuperDirtMixer](ht
 
 ### 📋 Prerequisites
 
-Before installing Live 4 Bubbles, you need to have the following installed:
+Before installing *Live 4 Bubbles*, you need to have the following installed:
 
 - **[SuperCollider](https://supercollider.github.io/)** - Audio synthesis platform
 - **[Tidal Cycles](https://tidalcycles.org/)** - Live coding pattern language
@@ -56,11 +56,11 @@ Before installing Live 4 Bubbles, you need to have the following installed:
 
 **1. Install SuperDirtMixer**
 
-Live 4 Bubbles is built on top of SuperDirtMixer. Follow the instructions in [SuperDirtMixer](https://github.com/thgrund/SuperDirtMixer) to install all [its requirements](https://github.com/thgrund/SuperDirtMixer?tab=readme-ov-file#requirements).
+*Live 4 Bubbles* is built on top of SuperDirtMixer. Follow the instructions in [SuperDirtMixer](https://github.com/thgrund/SuperDirtMixer) to install all [its requirements](https://github.com/thgrund/SuperDirtMixer?tab=readme-ov-file#requirements).
 
-**2. Download Live 4 Bubbles**
+**2. Download *Live 4 Bubbles***
 
-Clone or download the Live 4 Bubbles repository to your local machine:
+Clone or download the *Live 4 Bubbles* repository to your local machine:
 
 ```bash
 git clone https://github.com/Xon77/Live4Bubbles.git
@@ -143,24 +143,19 @@ This sets up all control parameters for tempo, duration, sound folders, buffers,
 
 ### 🎹 MIDI Controller Setup
 
-Live 4 Bubbles supports multiple MIDI controller configurations:
+*Live 4 Bubbles* can support multiple MIDI controllers. The mapping has been done for the controllers:
 
-**Available MIDI Initialization Files:**
-- [`_Init Midi X2.scd`](L4B_SC/L4B_SC_Project/_Init%20Midi%20X2.scd) - Main MIDI mapping (recommended)
-- [`_Init Midi T2.scd`](L4B_SC/L4B_SC_Project/_Init%20Midi%20T2.scd) - Alternative MIDI mapping
-- [`_Init Midi LPX.scd`](L4B_SC/L4B_SC_Project/_Init%20Midi%20LPX.scd) - Launchpad X mapping
+- [`_Init Midi X2.scd`](L4B_SC/L4B_SC_Project/_Init%20Midi%20X2.scd) - Midi Xone K2 from Allen & Heath
+- [`_Init Midi T2.scd`](L4B_SC/L4B_SC_Project/_Init%20Midi%20T2.scd) - Midi Fighter Twister
+- [`_Init Midi LPX.scd`](L4B_SC/L4B_SC_Project/_Init%20Midi%20LPX.scd) - Launchpad X Novation
 
-To setup MIDI:
-1. Connect your MIDI controller
-2. Open the appropriate MIDI initialization file in SuperCollider
-3. Update the MIDI device names to match your controller
-4. Evaluate the file to activate MIDI control
+To setup MIDI, simply connect your MIDI controller. For the Midi Fighter Twister, name the controllers depending on how many you have: Midi Fighter Twister 1, Midi Fighter Twister 2, Midi Fighter Twister 3, as you can now connect up to 3 MidiFighter together. The controllers are initialized by evaluating [`_0T_Init_TidalX.scd`](L4B_SC/L4B_SC_Project/_0T_Init_TidalX.scd).
 
 ---
 
 ### 🎨 Pulsar Styling (Optional)
 
-For a customized Pulsar appearance optimized for Live 4 Bubbles:
+For a customized Pulsar appearance optimized for *Live 4 Bubbles*:
 
 1. Navigate to [`L4B_Pulsar/`](L4B_Pulsar/)
 2. Copy the styles from [`styles.less`](L4B_Pulsar/styles.less)
@@ -172,10 +167,10 @@ For a customized Pulsar appearance optimized for Live 4 Bubbles:
 
 **Key Files:**
 - [**ControlTidal.tidal**](L4B_Tidal/ControlTidal.tidal) - Main control definitions and initialization
-- [**DJCode1-4.tidal**](L4B_Tidal/) - Individual track patterns and code
-- [**DJCodeG.tidal**](L4B_Tidal/DJCodeG.tidal) - Global controls and effects
+- [**DJCode1-4.tidal**](L4B_Tidal/) - Individual track patterns and code for main pattern variations
+- [**DJCodeG.tidal**](L4B_Tidal/DJCodeG.tidal) - Global controls, transitions and effects
 - [**_0T_Init_TidalX.scd**](L4B_SC/L4B_SC_Project/_0T_Init_TidalX.scd) - SuperCollider initialization
-- [**PresetsTrax.txt**](L4B_Tidal/PresetsTrax.txt) - Preset configurations for quick recall
+- [**PresetsTrax.txt**](L4B_Tidal/PresetsTrax.txt) - Preset configurations file for quick recall
 
 ---
 
@@ -218,21 +213,6 @@ Each of the 8 tracks has access to the following parameters:
 - `1Spa` to `8Spa` - Spatial positioning
 
 ---
-
-### 📖 Usage Tips
-
-**Starting a Performance:**
-1. Load your preset from [`PresetsTrax.txt`](L4B_Tidal/PresetsTrax.txt) or create your own
-2. Set initial sound folders for each track
-3. Adjust tempo and duration parameters
-4. Start triggering code lines from Pulsar
-5. Use MIDI controllers or GUI for real-time parameter control
-
-**Workflow Recommendations:**
-- Use [`DJCode1-4`](L4B_Tidal/) for main pattern variations
-- Use [`DJCodeG`](L4B_Tidal/DJCodeG.tidal) for global effects and transitions
-- Save your favorite combinations as presets
-- Organize sound folders by type for quick navigation
 
 **Additional documentation will be added in the coming weeks and months.**
 
