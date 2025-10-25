@@ -192,14 +192,14 @@ Each of the 8 tracks has access to the following parameters:
 **Sound Effects (2 chains per track):**
 - `1fxs` to `8fxs` - When (40 timing choices: whenmod, whenT, inside functions),
 - `1fxx` to `8fxx` - How (20 application methods: superimpose, off, jux stereo effects),
-- `1fxt` to `8fxt` - What (specific effect transformation),
-- `1fxp` to `8fxp` - How much (effect intensity parameter 1),
-- `1fxv` to `8fuv` - How much (effect intensity parameter 2),
+- `1fxt` to `8fxt` - When value (parameter value for the When algo),
+- `1fxp` to `8fxp` - What (specific effect transformation),
+- `1fxv` to `8fxv` - How much (effect value/intensity),
 - `1fxs2` to `8fxs2` - When (chain 2),
 - `1fxx2` to `8fxx2` - How (chain 2),
-- `1fxt2` to `8fxt2` - What (chain 2),
-- `1fxp2` to `8fxp2` - How much (chain 2, parameter 1),
-- `1fxv2` to `8fxv2` - How much (chain 2, parameter 2).
+- `1fxt2` to `8fxt2` - When value (chain 2),
+- `1fxp2` to `8fxp2` - What (chain 2),
+- `1fxv2` to `8fxv2` - How much (chain 2).
 
 **Pattern Functions (2 chains per track):**
 - `1fus` to `8fus` - When (40 timing options: whenmod, whenT, inside functions),
