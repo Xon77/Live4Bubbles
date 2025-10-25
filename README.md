@@ -174,13 +174,13 @@ For a customized Pulsar appearance optimized for *Live 4 Bubbles*:
 Each of the 8 tracks has access to the following parameters:
 
 **Timing & Structure:**
-- `d1` to `d8` - Tempo/rhythm structure,
-- `1Leg` to `8Leg` - Duration/legato,
+- `d1` to `d8` - Tempo (speed control),
+- `1Leg` to `8Leg` - Duration (pattern length),
 - `1LegS` to `8LegS` - Duration algorithm switch.
 
 **Sound Selection:**
-- `1Fol` to `8Fol` - Sound folder selection,
-- `1Buf` to `8Buf` - Buffer selection within folder,
+- `1Fol` to `8Fol` - Buffer Folder (directory containing audio samples),
+- `1Buf` to `8Buf` - Sound file (within the Buffer Folder),
 - `1FolN` to `8FolN` - Normalized folder index (0-1),
 - `1BufN` to `8BufN` - Normalized buffer index (0-1).
 
@@ -190,29 +190,33 @@ Each of the 8 tracks has access to the following parameters:
 - `1Xon` to `8Xon` - Orbit assignment.
 
 **Sound Effects (2 chains per track):**
-- `1fxs` to `8fxs` - Effect selection (chain 1),
-- `1fxx` to `8fxx` - Effect mix (chain 1),
-- `1fxt` to `8fxt` - Effect type parameter (chain 1),
-- `1fxp` to `8fxp` - Effect parameter 1 (chain 1),
-- `1fxv` to `8fxv` - Effect parameter 2 (chain 1),
-- `1fxs2` to `8fxs2` - Effect selection (chain 2),
-- `1fxx2` to `8fxx2` - Effect mix (chain 2),
-- (and so on for chain 2...).
+- `1fxs` to `8fxs` - When (40 timing choices: whenmod, whenT, inside functions),
+- `1fxx` to `8fxx` - How (20 application methods: superimpose, off, jux stereo effects),
+- `1fxt` to `8fxt` - What (specific effect transformation),
+- `1fxp` to `8fxp` - How much (effect intensity parameter 1),
+- `1fxv` to `8fuv` - How much (effect intensity parameter 2),
+- `1fxs2` to `8fxs2` - When (chain 2),
+- `1fxx2` to `8fxx2` - How (chain 2),
+- `1fxt2` to `8fxt2` - What (chain 2),
+- `1fxp2` to `8fxp2` - How much (chain 2, parameter 1),
+- `1fxv2` to `8fxv2` - How much (chain 2, parameter 2).
 
-**Pattern Effects Functions:**
-- `1fus` to `8fus` - Pattern function selection (chain 1),
-- `1fux` to `8fux` - Pattern function mix (chain 1),
-- `1fut` to `8fut` - Pattern function type parameter (chain 1),
-- `1fup` to `8fup` - Pattern function parameter 1 (chain 1),
-- `1fuv` to `8fuv` - Pattern function parameter 2 (chain 1),
-- `1fus2` to `8fus2` - Pattern function selection (chain 2),
-- `1fux2` to `8fux2` - Pattern function mix (chain 2),
-- `1fut2` to `8fut2` - Pattern function type parameter (chain 2),
-- `1fup2` to `8fup2` - Pattern function parameter 1 (chain 2),
-- `1fuv2` to `8fuv2` - Pattern function parameter 2 (chain 2).
+**Pattern Functions (2 chains per track):**
+- `1fus` to `8fus` - When (40 timing options: whenmod, whenT, inside functions),
+- `1fux` to `8fux` - How (20 application approaches),
+- `1fut` to `8fut` - What (transformations: degradeBy, trunc, etc.),
+- `1fup` to `8fup` - How much (quantity parameter 1),
+- `1fuv` to `8fuv` - How much (quantity parameter 2),
+- `1fus2` to `8fus2` - When (chain 2),
+- `1fux2` to `8fux2` - How (chain 2),
+- `1fut2` to `8fut2` - What (chain 2),
+- `1fup2` to `8fup2` - How much (chain 2, parameter 1),
+- `1fuv2` to `8fuv2` - How much (chain 2, parameter 2).
 
 **Spatial:**
 - `1Spa` to `8Spa` - Spatial positioning.
+
+See the [wiki](https://github.com/Xon77/Live4Bubbles/wiki) for more details.
 
 ---
 
