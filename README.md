@@ -29,10 +29,10 @@ Live 4 Bubbles is an extension and modified version based on [SuperDirtMixer](ht
 - Integration with MIDI controllers for hands-on control.
 
 **Parameter Management:**
-- Speed of the pattern or the sound, duration and legato
-- Sound folder and buffer selection for quick navigation through sound libraries during performance
-- Filter & Database of Effects on the sound and the patterns with multiple parameter controls
-- Spatial positioning and orbit management
+- Speed of the pattern or the sound, duration and legato,
+- Sound folder and buffer selection for quick navigation through sound libraries during performance,
+- Filter & Database of Effects on the sound and the patterns with multiple parameter controls,
+- Spatial positioning and orbit management.
 
 ---
 
@@ -76,9 +76,7 @@ Copy the `SuperDirtMixerX` folder from `L4B_SC/SuperDirtMixerX/` into your Super
 
 **4. Setup Sound Database**
 
-Your sound folder must be structured following the [Live 4 Life sound database structure](https://github.com/Xon77/L4LSoundsDataBase/tree/main/SoundFolder).
-
-**Important**: Folder names should use underscores instead of spaces (e.g., `DB_MBass` instead of `DB MBass`).
+**Important**: Your sound folder must be structured following the [Live 4 Life sound database structure](https://github.com/Xon77/L4LSoundsDataBase/tree/main/SoundFolder), except that folder names should use underscores instead of spaces (e.g., `DB_MBass` instead of `DB MBass`).
 
 Example structure:
 ```
@@ -93,8 +91,8 @@ YourSoundFolder/
 
 **5. Configure File Paths**
 
-Edit the initialization files in `L4B_SC/L4B_SC_Project/` to match your system paths:
-- Open `_0T_Init_TidalX.scd` in SuperCollider
+Edit the initialization files in [`L4B_SC/L4B_SC_Project/`](L4B_SC/L4B_SC_Project/) to match your system paths:
+- Open [`_0T_Init_TidalX.scd`](L4B_SC/L4B_SC_Project/_0T_Init_TidalX.scd) in SuperCollider
 - Update the sound folder path to point to your sound database
 - Update any other paths as needed for your setup
 
@@ -109,8 +107,8 @@ Edit the initialization files in `L4B_SC/L4B_SC_Project/` to match your system p
 **1. Start SuperCollider**
 
 Open SuperCollider and evaluate the initialization file:
-- Navigate to `L4B_SC/L4B_SC_Project/`
-- Open `_0T_Init_TidalX.scd`
+- Navigate to [`L4B_SC/L4B_SC_Project/`](L4B_SC/L4B_SC_Project/)
+- Open [`_0T_Init_TidalX.scd`](L4B_SC/L4B_SC_Project/_0T_Init_TidalX.scd)
 - Evaluate the entire file (Cmd+A then Cmd+Enter on macOS, Ctrl+A then Ctrl+Enter on Windows/Linux)
 
 This will:
@@ -123,17 +121,17 @@ This will:
 
 Open your Tidal Cycles files in Pulsar:
 
-1. Open `L4B_Tidal/ControlTidal.tidal` first
+1. Open [`L4B_Tidal/ControlTidal.tidal`](L4B_Tidal/ControlTidal.tidal) first
 2. Evaluate the 3 initialization steps at the beginning of the file
-3. Open `L4B_Tidal/DJCode1.tidal` in tab 1
-4. Open `L4B_Tidal/DJCode2.tidal` in tab 2
-5. Open `L4B_Tidal/DJCode3.tidal` in tab 3
-6. Open `L4B_Tidal/DJCode4.tidal` in tab 4
-7. Open `L4B_Tidal/DJCodeG.tidal` in tab 5 (for global control)
+3. Open [`L4B_Tidal/DJCode1.tidal`](L4B_Tidal/DJCode1.tidal) in tab 1
+4. Open [`L4B_Tidal/DJCode2.tidal`](L4B_Tidal/DJCode2.tidal) in tab 2
+5. Open [`L4B_Tidal/DJCode3.tidal`](L4B_Tidal/DJCode3.tidal) in tab 3
+6. Open [`L4B_Tidal/DJCode4.tidal`](L4B_Tidal/DJCode4.tidal) in tab 4
+7. Open [`L4B_Tidal/DJCodeG.tidal`](L4B_Tidal/DJCodeG.tidal) in tab 5 (for global control)
 
 **3. Initialize Control Variables**
 
-In `ControlTidal.tidal`, evaluate the initialization function:
+In [`ControlTidal.tidal`](L4B_Tidal/ControlTidal.tidal), evaluate the initialization function:
 
 ```haskell
 initializeControls 8  -- Initialize controls for 8 tracks
@@ -148,9 +146,9 @@ This sets up all control parameters for tempo, duration, sound folders, buffers,
 Live 4 Bubbles supports multiple MIDI controller configurations:
 
 **Available MIDI Initialization Files:**
-- `_Init Midi X2.scd` - Main MIDI mapping (recommended)
-- `_Init Midi T2.scd` - Alternative MIDI mapping
-- `_Init Midi LPX.scd` - Launchpad X mapping
+- [`_Init Midi X2.scd`](L4B_SC/L4B_SC_Project/_Init%20Midi%20X2.scd) - Main MIDI mapping (recommended)
+- [`_Init Midi T2.scd`](L4B_SC/L4B_SC_Project/_Init%20Midi%20T2.scd) - Alternative MIDI mapping
+- [`_Init Midi LPX.scd`](L4B_SC/L4B_SC_Project/_Init%20Midi%20LPX.scd) - Launchpad X mapping
 
 To setup MIDI:
 1. Connect your MIDI controller
@@ -164,8 +162,8 @@ To setup MIDI:
 
 For a customized Pulsar appearance optimized for Live 4 Bubbles:
 
-1. Navigate to `L4B_Pulsar/`
-2. Copy the styles from `styles.less`
+1. Navigate to [`L4B_Pulsar/`](L4B_Pulsar/)
+2. Copy the styles from [`styles.less`](L4B_Pulsar/styles.less)
 3. Paste them into your Pulsar stylesheet (Edit → Stylesheet)
 
 ---
@@ -173,11 +171,11 @@ For a customized Pulsar appearance optimized for Live 4 Bubbles:
 ### 📂 File Organization
 
 **Key Files:**
-- **ControlTidal.tidal** - Main control definitions and initialization
-- **DJCode1-4.tidal** - Individual track patterns and code
-- **DJCodeG.tidal** - Global controls and effects
-- **_0T_Init_TidalX.scd** - SuperCollider initialization
-- **PresetsTrax.txt** - Preset configurations for quick recall
+- [**ControlTidal.tidal**](L4B_Tidal/ControlTidal.tidal) - Main control definitions and initialization
+- [**DJCode1-4.tidal**](L4B_Tidal/) - Individual track patterns and code
+- [**DJCodeG.tidal**](L4B_Tidal/DJCodeG.tidal) - Global controls and effects
+- [**_0T_Init_TidalX.scd**](L4B_SC/L4B_SC_Project/_0T_Init_TidalX.scd) - SuperCollider initialization
+- [**PresetsTrax.txt**](L4B_Tidal/PresetsTrax.txt) - Preset configurations for quick recall
 
 ---
 
@@ -224,15 +222,15 @@ Each of the 8 tracks has access to the following parameters:
 ### 📖 Usage Tips
 
 **Starting a Performance:**
-1. Load your preset from `PresetsTrax.txt` or create your own
+1. Load your preset from [`PresetsTrax.txt`](L4B_Tidal/PresetsTrax.txt) or create your own
 2. Set initial sound folders for each track
 3. Adjust tempo and duration parameters
 4. Start triggering code lines from Pulsar
 5. Use MIDI controllers or GUI for real-time parameter control
 
 **Workflow Recommendations:**
-- Use `DJCode1-4` for main pattern variations
-- Use `DJCodeG` for global effects and transitions
+- Use [`DJCode1-4`](L4B_Tidal/) for main pattern variations
+- Use [`DJCodeG`](L4B_Tidal/DJCodeG.tidal) for global effects and transitions
 - Save your favorite combinations as presets
 - Organize sound folders by type for quick navigation
 
