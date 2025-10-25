@@ -131,11 +131,12 @@ Other workflows are possible. For example, you can execute code lines by selecti
 
 **3. Initialize Control Variables**
 
-In [`ControlTidal.tidal`](L4B_Tidal/ControlTidal.tidal), evaluate the 3 initialization steps at the [beginning of the file](L4B_Tidal/ControlTidal.tidal#L1-L3), then evaluate the initialization function:
+In [`ControlTidal.tidal`](L4B_Tidal/ControlTidal.tidal), evaluate the following sections in order with Ctrl+Enter (Cmd+Enter on macOS):
 
-```haskell
-initializeControls 8  -- Initialize controls for 8 tracks
-```
+1. Evaluate [lines 5 to 1107](L4B_Tidal/ControlTidal.tidal#L5-L1107) - Main control definitions and functions 
+2. Evaluate [line 1110](L4B_Tidal/ControlTidal.tidal#L1110) - Initialization of controls and variables
+3. Evaluate [line 1113](L4B_Tidal/ControlTidal.tidal#L1113) - Update of definitions and functions of step 1
+4. Evaluate [lines 1118 to 1136](L4B_Tidal/ControlTidal.tidal#L1118-L1136) - Final initialization for crossfades
 
 This sets up all control parameters for tempo, duration, sound folders, buffers, effects, and more.
 
@@ -161,16 +162,6 @@ For a customized Pulsar appearance optimized for *Live 4 Bubbles*:
 2. Copy the styles from [`styles.less`](L4B_Pulsar/styles.less)
 3. Paste them into your Pulsar stylesheet (Edit → Stylesheet)
 
----
-
-### 📂 File Organization
-
-**Key Files:**
-- [**ControlTidal.tidal**](L4B_Tidal/ControlTidal.tidal) - Main control definitions and initialization
-- [**DJCode1-4.tidal**](L4B_Tidal/) - Individual track patterns and code for main pattern variations
-- [**DJCodeG.tidal**](L4B_Tidal/DJCodeG.tidal) - Global controls, transitions, and effects
-- [**_0T_Init_TidalX.scd**](L4B_SC/L4B_SC_Project/_0T_Init_TidalX.scd) - SuperCollider initialization
-- [**PresetsTrax.txt**](L4B_Tidal/PresetsTrax.txt) - Preset configuration file for quick recall
 
 ---
 
