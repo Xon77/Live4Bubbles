@@ -304,13 +304,7 @@ Each of the **8 tracks** has access to the following parameters:
 
 # 📚 References
 
-This project, briefly introduced during **Composite Montréal** in June 2025 through a 5-minute pitch, has been presented on **Saturday, October 18, 2025** as part of a three-hour public experimental workshop at [Eastern Bloc](https://www.easternbloc.ca).
-
-The event included:
-- 🎭 A short performance,
-- 🤝 A participatory exploration session with the audience.
-
-I warmly thank [Eastern Bloc](https://www.easternbloc.ca) and [CALQ](https://www.calq.gouv.qc.ca/en/) for their support in making this presentation possible.
+This project, briefly introduced during **Composite Montréal** in June 2025 through a 5-minute pitch, has been presented on **Saturday, October 18, 2025** as part of a three-hour public experimental workshop at [Eastern Bloc](https://www.easternbloc.ca), which included a short performance and a participatory exploration session with the audience. I warmly thank [Eastern Bloc](https://www.easternbloc.ca) and [CALQ](https://www.calq.gouv.qc.ca/en/) for their support in making this presentation possible.
 
 ---
 
@@ -347,7 +341,7 @@ This project was supported by the [**Conseil des arts et des lettres du Québec 
 
 <p align="center">
 <a href="https://www.calq.gouv.qc.ca/en/">
-<img src="https://www.calq.gouv.qc.ca/app/uploads/2021/03/logo-calq-noir.png" alt="CALQ Logo" width="200">
+<img src="Images/Calq_noir.jpg" alt="CALQ - Conseil des arts et des lettres du Québec" width="400">
 </a>
 </p>
 
