@@ -68,7 +68,29 @@ Clone or download the *Live 4 Bubbles* repository to your local machine:
 git clone https://github.com/Xon77/Live4Bubbles.git
 ```
 
-**3. Install *Live 4 Bubbles* in SuperCollider Extensions**
+**3. Install SuperCollider Quarks for MIDI Controllers**
+
+If you plan to use MIDI controllers, install the required Quarks in SuperCollider:
+
+*For MIDI Fighter Twister:*
+- Install the `MidiFighterTwister` Quark,
+- Install the `Connection` Quark.
+
+*For Xone K2 or K3:*
+- Install the `Modality-toolkit` Quark,
+- Copy the [`xoneK2.desc.scd`](L4B_SC/xoneK2.desc.scd) file into the `MKtlDescriptions` folder within the Modality Quark directory:
+  - **macOS**: `~/Library/Application Support/SuperCollider/downloaded-quarks/Modality-toolkit/Modality/MKtlDescriptions/`,
+  - **Linux**: `~/.local/share/SuperCollider/downloaded-quarks/Modality-toolkit/Modality/MKtlDescriptions/`,
+  - **Windows**: `%USERPROFILE%\AppData\Local\SuperCollider\downloaded-quarks\Modality-toolkit\Modality\MKtlDescriptions\`.
+
+To install Quarks, open SuperCollider and run:
+```supercollider
+Quarks.install("MidiFighterTwister");
+Quarks.install("Connection");
+Quarks.install("Modality-toolkit");
+```
+
+**4. Install *Live 4 Bubbles* in SuperCollider Extensions**
 
 Copy the [`L4B_SC/SuperDirtMixerX/`](L4B_SC/SuperDirtMixerX/) folder into your SuperCollider extensions folder:
 
@@ -76,7 +98,7 @@ Copy the [`L4B_SC/SuperDirtMixerX/`](L4B_SC/SuperDirtMixerX/) folder into your S
 - **Linux**: `~/.local/share/SuperCollider/Extensions/`,
 - **Windows**: `%USERPROFILE%\AppData\Local\SuperCollider\Extensions\`.
 
-**4. Setup your Sound Database**
+**5. Setup your Sound Database**
 
 **Important**: Your sound folder must be structured following the [Live 4 Life sound database structure](https://github.com/Xon77/L4LSoundsDataBase/tree/main/SoundFolder), except that folder names should use underscores instead of spaces (e.g., `DB_MBass` instead of `DB MBass`).
 
@@ -91,7 +113,7 @@ YourSoundFolder/
 └── ...
 ```
 
-**5. Configure File Paths in SuperCollider**
+**6. Configure File Paths in SuperCollider**
 
 Edit the initialization files in [`L4B_SC/L4B_SC_Project/`](L4B_SC/L4B_SC_Project/) to match your system paths:
 - Open [`_0T_Init_TidalX.scd`](L4B_SC/L4B_SC_Project/_0T_Init_TidalX.scd) in SuperCollider,
@@ -148,13 +170,15 @@ You can begin to play!
 
 ### 🎹 MIDI Controller Setup
 
-*Live 4 Bubbles* can support multiple MIDI controllers. The mapping has been done for the following controllers:
+*Live 4 Bubbles* can support multiple MIDI controllers. 
+
+The mapping has been done for the following controllers:
 
 - [`_Init Midi X2.scd`](L4B_SC/L4B_SC_Project/_Init%20Midi%20X2.scd) - [Xone K2 or K3](https://www.allen-heath.com/hardware/xone-series/xonek3/) controllers from Allen & Heath,
-- [`_Init Midi T2.scd`](L4B_SC/L4B_SC_Project/_Init%20Midi%20T2.scd) - [MIDI Fighter Twister](https://www.midifighter.com/#Twister),
+- [`_Init Midi T2.scd`](L4B_SC/L4B_SC_Project/_Init%20Midi%20T2.scd) - [MIDI Fighter Twister](https://www.midifighter.com/#Twister) (For the MIDI Fighter Twister, name the controllers depending on how many you have: "MIDI Fighter Twister 1", "MIDI Fighter Twister 2", "MIDI Fighter Twister 3", as you can now connect up to 3 MIDI Fighters together),
 - [`_Init Midi LPX.scd`](L4B_SC/L4B_SC_Project/_Init%20Midi%20LPX.scd) - [Launchpad X](https://novationmusic.com/products/launchpad-x) from Novation.
 
-To setup MIDI, simply connect your MIDI controller. For the MIDI Fighter Twister, name the controllers depending on how many you have: "MIDI Fighter Twister 1", "MIDI Fighter Twister 2", "MIDI Fighter Twister 3", as you can now connect up to 3 MIDI Fighters together. The controllers are initialized by evaluating [`_0T_Init_TidalX.scd`](L4B_SC/L4B_SC_Project/_0T_Init_TidalX.scd).
+To setup MIDI, simply connect your MIDI controller. The controllers are initialized by evaluating [`_0T_Init_TidalX.scd`](L4B_SC/L4B_SC_Project/_0T_Init_TidalX.scd).
 
 ---
 
