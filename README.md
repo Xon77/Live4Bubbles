@@ -36,6 +36,14 @@
 
 ---
 
+**⚠️ Important Note:**
+
+*Live 4 Bubbles* is a comprehensive performance system for live coding that leverages all available open-source online resources, pushing the boundaries of digital creation. This system requires installing multiple dependencies and programs to maximize control possibilities over sound synthesis and pattern manipulation.
+
+While the program can be launched quickly once installed, the installation process involves setting up numerous components. This extensive setup enables the system to harness the full potential of the live coding ecosystem, combining Tidal Cycles, SuperCollider, Hydra, and MIDI controllers into a unified performance environment.
+
+---
+
 # 💿 Installation
 
 ---
@@ -48,23 +56,15 @@ Before installing *Live 4 Bubbles*, you need to have the following installed:
 - **[Tidal Cycles](https://tidalcycles.org/)** - Live coding pattern language,
 - **[SuperDirt Quark](https://github.com/musikinformatik/SuperDirt)** - SuperCollider synthesizer for Tidal,
 - **[Pulsar](https://pulsar-edit.dev/)** - Text editor for live coding,
-- **[pulsar-tidalcycles](https://web.pulsar-edit.dev/packages/tidalcycles)** - Pulsar package for Tidal Cycles integration. 
+- **[pulsar-tidalcycles](https://web.pulsar-edit.dev/packages/tidalcycles)** - Pulsar package for Tidal Cycles integration.
 
 You can use my variation of [pulsar-tidalcycles](https://github.com/Xon77/pulsar-tidalcycles) for the additional feature of selecting lines not only from different tabs but also from different splits.
-
----
-
-### 📥 Step-by-Step Installation
-
-**⚠️ Important Note:**
-
-*Live 4 Bubbles* is a comprehensive performance system for live coding that leverages all available open-source online resources, pushing the boundaries of digital creation. This system requires installing multiple dependencies and programs to maximize control possibilities over sound synthesis and pattern manipulation.
-
-While the program can be launched quickly once installed, the installation process involves setting up numerous components. This extensive setup enables the system to harness the full potential of the live coding ecosystem, combining Tidal Cycles, SuperCollider, Hydra, and MIDI controllers into a unified performance environment.
 
 **Recommended:** Install the [SuperCollider sc3-plugins](https://supercollider.github.io/sc3-plugins/#installation) for extended synthesis capabilities.
 
 ---
+
+### 📥 Step-by-Step Installation
 
 **1. Install SuperDirtMixer**
 
