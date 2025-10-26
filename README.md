@@ -190,28 +190,28 @@ Each of the 8 tracks has access to the following parameters:
 - `1Xon` to `8Xon` - Orbit assignment.
 
 **Sound Effects (2 chains per track):**
-- `1fxs` to `8fxs` - When (40 timing choices: whenmod, whenT, inside functions),
-- `1fxx` to `8fxx` - How (20 application methods: superimpose, off, jux stereo effects),
-- `1fxt` to `8fxt` - When value (parameter value for the When algo),
+- `1fxs` to `8fxs` - When (timing algorithm type),
+- `1fxx` to `8fxx` - How (superposition or not, including delay),
+- `1fxt` to `8fxt` - When value (value of the When algo),
 - `1fxp` to `8fxp` - What (specific effect transformation),
-- `1fxv` to `8fxv` - How much (effect value/intensity),
+- `1fxv` to `8fxv` - How much or What value (value of the What algo),
 - `1fxs2` to `8fxs2` - When (chain 2),
 - `1fxx2` to `8fxx2` - How (chain 2),
 - `1fxt2` to `8fxt2` - When value (chain 2),
 - `1fxp2` to `8fxp2` - What (chain 2),
-- `1fxv2` to `8fxv2` - How much (chain 2).
+- `1fxv2` to `8fxv2` - How much or What value (chain 2).
 
 **Pattern Functions (2 chains per track):**
-- `1fus` to `8fus` - When (40 timing options: whenmod, whenT, inside functions),
-- `1fux` to `8fux` - How (20 application approaches),
-- `1fut` to `8fut` - What (transformations: degradeBy, trunc, etc.),
-- `1fup` to `8fup` - How much (quantity parameter 1),
-- `1fuv` to `8fuv` - How much (quantity parameter 2),
+- `1fus` to `8fus` - When (timing algorithm type),
+- `1fux` to `8fux` - How (superposition or not, including delay),
+- `1fut` to `8fut` - When value (value of the When algo),
+- `1fup` to `8fup` - What (transformations: degradeBy, trunc, etc.),
+- `1fuv` to `8fuv` - How much or What value (value of the What algo),
 - `1fus2` to `8fus2` - When (chain 2),
 - `1fux2` to `8fux2` - How (chain 2),
-- `1fut2` to `8fut2` - What (chain 2),
-- `1fup2` to `8fup2` - How much (chain 2, parameter 1),
-- `1fuv2` to `8fuv2` - How much (chain 2, parameter 2).
+- `1fut2` to `8fut2` - When value (chain 2),
+- `1fup2` to `8fup2` - What (chain 2),
+- `1fuv2` to `8fuv2` - How much or What value (chain 2).
 
 **Spatial:**
 - `1Spa` to `8Spa` - Spatial positioning.
