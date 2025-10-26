@@ -227,6 +227,12 @@ For a customized Pulsar appearance optimized for *Live 4 Bubbles*:
 2. Copy the styles from [`styles.less`](L4B_Pulsar/styles.less),
 3. Paste them into your Pulsar stylesheet (Edit → Stylesheet).
 
+---
+
+# 📖 Documentation
+
+---
+
 ## 🎛️ Control Parameters
 
 Each of the **8 tracks** has access to the following parameters:
