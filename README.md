@@ -54,7 +54,17 @@ You can use my variation of [pulsar-tidalcycles](https://github.com/Xon77/pulsar
 
 ---
 
-### 📥 Next Step-by-Step Installation
+### 📥 Step-by-Step Installation
+
+**⚠️ Important Note:**
+
+*Live 4 Bubbles* is a comprehensive performance system for live coding that leverages all available open-source online resources, pushing the boundaries of digital creation. This system requires installing multiple dependencies and programs to maximize control possibilities over sound synthesis and pattern manipulation.
+
+While the program can be launched quickly once installed, the installation process involves setting up numerous components. This extensive setup enables the system to harness the full potential of the live coding ecosystem, combining Tidal Cycles, SuperCollider, Hydra, and MIDI controllers into a unified performance environment.
+
+**Recommended:** Install the [SuperCollider sc3-plugins](https://supercollider.github.io/sc3-plugins/#installation) for extended synthesis capabilities.
+
+---
 
 **1. Install SuperDirtMixer**
 
