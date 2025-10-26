@@ -4,6 +4,10 @@
 <img src="Images/live4bubbles_overview.gif" />
 </p>
 
+<p align="center">
+<strong>A performance tool for controlling Live Coding Databases from <a href="https://tidalcycles.org/">Tidal Cycles</a> and <a href="https://hydra.ojack.xyz/">Hydra</a> with <a href="https://supercollider.github.io/">SuperCollider</a> GUI and controllers.</strong>
+</p>
+
 <div align="center">
 
 | [**Overview**](#-overview) | [**Installation**](#-installation) | [**Setup**](#%EF%B8%8F-setup) | [**Documentation**](#-Documentation) | [**References**](#-references) | [**Contribute**](#-contribute) | [**Acknowledgements**](#-acknowledgements) | [**Licence**](#-licence) |
@@ -20,7 +24,7 @@
 
 **A performance tool for controlling Live Coding Databases from [Tidal Cycles](https://tidalcycles.org/) and [Hydra](https://hydra.ojack.xyz/) with [SuperCollider](https://supercollider.github.io/) GUI and controllers.**
 
-*This is my new life-long project, for as many years as possible until the end of my life.*
+*This is my new life-long project, for as many years as possible until the end of my life, hopefully!*
 
 ## 🚀 Vision
 
