@@ -150,7 +150,7 @@ You can begin to play!
 
 *Live 4 Bubbles* can support multiple MIDI controllers. The mapping has been done for the following controllers:
 
-- [`_Init Midi X2.scd`](L4B_SC/L4B_SC_Project/_Init%20Midi%20X2.scd) - [Xone K2](https://www.allen-heath.com/xone-k2/) from Allen & Heath,
+- [`_Init Midi X2.scd`](L4B_SC/L4B_SC_Project/_Init%20Midi%20X2.scd) - [Xone K2 or K3](https://www.allen-heath.com/hardware/xone-series/xonek3/) controllers from Allen & Heath,
 - [`_Init Midi T2.scd`](L4B_SC/L4B_SC_Project/_Init%20Midi%20T2.scd) - [MIDI Fighter Twister](https://www.midifighter.com/#Twister),
 - [`_Init Midi LPX.scd`](L4B_SC/L4B_SC_Project/_Init%20Midi%20LPX.scd) - [Launchpad X](https://novationmusic.com/products/launchpad-x) from Novation.
 
