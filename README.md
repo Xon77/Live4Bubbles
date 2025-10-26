@@ -72,6 +72,8 @@ Complete control over every aspect of your performance:
 
 # 💿 Installation
 
+---
+
 ## 📋 Prerequisites
 
 Before installing *Live 4 Bubbles*, ensure you have the following installed:
@@ -159,6 +161,8 @@ Edit the initialization files in [`L4B_SC/L4B_SC_Project/`](L4B_SC/L4B_SC_Projec
 ---
 
 # ⚙️ Setup
+
+---
 
 ## 🚀 Quick Start
 
@@ -304,11 +308,15 @@ Each of the **8 tracks** has access to the following parameters:
 
 # 📚 References
 
+---
+
 This project, briefly introduced during **Composite Montréal** in June 2025 through a 5-minute pitch, has been presented on **Saturday, October 18, 2025** as part of a three-hour public experimental workshop at [Eastern Bloc](https://www.easternbloc.ca), which included a short performance and a participatory exploration session with the audience. I warmly thank [Eastern Bloc](https://www.easternbloc.ca) and [CALQ](https://www.calq.gouv.qc.ca/en/) for their support in making this presentation possible.
 
 ---
 
 # 🤝 Contribute &nbsp;&nbsp; [![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/Live4Life) &nbsp;&nbsp; <a href="https://www.patreon.com/Live4Life"><img src="https://c5.patreon.com/external/logo/become_a_patron_button@2x.png" width="160"></a>
+
+---
 
 **Want to contribute?** Please get in touch with me to organize further development.
 
@@ -317,6 +325,8 @@ This project, briefly introduced during **Composite Montréal** in June 2025 thr
 ---
 
 # 🙏 Acknowledgements
+
+---
 
 As [mentioned in my previous project](https://github.com/Xon77/Live4Life?tab=readme-ov-file#acknowledgements) ***Live 4 Life***, I would have been unable to build this tool without the help of the **SuperCollider online and live coding community**, who always answered my questions and even provided me with examples of codes and classes.
 
