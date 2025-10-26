@@ -24,7 +24,6 @@ More information can be found here:
 'Tutorials/How_to_create_a_description_file'.openHelpFile;
 'Tutorials/How_to_create_a_description_file_for_MIDI'.openHelpFile;
 
-
 ****/
 
 (
