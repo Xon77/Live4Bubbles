@@ -16,7 +16,7 @@
 
 ---
 
-## 🎯 What is Live 4 Bubbles?
+## 🎯 What is *Live 4 Bubbles* ?
 
 **A performance tool for controlling Live Coding Databases from [Tidal Cycles](https://tidalcycles.org/) and [Hydra](https://hydra.ojack.xyz/) with [SuperCollider](https://supercollider.github.io/) GUI and controllers.**
 
