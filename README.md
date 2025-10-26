@@ -68,9 +68,9 @@ Complete control over every aspect of your performance:
 - 🎨 **Effects Database** - Filter and apply effects to both sound and patterns with multiple parameter controls,
 - 🌐 **Spatial Control** - Positioning and orbit management for immersive soundscapes.
 
-# 💿 Installation
-
 ---
+
+# 💿 Installation
 
 ## 📋 Prerequisites
 
@@ -159,8 +159,6 @@ Edit the initialization files in [`L4B_SC/L4B_SC_Project/`](L4B_SC/L4B_SC_Projec
 ---
 
 # ⚙️ Setup
-
----
 
 ## 🚀 Quick Start
 
@@ -298,6 +296,8 @@ Each of the **8 tracks** has access to the following parameters:
 
 ---
 
+---
+
 📝 **Additional documentation will be added in the coming weeks and months.**
 
 ---
@@ -313,6 +313,8 @@ This project, briefly introduced during **Composite Montréal** in June 2025 thr
 **Want to contribute?** Please get in touch with me to organize further development.
 
 **Support this project through donations via [Ko-fi](https://ko-fi.com/live4life) (one-time) or [Patreon](https://www.patreon.com/live4life) (ongoing support and courses).**
+
+---
 
 # 🙏 Acknowledgements
 
@@ -337,6 +339,8 @@ This project was supported by the [**Conseil des arts et des lettres du Québec 
 ---
 
 # 📄 Licence
+
+---
 
 © 2025 - End of the world ∞ **Christophe Lengelé**
 
