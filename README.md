@@ -278,9 +278,9 @@ Each of the **8 tracks** has access to the following parameters:
 
 ---
 
-📚 **See the [wiki](https://github.com/Xon77/Live4Bubbles/wiki) for more details on documentation** (under construction and constant updates).
+**See the [wiki](https://github.com/Xon77/Live4Bubbles/wiki) for more details on documentation** (under construction and constant updates).
 
-📝 **Additional documentation will be added in the coming weeks and months.**
+**Additional documentation will be added in the coming weeks and months.**
 
 ---
 
