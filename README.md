@@ -22,8 +22,6 @@
 
 *This is my new life-long project, for as many years as possible until the end of my life.*
 
----
-
 ## 🚀 Vision
 
 *Live 4 Bubbles* is partly an extension and modified version based on [SuperDirtMixer](https://github.com/thgrund/SuperDirtMixer) from Thomas Grund. But it goes **far beyond** a simple mixer for Tidal Cycles.
@@ -35,8 +33,6 @@ It transforms your live coding setup into a **comprehensive performance and cont
 
 All applied to sound files and SuperCollider synthesis in real-time.
 
----
-
 ## ⚠️ Important Note
 
 *Live 4 Bubbles* leverages **all available open-source online resources**, pushing the boundaries of digital creation.
@@ -45,8 +41,6 @@ All applied to sound files and SuperCollider synthesis in real-time.
 **Installation requires** setting up numerous dependencies 📦
 
 This extensive setup maximizes control possibilities over sound synthesis and pattern manipulation.
-
----
 
 ## 🎛️ Core Features
 
@@ -87,8 +81,6 @@ Before installing *Live 4 Bubbles*, ensure you have the following installed:
 💡 **Tip:** You can use my variation of [pulsar-tidalcycles](https://github.com/Xon77/pulsar-tidalcycles) for the additional feature of selecting lines from different tabs **and** different splits.
 
 ✨ **Recommended:** Install the [SuperCollider sc3-plugins](https://supercollider.github.io/sc3-plugins/#installation) for extended synthesis capabilities.
-
----
 
 ## 📥 Step-by-Step Installation
 
@@ -227,8 +219,6 @@ The mapping has been done for the following controllers:
 
 Simply connect your MIDI controller. The controllers are automatically initialized when evaluating [`_0T_Init_TidalX.scd`](L4B_SC/L4B_SC_Project/_0T_Init_TidalX.scd).
 
----
-
 ## 🎨 Pulsar Styling (Optional)
 
 For a customized Pulsar appearance optimized for *Live 4 Bubbles*:
@@ -236,8 +226,6 @@ For a customized Pulsar appearance optimized for *Live 4 Bubbles*:
 1. Navigate to folder [`L4B_Pulsar/`](L4B_Pulsar/),
 2. Copy the styles from [`styles.less`](L4B_Pulsar/styles.less),
 3. Paste them into your Pulsar stylesheet (Edit → Stylesheet).
-
----
 
 ## 🎛️ Control Parameters
 
@@ -297,10 +285,6 @@ Each of the **8 tracks** has access to the following parameters:
 ---
 
 📚 **See the [wiki](https://github.com/Xon77/Live4Bubbles/wiki) for more details** (under construction and constant updates).
-
----
-
----
 
 📝 **Additional documentation will be added in the coming weeks and months.**
 
