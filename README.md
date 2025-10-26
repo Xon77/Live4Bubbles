@@ -333,7 +333,7 @@ You can support this project through donations:
 
 # 🙏 Acknowledgements
 
-As [mentioned in my previous project](https://github.com/Xon77/Live4Life?tab=readme-ov-file#acknowledgements) ***Live 4 Life***, I would have been unable to build this tool without the help of the **SuperCollider online community**, who always answered my questions and even provided me with examples of codes and classes.
+As [mentioned in my previous project](https://github.com/Xon77/Live4Life?tab=readme-ov-file#acknowledgements) ***Live 4 Life***, I would have been unable to build this tool without the help of the **SuperCollider online and live coding community**, who always answered my questions and even provided me with examples of codes and classes.
 
 ### 🌟 Special Thanks
 
@@ -341,7 +341,15 @@ As [mentioned in my previous project](https://github.com/Xon77/Live4Life?tab=rea
 - 🎛️ For creating the [SuperDirtMixer](https://github.com/thgrund/SuperDirtMixer) Quark,
 - 💡 For implementing the feature allowing the evaluation of Tidal code lines in Atom/Pulsar, which I had suggested on [GitHub](https://github.com/tidalcycles/pulsar-tidalcycles/issues/119).
 
-**[CALQ](https://www.calq.gouv.qc.ca/en/)** - For supporting me in this project.
+---
+
+This project was supported by the [**Conseil des arts et des lettres du Québec (CALQ)**](https://www.calq.gouv.qc.ca/en/).
+
+<p align="center">
+<a href="https://www.calq.gouv.qc.ca/en/">
+<img src="https://www.calq.gouv.qc.ca/app/uploads/2021/03/logo-calq-noir.png" alt="CALQ Logo" width="200">
+</a>
+</p>
 
 ---
 
