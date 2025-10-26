@@ -316,14 +316,8 @@ This project, briefly introduced during **Composite Montréal** in June 2025 thr
 
 You can support this project through donations:
 
-- ☕ **[Ko-fi](https://ko-fi.com/live4life)** - One-time donations,
-- 🎓 **[Patreon](https://www.patreon.com/live4life)** - Get specific support and courses.
-
-[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/Live4Life)
-
-<a href="https://www.patreon.com/Live4Life">
-	<img src="https://c5.patreon.com/external/logo/become_a_patron_button@2x.png" width="160">
-</a>
+- ☕ **Ko-fi** - One-time donations [![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/Live4Life)
+- 🎓 **Patreon** - Get specific support and courses <a href="https://www.patreon.com/Live4Life"><img src="https://c5.patreon.com/external/logo/become_a_patron_button@2x.png" width="160"></a>
 
 # 🙏 Acknowledgements
 
