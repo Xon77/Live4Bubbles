@@ -312,7 +312,7 @@ This project, briefly introduced during **Composite Montréal** in June 2025 thr
 
 **Want to contribute?** Please get in touch with me to organize further development.
 
-**Support this project through donations via Ko-fi (one-time) or Patreon (ongoing support and courses).**
+**Support this project through donations via [Ko-fi](https://ko-fi.com/live4life) (one-time) or [Patreon](https://www.patreon.com/live4life) (ongoing support and courses).**
 
 # 🙏 Acknowledgements
 
