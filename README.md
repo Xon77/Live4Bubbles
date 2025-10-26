@@ -150,9 +150,9 @@ You can begin to play!
 
 *Live 4 Bubbles* can support multiple MIDI controllers. The mapping has been done for the following controllers:
 
-- [`_Init Midi X2.scd`](L4B_SC/L4B_SC_Project/_Init%20Midi%20X2.scd) - Xone K2 from Allen & Heath,
-- [`_Init Midi T2.scd`](L4B_SC/L4B_SC_Project/_Init%20Midi%20T2.scd) - MIDI Fighter Twister,
-- [`_Init Midi LPX.scd`](L4B_SC/L4B_SC_Project/_Init%20Midi%20LPX.scd) - Launchpad X from Novation.
+- [`_Init Midi X2.scd`](L4B_SC/L4B_SC_Project/_Init%20Midi%20X2.scd) - [Xone K2](https://www.allen-heath.com/xone-k2/) from Allen & Heath,
+- [`_Init Midi T2.scd`](L4B_SC/L4B_SC_Project/_Init%20Midi%20T2.scd) - [MIDI Fighter Twister](https://www.midifighter.com/#Twister),
+- [`_Init Midi LPX.scd`](L4B_SC/L4B_SC_Project/_Init%20Midi%20LPX.scd) - [Launchpad X](https://novationmusic.com/products/launchpad-x) from Novation.
 
 To setup MIDI, simply connect your MIDI controller. For the MIDI Fighter Twister, name the controllers depending on how many you have: "MIDI Fighter Twister 1", "MIDI Fighter Twister 2", "MIDI Fighter Twister 3", as you can now connect up to 3 MIDI Fighters together. The controllers are initialized by evaluating [`_0T_Init_TidalX.scd`](L4B_SC/L4B_SC_Project/_0T_Init_TidalX.scd).
 
