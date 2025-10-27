@@ -38,9 +38,8 @@ As shown in the images above representing a four-track configuration, this proje
 - 🖥️ **Trigger and control Tidal Cycles patterns** - From SuperCollider GUI and MIDI controllers to switch between different code patterns on the fly,
 - 💾 **Preset system** - Instant performance setup and transitions with smooth crossfade between patterns.
 
-### 🎼 Parameter Management of Tidal Cycles code
+### 🎼 Parametric Control of your Tidal Cycles code line / pattern
 
-Complete control over every aspect of your code line / pattern:
 - ⏱️ **Timing** - Speed, duration, and legato control,
 - 📁 **Sound Selection** - Quick navigation through sound libraries with folder and buffer selection,
 - 🎨 **Effects Database** - Filter and effects to both sound and patterns with multiple parameter controls,
