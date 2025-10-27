@@ -80,7 +80,37 @@ Clone or download the *Live 4 Bubbles* repository to your local machine:
 git clone https://github.com/Xon77/Live4Bubbles.git
 ```
 
-### 3️⃣ Install SuperCollider Quarks for MIDI Controllers (Optional)
+### 3️⃣ Install *Live 4 Bubbles* in SuperCollider Extensions
+
+Copy the [`L4B_SC/SuperDirtMixerX/`](L4B_SC/SuperDirtMixerX/) folder into your SuperCollider extensions folder:
+
+- **macOS**: `~/Library/Application Support/SuperCollider/Extensions/`,
+- **Linux**: `~/.local/share/SuperCollider/Extensions/`,
+- **Windows**: `%USERPROFILE%\AppData\Local\SuperCollider\Extensions\`.
+
+### 4️⃣ Setup your Sound Database
+
+⚠️ **Important**: Your sound folder must be structured following the [Live 4 Life sound database structure](https://github.com/Xon77/L4LSoundsDataBase/tree/main/SoundFolder), except that folder names should use underscores instead of spaces (e.g., `DB_MBass` instead of `DB MBass`).
+
+Example structure:
+```
+YourSoundFolder/
+├── DB_Kick/
+│   ├── sound1.wav
+│   └── sound2.wav
+├── DB_Snare/
+├── DB_Bass/
+└── ...
+```
+
+### 5️⃣ Configure File Paths in SuperCollider
+
+Edit the initialization files in [`L4B_SC/L4B_SC_Project/`](L4B_SC/L4B_SC_Project/) to match your system paths:
+- Open [`_0T_Init_TidalX.scd`](L4B_SC/L4B_SC_Project/_0T_Init_TidalX.scd) in SuperCollider,
+- Update the sound folder path to point to your sound database,
+- Update any other paths as needed for your setup.
+
+### 6️⃣ Install SuperCollider Quarks for MIDI Controllers (Optional)
 
 If you plan to use MIDI controllers, install the required Quarks in SuperCollider:
 
@@ -103,36 +133,6 @@ Quarks.install("MidiFighterTwister");
 Quarks.install("Connection");
 Quarks.install("Modality-toolkit");
 ```
-
-### 4️⃣ Install *Live 4 Bubbles* in SuperCollider Extensions
-
-Copy the [`L4B_SC/SuperDirtMixerX/`](L4B_SC/SuperDirtMixerX/) folder into your SuperCollider extensions folder:
-
-- **macOS**: `~/Library/Application Support/SuperCollider/Extensions/`,
-- **Linux**: `~/.local/share/SuperCollider/Extensions/`,
-- **Windows**: `%USERPROFILE%\AppData\Local\SuperCollider\Extensions\`.
-
-### 5️⃣ Setup your Sound Database
-
-⚠️ **Important**: Your sound folder must be structured following the [Live 4 Life sound database structure](https://github.com/Xon77/L4LSoundsDataBase/tree/main/SoundFolder), except that folder names should use underscores instead of spaces (e.g., `DB_MBass` instead of `DB MBass`).
-
-Example structure:
-```
-YourSoundFolder/
-├── DB_Kick/
-│   ├── sound1.wav
-│   └── sound2.wav
-├── DB_Snare/
-├── DB_Bass/
-└── ...
-```
-
-### 6️⃣ Configure File Paths in SuperCollider
-
-Edit the initialization files in [`L4B_SC/L4B_SC_Project/`](L4B_SC/L4B_SC_Project/) to match your system paths:
-- Open [`_0T_Init_TidalX.scd`](L4B_SC/L4B_SC_Project/_0T_Init_TidalX.scd) in SuperCollider,
-- Update the sound folder path to point to your sound database,
-- Update any other paths as needed for your setup.
 
 ---
 
