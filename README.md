@@ -134,6 +134,14 @@ Quarks.install("Connection");
 Quarks.install("Modality-toolkit");
 ```
 
+### 7️⃣ Pulsar Styling (Optional)
+
+For a customized Pulsar appearance optimized for *Live 4 Bubbles*:
+
+1. Navigate to folder [`L4B_Pulsar/`](L4B_Pulsar/),
+2. Copy the styles from [`styles.less`](L4B_Pulsar/styles.less),
+3. Paste them into your Pulsar stylesheet (Edit → Stylesheet).
+
 ---
 
 # ⚙️ Setup
@@ -183,15 +191,7 @@ In [`ControlTidal.tidal`](L4B_Tidal/ControlTidal.tidal), evaluate the following 
 
 This sets up all control parameters for tempo, duration, sound folders, buffers, effects, and more.
 
-🎉 **You can begin to play!**
-
-## 🎨 Pulsar Styling (Optional)
-
-For a customized Pulsar appearance optimized for *Live 4 Bubbles*:
-
-1. Navigate to folder [`L4B_Pulsar/`](L4B_Pulsar/),
-2. Copy the styles from [`styles.less`](L4B_Pulsar/styles.less),
-3. Paste them into your Pulsar stylesheet (Edit → Stylesheet).
+🎉✨🎵 **You can begin to play!** 🎵✨🎉
 
 ---
 
