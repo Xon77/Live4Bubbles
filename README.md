@@ -24,27 +24,29 @@
 
 ## 🚀 Vision
 
-*Live 4 Bubbles* is partly an extension and modified version based on [SuperDirtMixer](https://github.com/thgrund/SuperDirtMixer) from Thomas Grund. But it goes far beyond a mixer for Tidal Cycles. It transforms your live coding setup into a **performance system** with control over your rhythmic, sonic and spatial patterns of sound files and SuperCollider synthesis in real-time.
+*Live 4 Bubbles* is partly an extension and modified version based on [SuperDirtMixer](https://github.com/thgrund/SuperDirtMixer) from Thomas Grund. But it goes far beyond a mixer for Tidal Cycles. It transforms your live coding setup into a **performance system with control over your rhythmic, sonic and spatial patterns** of sound files and SuperCollider synthesis in real-time.
 
 ⚠️ While *Live 4 Bubbles* can be launched quickly once installed, the installation process involves setting up numerous open-source dependencies and programs to maximize control possibilities over sound synthesis and pattern manipulation.
 
-As shown in the images above, this project is designed to be used in conjunction with [Fizzy Hydra](https://github.com/Xon77/Live4Bubbles) to add audio-reactive visuals controlled notably by volume data and event triggering per track.
+As shown in the images above, this project is designed to be used in conjunction with [Fizzy Hydra](https://github.com/Xon77/Live4Bubbles) if you want to add audio-reactive visuals and a VJ system controlled notably by volume data and event triggering per track.
 
 ## 🎛️ Core Features
 
 ### 🎚️ Multi-Track Control System
 
-Control code execution dynamically across up to **8 independent tracks** with dozens of parameters:
-- 🎯 Trigger and control Tidal Cycles code lines from SuperCollider GUI,
-- 🔄 Switch between different code patterns on the fly,
-- 💾 Preset system for instant performance setup and transitions with crossfade,
-- 🎮 Integration with MIDI controllers for hands-on control.
+- 🎹 **Control code execution dynamically:**
+  - across up to **8 independent tracks** with dozens of parameters,
+- 🖥️ **Trigger and control Tidal Cycles code lines / patterns:**
+  - from SuperCollider GUI and MIDI controllers,
+  - for switching between different code patterns on the fly,
+- 💾 **Preset system:**
+  - for instant performance setup and transitions with crossfade between patterns.
 
 *(The images above represent a four-track configuration)*
 
-### 🎼 Parameter Management
+### 🎼 Parameter Management of Tidal Cycles code
 
-Complete control over every aspect of your performance:
+Complete control over every aspect of your pattern / :
 - ⏱️ **Timing** - Speed, duration, and legato control,
 - 📁 **Sound Selection** - Quick navigation through sound libraries with folder and buffer selection,
 - 🎨 **Effects Database** - Filter and apply effects to both sound and patterns with multiple parameter controls,
