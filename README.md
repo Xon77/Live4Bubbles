@@ -80,7 +80,7 @@ Clone or download the *Live 4 Bubbles* repository to your local machine:
 git clone https://github.com/Xon77/Live4Bubbles.git
 ```
 
-### 3️⃣ Install SuperCollider Quarks for MIDI Controllers
+### 3️⃣ Install SuperCollider Quarks for MIDI Controllers (Optional)
 
 If you plan to use MIDI controllers, install the required Quarks in SuperCollider:
 
