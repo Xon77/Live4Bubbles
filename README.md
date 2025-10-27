@@ -20,7 +20,7 @@
 
 **A performance system for controlling Live Coding Databases from [Tidal Cycles](https://tidalcycles.org/) and [Hydra](https://hydra.ojack.xyz/) with [SuperCollider](https://supercollider.github.io/) GUI and controllers.**
 
-*This is my new life-long project to perform with this audiovisual system, for as many years as possible until the end of my life, hopefully!*
+*This is my new life-long project to develop further and perform with this audiovisual system, for as many years as possible until the end of my life, hopefully!*
 
 ## 🚀 Vision
 
