@@ -64,7 +64,7 @@ Before installing *Live 4 Bubbles*, ensure you have the following installed:
 
 💡 **Tip:** You can use my variation of [pulsar-tidalcycles](https://github.com/Xon77/pulsar-tidalcycles) which adds the ability to select lines from different splits, in addition to the original feature of selecting from different tabs.
 
-✨ **Recommended:** Install the [SuperCollider sc3-plugins](https://supercollider.github.io/sc3-plugins/#installation) for extended synthesis capabilities.
+✨ **Recommended:** Install the [SuperCollider sc3-plugins](https://supercollider.github.io/sc3-plugins) for extended synthesis capabilities.
 
 ## 📥 Step-by-Step Installation
 
