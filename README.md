@@ -20,13 +20,15 @@
 
 **A performance tool for controlling Live Coding Databases from [Tidal Cycles](https://tidalcycles.org/) and [Hydra](https://hydra.ojack.xyz/) with [SuperCollider](https://supercollider.github.io/) GUI and controllers.**
 
-*This is my new life-long project, for as many years as possible until the end of my life, hopefully!*
+*This is my new life-long project to perform with this audiovisual system, for as many years as possible until the end of my life, hopefully!*
 
 ## 🚀 Vision
 
-*Live 4 Bubbles* is partly an extension and modified version based on [SuperDirtMixer](https://github.com/thgrund/SuperDirtMixer) from Thomas Grund. But it goes far beyond a mixer for Tidal Cycles. It transforms your live coding setup into a **performance system** with control over your rhythmic, spectral and spatial patterns of sound files and SuperCollider synthesis in real-time.
+*Live 4 Bubbles* is partly an extension and modified version based on [SuperDirtMixer](https://github.com/thgrund/SuperDirtMixer) from Thomas Grund. But it goes far beyond a mixer for Tidal Cycles. It transforms your live coding setup into a **performance system** with control over your rhythmic, sonic and spatial patterns of sound files and SuperCollider synthesis in real-time.
 
 ⚠️ While *Live 4 Bubbles* can be launched quickly once installed, the installation process involves setting up numerous open-source dependencies and programs to maximize control possibilities over sound synthesis and pattern manipulation.
+
+As shown in the images above, this project is designed to be used in conjunction with [Fizzy Hydra](https://github.com/Xon77/Live4Bubbles) to add audio-reactive visuals controlled notably by volume data and event triggering per track.
 
 ## 🎛️ Core Features
 
