@@ -153,7 +153,11 @@ Open SuperCollider and evaluate the initialization file:
 - 🔊 Boot the SuperCollider server,
 - 📦 Load SuperDirt and *Live 4 Bubbles*,
 - 🖥️ Initialize the GUI,
-- 🎹 Setup all MIDI connections (if configured).
+- 🎹 Setup all MIDI connections (if configured):
+  - 🎚️ **[Xone K2 or K3](https://www.allen-heath.com/hardware/xone-series/xonek3/)** from Allen & Heath - [`_Init Midi X2.scd`](L4B_SC/L4B_SC_Project/_Init%20Midi%20X2.scd),
+  - 🎛️ **[MIDI Fighter Twister](https://www.midifighter.com/#Twister)** - [`_Init Midi T2.scd`](L4B_SC/L4B_SC_Project/_Init%20Midi%20T2.scd)
+    💡 **Tip:** You can connect up to 3 MIDI Fighters together. Name them: "MIDI Fighter Twister 1", "MIDI Fighter Twister 2", "MIDI Fighter Twister 3",
+  - 🎹 **[Launchpad X](https://novationmusic.com/products/launchpad-x)** from Novation - [`_Init Midi LPX.scd`](L4B_SC/L4B_SC_Project/_Init%20Midi%20LPX.scd) (in development).
 
 ### 2️⃣ Launch Pulsar with Tidal Files
 
@@ -180,28 +184,6 @@ In [`ControlTidal.tidal`](L4B_Tidal/ControlTidal.tidal), evaluate the following 
 This sets up all control parameters for tempo, duration, sound folders, buffers, effects, and more.
 
 🎉 **You can begin to play!**
-
-## 🎹 MIDI Controller Setup
-
-*Live 4 Bubbles* supports multiple MIDI controllers for hands-on control.
-
-### 🎛️ Supported Controllers
-
-The mapping has been done for the following controllers:
-
-- 🎚️ **[Xone K2 or K3](https://www.allen-heath.com/hardware/xone-series/xonek3/)** from Allen & Heath
-  [`_Init Midi X2.scd`](L4B_SC/L4B_SC_Project/_Init%20Midi%20X2.scd)
-
-- 🎛️ **[MIDI Fighter Twister](https://www.midifighter.com/#Twister)**
-  [`_Init Midi T2.scd`](L4B_SC/L4B_SC_Project/_Init%20Midi%20T2.scd)
-  💡 **Tip:** You can connect up to 3 MIDI Fighters together. Name them: "MIDI Fighter Twister 1", "MIDI Fighter Twister 2", "MIDI Fighter Twister 3".
-
-- 🎹 **[Launchpad X](https://novationmusic.com/products/launchpad-x)** from Novation
-  [`_Init Midi LPX.scd`](L4B_SC/L4B_SC_Project/_Init%20Midi%20LPX.scd)
-
-### 🔌 Setup Process
-
-Simply connect your MIDI controller. The controllers are automatically initialized when evaluating [`_0T_Init_TidalX.scd`](L4B_SC/L4B_SC_Project/_0T_Init_TidalX.scd).
 
 ## 🎨 Pulsar Styling (Optional)
 
