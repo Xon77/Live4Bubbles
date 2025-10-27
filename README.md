@@ -191,7 +191,7 @@ In [`ControlTidal.tidal`](L4B_Tidal/ControlTidal.tidal), evaluate the following 
 
 This sets up all control parameters for tempo, duration, sound folders, buffers, effects, and more.
 
-🎉✨🎵 **You can begin to play!** 🎵✨🎉
+🎉✨🎵 **You can begin to play with the GUI & controllers!** 🎵✨🎉
 
 ---
 
