@@ -28,7 +28,7 @@
 
 ⚠️ While *Live 4 Bubbles* can be launched quickly once installed, the installation process involves setting up numerous open-source dependencies and programs to maximize control possibilities over sound synthesis and pattern manipulation.
 
-As shown in the images above, this project is designed to be used in conjunction with [Fizzy Hydra](https://github.com/Xon77/Live4Bubbles) if you want to add audio-reactive visuals and a VJ system controlled notably by volume data and event triggering per track.
+As shown in the images above representing a four-track configuration, this project is designed to be used in conjunction with [Fizzy Hydra](https://github.com/Xon77/Live4Bubbles) if you want to add audio-reactive visuals and a VJ system controlled notably by volume data and event triggering per track.
 
 ## 🎛️ Core Features
 
@@ -41,8 +41,6 @@ As shown in the images above, this project is designed to be used in conjunction
   - for switching between different code patterns on the fly,
 - 💾 **Preset system:**
   - for instant performance setup and transitions with crossfade between patterns.
-
-*(The images above represent a four-track configuration)*
 
 ### 🎼 Parameter Management of Tidal Cycles code
 
