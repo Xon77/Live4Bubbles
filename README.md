@@ -44,7 +44,7 @@ As shown in the images above representing a four-track configuration, this proje
 
 ### 🎼 Parameter Management of Tidal Cycles code
 
-Complete control over every aspect of your pattern / :
+Complete control over every aspect of your code line / pattern:
 - ⏱️ **Timing** - Speed, duration, and legato control,
 - 📁 **Sound Selection** - Quick navigation through sound libraries with folder and buffer selection,
 - 🎨 **Effects Database** - Filter and apply effects to both sound and patterns with multiple parameter controls,
