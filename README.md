@@ -34,20 +34,16 @@ As shown in the images above representing a four-track configuration, this proje
 
 ### 🎚️ Multi-Track Control System
 
-- 🎹 **Control code execution dynamically:**
-  - across up to **8 independent tracks** with dozens of parameters,
-- 🖥️ **Trigger and control Tidal Cycles code lines / patterns:**
-  - from SuperCollider GUI and MIDI controllers,
-  - for switching between different code patterns on the fly,
-- 💾 **Preset system:**
-  - for instant performance setup and transitions with crossfade between patterns.
+- 🎹 **Dynamic code execution control** - Up to **8 independent tracks** with dozens of parameters each,
+- 🖥️ **Trigger and control Tidal Cycles patterns** - From SuperCollider GUI and MIDI controllers to switch between different code patterns on the fly,
+- 💾 **Preset system** - Instant performance setup and transitions with smooth crossfade between patterns.
 
 ### 🎼 Parameter Management of Tidal Cycles code
 
 Complete control over every aspect of your code line / pattern:
 - ⏱️ **Timing** - Speed, duration, and legato control,
 - 📁 **Sound Selection** - Quick navigation through sound libraries with folder and buffer selection,
-- 🎨 **Effects Database** - Filter and apply effects to both sound and patterns with multiple parameter controls,
+- 🎨 **Effects Database** - Filter and effects to both sound and patterns with multiple parameter controls,
 - 🌐 **Spatial Control** - Positioning and orbit management for immersive soundscapes.
 
 ---
