@@ -26,9 +26,9 @@
 
 *Live 4 Bubbles* is partly an extension and modified version based on [SuperDirtMixer](https://github.com/thgrund/SuperDirtMixer) from Thomas Grund. But it goes **far beyond** a mixer for Tidal Cycles.
 
-It transforms your live coding setup into a **comprehensive performance and control system** with control over your rhythmic, spectral and spatial patterns of sound files and SuperCollider synthesis in real-time.
+It transforms your live coding setup into a **comprehensive performance and control system** with control over your rhythmic, spectral and spatial patterns of sound files and SuperCollider synthesis in real-time, that leverages all available open-source online resources, pushing the boundaries of digital creation.
 
-⚠️ *Live 4 Bubbles* is a comprehensive performance system for live coding that leverages all available open-source online resources, pushing the boundaries of digital creation. While the program can be launched quickly once installed, the installation process involves setting up numerous dependencies and programs to maximize control possibilities over sound synthesis and pattern manipulation.
+⚠️ While *Live 4 Bubbles* can be launched quickly once installed, the installation process involves setting up numerous dependencies and programs to maximize control possibilities over sound synthesis and pattern manipulation.
 
 ## 🎛️ Core Features
 
