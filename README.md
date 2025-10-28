@@ -159,10 +159,10 @@ This will:
 - 📦 Load SuperDirt and *Live 4 Bubbles*,
 - 🖥️ Initialize the GUI,
 - 🎹 Setup all MIDI connections (if configured):
-  - 🎚️ [Xone K2 or K3](https://www.allen-heath.com/hardware/xone-series/xonek3/) from Allen & Heath - [`_Init Midi X2.scd`](L4B_SC/L4B_SC_Project/_Init%20Midi%20X2.scd),
-  - 🎛️ [MIDI Fighter Twister](https://www.midifighter.com/#Twister) - [`_Init Midi T2.scd`](L4B_SC/L4B_SC_Project/_Init%20Midi%20T2.scd)
-    💡 **Tip:** You can connect up to 3 MIDI Fighters together. Name them: "MIDI Fighter Twister 1", "MIDI Fighter Twister 2", "MIDI Fighter Twister 3" in MIDI configuration.
-  - 🎹 [Launchpad X](https://novationmusic.com/products/launchpad-x) from Novation - [`_Init Midi LPX.scd`](L4B_SC/L4B_SC_Project/_Init%20Midi%20LPX.scd) (in development).
+  - 🎚️ [Xone K2 or K3](https://www.allen-heath.com/hardware/xone-series/xonek3/) from Allen & Heath - in file [`_Init Midi X2.scd`](L4B_SC/L4B_SC_Project/_Init%20Midi%20X2.scd),
+  - 🎛️ [MIDI Fighter Twister](https://www.midifighter.com/#Twister) - in file [`_Init Midi T2.scd`](L4B_SC/L4B_SC_Project/_Init%20Midi%20T2.scd)
+    (You can connect up to 3 MIDI Fighters together. Name them: "MIDI Fighter Twister 1", "MIDI Fighter Twister 2", "MIDI Fighter Twister 3" in MIDI configuration).
+  - 🎹 [Launchpad X](https://novationmusic.com/products/launchpad-x) from Novation - in file [`_Init Midi LPX.scd`](L4B_SC/L4B_SC_Project/_Init%20Midi%20LPX.scd) (in development).
 
 ### 2️⃣ Launch Pulsar with Tidal Files
 
@@ -286,8 +286,8 @@ As [mentioned in my previous project](https://github.com/Xon77/Live4Life?tab=rea
 ### 🌟 Special Thanks
 
 **Thomas Grund** - Without whom this project would not have come to life:
-- 🎛️ For creating the [SuperDirtMixer](https://github.com/thgrund/SuperDirtMixer) Quark,
-- 💡 For implementing the feature allowing the evaluation of Tidal code lines in Atom/Pulsar, which I had suggested on [GitHub](https://github.com/tidalcycles/pulsar-tidalcycles/issues/119).
+- For creating the [SuperDirtMixer](https://github.com/thgrund/SuperDirtMixer) Quark,
+- For implementing the feature allowing the evaluation of Tidal code lines in Atom/Pulsar, which I had suggested on [GitHub](https://github.com/tidalcycles/pulsar-tidalcycles/issues/119).
 
 ---
 
