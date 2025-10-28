@@ -110,16 +110,16 @@ Edit the initialization files in [`L4B_SC/L4B_SC_Project/`](L4B_SC/L4B_SC_Projec
 - Update the sound folder path to point to your sound database,
 - Update any other paths as needed for your setup.
 
-### 6️⃣ Install SuperCollider Quarks for MIDI Controllers (Optional)
+### 6️⃣ Install SuperCollider Quarks for some MIDI Controllers (Optional)
 
-If you plan to use MIDI controllers, install the required Quarks in SuperCollider:
+If you plan to use the MIDI controllers mentioned below, install the required Quarks in SuperCollider:
 
 #### 🎛️ For MIDI Fighter Twister:
 - Install the [`Twister`](https://github.com/scztt/Twister.quark) Quark,
 - Install the [`Connection`](https://github.com/scztt/Connection.quark) Quark.
 
 #### 🎚️ For Xone K2 or K3:
-- Install the `Modality-toolkit` Quark,
+- Install the [`Modality-toolkit`](https://github.com/ModalityTeam/Modality-toolkit) Quark,
 - Copy the [`xoneK2.desc.scd`](L4B_SC/xoneK2.desc.scd) file into the `MKtlDescriptions` folder within the Modality Quark directory:
   - **macOS**: `~/Library/Application Support/SuperCollider/downloaded-quarks/Modality-toolkit/Modality/MKtlDescriptions/`,
   - **Linux**: `~/.local/share/SuperCollider/downloaded-quarks/Modality-toolkit/Modality/MKtlDescriptions/`,
@@ -127,7 +127,7 @@ If you plan to use MIDI controllers, install the required Quarks in SuperCollide
 
 #### 💻 To install Quarks:
 
-Open SuperCollider and run:
+Open SuperCollider and evaluate:
 ```supercollider
 Quarks.install("Twister");
 Quarks.install("Connection");
