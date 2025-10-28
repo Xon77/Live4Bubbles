@@ -155,10 +155,10 @@ Open SuperCollider and evaluate the initialization file:
 - Evaluate the section in parentheses between [lines 16 and 422](L4B_SC/L4B_SC_Project/_0T_Init_TidalX.scd#L16-L422) within the file (Cmd+Enter on macOS, Ctrl+Enter on Windows/Linux).
 
 This will:
-- 🔊 Boot the SuperCollider server,
-- 📦 Load SuperDirt and *Live 4 Bubbles*,
-- 🖥️ Initialize the GUI,
-- 🎹 Setup all MIDI connections with (if available):
+- Boot the SuperCollider server,
+- Load SuperDirt and *Live 4 Bubbles*,
+- Initialize the GUI,
+- Setup all MIDI connections with (if available):
   - 🎚️ [Xone K2 or K3](https://www.allen-heath.com/hardware/xone-series/xonek3/) from Allen & Heath - in file [`_Init Midi X2.scd`](L4B_SC/L4B_SC_Project/_Init%20Midi%20X2.scd),
   - 🎛️ [MIDI Fighter Twister](https://www.midifighter.com/#Twister) - in file [`_Init Midi T2.scd`](L4B_SC/L4B_SC_Project/_Init%20Midi%20T2.scd)
     (You can connect up to 3 MIDI Fighters together. Name them: "MIDI Fighter Twister 1", "MIDI Fighter Twister 2", "MIDI Fighter Twister 3" in MIDI configuration.),
