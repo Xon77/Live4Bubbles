@@ -18,7 +18,7 @@
 
 ## 🎯 What is *Live 4 Bubbles* ?
 
-**A performance system for controlling Live Coding Databases from [Tidal Cycles](https://tidalcycles.org/) and [Hydra](https://hydra.ojack.xyz/) in the Pulsar text editor with [SuperCollider](https://supercollider.github.io/) GUI and controllers.**
+**A performance system for controlling Live Coding Databases from [Tidal Cycles](https://tidalcycles.org/) and [Hydra](https://hydra.ojack.xyz/) in the [Pulsar](https://pulsar-edit.dev/) text editor with [SuperCollider](https://supercollider.github.io/) GUI and controllers.**
 
 *This is my new life-long project to develop further and perform with this audiovisual system, for as many years as possible until the end of my life, hopefully!*
 
@@ -162,10 +162,10 @@ This will:
 - 📦 Load SuperDirt and *Live 4 Bubbles*,
 - 🖥️ Initialize the GUI,
 - 🎹 Setup all MIDI connections (if configured):
-  - 🎚️ **[Xone K2 or K3](https://www.allen-heath.com/hardware/xone-series/xonek3/)** from Allen & Heath - [`_Init Midi X2.scd`](L4B_SC/L4B_SC_Project/_Init%20Midi%20X2.scd),
-  - 🎛️ **[MIDI Fighter Twister](https://www.midifighter.com/#Twister)** - [`_Init Midi T2.scd`](L4B_SC/L4B_SC_Project/_Init%20Midi%20T2.scd)
+  - 🎚️ [Xone K2 or K3](https://www.allen-heath.com/hardware/xone-series/xonek3/) from Allen & Heath - [`_Init Midi X2.scd`](L4B_SC/L4B_SC_Project/_Init%20Midi%20X2.scd),
+  - 🎛️ [MIDI Fighter Twister](https://www.midifighter.com/#Twister) - [`_Init Midi T2.scd`](L4B_SC/L4B_SC_Project/_Init%20Midi%20T2.scd)
     💡 **Tip:** You can connect up to 3 MIDI Fighters together. Name them: "MIDI Fighter Twister 1", "MIDI Fighter Twister 2", "MIDI Fighter Twister 3" in MIDI configuration.
-  - 🎹 **[Launchpad X](https://novationmusic.com/products/launchpad-x)** from Novation - [`_Init Midi LPX.scd`](L4B_SC/L4B_SC_Project/_Init%20Midi%20LPX.scd) (in development).
+  - 🎹 [Launchpad X](https://novationmusic.com/products/launchpad-x) from Novation - [`_Init Midi LPX.scd`](L4B_SC/L4B_SC_Project/_Init%20Midi%20LPX.scd) (in development).
 
 ### 2️⃣ Launch Pulsar with Tidal Files
 
@@ -184,10 +184,10 @@ Create a four-track code execution partition by opening all Tidal Cycles files f
 
 In [`ControlTidal.tidal`](L4B_Tidal/ControlTidal.tidal), evaluate the following sections in order with Ctrl+Enter (Cmd+Enter on macOS):
 
-1. **[Lines 5 to 1107](L4B_Tidal/ControlTidal.tidal#L5-L1107)** - Main control definitions and functions,
-2. **[Line 1110](L4B_Tidal/ControlTidal.tidal#L1110)** - Initialization of controls and variables,
-3. **[Line 1113](L4B_Tidal/ControlTidal.tidal#L1113)** - Update of definitions and functions of step 1,
-4. **[Lines 1118 to 1136](L4B_Tidal/ControlTidal.tidal#L1118-L1136)** - Final initialization for crossfades.
+1. [Lines 5 to 1107](L4B_Tidal/ControlTidal.tidal#L5-L1107) - Main control definitions and functions,
+2. [Line 1110](L4B_Tidal/ControlTidal.tidal#L1110) - Initialization of controls and variables,
+3. [Line 1113](L4B_Tidal/ControlTidal.tidal#L1113) - Update of definitions and functions of step 1,
+4. [Lines 1118 to 1136](L4B_Tidal/ControlTidal.tidal#L1118-L1136) - Final initialization for crossfades.
 
 This sets up all control parameters for tempo, duration, sound folders, buffers, effects, and more.
 
