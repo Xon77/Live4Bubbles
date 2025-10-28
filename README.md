@@ -41,7 +41,7 @@ As shown in the images above representing a four-track configuration, this proje
 
 ### 🎼 Parametric Control of your Tidal Cycles code line / pattern
 
-- ⏱️ **Timing** - Speed, duration, and legato control,
+- ⏱️ **Timing** - Speed, duration, and legato,
 - 📁 **Sound Selection** - Quick navigation through sound libraries with folder and buffer selection,
 - 🎨 **Effects Database** - Filter and effects to both sound and patterns with multiple parameter controls,
 - 🌐 **Spatial Control** - Channel Positioning and orbit management for immersive soundscapes.
@@ -56,8 +56,8 @@ As shown in the images above representing a four-track configuration, this proje
 
 Before installing *Live 4 Bubbles*, ensure you have the following installed:
 
-- **[SuperCollider](https://supercollider.github.io/)** - Audio synthesis platform,
-- **[Tidal Cycles](https://tidalcycles.org/)** - Live coding pattern language,
+- **[SuperCollider](https://supercollider.github.io/)** (tested on 3.14) - Audio synthesis platform,
+- **[Tidal Cycles](https://tidalcycles.org/)** (tested on 1.9.5 & ghc 9.6.7) - Live coding pattern language,
 - **[SuperDirt Quark](https://github.com/musikinformatik/SuperDirt)** - SuperCollider synthesizer for Tidal,
 - **[Pulsar](https://pulsar-edit.dev/)** - Text editor for live coding,
 - **[pulsar-tidalcycles](https://web.pulsar-edit.dev/packages/tidalcycles)** - Pulsar package for Tidal Cycles integration.
