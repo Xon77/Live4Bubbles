@@ -115,8 +115,8 @@ Edit the initialization files in [`L4B_SC/L4B_SC_Project/`](L4B_SC/L4B_SC_Projec
 If you plan to use MIDI controllers, install the required Quarks in SuperCollider:
 
 #### 🎛️ For MIDI Fighter Twister:
-- Install the `MidiFighterTwister` Quark,
-- Install the `Connection` Quark.
+- Install the [`Twister`](https://github.com/scztt/Twister.quark) Quark,
+- Install the [`Connection`](https://github.com/scztt/Connection.quark) Quark.
 
 #### 🎚️ For Xone K2 or K3:
 - Install the `Modality-toolkit` Quark,
@@ -129,7 +129,7 @@ If you plan to use MIDI controllers, install the required Quarks in SuperCollide
 
 Open SuperCollider and run:
 ```supercollider
-Quarks.install("MidiFighterTwister");
+Quarks.install("Twister");
 Quarks.install("Connection");
 Quarks.install("Modality-toolkit");
 ```
