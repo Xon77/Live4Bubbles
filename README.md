@@ -56,15 +56,12 @@ As shown in the images above representing a four-track configuration, this proje
 
 Before installing *Live 4 Bubbles*, ensure you have the following installed:
 
-- **[SuperCollider](https://supercollider.github.io/)** (tested on 3.14) - Audio synthesis platform,
+- **[SuperCollider](https://supercollider.github.io/)** (tested on 3.14) - Algorithmic & Audio synthesis platform,
 - **[Tidal Cycles](https://tidalcycles.org/)** (tested on 1.9.5 & ghc 9.6.7) - Live coding pattern language,
 - **[SuperDirt Quark](https://github.com/musikinformatik/SuperDirt)** - SuperCollider synthesizer for Tidal,
 - **[Pulsar](https://pulsar-edit.dev/)** - Text editor for live coding,
-- **[pulsar-tidalcycles](https://web.pulsar-edit.dev/packages/tidalcycles)** - Pulsar package for Tidal Cycles integration.
-
-💡 **Tip:** You can use my variation of [pulsar-tidalcycles](https://github.com/Xon77/pulsar-tidalcycles) which adds the ability to select lines from different splits, in addition to the original feature of selecting from different tabs. You can also find or add the code changed via [this link](https://github.com/tidalcycles/pulsar-tidalcycles/compare/master...Xon77:pulsar-tidalcycles:master).
-
-✨ **Recommended:** Install the [SuperCollider sc3-plugins](https://supercollider.github.io/sc3-plugins) for extended synthesis capabilities.
+- **[pulsar-tidalcycles](https://web.pulsar-edit.dev/packages/tidalcycles)** - Pulsar package for Tidal Cycles integration. (You can use my variation of [pulsar-tidalcycles](https://github.com/Xon77/pulsar-tidalcycles) which adds the ability to select lines from different splits, in addition to the original feature of selecting from different tabs. You can also find or add the code changed via [this link](https://github.com/tidalcycles/pulsar-tidalcycles/compare/master...Xon77:pulsar-tidalcycles:master)).
+- [SuperCollider sc3-plugins](https://supercollider.github.io/sc3-plugins) (Optional) for extended synthesis capabilities.
 
 ## 📥 Step-by-Step Installation
 
