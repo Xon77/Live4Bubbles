@@ -158,7 +158,7 @@ This will:
 - 🔊 Boot the SuperCollider server,
 - 📦 Load SuperDirt and *Live 4 Bubbles*,
 - 🖥️ Initialize the GUI,
-- 🎹 Setup all MIDI connections (if configured):
+- 🎹 Setup all MIDI connections with (if available):
   - 🎚️ [Xone K2 or K3](https://www.allen-heath.com/hardware/xone-series/xonek3/) from Allen & Heath - in file [`_Init Midi X2.scd`](L4B_SC/L4B_SC_Project/_Init%20Midi%20X2.scd),
   - 🎛️ [MIDI Fighter Twister](https://www.midifighter.com/#Twister) - in file [`_Init Midi T2.scd`](L4B_SC/L4B_SC_Project/_Init%20Midi%20T2.scd)
     (You can connect up to 3 MIDI Fighters together. Name them: "MIDI Fighter Twister 1", "MIDI Fighter Twister 2", "MIDI Fighter Twister 3" in MIDI configuration.),
@@ -175,7 +175,7 @@ Create a four-track code execution partition by opening all Tidal Cycles files f
 5. [`L4B_Tidal/DJCodeG.tidal`](L4B_Tidal/DJCodeG.tidal) in tab 5 (for global control),
 6. [`L4B_Tidal/ControlTidal.tidal`](L4B_Tidal/ControlTidal.tidal) in tab 6 (for initialization).
 
-💡 **Tip:** Other workflows are possible. For example, you can execute code lines by selecting different splits and tabs. *(The images above represent four splits of the first tab.)*
+💡 **Tip:** Other code execution workflows are possible. For example, you can execute code lines by selecting different splits and tabs. *(The images above represent four splits of the first tab.)*
 
 ### 3️⃣ Initialize Control Variables in Tidal Files
 
@@ -186,7 +186,7 @@ In [`ControlTidal.tidal`](L4B_Tidal/ControlTidal.tidal), evaluate the following 
 3. [Line 1113](L4B_Tidal/ControlTidal.tidal#L1113) - Update of definitions and functions of step 1,
 4. [Lines 1118 to 1136](L4B_Tidal/ControlTidal.tidal#L1118-L1136) - Final initialization for crossfades.
 
-This sets up all control parameters for tempo, duration, sound folders, buffers, effects, and more.
+This will boot Tidal Cycles and set up all control parameters for tempo, duration, sound folders, buffers, effects, and more.
 
 🎉✨🎵 **You can begin to play with the GUI & controllers!** 🎵✨🎉
 
@@ -198,7 +198,7 @@ This sets up all control parameters for tempo, duration, sound folders, buffers,
 
 ## 🎛️ Control Parameters
 
-Each of the **8 tracks** has access to the following parameters:
+Each of the **8 tracks** (tabs or splits containing code lines / patterns) has access to the following parameters:
 
 ### ⏱️ Timing & Structure
 - `d1` to `d8` - Tempo (speed control),
