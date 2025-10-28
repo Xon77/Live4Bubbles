@@ -198,7 +198,7 @@ This will boot Tidal Cycles and set up all control parameters for tempo, duratio
 
 ## 🎛️ Control Parameters
 
-In addition to SuperDirtMixer controls on volume, reverb, EQ, compression), each of the **8 tracks** (tabs or splits containing code lines / patterns) has access to the following parameters:
+In addition to SuperDirtMixer controls (on volume, reverb, EQ, compression), each of the **8 tracks** (tabs or splits containing code lines / patterns) has access to the following parameters:
 
 ### ⏱️ Timing & Structure
 - `d1` to `d8` - Tempo (speed control),
