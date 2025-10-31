@@ -22,7 +22,7 @@
 
 *This is my current main life-long project on which I dedicate myself to develop further and perform with this audiovisual system, for as many years as possible until the end of my life, hopefully!*
 
-## 🚀 Vision
+## 🔮 Vision
 
 *Live 4 Bubbles* is partly an extension and modified version based on [SuperDirtMixer](https://github.com/thgrund/SuperDirtMixer) from Thomas Grund. But it goes far beyond a mixer for Tidal Cycles. It transforms your live coding setup into a **performance system with control over your rhythmic, sonic and spatial patterns** of sound files and SuperCollider synthesis in real-time.
 
