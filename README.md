@@ -194,7 +194,7 @@ This will boot Tidal Cycles and set up all control parameters for tempo, duratio
 
 In addition to SuperDirtMixer controls (on volume, reverb, EQ, compression), each of the 8 tracks (tabs or splits containing code lines / patterns) has access to the following parameters, which can all be saved as presets:
 
-### ⏱️ Pattern structure
+### 🎵 Pattern structure
 - Track preset (saves and recall all parameters below),
 - code line / pattern (of the tab in Pulsar),
 
@@ -203,7 +203,7 @@ In addition to SuperDirtMixer controls (on volume, reverb, EQ, compression), eac
 - `1Leg` to `8Leg` - Duration (length variable),
 - `1LegS` to `8LegS` - Duration algorithm switch.
 
-### 📁 Sound Selection
+### 〰️ Sound Selection
 - `1Fol` to `8Fol` - Buffer Folder (directory containing audio samples),
 - `1Buf` to `8Buf` - Sound file (within the Buffer Folder),
 - `1FolN` to `8FolN` - Normalized folder index (0-1),
