@@ -196,23 +196,23 @@ In addition to SuperDirtMixer controls (on volume, reverb, EQ, compression), eac
 
 ### 🎵 Pattern structure
 - 🔴 Track preset (saves and recall all parameters below),
-- code line / pattern (of the tab in Pulsar),
+- 🔵 code line / pattern (of the tab in Pulsar),
 
 ### ⏱️ Timing
-- `d1` to `d8` - Tempo (speed control),
-- `1Leg` to `8Leg` - Duration (length variable),
-- `1LegS` to `8LegS` - Duration algorithm switch.
+- 🟠 `d1` to `d8` - Tempo (speed control),
+- 🟤 `1Leg` to `8Leg` - Duration (length variable),
+- 🟤 `1LegS` to `8LegS` - Duration algorithm switch.
 
 ### 〰️ Sound Selection
-- `1Fol` to `8Fol` - Buffer Folder (directory containing audio samples),
-- `1Buf` to `8Buf` - Sound file (within the Buffer Folder),
-- `1FolN` to `8FolN` - Normalized folder index (0-1),
-- `1BufN` to `8BufN` - Normalized buffer index (0-1).
+- 🟣 `1Fol` to `8Fol` - Buffer Folder (directory containing audio samples),
+- 🟪 `1Buf` to `8Buf` - Sound file (within the Buffer Folder),
+- 🟣 `1FolN` to `8FolN` - Normalized folder index (0-1),
+- 🟪 `1BufN` to `8BufN` - Normalized buffer index (0-1).
 
 ### ▶️ Playback
-- `1Rat` to `8Rat` - Playback rate/speed,
-- `1Ran` to `8Ran` - Context/line-dependent parameter ([djf filter](https://tidalcycles.org/docs/reference/audio_effects/#dj-filter) by default),
-- `1Xon` to `8Xon` - Orbit assignment.
+- 🟢 `1Rat` to `8Rat` - Playback rate/speed,
+- ⚪ `1Ran` to `8Ran` - Context/line-dependent parameter ([djf filter](https://tidalcycles.org/docs/reference/audio_effects/#dj-filter) by default),
+- ⚫ `1Xon` to `8Xon` - Orbit assignment.
 
 ### 🎨 Sound Effects (2 chains per track)
 
@@ -231,7 +231,7 @@ In addition to SuperDirtMixer controls (on volume, reverb, EQ, compression), eac
 - `1fuv` to `8fuv` / `1fuv2` to `8fuv2` - **How much or What value** (value of the What algorithm).
 
 ### 🌐 Spatial
-- `1Spa` to `8Spa` - Spatial positioning.
+- 🟡 `1Spa` to `8Spa` - Spatial positioning.
 
 ---
 
