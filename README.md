@@ -28,7 +28,7 @@
 
 ⚠️ While *Live 4 Bubbles* can be launched quickly once installed, the installation process involves setting up numerous open-source dependencies and programs to maximize control possibilities over sound synthesis and pattern manipulation.
 
-As shown in the images above representing a four-track configuration, this project is designed to be used in conjunction with [Fizzy Hydra](https://github.com/Xon77/FizzyHydra) if you want to add audio-reactive visuals and a VJ system controlled notably by volume data and event triggering per track.
+As shown in the images above representing a four-track configuration, this project is also designed to be used in conjunction with [Fizzy Hydra](https://github.com/Xon77/FizzyHydra) if you want to add audio-reactive visuals and a VJ system controlled notably by volume data and event triggering per track.
 
 ## 🎛️ Core Features
 
@@ -100,12 +100,6 @@ YourSoundFolder/
 └── ...
 ```
 
-### 5️⃣ Configure File Paths in SuperCollider
-
-Edit the initialization files in [`L4B_SC/L4B_SC_Project/`](L4B_SC/L4B_SC_Project/) to match your system paths:
-- Open [`_0T_Init_TidalX.scd`](L4B_SC/L4B_SC_Project/_0T_Init_TidalX.scd) in SuperCollider,
-- Update the sound folder path to point to your sound database,
-- Update any other paths as needed for your setup.
 
 ### 6️⃣ Install SuperCollider Quarks for some MIDI Controllers (Optional)
 
@@ -151,7 +145,10 @@ For a customized Pulsar appearance optimized for *Live 4 Bubbles*:
 
 Open SuperCollider and evaluate the initialization file:
 - Navigate to folder [`L4B_SC/L4B_SC_Project/`](L4B_SC/L4B_SC_Project/),
-- Open file [`_0T_Init_TidalX.scd`](L4B_SC/L4B_SC_Project/_0T_Init_TidalX.scd),
+- Open SC initialization file [`_0T_Init_TidalX.scd`](L4B_SC/L4B_SC_Project/_0T_Init_TidalX.scd),
+- Edit the SC initialization file in [`L4B_SC/L4B_SC_Project/`](L4B_SC/L4B_SC_Project/) to match your system paths:
+	- Update the sound folder path to point to your sound database,
+	- Update any other paths as needed for your setup.
 - Evaluate the section in parentheses between [lines 16 and 422](L4B_SC/L4B_SC_Project/_0T_Init_TidalX.scd#L16-L422) within the file (Cmd+Enter on macOS, Ctrl+Enter on Windows/Linux).
 
 This will:
