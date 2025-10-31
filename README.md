@@ -101,11 +101,11 @@ YourSoundFolder/
 ```
 
 
-### 6️⃣ Install SuperCollider Quarks for some MIDI Controllers (Optional)
+### 5️⃣ Install SuperCollider Quarks (extensions) for some MIDI Controllers (Optional)
 
 If you plan to use the MIDI controllers mentioned below, install the required Quarks in SuperCollider:
 
-#### 🎚️ For Xone K2 or K3:
+#### 🎚️ For [Xone K2 or K3](https://www.allen-heath.com/hardware/xone-series/xonek3/):
 - Install the [`Modality-toolkit`](https://github.com/ModalityTeam/Modality-toolkit) Quark, by evaluating in SuperCollider:
 ```supercollider
 Quarks.install("Modality-toolkit");
@@ -115,14 +115,14 @@ Quarks.install("Modality-toolkit");
   - **Linux**: `~/.local/share/SuperCollider/downloaded-quarks/Modality-toolkit/Modality/MKtlDescriptions/`,
   - **Windows**: `%USERPROFILE%\AppData\Local\SuperCollider\downloaded-quarks\Modality-toolkit\Modality\MKtlDescriptions\`.
 
-#### 🎛️ For MIDI Fighter Twister:
+#### 🎛️ For [MIDI Fighter Twister](https://www.midifighter.com/#Twister):
 - Install the [`Twister`](https://github.com/scztt/Twister.quark) Quark and the [`Connection`](https://github.com/scztt/Connection.quark) Quark, by evaluating in SuperCollider:
 ```supercollider
 Quarks.install("Twister");
 Quarks.install("Connection");
 ```
 
-### 7️⃣ Pulsar Styling (Optional)
+### 6️⃣ Pulsar Styling (Optional)
 
 For a customized Pulsar appearance optimized for *Live 4 Bubbles*:
 
@@ -153,10 +153,10 @@ This will:
 - Load SuperDirt and *Live 4 Bubbles*,
 - Initialize the GUI,
 - Setup all MIDI connections with (if available):
-  - 🎚️ [Xone K2 or K3](https://www.allen-heath.com/hardware/xone-series/xonek3/) from Allen & Heath - in file [`_Init Midi X2.scd`](L4B_SC/L4B_SC_Project/_Init%20Midi%20X2.scd),
-  - 🎛️ [MIDI Fighter Twister](https://www.midifighter.com/#Twister) - in file [`_Init Midi T2.scd`](L4B_SC/L4B_SC_Project/_Init%20Midi%20T2.scd)
+  - [Xone K2 or K3](https://www.allen-heath.com/hardware/xone-series/xonek3/) from Allen & Heath - in file [`_Init Midi X2.scd`](L4B_SC/L4B_SC_Project/_Init%20Midi%20X2.scd),
+  - [MIDI Fighter Twister](https://www.midifighter.com/#Twister) - in file [`_Init Midi T2.scd`](L4B_SC/L4B_SC_Project/_Init%20Midi%20T2.scd)
     (You can connect up to 3 MIDI Fighters together. Name them: "MIDI Fighter Twister 1", "MIDI Fighter Twister 2", "MIDI Fighter Twister 3" in MIDI configuration.),
-  - 🎹 [Launchpad X](https://novationmusic.com/products/launchpad-x) from Novation - in file [`_Init Midi LPX.scd`](L4B_SC/L4B_SC_Project/_Init%20Midi%20LPX.scd) (in development).
+  - [Launchpad X](https://novationmusic.com/products/launchpad-x) from Novation - in file [`_Init Midi LPX.scd`](L4B_SC/L4B_SC_Project/_Init%20Midi%20LPX.scd) (in development).
 
 ### 2️⃣ Launch Pulsar with Tidal Files
 
