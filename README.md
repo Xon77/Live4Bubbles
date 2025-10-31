@@ -109,6 +109,12 @@ If you plan to use the MIDI controllers mentioned below, install the required Qu
 - Install the [`Twister`](https://github.com/scztt/Twister.quark) Quark,
 - Install the [`Connection`](https://github.com/scztt/Connection.quark) Quark.
 
+Evaluate in SuperCollider:
+```supercollider
+Quarks.install("Twister");
+Quarks.install("Connection");
+```
+
 #### 🎚️ For Xone K2 or K3:
 - Install the [`Modality-toolkit`](https://github.com/ModalityTeam/Modality-toolkit) Quark,
 - Copy the [`xoneK2.desc.scd`](L4B_SC/xoneK2.desc.scd) file into the `MKtlDescriptions` folder within the Modality Quark directory:
@@ -116,9 +122,15 @@ If you plan to use the MIDI controllers mentioned below, install the required Qu
   - **Linux**: `~/.local/share/SuperCollider/downloaded-quarks/Modality-toolkit/Modality/MKtlDescriptions/`,
   - **Windows**: `%USERPROFILE%\AppData\Local\SuperCollider\downloaded-quarks\Modality-toolkit\Modality\MKtlDescriptions\`.
 
+Evaluate in SuperCollider:
+
+```supercollider
+Quarks.install("Modality-toolkit");
+```
+
 #### 💻 To install Quarks:
 
-Open SuperCollider and evaluate:
+Open SuperCollider and 
 ```supercollider
 Quarks.install("Twister");
 Quarks.install("Connection");
