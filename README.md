@@ -201,7 +201,8 @@ In addition to SuperDirtMixer controls (on volume, reverb, EQ, compression), eac
 ### ⏱️ Timing
 - 🟠 `d1` to `d8` - Tempo (speed control),
 - 🟤 `1Leg` to `8Leg` - Duration (length variable),
-- 🟤 `1LegS` to `8LegS` - Duration algorithm switch.
+- 🟤 `1LegS` to `8LegS` - Duration algorithm switch,
+- ⚫ `1Xon` to `8Xon` - Orbit assignment.
 
 ### 〰️ Sound Selection
 - 🔴 `1Fol` to `8Fol` - Sound folder (directory containing audio samples) or Synthesis Type (with th B/S switch),
@@ -211,8 +212,7 @@ In addition to SuperDirtMixer controls (on volume, reverb, EQ, compression), eac
 
 ### ▶️ Playback
 - 🟢 `1Rat` to `8Rat` - Playback rate/speed,
-- ⚪ `1Ran` to `8Ran` - Context/line-dependent parameter ([djf filter](https://tidalcycles.org/docs/reference/audio_effects/#dj-filter) by default),
-- ⚫ `1Xon` to `8Xon` - Orbit assignment.
+- ⚪ `1Ran` to `8Ran` - Context/line-dependent parameter ([djf filter](https://tidalcycles.org/docs/reference/audio_effects/#dj-filter) by default).
 
 ### 🎨 Sound Effects (2 chains per track)
 
