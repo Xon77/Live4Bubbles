@@ -16,7 +16,7 @@
 
 ---
 
-## 🎯 What is *Live 4 Bubbles* ?
+## 🫧 What is *Live 4 Bubbles* ?
 
 **A performance system for controlling Live Coding Databases from [Tidal Cycles](https://tidalcycles.org/) and [Hydra](https://hydra.ojack.xyz/) in the [Pulsar](https://pulsar-edit.dev/) text editor with [SuperCollider](https://supercollider.github.io/) GUI and controllers.**
 
@@ -30,7 +30,7 @@
 
 As shown in the images above representing a four-track configuration, this project is also designed to be used in conjunction with [Fizzy Hydra](https://github.com/Xon77/FizzyHydra) if you want to add audio-reactive visuals and a VJ system controlled notably by volume data and event triggering per track.
 
-## 🎛️ Core Features
+## ✨ Core Features
 
 ### 🎚️ Multi-Track Control System
 
