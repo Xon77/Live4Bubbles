@@ -194,9 +194,13 @@ This will boot Tidal Cycles and set up all control parameters for tempo, duratio
 
 In addition to SuperDirtMixer controls (on volume, reverb, EQ, compression), each of the 8 tracks (tabs or splits containing code lines / patterns) has access to the following parameters, which can all be saved as presets:
 
-### ⏱️ Timing & Structure
+### ⏱️ Pattern structure
+- Track preset (saves and recall all parameters below),
+- code line / pattern (of the tab in Pulsar),
+
+### ⏱️ Timing
 - `d1` to `d8` - Tempo (speed control),
-- `1Leg` to `8Leg` - Duration (pattern length),
+- `1Leg` to `8Leg` - Duration (length variable),
 - `1LegS` to `8LegS` - Duration algorithm switch.
 
 ### 📁 Sound Selection
@@ -207,7 +211,7 @@ In addition to SuperDirtMixer controls (on volume, reverb, EQ, compression), eac
 
 ### ▶️ Playback
 - `1Rat` to `8Rat` - Playback rate/speed,
-- `1Ran` to `8Ran` - Random parameter (context-dependent - filter by default),
+- `1Ran` to `8Ran` - Context/line-dependent parameter ([djf filter](https://tidalcycles.org/docs/reference/audio_effects/#dj-filter) by default),
 - `1Xon` to `8Xon` - Orbit assignment.
 
 ### 🎨 Sound Effects (2 chains per track)
