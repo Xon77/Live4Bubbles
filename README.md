@@ -138,8 +138,6 @@ For a customized Pulsar appearance optimized for *Live 4 Bubbles*:
 
 ## 🚀 Quick Start
 
-Once configured, booting *Live 4 Bubbles* is simple: evaluate one code section in SuperCollider and four code sections in Pulsar.
-
 ### 1️⃣ Start SuperCollider
 
 Open SuperCollider and evaluate the initialization file:
@@ -184,7 +182,7 @@ In [`ControlTidal.tidal`](L4B_Tidal/ControlTidal.tidal), evaluate the following 
 3. [Line 1113](L4B_Tidal/ControlTidal.tidal#L1113) - Update of definitions and functions of step 1,
 4. [Lines 1118 to 1136](L4B_Tidal/ControlTidal.tidal#L1118-L1136) - Final initialization for crossfades.
 
-This will boot Tidal Cycles and set up all control parameters for tempo, duration, sound folders, buffers, effects, and more.
+This will boot Tidal Cycles and set up all control parameters for tempo, duration, sound folders, buffers, effects, and more. Once your project is configured, booting *Live 4 Bubbles* is simple: evaluate one code section in SuperCollider and four code sections in Pulsar.
 
 🎉✨🎵 **You can begin to play with the GUI & controllers!** 🎵✨🎉
 
