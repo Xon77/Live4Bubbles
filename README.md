@@ -65,11 +65,11 @@ Before installing *Live 4 Bubbles*, ensure you have the following installed:
 
 ## 📥 Step-by-Step Installation
 
-### 1️⃣ Install SuperDirtMixer
+### ① Install SuperDirtMixer
 
 *Live 4 Bubbles* is built on top of SuperDirtMixer. Follow the instructions in [SuperDirtMixer](https://github.com/thgrund/SuperDirtMixer) to install all [its requirements](https://github.com/thgrund/SuperDirtMixer?tab=readme-ov-file#requirements).
 
-### 2️⃣ Download *Live 4 Bubbles*
+### ② Download *Live 4 Bubbles*
 
 Clone or download the *Live 4 Bubbles* repository to your local machine:
 
@@ -77,7 +77,7 @@ Clone or download the *Live 4 Bubbles* repository to your local machine:
 git clone https://github.com/Xon77/Live4Bubbles.git
 ```
 
-### 3️⃣ Install *Live 4 Bubbles* in SuperCollider Extensions
+### ③ Install *Live 4 Bubbles* in SuperCollider Extensions
 
 Copy the [`L4B_SC/SuperDirtMixerX/`](L4B_SC/SuperDirtMixerX/) folder into your SuperCollider extensions folder:
 
@@ -85,7 +85,7 @@ Copy the [`L4B_SC/SuperDirtMixerX/`](L4B_SC/SuperDirtMixerX/) folder into your S
 - **Linux**: `~/.local/share/SuperCollider/Extensions/`,
 - **Windows**: `%USERPROFILE%\AppData\Local\SuperCollider\Extensions\`.
 
-### 4️⃣ Setup your Sound Database
+### ④ Setup your Sound Database
 
 Your sound folder must be structured following the [Live 4 Life sound database structure](https://github.com/Xon77/L4LSoundsDataBase/tree/main/SoundFolder), except that folder names should use underscores instead of spaces (e.g., `DB_MBass` instead of `DB MBass`).
 
@@ -101,7 +101,7 @@ YourSoundFolder/
 ```
 
 
-### 5️⃣ Install SuperCollider Quarks (extensions) for some MIDI Controllers (Optional)
+### ⑤ Install SuperCollider Quarks (extensions) for some MIDI Controllers (Optional)
 
 If you plan to use the MIDI controllers mentioned below, install the required Quarks in SuperCollider:
 
@@ -122,7 +122,7 @@ Quarks.install("Twister");
 Quarks.install("Connection");
 ```
 
-### 6️⃣ Pulsar Styling (Optional)
+### ⑥ Pulsar Styling (Optional)
 
 For a customized Pulsar appearance optimized for *Live 4 Bubbles*:
 
