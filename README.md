@@ -138,6 +138,8 @@ For a customized Pulsar appearance optimized for *Live 4 Bubbles*:
 
 ## 🚀 Quick Start
 
+Once configured, booting *Live 4 Bubbles* is simple: evaluate one code section in SuperCollider and four code sections in Pulsar.
+
 ### 1️⃣ Start SuperCollider
 
 Open SuperCollider and evaluate the initialization file:
@@ -170,6 +172,8 @@ Create a four-track code execution partition by opening all Tidal Cycles files f
 6. [`L4B_Tidal/ControlTidal.tidal`](L4B_Tidal/ControlTidal.tidal) in tab 6 (for initialization).
 
 💡 **Tip:** Other code execution workflows are possible. For example, you can execute code lines by selecting different splits and tabs. *(The images above represent four splits of the first tab.)*
+
+📌 **Note:** This step is only necessary the first time. Once you save your Pulsar workspace, you can simply reopen Pulsar with the saved tab layout for subsequent sessions.
 
 ### 3️⃣ Initialize Control Variables in Tidal Cycles
 
