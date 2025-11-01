@@ -1,4 +1,4 @@
-// TidalCycles Live Coding with GUI & Controllers - with SuperDirt & SuperDirtMixer
+// TidalCycles Live Coding with GUI & Controllers - with SuperDirt & SuperDirtMixer & Live 4 Bubbles
 // ~mainServer1Window sould be set at 0 in the file "_0B_Init_Config" in Live 4 Life Project if both are used simultaneously
 // To include TidalLooper
 
@@ -16,8 +16,8 @@ Server.killAll;
 ( // TIDAL Xon - Live 4 Bubbles
 
 ~tidalHydra = 1; // Send OSC data to (Fizzy) Hydra (RMS / Event data per channel & other controls
-~tidalOutputChannels = 4; // Nb of Channels in Tidal XXXXXXXXX - Error with Mi-UGens with 8 channels
-~tidalNbOfLoudspeakers = 4; // Nb of Loudspeakers XXXXXXXXX - Error with Mi-UGens with 8 channels
+~tidalOutputChannels = 2; // Nb of Channels in Tidal XXXXXXXXX - Error with Mi-UGens with 8 channels
+~tidalNbOfLoudspeakers = 2; // Nb of Loudspeakers XXXXXXXXX - Error with Mi-UGens with 8 channels
 
 // GUI Size and Position parameters
 // Size for 4 Tracks
@@ -331,7 +331,7 @@ s.waitForBoot {
 	~tidalX.gui;
 
 	"_Init Midi X2.scd".loadRelative; // Xone K2
-	"_Init Midi T4.scd".loadRelative; // Midi Fighter Twister Version 4
+	"_Init Midi T2.scd".loadRelative; // Midi Fighter Twister
 
 	// Initialisation of All / Some parameters of SuperDirtMixer
 	// Reset All act on everything except Bypass (EQ & Compressor) & all Compressor & EQ on other tracks than the one selected
