@@ -96,8 +96,13 @@ YourSoundFolder/
 └── ...
 ```
 
+---
 
-### 4️⃣ Install SuperCollider Quarks (extensions) for some MIDI Controllers (Optional)
+## 🛠️ Optional Configurations
+
+---
+
+### 1️⃣ Install SuperCollider Quarks (extensions) for some MIDI Controllers
 
 If you plan to use the MIDI controllers mentioned below, install the required Quarks in SuperCollider:
 
@@ -126,7 +131,7 @@ If you want to edit the controller configuration files, view them, or copy and a
 - [`_Init Midi T2.scd`](L4B_SC/L4B_SC_Project/_Init%20Midi%20T2.scd) for [MIDI Fighter Twister](https://www.midifighter.com/#Twister),
 - [`_Init Midi LPX.scd`](L4B_SC/L4B_SC_Project/_Init%20Midi%20LPX.scd) (in development) for [Launchpad X](https://novationmusic.com/products/launchpad-x) from Novation.
 
-### 5️⃣ Pulsar Styling (Optional)
+### 2️⃣ Pulsar Styling
 
 For a customized Pulsar appearance optimized for *Live 4 Bubbles*:
 
