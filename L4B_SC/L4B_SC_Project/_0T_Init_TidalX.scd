@@ -212,9 +212,9 @@ s.waitForBoot {
 
 	if (~tidalExtraVST == 1, {
 
-		load("/Users/xon/Desktop/Live_Coding/Tidal/ExtraSynths/Tidal-VST.scd");
+		load(~tidalPresetXPath++"Synths/Tidal-VST.scd");
 		s.sync; // Necessary to load VST synth
-		load("/Users/xon/Desktop/Live_Coding/Tidal/ExtraSynths/Tidal-VST2.scd");
+		load(~tidalPresetXPath++"Synths/Tidal-VST2.scd");
 
 		{~instruments[~vstName].editor}.defer(1); // To open the GUI
 	});
