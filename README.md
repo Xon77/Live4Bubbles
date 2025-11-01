@@ -217,16 +217,16 @@ In addition to SuperDirtMixer controls (on volume, reverb, EQ, compression), eac
 ### 🎨 Sound Effects (2 chains per track)
 
 - 🟢 `1fxs` to `8fxs` / `1fxs2` to `8fxs2` - **When** (timing algorithm type),
-- 🟢 `1fxx` to `8fxx` / `1fxx2` to `8fxx2` - **How** (superposition or not, with delays of various durations),
 - 🟢 `1fxt` to `8fxt` / `1fxt2` to `8fxt2` - **When value** (value of the When algorithm),
+- 🟢 `1fxx` to `8fxx` / `1fxx2` to `8fxx2` - **How** (superposition or not, with delays of various durations),
 - 🟢 `1fxp` to `8fxp` / `1fxp2` to `8fxp2` - **What** (specific effect transformation),
 - 🟢 `1fxv` to `8fxv` / `1fxv2` to `8fxv2` - **How much or What value** (value of the What algorithm).
 
 ### 🔄 Pattern Functions (2 chains per track)
 
 - 🔵 `1fus` to `8fus` / `1fus2` to `8fus2` - **When** (timing algorithm type),
-- 🔵 `1fux` to `8fux` / `1fux2` to `8fux2` - **How** (superposition or not, with delays of various durations),
 - 🔵 `1fut` to `8fut` / `1fut2` to `8fut2` - **When value** (value of the When algorithm),
+- 🔵 `1fux` to `8fux` / `1fux2` to `8fux2` - **How** (superposition or not, with delays of various durations),
 - 🔵 `1fup` to `8fup` / `1fup2` to `8fup2` - **What** (transformations: degradeBy, trunc, etc.),
 - 🔵 `1fuv` to `8fuv` / `1fuv2` to `8fuv2` - **How much or What value** (value of the What algorithm).
 
