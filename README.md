@@ -169,7 +169,7 @@ Create a four-track code execution partition by opening all Tidal Cycles files f
 5. [`L4B_Tidal/DJCodeG.tidal`](L4B_Tidal/DJCodeG.tidal) in tab 5 (for global control),
 6. [`L4B_Tidal/ControlTidal.tidal`](L4B_Tidal/ControlTidal.tidal) in tab 6 (for initialization).
 
-💡 **Tip:** Other code execution workflows are possible. For example, you can execute code lines by selecting different splits and tabs. *(The images above represent four splits of the first tab.)*
+Other code execution workflows are possible. For example, you can execute code lines by selecting different splits and tabs. *(The images above represent four splits of the first tab.)*
 
 📌 **Note:** This step is only necessary the first time. Once you save your Pulsar workspace, you can simply reopen Pulsar with the saved tab layout for subsequent sessions.
 
