@@ -195,7 +195,7 @@ This will boot Tidal Cycles and set up all control parameters for tempo, duratio
 In addition to SuperDirtMixer controls (on volume, reverb, EQ, compression), each of the 8 tracks (tabs or splits) has access to the following 31 parameters:
 
 ### 🎵 Pattern structure
-- 🔴 Track preset (saves and recalls all parameters below),
+- 🔴 Track preset number (saves and recalls all parameters below),
 - 🔵 Code line / pattern (of the tab in Pulsar),
 
 ### ⏱️ Timing
