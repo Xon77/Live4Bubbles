@@ -119,7 +119,8 @@ You can connect up to 3 MIDI Fighters together. Name them: "MIDI Fighter Twister
 Quarks.install("Twister");
 Quarks.install("Connection");
 ```
-If you want to edit the configuration files of controllers or les voir et copier et adapter à d'autres contrôleurs, les fichier sont :
+
+If you want to edit the controller configuration files, view them, or copy and adapt them to other controllers, the files are:
 - [Xone K2 or K3](https://www.allen-heath.com/hardware/xone-series/xonek3/) - in file [`_Init Midi X2.scd`](L4B_SC/L4B_SC_Project/_Init%20Midi%20X2.scd),
 - [MIDI Fighter Twister](https://www.midifighter.com/#Twister) - in file [`_Init Midi T2.scd`](L4B_SC/L4B_SC_Project/_Init%20Midi%20T2.scd),
 - [Launchpad X](https://novationmusic.com/products/launchpad-x) from Novation - in file [`_Init Midi LPX.scd`](L4B_SC/L4B_SC_Project/_Init%20Midi%20LPX.scd) (in development).
