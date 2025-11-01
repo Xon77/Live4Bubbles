@@ -196,7 +196,7 @@ In addition to SuperDirtMixer controls (on volume, reverb, EQ, compression), eac
 
 ### 🎵 Pattern structure
 - 🔴 Track preset (saves and recalls all parameters below),
-- 🔵 code line / pattern (of the tab in Pulsar),
+- 🔵 Code line / pattern (of the tab in Pulsar),
 
 ### ⏱️ Timing
 - 🟠 `d1` to `d8` - Tempo (speed control),
