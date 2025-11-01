@@ -57,19 +57,16 @@ As shown in the images above representing a four-track configuration, this proje
 Before installing *Live 4 Bubbles*, ensure you have the following installed:
 
 - **[SuperCollider](https://supercollider.github.io/)** (tested on 3.14) - Algorithmic & Audio synthesis platform,
-- **[Tidal Cycles](https://tidalcycles.org/)** (tested on 1.9.5 & ghc 9.6.7) - Live coding pattern language,
 - **[SuperDirt Quark](https://github.com/musikinformatik/SuperDirt)** - SuperCollider synthesizer for Tidal,
+- **[SuperDirtMixer](https://github.com/thgrund/SuperDirtMixer)** - *Live 4 Bubbles* is built on top of SuperDirtMixer. Follow the instructions to install all [its requirements](https://github.com/thgrund/SuperDirtMixer?tab=readme-ov-file#requirements).
+- **[Tidal Cycles](https://tidalcycles.org/)** (tested on 1.9.5 & ghc 9.6.7) - Live coding pattern language,
 - **[Pulsar](https://pulsar-edit.dev/)** - Text editor for live coding,
 - **[pulsar-tidalcycles](https://web.pulsar-edit.dev/packages/tidalcycles)** - Pulsar package for Tidal Cycles integration (You can use my variation of [pulsar-tidalcycles](https://github.com/Xon77/pulsar-tidalcycles) which adds the ability to select lines from different splits, in addition to the original feature of selecting from different tabs. You can also find or add the code changed via [this link](https://github.com/tidalcycles/pulsar-tidalcycles/compare/master...Xon77:pulsar-tidalcycles:master)),
 - [SuperCollider sc3-plugins](https://supercollider.github.io/sc3-plugins) (Optional) for extended synthesis capabilities.
 
 ## 📥 Step-by-Step Installation
 
-### 1️⃣ Install SuperDirtMixer
-
-*Live 4 Bubbles* is built on top of SuperDirtMixer. Follow the instructions in [SuperDirtMixer](https://github.com/thgrund/SuperDirtMixer) to install all [its requirements](https://github.com/thgrund/SuperDirtMixer?tab=readme-ov-file#requirements).
-
-### 2️⃣ Download *Live 4 Bubbles*
+### 1️⃣ Download *Live 4 Bubbles*
 
 Clone or download the *Live 4 Bubbles* repository to your local machine:
 
@@ -77,7 +74,7 @@ Clone or download the *Live 4 Bubbles* repository to your local machine:
 git clone https://github.com/Xon77/Live4Bubbles.git
 ```
 
-### 3️⃣ Install *Live 4 Bubbles* in SuperCollider Extensions
+### 2️⃣ Install *Live 4 Bubbles* in SuperCollider Extensions
 
 Copy the [`L4B_SC/SuperDirtMixerX/`](L4B_SC/SuperDirtMixerX/) folder into your SuperCollider extensions folder:
 
@@ -85,7 +82,7 @@ Copy the [`L4B_SC/SuperDirtMixerX/`](L4B_SC/SuperDirtMixerX/) folder into your S
 - **Linux**: `~/.local/share/SuperCollider/Extensions/`,
 - **Windows**: `%USERPROFILE%\AppData\Local\SuperCollider\Extensions\`.
 
-### 4️⃣ Setup your Sound Database
+### 3️⃣ Setup your Sound Database
 
 Your sound folder must be structured following the [Live 4 Life sound database structure](https://github.com/Xon77/L4LSoundsDataBase/tree/main/SoundFolder), except that folder names should use underscores instead of spaces (e.g., `DB_MBass` instead of `DB MBass`).
 
@@ -101,7 +98,7 @@ YourSoundFolder/
 ```
 
 
-### 5️⃣ Install SuperCollider Quarks (extensions) for some MIDI Controllers (Optional)
+### 4️⃣ Install SuperCollider Quarks (extensions) for some MIDI Controllers (Optional)
 
 If you plan to use the MIDI controllers mentioned below, install the required Quarks in SuperCollider:
 
@@ -122,7 +119,7 @@ Quarks.install("Twister");
 Quarks.install("Connection");
 ```
 
-### 6️⃣ Pulsar Styling (Optional)
+### 5️⃣ Pulsar Styling (Optional)
 
 For a customized Pulsar appearance optimized for *Live 4 Bubbles*:
 
