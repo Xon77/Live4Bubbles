@@ -42,7 +42,7 @@ As shown in the images above representing a four-track configuration, this proje
 ### 🎼 Parametric Control of your Tidal Cycles code line / pattern
 
 - ⏱️ **Timing** - Speed, duration, and legato,
-- 📁 **Sound Selection** - Quick navigation through sound libraries with folder and buffer selection,
+- 〰️ **Sound Selection** - Quick navigation through sound libraries with folder and buffer selection,
 - 🎨 **Effects Database** - Filter and effects to both sound and patterns with multiple parameter controls,
 - 🌐 **Spatial Control** - Channel Positioning and orbit management for immersive soundscapes.
 
