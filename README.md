@@ -158,7 +158,7 @@ This will:
     (You can connect up to 3 MIDI Fighters together. Name them: "MIDI Fighter Twister 1", "MIDI Fighter Twister 2", "MIDI Fighter Twister 3" in MIDI configuration.),
   - [Launchpad X](https://novationmusic.com/products/launchpad-x) from Novation - in file [`_Init Midi LPX.scd`](L4B_SC/L4B_SC_Project/_Init%20Midi%20LPX.scd) (in development).
 
-### 2️⃣ Launch Pulsar with Tidal Files
+### 2️⃣ Launch Pulsar
 
 Create a four-track code execution partition by opening all Tidal Cycles files from the [`L4B_Tidal/`](L4B_Tidal/) folder in Pulsar:
 
@@ -171,7 +171,7 @@ Create a four-track code execution partition by opening all Tidal Cycles files f
 
 💡 **Tip:** Other code execution workflows are possible. For example, you can execute code lines by selecting different splits and tabs. *(The images above represent four splits of the first tab.)*
 
-### 3️⃣ Initialize Control Variables in Tidal Files
+### 3️⃣ Initialize Control Variables in Tidal Cycles
 
 In [`ControlTidal.tidal`](L4B_Tidal/ControlTidal.tidal), evaluate the following sections in order with Ctrl+Enter (Cmd+Enter on macOS):
 
