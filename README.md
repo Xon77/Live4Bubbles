@@ -148,7 +148,7 @@ For a customized Pulsar appearance optimized for *Live 4 Bubbles*:
 Open SuperCollider and evaluate the initialization file:
 - Navigate to folder [`L4B_SC/L4B_SC_Project/`](L4B_SC/L4B_SC_Project/),
 - Open SC initialization file [`_0T_Init_TidalX.scd`](L4B_SC/L4B_SC_Project/_0T_Init_TidalX.scd),
-- Edit the [line 55](L4B_SC/L4B_SC_Project/_0T_Init_TidalX.scd#L55) to update the sound folder path to point to your sound database (when needed),
+- Edit the [line 55](L4B_SC/L4B_SC_Project/_0T_Init_TidalX.scd#L55) to update the sound folder path to point to your sound database (when needed as well as other parameters),
 - Evaluate the section in parentheses between [lines 16 and 422](L4B_SC/L4B_SC_Project/_0T_Init_TidalX.scd#L16-L422) within the file (Cmd+Enter on macOS, Ctrl+Enter on Windows/Linux).
 
 This will:
