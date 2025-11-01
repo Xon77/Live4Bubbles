@@ -22,7 +22,7 @@
 
 *This is my current main life-long project on which I dedicate myself to develop further and perform with this audiovisual system, for as many years as possible until the end of my life, hopefully!*
 
-## 🔮 Vision
+## 🔮 Vision and Limits
 
 *Live 4 Bubbles* is partly an extension and modified version based on [SuperDirtMixer](https://github.com/thgrund/SuperDirtMixer) from Thomas Grund. But it goes far beyond a mixer for Tidal Cycles. It transforms your live coding setup into a **performance system with control over your rhythmic, sonic and spatial patterns** of sound files and SuperCollider synthesis in real-time.
 
@@ -208,7 +208,7 @@ In addition to SuperDirtMixer controls (on volume, panning, reverb, EQ & compres
 - ⚫ `1Xon` to `8Xon` - Orbit assignment.
 
 ### 〰️ Sound Selection
-- 🔴 `1Fol` to `8Fol` - Sound Folder (directory containing audio samples) or Synthesis Type (with the B/S switch),
+- 🔴 `1Fol` to `8Fol` - Sound Folder (directory containing audio samples) or Synthesis Type (with the B/S switch - Note: some code lines/patterns are not suitable for synthesis and may generate overly high notes or unpleasant sounds, such as line 36 in DJCode1. Ensure your code is appropriate when using or switching to synthesis mode),
 - 🟪 `1Buf` to `8Buf` - Sound File (within the sound folder),
 - 🔴 `1FolN` to `8FolN` - Normalized folder index (0-1),
 - 🟪 `1BufN` to `8BufN` - Normalized file index (0-1).
