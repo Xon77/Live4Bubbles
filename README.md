@@ -101,7 +101,7 @@ YourSoundFolder/
 
 If you plan to use the MIDI controllers mentioned below, install the required Quarks in SuperCollider:
 
-#### 🎚️ For [Xone K2 or K3](https://www.allen-heath.com/hardware/xone-series/xonek3/) from Allen & Heath:
+#### 🎚️ For [Xone K2 or K3](https://www.allen-heath.com/hardware/xone-series/xonek3/):
 - Install the [`Modality-toolkit`](https://github.com/ModalityTeam/Modality-toolkit) Quark, by evaluating in SuperCollider:
 ```supercollider
 Quarks.install("Modality-toolkit");
@@ -122,7 +122,7 @@ Quarks.install("Connection");
 You can connect up to 3 MIDI Fighters together. Name them: "MIDI Fighter Twister 1", "MIDI Fighter Twister 2", "MIDI Fighter Twister 3" in MIDI configuration.
 
 If you want to edit the controller configuration files, view them, or copy and adapt them to other controllers, the files are:
-- [`_Init Midi X2.scd`](L4B_SC/L4B_SC_Project/_Init%20Midi%20X2.scd) for [Xone K2 or K3](https://www.allen-heath.com/hardware/xone-series/xonek3/),
+- [`_Init Midi X2.scd`](L4B_SC/L4B_SC_Project/_Init%20Midi%20X2.scd) for [Xone K2 or K3](https://www.allen-heath.com/hardware/xone-series/xonek3/) from Allen & Heath,
 - [`_Init Midi T2.scd`](L4B_SC/L4B_SC_Project/_Init%20Midi%20T2.scd) for [MIDI Fighter Twister](https://www.midifighter.com/#Twister),
 - [`_Init Midi LPX.scd`](L4B_SC/L4B_SC_Project/_Init%20Midi%20LPX.scd) (in development) for [Launchpad X](https://novationmusic.com/products/launchpad-x) from Novation.
 
