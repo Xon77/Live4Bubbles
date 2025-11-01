@@ -67,7 +67,7 @@ Before installing *Live 4 Bubbles*, ensure you have the following installed:
 
 ### 1️⃣ Download *Live 4 Bubbles*
 
-Clone or download the *Live 4 Bubbles* repository to your local machine:
+Download the *Live 4 Bubbles* repository to your local machine. You can also clone with GIT commands in your terminal:
 
 ```bash
 git clone https://github.com/Xon77/Live4Bubbles.git
