@@ -26,7 +26,7 @@
 
 *Live 4 Bubbles* is partly an extension and modified version based on [SuperDirtMixer](https://github.com/thgrund/SuperDirtMixer) from Thomas Grund. But it goes far beyond a mixer for Tidal Cycles. It transforms your live coding setup into a **performance system with control over your rhythmic, sonic and spatial patterns** of sound files and SuperCollider synthesis in real-time.
 
-⚠️ While *Live 4 Bubbles* can be launched quickly once installed, the installation process involves setting up numerous open-source dependencies and programs to maximize control possibilities over sound synthesis and pattern manipulation.
+⚠️ While *Live 4 Bubbles* can be launched quickly once installed, the installation process involves editing some configuration files and setting up numerous open-source dependencies and programs to maximize control possibilities over sound synthesis and pattern manipulation.
 
 As shown in the images above representing a four-track configuration, this project is also designed to be used in conjunction with [Fizzy Hydra](https://github.com/Xon77/FizzyHydra) if you want to add audio-reactive visuals and a VJ system controlled notably by volume data and event triggering per track.
 
@@ -101,11 +101,13 @@ YourSoundFolder/
 
 If you plan to use the MIDI controllers mentioned below, install the required Quarks in SuperCollider:
 
-#### 🎚️ For [Xone K2 or K3](https://www.allen-heath.com/hardware/xone-series/xonek3/):
+#### 🎚️ For [Xone K2 or K3](https://www.allen-heath.com/hardware/xone-series/xonek3/) from Allen & Heath:
 - Install the [`Modality-toolkit`](https://github.com/ModalityTeam/Modality-toolkit) Quark, by evaluating in SuperCollider:
 ```supercollider
 Quarks.install("Modality-toolkit");
 ```
+You can connect up to 3 MIDI Fighters together. Name them: "MIDI Fighter Twister 1", "MIDI Fighter Twister 2", "MIDI Fighter Twister 3" in MIDI configuration.
+
 - Copy the [`xoneK2.desc.scd`](L4B_SC/xoneK2.desc.scd) file into the `MKtlDescriptions` folder within the Modality Quark directory:
   - **macOS**: `~/Library/Application Support/SuperCollider/downloaded-quarks/Modality-toolkit/Modality/MKtlDescriptions/`,
   - **Linux**: `~/.local/share/SuperCollider/downloaded-quarks/Modality-toolkit/Modality/MKtlDescriptions/`,
@@ -117,6 +119,10 @@ Quarks.install("Modality-toolkit");
 Quarks.install("Twister");
 Quarks.install("Connection");
 ```
+If you want to edit the configuration files of controllers or les voir et copier et adapter à d'autres contrôleurs, les fichier sont :
+- [Xone K2 or K3](https://www.allen-heath.com/hardware/xone-series/xonek3/) - in file [`_Init Midi X2.scd`](L4B_SC/L4B_SC_Project/_Init%20Midi%20X2.scd),
+- [MIDI Fighter Twister](https://www.midifighter.com/#Twister) - in file [`_Init Midi T2.scd`](L4B_SC/L4B_SC_Project/_Init%20Midi%20T2.scd),
+- [Launchpad X](https://novationmusic.com/products/launchpad-x) from Novation - in file [`_Init Midi LPX.scd`](L4B_SC/L4B_SC_Project/_Init%20Midi%20LPX.scd) (in development).
 
 ### 5️⃣ Pulsar Styling (Optional)
 
@@ -147,12 +153,8 @@ Open SuperCollider and evaluate the initialization file:
 This will:
 - Boot the SuperCollider server,
 - Load SuperDirt and *Live 4 Bubbles*,
-- Initialize the GUI,
-- Setup all MIDI connections with (if available):
-  - [Xone K2 or K3](https://www.allen-heath.com/hardware/xone-series/xonek3/) from Allen & Heath - in file [`_Init Midi X2.scd`](L4B_SC/L4B_SC_Project/_Init%20Midi%20X2.scd),
-  - [MIDI Fighter Twister](https://www.midifighter.com/#Twister) - in file [`_Init Midi T2.scd`](L4B_SC/L4B_SC_Project/_Init%20Midi%20T2.scd)
-    (You can connect up to 3 MIDI Fighters together. Name them: "MIDI Fighter Twister 1", "MIDI Fighter Twister 2", "MIDI Fighter Twister 3" in MIDI configuration.),
-  - [Launchpad X](https://novationmusic.com/products/launchpad-x) from Novation - in file [`_Init Midi LPX.scd`](L4B_SC/L4B_SC_Project/_Init%20Midi%20LPX.scd) (in development).
+- Initialize the GUI & OSC,
+- Setup all MIDI connections (if available).
 
 ### 2️⃣ Launch Pulsar
 
