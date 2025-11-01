@@ -231,7 +231,7 @@ In addition to SuperDirtMixer controls (on volume, reverb, EQ, compression), eac
 - 🔵 `1fuv` to `8fuv` / `1fuv2` to `8fuv2` - **How much or What value** (value of the What algorithm).
 
 ### 🌐 Spatial
-- 🟡 `1Spa` to `8Spa` - Spatial positioning.
+- 🟡 `1Spa` to `8Spa` - Spatial Channel positioning.
 
 ---
 
