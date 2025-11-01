@@ -164,13 +164,13 @@ s.waitForBoot {
 	~dirt.loadSoundFiles(~tidalsoundsFolder++"*"); // ~dirt.loadSoundFiles;
 
 	if (~tidalExtraSynths == 1, {
-		load("/Users/xon/Desktop/Live_Coding/Tidal/ExtraSynths/Mi-UGens.scd");
-		load("/Users/xon/Desktop/Live_Coding/Tidal/ExtraSynths/AtsuhiTadokoro-Synths.scd"); // 26
-		load("/Users/xon/Desktop/Live_Coding/Tidal/ExtraSynths/ErisFairbanks-Synths.scd"); // 15
-		load("/Users/xon/Desktop/Live_Coding/Tidal/ExtraSynths/Gilfuser-Synths.scd"); // 10
-		load("/Users/xon/Desktop/Live_Coding/Tidal/ExtraSynths/DiegoDorado-Synths.scd"); // 7
-		load("/Users/xon/Desktop/Live_Coding/Tidal/ExtraSynths/AndreaBertagnolli-Synths.scd"); // 40
-		load("/Users/xon/Desktop/Live_Coding/Tidal/ExtraSynths/LoopierRogerPibernat-Synths.scd"); // 10
+		load(~tidalPresetXPath++"Synths/Mi-UGens.scd");
+		load(~tidalPresetXPath++"Synths/AtsuhiTadokoro-Synths.scd"); // 26
+		load(~tidalPresetXPath++"Synths/ErisFairbanks-Synths.scd"); // 15
+		load(~tidalPresetXPath++"Synths/Gilfuser-Synths.scd"); // 10
+		load(~tidalPresetXPath++"Synths/DiegoDorado-Synths.scd"); // 7
+		load(~tidalPresetXPath++"Synths/AndreaBertagnolli-Synths.scd"); // 40
+		load(~tidalPresetXPath++"Synths/LoopierRogerPibernat-Synths.scd"); // 10
 	});
 
 	/*if (~tidalExtraVST == 1, {

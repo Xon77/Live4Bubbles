@@ -208,7 +208,7 @@ In addition to SuperDirtMixer controls (on volume, panning, reverb, EQ & compres
 - ⚫ `1Xon` to `8Xon` - Orbit assignment.
 
 ### 〰️ Sound Selection
-- 🔴 `1Fol` to `8Fol` - Sound Folder (directory containing audio samples) or Synthesis Type (with the B/S switch - Note: some code lines/patterns are not suitable for synthesis and may generate overly high notes or unpleasant sounds, such as [line 36 in DJCode1](L4B_Tidal/DJCode1.tidal#L36). Ensure your code is appropriate when using or switching to synthesis mode),
+- 🔴 `1Fol` to `8Fol` - Sound Folder (directory containing audio samples) or Synthesis Type (with the B/S switch - Note: some code lines/patterns are not suitable for synthesis and may generate overly high notes or unpleasant sounds, such as [line 38 in DJCode1](L4B_Tidal/DJCode1.tidal#L38). Ensure your code is appropriate when using or switching to synthesis mode),
 - 🟪 `1Buf` to `8Buf` - Sound File (within the sound folder),
 - 🔴 `1FolN` to `8FolN` - Normalized folder index (0-1),
 - 🟪 `1BufN` to `8BufN` - Normalized file index (0-1).
