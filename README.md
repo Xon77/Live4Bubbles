@@ -96,11 +96,7 @@ YourSoundFolder/
 └── ...
 ```
 
----
-
 ## 🛠️ Optional Configurations
-
----
 
 ### 1️⃣ Install SuperCollider Quarks (extensions) for some MIDI Controllers
 
