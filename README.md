@@ -2,7 +2,7 @@
 
 <div align="center">
 
-**Languages / Langues:** [🇬🇧 English](README.md) | [🇫🇷 Français](README_FR.md)
+**Languages / Langues:** [🇫🇷 Français](README_FR.md) | [🇬🇧 English](README.md)
 
 </div>
 
