@@ -205,10 +205,10 @@ In addition to SuperDirtMixer controls (on volume, reverb, EQ, compression), eac
 - ⚫ `1Xon` to `8Xon` - Orbit assignment.
 
 ### 〰️ Sound Selection
-- 🔴 `1Fol` to `8Fol` - Sound folder (directory containing audio samples) or Synthesis Type (with th B/S switch),
-- 🟪 `1Buf` to `8Buf` - Sound file (within the sound folder),
+- 🔴 `1Fol` to `8Fol` - Sound Folder (directory containing audio samples) or Synthesis Type (with th B/S switch),
+- 🟪 `1Buf` to `8Buf` - Sound File (within the sound folder),
 - 🔴 `1FolN` to `8FolN` - Normalized folder index (0-1),
-- 🟪 `1BufN` to `8BufN` - Normalized sound index (0-1).
+- 🟪 `1BufN` to `8BufN` - Normalized file index (0-1).
 
 ### ▶️ Playback
 - 🟢 `1Rat` to `8Rat` - Playback rate/speed,
