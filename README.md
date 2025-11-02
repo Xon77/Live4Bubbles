@@ -112,14 +112,18 @@ In Pulsar's Package Manager, configure the Tidal Cycles settings:
 4. In **Boot Tidal Path**, set the path to the custom BootTidal.hs file included in this repository:
    - Use the absolute path to [`L4B_Tidal/BootTidal/BootTidal.hs`](L4B_Tidal/BootTidal/BootTidal.hs)
    - Example: `/Users/YourUsername/Live4Bubbles/L4B_Tidal/BootTidal/BootTidal.hs`
-5. **Edit the BootTidal.hs file** to update the script paths at the end of the file ([lines 308-316](L4B_Tidal/BootTidal/BootTidal.hs#L308-L316)):
-   - Replace `/Users/xon/Desktop/Live_Coding/Tidal/ExtraSynths/` with your absolute path to `L4B_Tidal/BootTidal/`
-   - Update these 4 lines:
-     - `:script /path/to/L4B_Tidal/BootTidal/FM-Synths-params.hs`
-     - `:script /path/to/L4B_Tidal/BootTidal/Mi-UGens-params.hs`
-     - `:script /path/to/L4B_Tidal/BootTidal/ExtraSynths-params.hs`
-     - `:script /path/to/L4B_Tidal/BootTidal/G_Setup_250225.tidal`
-   - Example: `:script /Users/YourUsername/Live4Bubbles/L4B_Tidal/BootTidal/FM-Synths-params.hs`.
+
+### 5️⃣ Edit BootTidal.hs Script Paths
+
+Edit the [`BootTidal.hs`](L4B_Tidal/BootTidal/BootTidal.hs) file to update the script paths at the end of the file ([lines 308-316](L4B_Tidal/BootTidal/BootTidal.hs#L308-L316)):
+
+1. Replace `/Users/xon/Desktop/Live_Coding/Tidal/ExtraSynths/` with your absolute path to `L4B_Tidal/BootTidal/`
+2. Update these 4 script lines:
+   - `:script /path/to/` [`FM-Synths-params.hs`](L4B_Tidal/BootTidal/FM-Synths-params.hs)
+   - `:script /path/to/` [`Mi-UGens-params.hs`](L4B_Tidal/BootTidal/Mi-UGens-params.hs)
+   - `:script /path/to/` [`ExtraSynths-params.hs`](L4B_Tidal/BootTidal/ExtraSynths-params.hs)
+   - `:script /path/to/` [`G_Setup_250225.tidal`](L4B_Tidal/BootTidal/G_Setup_250225.tidal)
+3. Example of correct path: `:script /Users/YourUsername/Live4Bubbles/L4B_Tidal/BootTidal/FM-Synths-params.hs`
 
 ## 🛠️ Optional Configurations
 
