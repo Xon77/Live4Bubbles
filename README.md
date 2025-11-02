@@ -108,11 +108,18 @@ In Pulsar's Package Manager, configure the Tidal Cycles settings:
 
 1. Open Pulsar and go to **Settings** → **Packages**,
 2. Find **tidalcycles** package and click **Settings**,
-3. In **Tidal Path**, set the path to the custom BootTidal.hs file included in this repository:
+3. Enable **OSC eval** in the settings to evaluate code through OSC messages,
+4. In **Boot Tidal Path**, set the path to the custom BootTidal.hs file included in this repository:
    - Use the absolute path to [`L4B_Tidal/BootTidal/BootTidal.hs`](L4B_Tidal/BootTidal/BootTidal.hs)
    - Example: `/Users/YourUsername/Live4Bubbles/L4B_Tidal/BootTidal/BootTidal.hs`
-4. Enable **Use Boot Tidal Path**,
-5. Enable **OSC** in the settings to allow communication with SuperCollider.
+5. **Edit the BootTidal.hs file** to update the script paths at the end of the file ([lines 308-316](L4B_Tidal/BootTidal/BootTidal.hs#L308-L316)):
+   - Replace `/Users/xon/Desktop/Live_Coding/Tidal/ExtraSynths/` with your absolute path to `L4B_Tidal/BootTidal/`
+   - Update these 4 lines:
+     - `:script /path/to/L4B_Tidal/BootTidal/FM-Synths-params.hs`
+     - `:script /path/to/L4B_Tidal/BootTidal/Mi-UGens-params.hs`
+     - `:script /path/to/L4B_Tidal/BootTidal/ExtraSynths-params.hs`
+     - `:script /path/to/L4B_Tidal/BootTidal/G_Setup_250225.tidal`
+   - Example: `:script /Users/YourUsername/Live4Bubbles/L4B_Tidal/BootTidal/FM-Synths-params.hs`.
 
 ## 🛠️ Optional Configurations
 
