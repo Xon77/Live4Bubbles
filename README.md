@@ -177,7 +177,27 @@ For a customized Pulsar appearance optimized for *Live 4 Bubbles*:
 Open SuperCollider and evaluate the initialization file:
 - Navigate to folder [`L4B_SC/L4B_SC_Project/`](L4B_SC/L4B_SC_Project/),
 - Open SC initialization file [`_0T_Init_TidalX.scd`](L4B_SC/L4B_SC_Project/_0T_Init_TidalX.scd),
-- Edit the [line 55](L4B_SC/L4B_SC_Project/_0T_Init_TidalX.scd#L55) to update the sound folder path to point to your sound database (when needed as well as other parameters),
+- **Edit the configuration parameters** in the file (when needed):
+  - [Line 55](L4B_SC/L4B_SC_Project/_0T_Init_TidalX.scd#L55): Sound folder path to your sound database
+  - **System configuration:**
+    - `~tidalHydra = 1;` - Send OSC data to [Fizzy Hydra](https://github.com/Xon77/FizzyHydra) (RMS/Event data per channel)
+    - `~tidalOutputChannels = 2;` - Number of audio output channels
+    - `~tidalNbOfLoudspeakers = 2;` - Number of loudspeakers in your setup
+    - `~tidalNbOfOrbits = 4;` - Number of tracks/orbits in Tidal
+  - **GUI settings:**
+    - GUI size parameters
+    - 5 sound categories for folder organization
+  - **Code execution:**
+    - `~tidalSeqLineEndR = (476/2).asInteger;` - Maximum number of code lines that can be triggered in Pulsar
+  - **Global control page:**
+    - `~tidalMainControlPane`, `~tidalMainControlTab`, `~tidalMainControlInterpolationA`, etc. - Controls for interpolation types, BPM changes, and global functions
+  - **Effects & Functions database:**
+    - `~tidalnumEffects = 122;` - Number of available effects
+    - `~tidalnumFunctions = 264;` - Number of available pattern functions
+    - `~tidalnumSwitchX = 24;` - Number of superposition/juxtaposition types
+    - `~tidalnumWhenS = 39;` - Number of timing algorithms
+    - `~tidalnumDurAlgs = 44;` - Number of duration algorithms
+    - `~tidalnumSpaAlgs = 29;` - Number of spatial/channel algorithms
 - Evaluate the section in parentheses between [lines 16 and 422](L4B_SC/L4B_SC_Project/_0T_Init_TidalX.scd#L16-L422) within the file (Cmd+Enter on macOS, Ctrl+Enter on Windows/Linux).
 
 This will:
