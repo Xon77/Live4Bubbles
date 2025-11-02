@@ -242,7 +242,7 @@ Cela va :
 - Initialiser l'interface graphique et OSC,
 - Configurer toutes les connexions MIDI (si disponibles).
 
-### 2️⃣ Lancer Pulsar et initialiser les variables de contrôle dans Tidal Cycles
+### 2️⃣ Lancer Pulsar et Tidal Cycles
 
 Naviguez vers le dossier [`L4B_Tidal/`](L4B_Tidal/) et ouvrez [`ControlTidal.tidal`](L4B_Tidal/ControlTidal.tidal), puis évaluez les sections suivantes dans l'ordre avec Ctrl+Entrée (Cmd+Entrée sur macOS) :
 
