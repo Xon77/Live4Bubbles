@@ -66,9 +66,12 @@ Avant d'installer *Live 4 Bubbles*, assurez-vous d'avoir installé les élément
 - **[SuperDirtMixer Quark](https://github.com/thgrund/SuperDirtMixer)** - *Live 4 Bubbles* est construit au-dessus de SuperDirtMixer. Suivez les instructions pour installer tous [ses prérequis](https://github.com/thgrund/SuperDirtMixer?tab=readme-ov-file#requirements), incluant **[SuperDirt Quark](https://github.com/musikinformatik/SuperDirt)** (synthétiseur SuperCollider pour Tidal),
 - **[Tidal Cycles](https://tidalcycles.org/)** (testé sur 1.9.5 & ghc 9.6.7) - Langage de patterns de live coding,
 - **[Pulsar](https://pulsar-edit.dev/)** - Éditeur de texte pour le live coding,
-- **[pulsar-tidalcycles](https://web.pulsar-edit.dev/packages/tidalcycles)** - Package Pulsar pour l'intégration de Tidal Cycles (Vous pouvez utiliser ma variation de [pulsar-tidalcycles](https://github.com/Xon77/pulsar-tidalcycles) qui ajoute la possibilité de sélectionner des lignes depuis différents splits, en plus de la fonctionnalité originale de sélection depuis différents onglets. Vous pouvez également trouver ou ajouter le code modifié via [ce lien](https://github.com/tidalcycles/pulsar-tidalcycles/compare/master...Xon77:pulsar-tidalcycles:master)),
-- [SuperCollider sc3-plugins](https://supercollider.github.io/sc3-plugins) (Optionnel) pour des capacités de synthèse étendues,
-- [Mi-UGens](https://github.com/v7b1/mi-UGens) (Optionnel) - UGens SuperCollider basés sur les modules eurorack [Mutable Instruments](https://pichenettes.github.io/mutable-instruments-documentation/).
+- **[pulsar-tidalcycles](https://web.pulsar-edit.dev/packages/tidalcycles)** - Package Pulsar pour l'intégration de Tidal Cycles.
+
+**Optionnel :**
+- [Variation de pulsar-tidalcycles](https://github.com/Xon77/pulsar-tidalcycles) - Vous pouvez utiliser ma variation de pulsar-tidalcycles qui ajoute la possibilité de sélectionner des lignes depuis différents splits, en plus de la fonctionnalité originale de sélection depuis différents onglets. Vous pouvez également trouver ou ajouter le code modifié via [ce lien](https://github.com/tidalcycles/pulsar-tidalcycles/compare/master...Xon77:pulsar-tidalcycles:master),
+- [SuperCollider sc3-plugins](https://supercollider.github.io/sc3-plugins) pour des capacités de synthèse étendues,
+- [Mi-UGens](https://github.com/v7b1/mi-UGens) - UGens SuperCollider basés sur les modules eurorack [Mutable Instruments](https://pichenettes.github.io/mutable-instruments-documentation/).
 
 ## 📥 Installation étape par étape
 
