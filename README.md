@@ -106,7 +106,7 @@ YourSoundFolder/
 
 In Pulsar's Package Manager, configure the Tidal Cycles settings:
 
-1. Open Pulsar and go to **Settings** → **Packages**,
+1. Open Pulsar and go to **Package** → **Open Package Manager**,
 2. Find **tidalcycles** package and click **Settings**,
 3. Enable **OSC eval** in the settings to evaluate code through OSC messages,
 4. In **Boot Tidal Path**, set the path to the custom BootTidal.hs file included in this repository:
