@@ -112,7 +112,15 @@ Edit the [`BootTidal.hs`](L4B_Tidal/BootTidal/BootTidal.hs) file to update your 
 
 ## 🛠️ Optional Configurations
 
-### 1️⃣ Install SuperCollider Quarks (extensions) for some MIDI Controllers
+### 1️⃣ Pulsar Styling
+
+For a customized Pulsar appearance optimized for *Live 4 Bubbles*:
+
+1. Navigate to folder [`L4B_Pulsar/`](L4B_Pulsar/),
+2. Copy the styles from [`styles.less`](L4B_Pulsar/styles.less),
+3. Paste them into your Pulsar stylesheet (Edit → Stylesheet).
+
+### 2️⃣ Install SuperCollider Quarks (extensions) for some MIDI Controllers
 
 If you plan to use the MIDI controllers mentioned below, install the required Quarks in SuperCollider:
 
@@ -141,14 +149,6 @@ If you want to edit the controller configuration files, view them, or copy and a
 - [`_Init Midi T2.scd`](L4B_SC/L4B_SC_Project/_Init%20Midi%20T2.scd) for [MIDI Fighter Twister](https://www.midifighter.com/#Twister),
 - [`_Init Midi LPX.scd`](L4B_SC/L4B_SC_Project/_Init%20Midi%20LPX.scd) (in development) for [Launchpad X](https://novationmusic.com/products/launchpad-x) from Novation.
 
-### 2️⃣ Pulsar Styling
-
-For a customized Pulsar appearance optimized for *Live 4 Bubbles*:
-
-1. Navigate to folder [`L4B_Pulsar/`](L4B_Pulsar/),
-2. Copy the styles from [`styles.less`](L4B_Pulsar/styles.less),
-3. Paste them into your Pulsar stylesheet (Edit → Stylesheet).
-
 ### 3️⃣ Advanced System Configuration
 
 The following configuration parameters in [`_0T_Init_TidalX.scd`](L4B_SC/L4B_SC_Project/_0T_Init_TidalX.scd) are set by default but can be modified if needed:
@@ -159,8 +159,12 @@ The following configuration parameters in [`_0T_Init_TidalX.scd`](L4B_SC/L4B_SC_
 - [Line 20](L4B_SC/L4B_SC_Project/_0T_Init_TidalX.scd#L20): `~tidalNbOfLoudspeakers = 2;` - Number of loudspeakers
 - [Line 24](L4B_SC/L4B_SC_Project/_0T_Init_TidalX.scd#L24): `~tidalNbOfOrbits = 4;` - Number of tracks/orbits
 
-**GUI & Sound categories:**
-- GUI size parameters and 5 sound categories for folder organization
+**GUI size & Window position:**
+- [Lines 25-27](L4B_SC/L4B_SC_Project/_0T_Init_TidalX.scd#L25-L27): GUI size parameters for 4 tracks (see [lines 30-33](L4B_SC/L4B_SC_Project/_0T_Init_TidalX.scd#L30-L33) for 8 tracks configuration)
+- [Lines 36-37](L4B_SC/L4B_SC_Project/_0T_Init_TidalX.scd#L36-L37): Window position (X, Y coordinates)
+
+**Sound categories:**
+- [Line 63](L4B_SC/L4B_SC_Project/_0T_Init_TidalX.scd#L63): 5 sound categories for folder organization
 
 **Code execution:**
 - [Line 75](L4B_SC/L4B_SC_Project/_0T_Init_TidalX.scd#L75): `~tidalSeqLineEndR = (476/2).asInteger;` - Maximum number of code lines in Pulsar (can also be modified in Tidal partition files)
