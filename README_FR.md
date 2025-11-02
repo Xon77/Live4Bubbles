@@ -149,7 +149,36 @@ Si vous souhaitez éditer les fichiers de configuration des contrôleurs, les vi
 - [`_Init Midi T2.scd`](L4B_SC/L4B_SC_Project/_Init%20Midi%20T2.scd) pour [MIDI Fighter Twister](https://www.midifighter.com/#Twister),
 - [`_Init Midi LPX.scd`](L4B_SC/L4B_SC_Project/_Init%20Midi%20LPX.scd) (en développement) pour [Launchpad X](https://novationmusic.com/products/launchpad-x) de Novation.
 
-### 3️⃣ Configuration système avancée
+---
+
+# ⚙️ Configuration
+
+---
+
+## 📁 Configurer votre base de données de sons
+
+Votre dossier de sons doit être structuré suivant la [structure de base de données de sons Live 4 Life](https://github.com/Xon77/L4LSoundsDataBase/tree/main/SoundFolder), sauf que les noms de dossiers doivent utiliser des underscores au lieu d'espaces (par ex., `DB_MBass` au lieu de `DB MBass`).
+
+Exemple de structure :
+```
+VotreDossierDeSons/
+├── DB_Kick/
+│   ├── sound1.wav
+│   └── sound2.wav
+├── DB_Snare/
+├── DB_Bass/
+└── ...
+```
+
+**Configurer le chemin du dossier de sons dans SuperCollider :**
+
+1. Naviguez vers le dossier [`L4B_SC/L4B_SC_Project/`](L4B_SC/L4B_SC_Project/),
+2. Ouvrez le fichier d'initialisation SC [`_0T_Init_TidalX.scd`](L4B_SC/L4B_SC_Project/_0T_Init_TidalX.scd),
+3. **⚠️ REQUIS : Éditez la [ligne 55](L4B_SC/L4B_SC_Project/_0T_Init_TidalX.scd#L55)** pour définir le chemin du dossier de sons vers votre base de données de sons.
+
+---
+
+## 🔧 Configuration système avancée
 
 Les paramètres de configuration suivants dans [`_0T_Init_TidalX.scd`](L4B_SC/L4B_SC_Project/_0T_Init_TidalX.scd) sont définis par défaut mais peuvent être modifiés si nécessaire :
 
@@ -182,34 +211,7 @@ Les paramètres de configuration suivants dans [`_0T_Init_TidalX.scd`](L4B_SC/L4
 
 ---
 
-# ⚙️ Configuration
-
----
-
-## 📁 Configurer votre base de données de sons
-
-Votre dossier de sons doit être structuré suivant la [structure de base de données de sons Live 4 Life](https://github.com/Xon77/L4LSoundsDataBase/tree/main/SoundFolder), sauf que les noms de dossiers doivent utiliser des underscores au lieu d'espaces (par ex., `DB_MBass` au lieu de `DB MBass`).
-
-Exemple de structure :
-```
-VotreDossierDeSons/
-├── DB_Kick/
-│   ├── sound1.wav
-│   └── sound2.wav
-├── DB_Snare/
-├── DB_Bass/
-└── ...
-```
-
-**Configurer le chemin du dossier de sons dans SuperCollider :**
-
-1. Naviguez vers le dossier [`L4B_SC/L4B_SC_Project/`](L4B_SC/L4B_SC_Project/),
-2. Ouvrez le fichier d'initialisation SC [`_0T_Init_TidalX.scd`](L4B_SC/L4B_SC_Project/_0T_Init_TidalX.scd),
-3. **⚠️ REQUIS : Éditez la [ligne 55](L4B_SC/L4B_SC_Project/_0T_Init_TidalX.scd#L55)** pour définir le chemin du dossier de sons vers votre base de données de sons.
-
----
-
-## 📝 Configurer votre partition de code dans Pulsar
+## 📑 Configurer votre partition de code dans Pulsar
 
 Créez une partition d'exécution de code à quatre pistes en ouvrant tous les fichiers Tidal Cycles du dossier [`L4B_Tidal/`](L4B_Tidal/) dans Pulsar :
 

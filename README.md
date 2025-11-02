@@ -149,7 +149,36 @@ If you want to edit the controller configuration files, view them, or copy and a
 - [`_Init Midi T2.scd`](L4B_SC/L4B_SC_Project/_Init%20Midi%20T2.scd) for [MIDI Fighter Twister](https://www.midifighter.com/#Twister),
 - [`_Init Midi LPX.scd`](L4B_SC/L4B_SC_Project/_Init%20Midi%20LPX.scd) (in development) for [Launchpad X](https://novationmusic.com/products/launchpad-x) from Novation.
 
-### 3️⃣ Advanced System Configuration
+---
+
+# ⚙️ Setup
+
+---
+
+## 📁 Setup your Sound Database
+
+Your sound folder must be structured following the [Live 4 Life sound database structure](https://github.com/Xon77/L4LSoundsDataBase/tree/main/SoundFolder), except that folder names should use underscores instead of spaces (e.g., `DB_MBass` instead of `DB MBass`).
+
+Example structure:
+```
+YourSoundFolder/
+├── DB_Kick/
+│   ├── sound1.wav
+│   └── sound2.wav
+├── DB_Snare/
+├── DB_Bass/
+└── ...
+```
+
+**Configure the sound folder path in SuperCollider:**
+
+1. Navigate to folder [`L4B_SC/L4B_SC_Project/`](L4B_SC/L4B_SC_Project/),
+2. Open SuperCollider initialization file [`_0T_Init_TidalX.scd`](L4B_SC/L4B_SC_Project/_0T_Init_TidalX.scd),
+3. Edit [line 55](L4B_SC/L4B_SC_Project/_0T_Init_TidalX.scd#L55) to set the sound folder path to your sound database.
+
+---
+
+## 🔧 Advanced System Configuration
 
 The following configuration parameters in [`_0T_Init_TidalX.scd`](L4B_SC/L4B_SC_Project/_0T_Init_TidalX.scd) are set by default but can be modified if needed:
 
@@ -182,34 +211,7 @@ The following configuration parameters in [`_0T_Init_TidalX.scd`](L4B_SC/L4B_SC_
 
 ---
 
-# ⚙️ Setup
-
----
-
-## 📁 Setup your Sound Database
-
-Your sound folder must be structured following the [Live 4 Life sound database structure](https://github.com/Xon77/L4LSoundsDataBase/tree/main/SoundFolder), except that folder names should use underscores instead of spaces (e.g., `DB_MBass` instead of `DB MBass`).
-
-Example structure:
-```
-YourSoundFolder/
-├── DB_Kick/
-│   ├── sound1.wav
-│   └── sound2.wav
-├── DB_Snare/
-├── DB_Bass/
-└── ...
-```
-
-**Configure the sound folder path in SuperCollider:**
-
-1. Navigate to folder [`L4B_SC/L4B_SC_Project/`](L4B_SC/L4B_SC_Project/),
-2. Open SuperCollider initialization file [`_0T_Init_TidalX.scd`](L4B_SC/L4B_SC_Project/_0T_Init_TidalX.scd),
-3. Edit [line 55](L4B_SC/L4B_SC_Project/_0T_Init_TidalX.scd#L55) to set the sound folder path to your sound database.
-
----
-
-## 📝 Setup your Code Partition in Pulsar
+## 📑 Setup your Code Partition in Pulsar
 
 Create a four-track code execution partition by opening all Tidal Cycles files from the [`L4B_Tidal/`](L4B_Tidal/) folder in Pulsar:
 
