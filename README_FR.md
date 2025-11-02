@@ -87,20 +87,28 @@ Copiez le dossier [`L4B_SC/SuperDirtMixerX/`](L4B_SC/SuperDirtMixerX/) dans votr
 - **Linux** : `~/.local/share/SuperCollider/Extensions/`,
 - **Windows** : `%USERPROFILE%\AppData\Local\SuperCollider\Extensions\`.
 
-### 3️⃣ Configurer votre base de données de sons
+### 3️⃣ Configurer les paramètres Pulsar Tidal Cycles
 
-Votre dossier de sons doit être structuré suivant la [structure de base de données de sons Live 4 Life](https://github.com/Xon77/L4LSoundsDataBase/tree/main/SoundFolder), sauf que les noms de dossiers doivent utiliser des underscores au lieu d'espaces (par ex., `DB_MBass` au lieu de `DB MBass`).
+Dans le gestionnaire de packages de Pulsar, configurez les paramètres de Tidal Cycles :
 
-Exemple de structure :
-```
-VotreDossierDeSons/
-├── DB_Kick/
-│   ├── sound1.wav
-│   └── sound2.wav
-├── DB_Snare/
-├── DB_Bass/
-└── ...
-```
+1. Ouvrez Pulsar et allez dans **Package** → **Open Package Manager**,
+2. Trouvez le package **tidalcycles** et cliquez sur **Settings**,
+3. Activez **OSC eval** dans les paramètres pour évaluer le code via des messages OSC,
+4. Dans **Boot Tidal Path**, définissez le chemin vers le fichier BootTidal.hs personnalisé inclus dans ce dépôt :
+   - Utilisez le chemin absolu vers [`L4B_Tidal/BootTidal/BootTidal.hs`](L4B_Tidal/BootTidal/BootTidal.hs)
+   - Exemple : `/Users/VotreNomUtilisateur/Live4Bubbles/L4B_Tidal/BootTidal/BootTidal.hs`
+
+### 4️⃣ Éditer les chemins de scripts BootTidal.hs
+
+Éditez le fichier [`BootTidal.hs`](L4B_Tidal/BootTidal/BootTidal.hs) pour mettre à jour vos chemins de scripts à la fin du fichier ([lignes 308-316](L4B_Tidal/BootTidal/BootTidal.hs#L308-L316)), si vous souhaitez ajouter des synthétiseurs et générateurs SuperCollider supplémentaires :
+
+1. Remplacez `/Users/xon/Desktop/Live_Coding/Tidal/ExtraSynths/` par votre chemin absolu vers [`L4B_Tidal/BootTidal/`](L4B_Tidal/BootTidal/)
+2. Mettez à jour ces 4 lignes de script :
+   - `:script /chemin/vers/` [`FM-Synths-params.hs`](L4B_Tidal/BootTidal/FM-Synths-params.hs)
+   - `:script /chemin/vers/` [`Mi-UGens-params.hs`](L4B_Tidal/BootTidal/Mi-UGens-params.hs)
+   - `:script /chemin/vers/` [`ExtraSynths-params.hs`](L4B_Tidal/BootTidal/ExtraSynths-params.hs)
+   - `:script /chemin/vers/` [`G_Setup_250225.tidal`](L4B_Tidal/BootTidal/G_Setup_250225.tidal)
+3. Exemple de chemin correct : `:script /Users/VotreNomUtilisateur/Live4Bubbles/L4B_Tidal/BootTidal/FM-Synths-params.hs`
 
 ## 🛠️ Configurations optionnelles
 

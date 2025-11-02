@@ -205,6 +205,23 @@ YourSoundFolder/
 
 ---
 
+## 📝 Setup your Code Partition in Pulsar
+
+Create a four-track code execution partition by opening all Tidal Cycles files from the [`L4B_Tidal/`](L4B_Tidal/) folder in Pulsar:
+
+1. [`L4B_Tidal/DJCode1.tidal`](L4B_Tidal/DJCode1.tidal) in tab 1,
+2. [`L4B_Tidal/DJCode2.tidal`](L4B_Tidal/DJCode2.tidal) in tab 2,
+3. [`L4B_Tidal/DJCode3.tidal`](L4B_Tidal/DJCode3.tidal) in tab 3,
+4. [`L4B_Tidal/DJCode4.tidal`](L4B_Tidal/DJCode4.tidal) in tab 4,
+5. [`L4B_Tidal/DJCodeG.tidal`](L4B_Tidal/DJCodeG.tidal) in tab 5 (for global control),
+6. [`L4B_Tidal/ControlTidal.tidal`](L4B_Tidal/ControlTidal.tidal) in tab 6 (for initialization).
+
+Other code execution workflows are possible. For example, you can execute code lines by selecting different splits and tabs. *(The images above represent four splits of the first tab.)*
+
+📌 **Note:** This step is only necessary the first time. Once you save your Pulsar workspace, you can simply reopen Pulsar with the saved tab layout for subsequent sessions.
+
+---
+
 ## 🚀 Quick Start
 
 ### 1️⃣ Start SuperCollider
