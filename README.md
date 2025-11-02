@@ -47,10 +47,10 @@ As shown in the images above representing a four-track configuration, this proje
 
 ### 🎼 Parametric Control of your Tidal Cycles code line / pattern
 
-- ⏱️ **Timing** - Speed, duration, and legato,
+- ⏱️ **Timing** - Speed, duration, legato, and orbit/track management
 - 〰️ **Sound Selection** - Quick navigation through sound libraries with folder and buffer selection,
 - 🎨 **Effects Database** - Filter and effects to both sound and patterns with multiple parameter controls,
-- 🌐 **Spatial Control** - Channel Positioning and orbit management for immersive soundscapes.
+- 🌐 **Spatial Control** - Channel Positioning for immersive soundscapes.
 
 ---
 
@@ -209,7 +209,7 @@ In addition to SuperDirtMixer controls (on volume, panning, reverb, EQ & compres
 - 🟠 `d1` to `d8` - Tempo (speed control),
 - 🟤 `1Leg` to `8Leg` - Duration (length variable),
 - 🟤 `1LegS` to `8LegS` - Duration algorithm switch,
-- ⚫ `1Xon` to `8Xon` - Orbit assignment.
+- ⚫ `1Xon` to `8Xon` - Orbit / track assignment (allows to cut sounds when a new event is triggered among several patterns on the same orbit/track with specific duration algorithms).
 
 ### 〰️ Sound Selection
 - 🔴 `1Fol` to `8Fol` - Sound Folder (directory containing audio samples) or Synthesis Type (with the B/S switch - Note: some code lines/patterns are not suitable for synthesis and may generate overly high notes or unpleasant sounds, such as [line 38 in DJCode1](L4B_Tidal/DJCode1.tidal#L38). Ensure your code is appropriate when using or switching to synthesis mode),
