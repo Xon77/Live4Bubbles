@@ -1,11 +1,5 @@
 # Bienvenue sur ***Live 4 Bubbles !*** &nbsp;&nbsp; <span class="badge-licence"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" title="Licence"><img src="https://licensebuttons.net/l/by-nc-sa/3.0/88x31.png" alt="Lien licence" /></a></span> &nbsp;&nbsp; <span class="badge-buymeacoffee"><a href="https://ko-fi.com/Live4Life" title="Faire un don via Buy Me A Coffee"><img src="https://img.shields.io/badge/buy%20me%20a%20coffee-donate-yellow.svg" alt="Bouton don Buy Me A Coffee" /></a></span> &nbsp;&nbsp; <span class="badge-patreon"><a href="https://patreon.com/Live4Life" title="Faire un don via Patreon"><img src="https://img.shields.io/badge/patreon-donate-yellow.svg" alt="Bouton don Patreon" /></a></span>
 
-<div align="center">
-
-**Languages / Langues:** [🇫🇷 Français](README_FR.md) | [🇬🇧 English](README.md)
-
-</div>
-
 <p align="center">
 <img src="Images/live4bubbles_overview.gif" />
 </p>
@@ -13,6 +7,12 @@
 <div align="center">
 
 | [**Vue d'ensemble**](#-vue-densemble) | [**Installation**](#-installation) | [**Configuration**](#%EF%B8%8F-configuration) | [**Documentation**](#-Documentation) | [**Références**](#-références) | [**Contribuer**](#-contribuer) | [**Remerciements**](#-remerciements) | [**Licence**](#-licence) |
+
+</div>
+
+<div align="center">
+
+**Languages / Langues:** 🇫🇷 [Français](README_FR.md) | 🇬🇧 [English](README.md)
 
 </div>
 
@@ -174,11 +174,11 @@ VotreDossierDeSons/
 
 1. Naviguez vers le dossier [`L4B_SC/L4B_SC_Project/`](L4B_SC/L4B_SC_Project/),
 2. Ouvrez le fichier d'initialisation SC [`_0T_Init_TidalX.scd`](L4B_SC/L4B_SC_Project/_0T_Init_TidalX.scd),
-3. **⚠️ REQUIS : Éditez la [ligne 55](L4B_SC/L4B_SC_Project/_0T_Init_TidalX.scd#L55)** pour définir le chemin du dossier de sons vers votre base de données de sons.
+3. Éditez la [ligne 55](L4B_SC/L4B_SC_Project/_0T_Init_TidalX.scd#L55) pour définir le chemin du dossier de sons vers votre base de données de sons.
 
 ---
 
-## 🔧 Configuration système avancée
+## 🔧 Configuration système dans SuperCollider
 
 Les paramètres de configuration suivants dans [`_0T_Init_TidalX.scd`](L4B_SC/L4B_SC_Project/_0T_Init_TidalX.scd) sont définis par défaut mais peuvent être modifiés si nécessaire :
 
@@ -196,7 +196,7 @@ Les paramètres de configuration suivants dans [`_0T_Init_TidalX.scd`](L4B_SC/L4
 - [Ligne 63](L4B_SC/L4B_SC_Project/_0T_Init_TidalX.scd#L63) : 5 catégories sonores pour l'organisation des dossiers
 
 **Exécution du code :**
-- [Ligne 75](L4B_SC/L4B_SC_Project/_0T_Init_TidalX.scd#L75) : `~tidalSeqLineEndR = (476/2).asInteger;` - Nombre maximum de lignes de code dans Pulsar (peut également être modifié dans les fichiers de partition Tidal)
+- [Ligne 75](L4B_SC/L4B_SC_Project/_0T_Init_TidalX.scd#L75) : `~tidalSeqLineEndR = (476/2).asInteger;` - Nombre maximum de lignes de code dans Pulsar (qui peuvent être déclenchées dans les fichiers de partition Tidal)
 
 **Page de contrôle global :**
 - [Lignes 84-88](L4B_SC/L4B_SC_Project/_0T_Init_TidalX.scd#L84-L88) : `~tidalMainControlPane`, `~tidalMainControlTab`, `~tidalMainControlInterpolationA`, `~tidalMainControlBPMA`, `~tidalMainControlBPMADur` - Contrôles pour l'interpolation, BPM et fonctions globales
@@ -220,11 +220,11 @@ Créez une partition d'exécution de code à quatre pistes en ouvrant tous les f
 3. [`L4B_Tidal/DJCode3.tidal`](L4B_Tidal/DJCode3.tidal) dans l'onglet 3,
 4. [`L4B_Tidal/DJCode4.tidal`](L4B_Tidal/DJCode4.tidal) dans l'onglet 4,
 5. [`L4B_Tidal/DJCodeG.tidal`](L4B_Tidal/DJCodeG.tidal) dans l'onglet 5 (pour le contrôle global),
-6. [`L4B_Tidal/ControlTidal.tidal`](L4B_Tidal/ControlTidal.tidal) dans l'onglet 6 (pour l'initialisation).
+6. [`L4B_Tidal/ControlTidal.tidal`](L4B_Tidal/ControlTidal.tidal) dans l'onglet 6 ou n'importe quel onglet (pour l'initialisation).
 
 D'autres flux de travail d'exécution de code sont possibles. Par exemple, vous pouvez exécuter des lignes de code en sélectionnant différents splits et onglets. *(Les images ci-dessus représentent quatre splits du premier onglet.)*
 
-📌 **Note :** Les fichiers DJCode fournis ici sont des modèles d'exemple car je me concentre actuellement sur un modèle à quatre pistes. Cependant, il est possible d'ajouter d'autres pages de contrôle. Vous pouvez utiliser 2-3 opérations de rechercher/remplacer en lot pour changer le nom des variables. Voir les indications à la fin du fichier [DJCode2.tidal (lignes 486-489)](L4B_Tidal/DJCode2.tidal#L486-L489) pour des exemples.
+📌 **Note :** Les fichiers DJCode fournis ici sont des modèles d'exemple car je me concentre actuellement sur un modèle à quatre pistes. Cependant, il est possible d'ajouter d'autres pages de contrôle / pistes. Vous pouvez utiliser 2-3 opérations de rechercher/remplacer en lot pour changer le nom des variables. Voir les indications à la fin du fichier [DJCode2.tidal (lignes 486-489)](L4B_Tidal/DJCode2.tidal#L486-L489) pour des exemples.
 
 📌 **Note :** Cette étape n'est nécessaire que la première fois. Une fois que vous avez enregistré votre espace de travail Pulsar, vous pouvez simplement rouvrir Pulsar avec la disposition d'onglets enregistrée pour les sessions suivantes.
 
