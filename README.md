@@ -149,6 +149,33 @@ For a customized Pulsar appearance optimized for *Live 4 Bubbles*:
 2. Copy the styles from [`styles.less`](L4B_Pulsar/styles.less),
 3. Paste them into your Pulsar stylesheet (Edit → Stylesheet).
 
+### 3️⃣ Advanced System Configuration
+
+The following configuration parameters in [`_0T_Init_TidalX.scd`](L4B_SC/L4B_SC_Project/_0T_Init_TidalX.scd) are set by default but can be modified if needed:
+
+**System configuration:**
+- [Line 18](L4B_SC/L4B_SC_Project/_0T_Init_TidalX.scd#L18): `~tidalHydra = 1;` - Send OSC data to [Fizzy Hydra](https://github.com/Xon77/FizzyHydra) (RMS/Event data per channel)
+- [Line 19](L4B_SC/L4B_SC_Project/_0T_Init_TidalX.scd#L19): `~tidalOutputChannels = 2;` - Number of audio output channels
+- [Line 20](L4B_SC/L4B_SC_Project/_0T_Init_TidalX.scd#L20): `~tidalNbOfLoudspeakers = 2;` - Number of loudspeakers
+- [Line 24](L4B_SC/L4B_SC_Project/_0T_Init_TidalX.scd#L24): `~tidalNbOfOrbits = 4;` - Number of tracks/orbits
+
+**GUI & Sound categories:**
+- GUI size parameters and 5 sound categories for folder organization
+
+**Code execution:**
+- [Line 75](L4B_SC/L4B_SC_Project/_0T_Init_TidalX.scd#L75): `~tidalSeqLineEndR = (476/2).asInteger;` - Maximum number of code lines in Pulsar (can also be modified in Tidal partition files)
+
+**Global control page:**
+- [Line 84](L4B_SC/L4B_SC_Project/_0T_Init_TidalX.scd#L84): `~tidalMainControlPane`, `~tidalMainControlTab`, `~tidalMainControlInterpolationA`, etc. - Controls for interpolation, BPM, and global functions
+
+**Effects & Functions database** (can also be modified in Haskell control files):
+- [Line 91](L4B_SC/L4B_SC_Project/_0T_Init_TidalX.scd#L91): `~tidalnumEffects = 122;` - Number of available effects
+- [Line 92](L4B_SC/L4B_SC_Project/_0T_Init_TidalX.scd#L92): `~tidalnumFunctions = 264;` - Number of pattern functions
+- [Line 93](L4B_SC/L4B_SC_Project/_0T_Init_TidalX.scd#L93): `~tidalnumSwitchX = 24;` - Number of superposition/juxtaposition types
+- [Line 94](L4B_SC/L4B_SC_Project/_0T_Init_TidalX.scd#L94): `~tidalnumWhenS = 39;` - Number of timing algorithms
+- [Line 95](L4B_SC/L4B_SC_Project/_0T_Init_TidalX.scd#L95): `~tidalnumDurAlgs = 44;` - Number of duration algorithms
+- [Line 96](L4B_SC/L4B_SC_Project/_0T_Init_TidalX.scd#L96): `~tidalnumSpaAlgs = 29;` - Number of spatial/channel algorithms
+
 ---
 
 # ⚙️ Setup
@@ -170,6 +197,12 @@ YourSoundFolder/
 └── ...
 ```
 
+**Configure the sound folder path in SuperCollider:**
+
+1. Navigate to folder [`L4B_SC/L4B_SC_Project/`](L4B_SC/L4B_SC_Project/),
+2. Open SC initialization file [`_0T_Init_TidalX.scd`](L4B_SC/L4B_SC_Project/_0T_Init_TidalX.scd),
+3. **⚠️ REQUIRED: Edit [line 55](L4B_SC/L4B_SC_Project/_0T_Init_TidalX.scd#L55)** to set the sound folder path to your sound database.
+
 ---
 
 ## 🚀 Quick Start
@@ -179,26 +212,6 @@ YourSoundFolder/
 Open SuperCollider and evaluate the initialization file:
 - Navigate to folder [`L4B_SC/L4B_SC_Project/`](L4B_SC/L4B_SC_Project/),
 - Open SC initialization file [`_0T_Init_TidalX.scd`](L4B_SC/L4B_SC_Project/_0T_Init_TidalX.scd),
-- **⚠️ REQUIRED: Edit [line 55](L4B_SC/L4B_SC_Project/_0T_Init_TidalX.scd#L55)** to set the sound folder path to your sound database
-- **Optional:** The following configuration parameters are set by default but can be modified if needed:
-  - **System configuration:**
-    - [Line 18](L4B_SC/L4B_SC_Project/_0T_Init_TidalX.scd#L18): `~tidalHydra = 1;` - Send OSC data to [Fizzy Hydra](https://github.com/Xon77/FizzyHydra) (RMS/Event data per channel)
-    - [Line 19](L4B_SC/L4B_SC_Project/_0T_Init_TidalX.scd#L19): `~tidalOutputChannels = 2;` - Number of audio output channels
-    - [Line 20](L4B_SC/L4B_SC_Project/_0T_Init_TidalX.scd#L20): `~tidalNbOfLoudspeakers = 2;` - Number of loudspeakers
-    - [Line 24](L4B_SC/L4B_SC_Project/_0T_Init_TidalX.scd#L24): `~tidalNbOfOrbits = 4;` - Number of tracks/orbits
-  - **GUI & Sound categories:**
-    - GUI size parameters and 5 sound categories for folder organization
-  - **Code execution:**
-    - [Line 75](L4B_SC/L4B_SC_Project/_0T_Init_TidalX.scd#L75): `~tidalSeqLineEndR = (476/2).asInteger;` - Maximum number of code lines in Pulsar (can also be modified in Tidal partition files)
-  - **Global control page:**
-    - [Line 84](L4B_SC/L4B_SC_Project/_0T_Init_TidalX.scd#L84): `~tidalMainControlPane`, `~tidalMainControlTab`, `~tidalMainControlInterpolationA`, etc. - Controls for interpolation, BPM, and global functions
-  - **Effects & Functions database** (can also be modified in Haskell control files):
-    - [Line 91](L4B_SC/L4B_SC_Project/_0T_Init_TidalX.scd#L91): `~tidalnumEffects = 122;` - Number of available effects
-    - [Line 92](L4B_SC/L4B_SC_Project/_0T_Init_TidalX.scd#L92): `~tidalnumFunctions = 264;` - Number of pattern functions
-    - [Line 93](L4B_SC/L4B_SC_Project/_0T_Init_TidalX.scd#L93): `~tidalnumSwitchX = 24;` - Number of superposition/juxtaposition types
-    - [Line 94](L4B_SC/L4B_SC_Project/_0T_Init_TidalX.scd#L94): `~tidalnumWhenS = 39;` - Number of timing algorithms
-    - [Line 95](L4B_SC/L4B_SC_Project/_0T_Init_TidalX.scd#L95): `~tidalnumDurAlgs = 44;` - Number of duration algorithms
-    - [Line 96](L4B_SC/L4B_SC_Project/_0T_Init_TidalX.scd#L96): `~tidalnumSpaAlgs = 29;` - Number of spatial/channel algorithms
 - Evaluate the section in parentheses between [lines 16 and 422](L4B_SC/L4B_SC_Project/_0T_Init_TidalX.scd#L16-L422) within the file (Cmd+Enter on macOS, Ctrl+Enter on Windows/Linux).
 
 This will:
