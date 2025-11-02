@@ -178,39 +178,6 @@ VotreDossierDeSons/
 
 ---
 
-## 🔧 Configuration système dans SuperCollider
-
-Les paramètres de configuration suivants dans [`_0T_Init_TidalX.scd`](L4B_SC/L4B_SC_Project/_0T_Init_TidalX.scd) sont définis par défaut mais peuvent être modifiés si nécessaire :
-
-**Configuration système :**
-- [Ligne 18](L4B_SC/L4B_SC_Project/_0T_Init_TidalX.scd#L18) : `~tidalHydra = 1;` - Envoyer des données OSC à [Fizzy Hydra](https://github.com/Xon77/FizzyHydra) (données RMS/Événements par canal)
-- [Ligne 19](L4B_SC/L4B_SC_Project/_0T_Init_TidalX.scd#L19) : `~tidalOutputChannels = 2;` - Nombre de canaux audio de sortie
-- [Ligne 20](L4B_SC/L4B_SC_Project/_0T_Init_TidalX.scd#L20) : `~tidalNbOfLoudspeakers = 2;` - Nombre de haut-parleurs
-- [Ligne 24](L4B_SC/L4B_SC_Project/_0T_Init_TidalX.scd#L24) : `~tidalNbOfOrbits = 4;` - Nombre de pistes/orbits
-
-**Taille de l'interface et position de la fenêtre :**
-- [Lignes 25-27](L4B_SC/L4B_SC_Project/_0T_Init_TidalX.scd#L25-L27) : Paramètres de taille de l'interface pour 4 pistes (voir [lignes 30-33](L4B_SC/L4B_SC_Project/_0T_Init_TidalX.scd#L30-L33) pour la configuration à 8 pistes)
-- [Lignes 36-37](L4B_SC/L4B_SC_Project/_0T_Init_TidalX.scd#L36-L37) : Position de la fenêtre (coordonnées X, Y)
-
-**Catégories sonores :**
-- [Ligne 63](L4B_SC/L4B_SC_Project/_0T_Init_TidalX.scd#L63) : 5 catégories sonores pour l'organisation des dossiers
-
-**Exécution du code :**
-- [Ligne 75](L4B_SC/L4B_SC_Project/_0T_Init_TidalX.scd#L75) : `~tidalSeqLineEndR = (476/2).asInteger;` - Nombre maximum de lignes de code dans Pulsar (qui peuvent être déclenchées dans les fichiers de partition Tidal)
-
-**Page de contrôle global :**
-- [Lignes 84-88](L4B_SC/L4B_SC_Project/_0T_Init_TidalX.scd#L84-L88) : `~tidalMainControlPane`, `~tidalMainControlTab`, `~tidalMainControlInterpolationA`, `~tidalMainControlBPMA`, `~tidalMainControlBPMADur` - Contrôles pour l'interpolation, BPM et fonctions globales
-
-**Base de données d'effets et fonctions** (peut également être modifié dans les fichiers de contrôle Haskell) :
-- [Ligne 91](L4B_SC/L4B_SC_Project/_0T_Init_TidalX.scd#L91) : `~tidalnumEffects = 122;` - Nombre d'effets disponibles
-- [Ligne 92](L4B_SC/L4B_SC_Project/_0T_Init_TidalX.scd#L92) : `~tidalnumFunctions = 264;` - Nombre de fonctions de pattern
-- [Ligne 93](L4B_SC/L4B_SC_Project/_0T_Init_TidalX.scd#L93) : `~tidalnumSwitchX = 24;` - Nombre de types superposition/juxtaposition
-- [Ligne 94](L4B_SC/L4B_SC_Project/_0T_Init_TidalX.scd#L94) : `~tidalnumWhenS = 39;` - Nombre d'algorithmes de timing
-- [Ligne 95](L4B_SC/L4B_SC_Project/_0T_Init_TidalX.scd#L95) : `~tidalnumDurAlgs = 44;` - Nombre d'algorithmes de durée
-- [Ligne 96](L4B_SC/L4B_SC_Project/_0T_Init_TidalX.scd#L96) : `~tidalnumSpaAlgs = 29;` - Nombre d'algorithmes spatiaux/de canaux
-
----
-
 ## 📑 Configurer votre partition de code dans Pulsar
 
 Créez une partition d'exécution de code à quatre pistes en ouvrant tous les fichiers Tidal Cycles du dossier [`L4B_Tidal/`](L4B_Tidal/) dans Pulsar :
@@ -303,6 +270,39 @@ En plus des contrôles SuperDirtMixer (sur le volume, le panoramique, la réverb
 
 ### 🌐 Spatial
 - 🟡 `1Spa` à `8Spa` - Positionnement spatial de canal.
+
+---
+
+## 🔧 Configuration système dans SuperCollider
+
+Les paramètres de configuration suivants dans [`_0T_Init_TidalX.scd`](L4B_SC/L4B_SC_Project/_0T_Init_TidalX.scd) sont définis par défaut mais peuvent être modifiés si nécessaire :
+
+**Configuration système :**
+- [Ligne 18](L4B_SC/L4B_SC_Project/_0T_Init_TidalX.scd#L18) : `~tidalHydra = 1;` - Envoyer des données OSC à [Fizzy Hydra](https://github.com/Xon77/FizzyHydra) (données RMS/Événements par canal)
+- [Ligne 19](L4B_SC/L4B_SC_Project/_0T_Init_TidalX.scd#L19) : `~tidalOutputChannels = 2;` - Nombre de canaux audio de sortie
+- [Ligne 20](L4B_SC/L4B_SC_Project/_0T_Init_TidalX.scd#L20) : `~tidalNbOfLoudspeakers = 2;` - Nombre de haut-parleurs
+- [Ligne 24](L4B_SC/L4B_SC_Project/_0T_Init_TidalX.scd#L24) : `~tidalNbOfOrbits = 4;` - Nombre de pistes/orbits
+
+**Taille de l'interface et position de la fenêtre :**
+- [Lignes 25-27](L4B_SC/L4B_SC_Project/_0T_Init_TidalX.scd#L25-L27) : Paramètres de taille de l'interface pour 4 pistes (voir [lignes 30-33](L4B_SC/L4B_SC_Project/_0T_Init_TidalX.scd#L30-L33) pour la configuration à 8 pistes)
+- [Lignes 36-37](L4B_SC/L4B_SC_Project/_0T_Init_TidalX.scd#L36-L37) : Position de la fenêtre (coordonnées X, Y)
+
+**Catégories sonores :**
+- [Ligne 63](L4B_SC/L4B_SC_Project/_0T_Init_TidalX.scd#L63) : 5 catégories sonores pour l'organisation des dossiers
+
+**Exécution du code :**
+- [Ligne 75](L4B_SC/L4B_SC_Project/_0T_Init_TidalX.scd#L75) : `~tidalSeqLineEndR = (476/2).asInteger;` - Nombre maximum de lignes de code dans Pulsar (qui peuvent être déclenchées dans les fichiers de partition Tidal)
+
+**Page de contrôle global :**
+- [Lignes 84-88](L4B_SC/L4B_SC_Project/_0T_Init_TidalX.scd#L84-L88) : `~tidalMainControlPane`, `~tidalMainControlTab`, `~tidalMainControlInterpolationA`, `~tidalMainControlBPMA`, `~tidalMainControlBPMADur` - Contrôles pour l'interpolation, BPM et fonctions globales
+
+**Base de données d'effets et fonctions** (peut également être modifié dans les fichiers de contrôle Haskell) :
+- [Ligne 91](L4B_SC/L4B_SC_Project/_0T_Init_TidalX.scd#L91) : `~tidalnumEffects = 122;` - Nombre d'effets disponibles
+- [Ligne 92](L4B_SC/L4B_SC_Project/_0T_Init_TidalX.scd#L92) : `~tidalnumFunctions = 264;` - Nombre de fonctions de pattern
+- [Ligne 93](L4B_SC/L4B_SC_Project/_0T_Init_TidalX.scd#L93) : `~tidalnumSwitchX = 24;` - Nombre de types superposition/juxtaposition
+- [Ligne 94](L4B_SC/L4B_SC_Project/_0T_Init_TidalX.scd#L94) : `~tidalnumWhenS = 39;` - Nombre d'algorithmes de timing
+- [Ligne 95](L4B_SC/L4B_SC_Project/_0T_Init_TidalX.scd#L95) : `~tidalnumDurAlgs = 44;` - Nombre d'algorithmes de durée
+- [Ligne 96](L4B_SC/L4B_SC_Project/_0T_Init_TidalX.scd#L96) : `~tidalnumSpaAlgs = 29;` - Nombre d'algorithmes spatiaux/de canaux
 
 ---
 
