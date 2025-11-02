@@ -104,7 +104,7 @@ Dans le gestionnaire de packages de Pulsar, configurez les paramètres de Tidal 
 
 ### 4️⃣ Éditer les chemins de scripts BootTidal.hs
 
-Éditez le fichier [`BootTidal.hs`](L4B_Tidal/BootTidal/BootTidal.hs) pour mettre à jour vos chemins de scripts à la fin du fichier ([lignes 308-316](L4B_Tidal/BootTidal/BootTidal.hs#L308-L316)), si vous souhaitez ajouter des synthétiseurs et générateurs SuperCollider supplémentaires :
+Si vous souhaitez ajouter des synthétiseurs et générateurs SuperCollider supplémentaires, éditez le fichier [`BootTidal.hs`](L4B_Tidal/BootTidal/BootTidal.hs) pour mettre à jour vos chemins de scripts à la fin du fichier ([lignes 308-316](L4B_Tidal/BootTidal/BootTidal.hs#L308-L316)) :
 
 1. Remplacez `/Users/xon/Desktop/Live_Coding/Tidal/ExtraSynths/` par votre chemin absolu vers [`L4B_Tidal/BootTidal/`](L4B_Tidal/BootTidal/)
 2. Mettez à jour ces 4 lignes de script :

@@ -104,7 +104,7 @@ In Pulsar's Package Manager, configure the Tidal Cycles settings:
 
 ### 4️⃣ Edit BootTidal.hs Script Paths
 
-Edit the [`BootTidal.hs`](L4B_Tidal/BootTidal/BootTidal.hs) file to update your script paths at the end of the file ([lines 308-316](L4B_Tidal/BootTidal/BootTidal.hs#L308-L316)), if you want to add extra SuperCollider synths and generators:
+If you want to add extra SuperCollider synths and generators, edit the [`BootTidal.hs`](L4B_Tidal/BootTidal/BootTidal.hs) file to update your script paths at the end of the file ([lines 308-316](L4B_Tidal/BootTidal/BootTidal.hs#L308-L316)):
 
 1. Replace `/Users/xon/Desktop/Live_Coding/Tidal/ExtraSynths/` with your absolute path to [`L4B_Tidal/BootTidal/`](L4B_Tidal/BootTidal/)
 2. Update these 4 script lines:
