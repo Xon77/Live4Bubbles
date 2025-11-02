@@ -26,7 +26,7 @@
 
 **A performance system for controlling Live Coding Databases from [Tidal Cycles](https://tidalcycles.org/) and [Hydra](https://hydra.ojack.xyz/) in the [Pulsar](https://pulsar-edit.dev/) text editor with [SuperCollider](https://supercollider.github.io/) GUI and controllers.**
 
-*This is my current main life-long project on which I dedicate myself to develop further and perform with this audiovisual system, for as many years as possible until the end of my life, hopefully! Here you will find my complete project setup.*
+*This is my current main life-long project on which I dedicate myself to develop further and perform with this audiovisual system, for as many years as possible until the end of my life, hopefully! Here you will find my complete project setup and experiments.*
 
 ## 🔮 Vision and Limits
 
