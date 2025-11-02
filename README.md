@@ -214,11 +214,11 @@ Create a four-track code execution partition by opening all Tidal Cycles files f
 3. [`L4B_Tidal/DJCode3.tidal`](L4B_Tidal/DJCode3.tidal) in tab 3,
 4. [`L4B_Tidal/DJCode4.tidal`](L4B_Tidal/DJCode4.tidal) in tab 4,
 5. [`L4B_Tidal/DJCodeG.tidal`](L4B_Tidal/DJCodeG.tidal) in tab 5 (for global control),
-6. [`L4B_Tidal/ControlTidal.tidal`](L4B_Tidal/ControlTidal.tidal) in tab 6 (for initialization).
+6. [`L4B_Tidal/ControlTidal.tidal`](L4B_Tidal/ControlTidal.tidal) in tab 6 or any tab (for initialization).
 
 Other code execution workflows are possible. For example, you can execute code lines by selecting different splits and tabs. *(The images above represent four splits of the first tab.)*
 
-📌 **Note:** The DJCode files provided here are example templates as I'm currently focusing on a four-track model. However, it is possible to add additional control pages. You can use 2-3 batch find/replace operations to change the variable names. See the instructions at the end of the file [DJCode2.tidal (lines 486-489)](L4B_Tidal/DJCode2.tidal#L486-L489) for examples.
+📌 **Note:** The DJCode files provided here are example templates as I'm currently focusing on a four-track model. However, it is possible to add additional control pages / tracks. You can use 2-3 batch find/replace operations to change the variable names. See the instructions at the end of the file [DJCode2.tidal (lines 486-489)](L4B_Tidal/DJCode2.tidal#L486-L489) for examples.
 
 📌 **Note:** This step is only necessary the first time. Once you save your Pulsar workspace, you can simply reopen Pulsar with the saved tab layout for subsequent sessions.
 
