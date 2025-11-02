@@ -149,29 +149,63 @@ Pour une apparence Pulsar personnalisée optimisée pour *Live 4 Bubbles* :
 2. Copiez les styles depuis [`styles.less`](L4B_Pulsar/styles.less),
 3. Collez-les dans votre feuille de style Pulsar (Edit → Stylesheet).
 
+### 3️⃣ Configuration système avancée
+
+Les paramètres de configuration suivants dans [`_0T_Init_TidalX.scd`](L4B_SC/L4B_SC_Project/_0T_Init_TidalX.scd) sont définis par défaut mais peuvent être modifiés si nécessaire :
+
+**Configuration système :**
+- [Ligne 18](L4B_SC/L4B_SC_Project/_0T_Init_TidalX.scd#L18) : `~tidalHydra = 1;` - Envoyer des données OSC à [Fizzy Hydra](https://github.com/Xon77/FizzyHydra) (données RMS/Événements par canal)
+- [Ligne 19](L4B_SC/L4B_SC_Project/_0T_Init_TidalX.scd#L19) : `~tidalOutputChannels = 2;` - Nombre de canaux audio de sortie
+- [Ligne 20](L4B_SC/L4B_SC_Project/_0T_Init_TidalX.scd#L20) : `~tidalNbOfLoudspeakers = 2;` - Nombre de haut-parleurs
+- [Ligne 24](L4B_SC/L4B_SC_Project/_0T_Init_TidalX.scd#L24) : `~tidalNbOfOrbits = 4;` - Nombre de pistes/orbits
+
+**GUI & Catégories sonores :**
+- Paramètres de taille de l'interface graphique et 5 catégories sonores pour l'organisation des dossiers
+
+**Exécution du code :**
+- [Ligne 75](L4B_SC/L4B_SC_Project/_0T_Init_TidalX.scd#L75) : `~tidalSeqLineEndR = (476/2).asInteger;` - Nombre maximum de lignes de code dans Pulsar (peut également être modifié dans les fichiers de partition Tidal)
+
+**Page de contrôle global :**
+- [Ligne 84](L4B_SC/L4B_SC_Project/_0T_Init_TidalX.scd#L84) : `~tidalMainControlPane`, `~tidalMainControlTab`, `~tidalMainControlInterpolationA`, etc. - Contrôles pour l'interpolation, BPM et fonctions globales
+
+**Base de données d'effets et fonctions** (peut également être modifié dans les fichiers de contrôle Haskell) :
+- [Ligne 91](L4B_SC/L4B_SC_Project/_0T_Init_TidalX.scd#L91) : `~tidalnumEffects = 122;` - Nombre d'effets disponibles
+- [Ligne 92](L4B_SC/L4B_SC_Project/_0T_Init_TidalX.scd#L92) : `~tidalnumFunctions = 264;` - Nombre de fonctions de pattern
+- [Ligne 93](L4B_SC/L4B_SC_Project/_0T_Init_TidalX.scd#L93) : `~tidalnumSwitchX = 24;` - Nombre de types superposition/juxtaposition
+- [Ligne 94](L4B_SC/L4B_SC_Project/_0T_Init_TidalX.scd#L94) : `~tidalnumWhenS = 39;` - Nombre d'algorithmes de timing
+- [Ligne 95](L4B_SC/L4B_SC_Project/_0T_Init_TidalX.scd#L95) : `~tidalnumDurAlgs = 44;` - Nombre d'algorithmes de durée
+- [Ligne 96](L4B_SC/L4B_SC_Project/_0T_Init_TidalX.scd#L96) : `~tidalnumSpaAlgs = 29;` - Nombre d'algorithmes spatiaux/de canaux
+
 ---
 
 # ⚙️ Configuration
 
 ---
 
-## 🚀 Démarrage rapide
+## 📁 Configurer votre base de données de sons
 
-### 1️⃣ Démarrer SuperCollider
+Votre dossier de sons doit être structuré suivant la [structure de base de données de sons Live 4 Life](https://github.com/Xon77/L4LSoundsDataBase/tree/main/SoundFolder), sauf que les noms de dossiers doivent utiliser des underscores au lieu d'espaces (par ex., `DB_MBass` au lieu de `DB MBass`).
 
-Ouvrez SuperCollider et évaluez le fichier d'initialisation :
-- Naviguez vers le dossier [`L4B_SC/L4B_SC_Project/`](L4B_SC/L4B_SC_Project/),
-- Ouvrez le fichier d'initialisation SC [`_0T_Init_TidalX.scd`](L4B_SC/L4B_SC_Project/_0T_Init_TidalX.scd),
-- Éditez la [ligne 55](L4B_SC/L4B_SC_Project/_0T_Init_TidalX.scd#L55) pour mettre à jour le chemin du dossier de sons vers votre base de données de sons (si nécessaire ainsi que d'autres paramètres),
-- Évaluez la section entre parenthèses entre les [lignes 16 et 422](L4B_SC/L4B_SC_Project/_0T_Init_TidalX.scd#L16-L422) dans le fichier (Cmd+Entrée sur macOS, Ctrl+Entrée sur Windows/Linux).
+Exemple de structure :
+```
+VotreDossierDeSons/
+├── DB_Kick/
+│   ├── sound1.wav
+│   └── sound2.wav
+├── DB_Snare/
+├── DB_Bass/
+└── ...
+```
 
-Cela va :
-- Démarrer le serveur SuperCollider,
-- Charger SuperDirt et *Live 4 Bubbles*,
-- Initialiser l'interface graphique et OSC,
-- Configurer toutes les connexions MIDI (si disponibles).
+**Configurer le chemin du dossier de sons dans SuperCollider :**
 
-### 2️⃣ Lancer Pulsar
+1. Naviguez vers le dossier [`L4B_SC/L4B_SC_Project/`](L4B_SC/L4B_SC_Project/),
+2. Ouvrez le fichier d'initialisation SC [`_0T_Init_TidalX.scd`](L4B_SC/L4B_SC_Project/_0T_Init_TidalX.scd),
+3. **⚠️ REQUIS : Éditez la [ligne 55](L4B_SC/L4B_SC_Project/_0T_Init_TidalX.scd#L55)** pour définir le chemin du dossier de sons vers votre base de données de sons.
+
+---
+
+## 📝 Configurer votre partition de code dans Pulsar
 
 Créez une partition d'exécution de code à quatre pistes en ouvrant tous les fichiers Tidal Cycles du dossier [`L4B_Tidal/`](L4B_Tidal/) dans Pulsar :
 
@@ -186,7 +220,24 @@ D'autres flux de travail d'exécution de code sont possibles. Par exemple, vous 
 
 📌 **Note :** Cette étape n'est nécessaire que la première fois. Une fois que vous avez enregistré votre espace de travail Pulsar, vous pouvez simplement rouvrir Pulsar avec la disposition d'onglets enregistrée pour les sessions suivantes.
 
-### 3️⃣ Initialiser les variables de contrôle dans Tidal Cycles
+---
+
+## 🚀 Démarrage rapide
+
+### 1️⃣ Démarrer SuperCollider
+
+Ouvrez SuperCollider et évaluez le fichier d'initialisation :
+- Naviguez vers le dossier [`L4B_SC/L4B_SC_Project/`](L4B_SC/L4B_SC_Project/),
+- Ouvrez le fichier d'initialisation SC [`_0T_Init_TidalX.scd`](L4B_SC/L4B_SC_Project/_0T_Init_TidalX.scd),
+- Évaluez la section entre parenthèses entre les [lignes 16 et 422](L4B_SC/L4B_SC_Project/_0T_Init_TidalX.scd#L16-L422) dans le fichier (Cmd+Entrée sur macOS, Ctrl+Entrée sur Windows/Linux).
+
+Cela va :
+- Démarrer le serveur SuperCollider,
+- Charger SuperDirt et *Live 4 Bubbles*,
+- Initialiser l'interface graphique et OSC,
+- Configurer toutes les connexions MIDI (si disponibles).
+
+### 2️⃣ Lancer Pulsar et initialiser les variables de contrôle dans Tidal Cycles
 
 Dans [`ControlTidal.tidal`](L4B_Tidal/ControlTidal.tidal), évaluez les sections suivantes dans l'ordre avec Ctrl+Entrée (Cmd+Entrée sur macOS) :
 
@@ -217,7 +268,7 @@ En plus des contrôles SuperDirtMixer (sur le volume, le panoramique, la réverb
 - 🟠 `d1` à `d8` - Tempo (contrôle de vitesse),
 - 🟤 `1Leg` à `8Leg` - Durée (variable de longueur),
 - 🟤 `1LegS` à `8LegS` - Commutateur d'algorithme de durée,
-- ⚫ `1Xon` à `8Xon` - Assignation d'orbit.
+- ⚫ `1Xon` à `8Xon` - Assignation d'orbit / piste (permet de couper les sons lorsqu'un nouvel événement est déclenché parmi plusieurs patterns sur le même orbit/piste avec des algorithmes de durée spécifiques).
 
 ### 〰️ Sélection de sons
 - 🔴 `1Fol` à `8Fol` - Dossier de sons (répertoire contenant les échantillons audio) ou Type de synthèse (avec le commutateur B/S - Note : certaines lignes de code/patterns ne sont pas adaptées à la synthèse et peuvent générer des notes trop élevées ou des sons désagréables, comme la [ligne 38 dans DJCode1](L4B_Tidal/DJCode1.tidal#L38). Assurez-vous que votre code est approprié lors de l'utilisation ou du passage en mode synthèse),
