@@ -242,7 +242,7 @@ This will:
 - Initialize the GUI & OSC,
 - Setup all MIDI connections (if available).
 
-### 2️⃣ Launch Pulsar and Initialize Control Variables in Tidal Cycles
+### 2️⃣ Launch Pulsar and Tidal Cycles
 
 Navigate to folder [`L4B_Tidal/`](L4B_Tidal/) and open [`ControlTidal.tidal`](L4B_Tidal/ControlTidal.tidal), then evaluate the following sections in order with Ctrl+Enter (Cmd+Enter on macOS):
 
