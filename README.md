@@ -6,7 +6,7 @@
 
 <div align="center">
 
-| [**Overview**](#-overview) | [**Installation**](#-installation) | [**Setup**](#%EF%B8%8F-setup) | [**Documentation**](#-Documentation) | [**References**](#-references) | [**Contribute**](#-contribute) | [**Acknowledgements**](#-acknowledgements) | [**Licence**](#-licence) |
+| [**Overview**](#-overview) | [**Installation**](#-installation) | [**Setup**](#%EF%B8%8F-setup) | [**Documentation**](#-documentation) | [**References**](#-references) | [**Contribute**](#-contribute) | [**Acknowledgements**](#-acknowledgements) | [**Licence**](#-licence) |
 
 </div>
 
@@ -321,13 +321,19 @@ This project, briefly introduced during **Composite Montréal** in June 2025 thr
 
 ---
 
-# 🤝 Contribute &nbsp;&nbsp; [![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/Live4Life) &nbsp;&nbsp; <a href="https://www.patreon.com/Live4Life"><img src="https://c5.patreon.com/external/logo/become_a_patron_button@2x.png" width="160"></a>
+# 🤝 Contribute
 
 ---
 
 **Want to contribute?** Please get in touch with me to organize further development.
 
 **Support this project through donations via [Ko-fi](https://ko-fi.com/live4life) (one-time) or [Patreon](https://www.patreon.com/live4life) (ongoing support and courses).**
+
+<div align="center">
+
+[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/Live4Life) &nbsp;&nbsp; <a href="https://www.patreon.com/Live4Life"><img src="https://c5.patreon.com/external/logo/become_a_patron_button@2x.png" width="160"></a>
+
+</div>
 
 ---
 
