@@ -67,7 +67,8 @@ Avant d'installer *Live 4 Bubbles*, assurez-vous d'avoir installé les élément
 - **[Tidal Cycles](https://tidalcycles.org/)** (testé sur 1.9.5 & ghc 9.6.7) - Langage de patterns de live coding,
 - **[Pulsar](https://pulsar-edit.dev/)** - Éditeur de texte pour le live coding,
 - **[pulsar-tidalcycles](https://web.pulsar-edit.dev/packages/tidalcycles)** - Package Pulsar pour l'intégration de Tidal Cycles (Vous pouvez utiliser ma variation de [pulsar-tidalcycles](https://github.com/Xon77/pulsar-tidalcycles) qui ajoute la possibilité de sélectionner des lignes depuis différents splits, en plus de la fonctionnalité originale de sélection depuis différents onglets. Vous pouvez également trouver ou ajouter le code modifié via [ce lien](https://github.com/tidalcycles/pulsar-tidalcycles/compare/master...Xon77:pulsar-tidalcycles:master)),
-- [SuperCollider sc3-plugins](https://supercollider.github.io/sc3-plugins) (Optionnel) pour des capacités de synthèse étendues.
+- [SuperCollider sc3-plugins](https://supercollider.github.io/sc3-plugins) (Optionnel) pour des capacités de synthèse étendues,
+- [Mi-UGens](https://github.com/v7b1/mi-UGens) (Optionnel) - UGens SuperCollider basés sur les modules eurorack [Mutable Instruments](https://pichenettes.github.io/mutable-instruments-documentation/).
 
 ## 📥 Installation étape par étape
 
@@ -228,7 +229,7 @@ Cela va démarrer Tidal Cycles et configurer tous les paramètres de contrôle p
 
 ---
 
-## 🎛️ Paramètres de contrôle
+## 🎛️ Paramètres de contrôle dans Tidal Cycles
 
 En plus des contrôles SuperDirtMixer (sur le volume, le panoramique, la réverbération, l'égaliseur et la compression), chacune des 8 pistes (onglets ou splits) a accès aux 31 paramètres suivants :
 
