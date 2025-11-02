@@ -306,7 +306,7 @@ Les paramètres de configuration suivants dans [`_0T_Init_TidalX.scd`](L4B_SC/L4
 - [Ligne 96](L4B_SC/L4B_SC_Project/_0T_Init_TidalX.scd#L96) : `~tidalnumSpaAlgs = 29;` - Nombre d'algorithmes spatiaux/de canaux
 
 **Plugin VST :**
-- [Ligne 136](L4B_SC/L4B_SC_Project/_0T_Init_TidalX.scd#L136) : `~tidalExtraValhallaReverb = 0;` - Activer la réverbération [ValhallaSupermassive](https://valhalladsp.com/shop/reverb/valhalla-supermassive/) (mettre à 1 pour activer). Pour utiliser des plugins VST, vous devez installer le [VSTPlugin](https://git.iem.at/pd/vstplugin/-/releases/v0.6.2) pour SuperCollider.
+- [Ligne 136](L4B_SC/L4B_SC_Project/_0T_Init_TidalX.scd#L136) : `~tidalExtraValhallaReverb = 0;` - Activer la réverbération [ValhallaSupermassive](https://valhalladsp.com/shop/reverb/valhalla-supermassive/) si installé (mettre à 1 pour activer). Pour utiliser des plugins VST, vous devez installer le [VSTPlugin](https://git.iem.at/pd/vstplugin/-/releases/v0.6.2) pour SuperCollider.
 
 ---
 
