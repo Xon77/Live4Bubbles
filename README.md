@@ -178,7 +178,7 @@ YourSoundFolder/
 
 ---
 
-## 🔧 Advanced System Configuration
+## 🔧 System Configuration in SuperCollider
 
 The following configuration parameters in [`_0T_Init_TidalX.scd`](L4B_SC/L4B_SC_Project/_0T_Init_TidalX.scd) are set by default but can be modified if needed:
 
@@ -196,10 +196,10 @@ The following configuration parameters in [`_0T_Init_TidalX.scd`](L4B_SC/L4B_SC_
 - [Line 63](L4B_SC/L4B_SC_Project/_0T_Init_TidalX.scd#L63): 5 sound categories for folder organization
 
 **Code execution:**
-- [Line 75](L4B_SC/L4B_SC_Project/_0T_Init_TidalX.scd#L75): `~tidalSeqLineEndR = (476/2).asInteger;` - Maximum number of code lines in Pulsar (can also be modified in Tidal partition files)
+- [Line 75](L4B_SC/L4B_SC_Project/_0T_Init_TidalX.scd#L75): `~tidalSeqLineEndR = (476/2).asInteger;` - Maximum number of code lines in Pulsar (that can be triggered in Tidal partition files)
 
 **Global control page:**
-- [Line 84](L4B_SC/L4B_SC_Project/_0T_Init_TidalX.scd#L84): `~tidalMainControlPane`, `~tidalMainControlTab`, `~tidalMainControlInterpolationA`, etc. - Controls for interpolation, BPM, and global functions
+- [Lines 84-88](L4B_SC/L4B_SC_Project/_0T_Init_TidalX.scd#L84-L88): `~tidalMainControlPane`, `~tidalMainControlTab`, `~tidalMainControlInterpolationA`, `~tidalMainControlBPMA`, `~tidalMainControlBPMADur` - Controls for interpolation, BPM, and global functions
 
 **Effects & Functions database** (can also be modified in Haskell control files):
 - [Line 91](L4B_SC/L4B_SC_Project/_0T_Init_TidalX.scd#L91): `~tidalnumEffects = 122;` - Number of available effects

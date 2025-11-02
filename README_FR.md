@@ -199,7 +199,7 @@ Les paramètres de configuration suivants dans [`_0T_Init_TidalX.scd`](L4B_SC/L4
 - [Ligne 75](L4B_SC/L4B_SC_Project/_0T_Init_TidalX.scd#L75) : `~tidalSeqLineEndR = (476/2).asInteger;` - Nombre maximum de lignes de code dans Pulsar (peut également être modifié dans les fichiers de partition Tidal)
 
 **Page de contrôle global :**
-- [Ligne 84](L4B_SC/L4B_SC_Project/_0T_Init_TidalX.scd#L84) : `~tidalMainControlPane`, `~tidalMainControlTab`, `~tidalMainControlInterpolationA`, etc. - Contrôles pour l'interpolation, BPM et fonctions globales
+- [Lignes 84-88](L4B_SC/L4B_SC_Project/_0T_Init_TidalX.scd#L84-L88) : `~tidalMainControlPane`, `~tidalMainControlTab`, `~tidalMainControlInterpolationA`, `~tidalMainControlBPMA`, `~tidalMainControlBPMADur` - Contrôles pour l'interpolation, BPM et fonctions globales
 
 **Base de données d'effets et fonctions** (peut également être modifié dans les fichiers de contrôle Haskell) :
 - [Ligne 91](L4B_SC/L4B_SC_Project/_0T_Init_TidalX.scd#L91) : `~tidalnumEffects = 122;` - Nombre d'effets disponibles
