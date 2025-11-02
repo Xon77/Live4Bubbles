@@ -68,7 +68,7 @@ Avant d'installer *Live 4 Bubbles*, assurez-vous d'avoir installé les élément
 - **[Pulsar](https://pulsar-edit.dev/)** - Éditeur de texte pour le live coding,
 - **[pulsar-tidalcycles](https://web.pulsar-edit.dev/packages/tidalcycles)** - Package Pulsar pour l'intégration de Tidal Cycles.
 
-Optionnel : extension cool
+Optionnel :
 - [Variation de pulsar-tidalcycles](https://github.com/Xon77/pulsar-tidalcycles) - Vous pouvez utiliser ma variation de pulsar-tidalcycles qui ajoute la possibilité de sélectionner des lignes depuis différents splits, en plus de la fonctionnalité originale de sélection depuis différents onglets. Vous pouvez également trouver ou ajouter le code modifié via [ce lien](https://github.com/tidalcycles/pulsar-tidalcycles/compare/master...Xon77:pulsar-tidalcycles:master),
 - [SuperCollider sc3-plugins](https://supercollider.github.io/sc3-plugins) pour des capacités de synthèse étendues,
 - [Mi-UGens](https://github.com/v7b1/mi-UGens) - UGens SuperCollider basés sur les modules eurorack [Mutable Instruments](https://pichenettes.github.io/mutable-instruments-documentation/).
