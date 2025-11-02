@@ -73,7 +73,7 @@ Before installing *Live 4 Bubbles*, ensure you have the following installed:
 
 ### 1️⃣ Download *Live 4 Bubbles*
 
-Download the *Live 4 Bubbles* repository to your local machine. You can also clone with GIT in your terminal:
+Download the *Live 4 Bubbles* repository to your local machine. You can also clone it with GIT in your terminal:
 
 ```bash
 git clone https://github.com/Xon77/Live4Bubbles.git
@@ -101,6 +101,18 @@ YourSoundFolder/
 ├── DB_Bass/
 └── ...
 ```
+
+### 4️⃣ Configure Pulsar Tidal Cycles Settings
+
+In Pulsar's Package Manager, configure the Tidal Cycles settings:
+
+1. Open Pulsar and go to **Settings** → **Packages**,
+2. Find **tidalcycles** package and click **Settings**,
+3. In **Tidal Path**, set the path to the custom BootTidal.hs file included in this repository:
+   - Use the absolute path to [`L4B_Tidal/BootTidal/BootTidal.hs`](L4B_Tidal/BootTidal/BootTidal.hs)
+   - Example: `/Users/YourUsername/Live4Bubbles/L4B_Tidal/BootTidal/BootTidal.hs`
+4. Enable **Use Boot Tidal Path**,
+5. Enable **OSC** in the settings to allow communication with SuperCollider.
 
 ## 🛠️ Optional Configurations
 
