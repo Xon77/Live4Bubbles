@@ -305,6 +305,9 @@ The following configuration parameters in [`_0T_Init_TidalX.scd`](L4B_SC/L4B_SC_
 - [Line 95](L4B_SC/L4B_SC_Project/_0T_Init_TidalX.scd#L95): `~tidalnumDurAlgs = 44;` - Number of duration algorithms
 - [Line 96](L4B_SC/L4B_SC_Project/_0T_Init_TidalX.scd#L96): `~tidalnumSpaAlgs = 29;` - Number of spatial/channel algorithms
 
+**VST Plugin:**
+- [Line 136](L4B_SC/L4B_SC_Project/_0T_Init_TidalX.scd#L136): `~tidalExtraValhallaReverb = 0;` - Enable [ValhallaSupermassive](https://valhalladsp.com/shop/reverb/valhalla-supermassive/) reverb (set to 1 to enable). To use VST plugins, you must install the [VSTPlugin](https://git.iem.at/pd/vstplugin/-/releases/v0.6.2) for SuperCollider.
+
 ---
 
 **See the [wiki](https://github.com/Xon77/Live4Bubbles/wiki) for more details on documentation** (under construction and constant updates).
