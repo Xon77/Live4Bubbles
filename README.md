@@ -239,7 +239,7 @@ This will:
 
 ### 2️⃣ Launch Pulsar and Initialize Control Variables in Tidal Cycles
 
-In [`ControlTidal.tidal`](L4B_Tidal/ControlTidal.tidal), evaluate the following sections in order with Ctrl+Enter (Cmd+Enter on macOS):
+Navigate to folder [`L4B_Tidal/`](L4B_Tidal/) and open [`ControlTidal.tidal`](L4B_Tidal/ControlTidal.tidal), then evaluate the following sections in order with Ctrl+Enter (Cmd+Enter on macOS):
 
 1. [Lines 5 to 1107](L4B_Tidal/ControlTidal.tidal#L5-L1107) - Main control definitions and functions,
 2. [Line 1110](L4B_Tidal/ControlTidal.tidal#L1110) - Initialization of controls and variables,

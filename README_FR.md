@@ -239,7 +239,7 @@ Cela va :
 
 ### 2️⃣ Lancer Pulsar et initialiser les variables de contrôle dans Tidal Cycles
 
-Dans [`ControlTidal.tidal`](L4B_Tidal/ControlTidal.tidal), évaluez les sections suivantes dans l'ordre avec Ctrl+Entrée (Cmd+Entrée sur macOS) :
+Naviguez vers le dossier [`L4B_Tidal/`](L4B_Tidal/) et ouvrez [`ControlTidal.tidal`](L4B_Tidal/ControlTidal.tidal), puis évaluez les sections suivantes dans l'ordre avec Ctrl+Entrée (Cmd+Entrée sur macOS) :
 
 1. [Lignes 5 à 1107](L4B_Tidal/ControlTidal.tidal#L5-L1107) - Définitions et fonctions de contrôle principales,
 2. [Ligne 1110](L4B_Tidal/ControlTidal.tidal#L1110) - Initialisation des contrôles et variables,
