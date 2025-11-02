@@ -218,6 +218,8 @@ Créez une partition d'exécution de code à quatre pistes en ouvrant tous les f
 
 D'autres flux de travail d'exécution de code sont possibles. Par exemple, vous pouvez exécuter des lignes de code en sélectionnant différents splits et onglets. *(Les images ci-dessus représentent quatre splits du premier onglet.)*
 
+📌 **Note :** Les fichiers DJCode fournis ici sont des modèles d'exemple car je me concentre actuellement sur un modèle à quatre pistes. Cependant, il est possible d'ajouter d'autres pages de contrôle. Vous pouvez utiliser 2-3 opérations de rechercher/remplacer en lot pour changer le nom des variables. Voir les indications à la fin du fichier [DJCode2.tidal (lignes 486-489)](L4B_Tidal/DJCode2.tidal#L486-L489) pour des exemples.
+
 📌 **Note :** Cette étape n'est nécessaire que la première fois. Une fois que vous avez enregistré votre espace de travail Pulsar, vous pouvez simplement rouvrir Pulsar avec la disposition d'onglets enregistrée pour les sessions suivantes.
 
 ---
@@ -226,10 +228,7 @@ D'autres flux de travail d'exécution de code sont possibles. Par exemple, vous 
 
 ### 1️⃣ Démarrer SuperCollider
 
-Ouvrez SuperCollider et évaluez le fichier d'initialisation :
-- Naviguez vers le dossier [`L4B_SC/L4B_SC_Project/`](L4B_SC/L4B_SC_Project/),
-- Ouvrez le fichier d'initialisation SC [`_0T_Init_TidalX.scd`](L4B_SC/L4B_SC_Project/_0T_Init_TidalX.scd),
-- Évaluez la section entre parenthèses entre les [lignes 16 et 422](L4B_SC/L4B_SC_Project/_0T_Init_TidalX.scd#L16-L422) dans le fichier (Cmd+Entrée sur macOS, Ctrl+Entrée sur Windows/Linux).
+Naviguez vers le dossier [`L4B_SC/L4B_SC_Project/`](L4B_SC/L4B_SC_Project/) et ouvrez le fichier d'initialisation SuperCollider [`_0T_Init_TidalX.scd`](L4B_SC/L4B_SC_Project/_0T_Init_TidalX.scd), puis évaluez la section entre parenthèses entre les [lignes 16 et 422](L4B_SC/L4B_SC_Project/_0T_Init_TidalX.scd#L16-L422) dans le fichier (Cmd+Entrée sur macOS, Ctrl+Entrée sur Windows/Linux).
 
 Cela va :
 - Démarrer le serveur SuperCollider,

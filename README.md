@@ -200,8 +200,8 @@ YourSoundFolder/
 **Configure the sound folder path in SuperCollider:**
 
 1. Navigate to folder [`L4B_SC/L4B_SC_Project/`](L4B_SC/L4B_SC_Project/),
-2. Open SC initialization file [`_0T_Init_TidalX.scd`](L4B_SC/L4B_SC_Project/_0T_Init_TidalX.scd),
-3. **⚠️ REQUIRED: Edit [line 55](L4B_SC/L4B_SC_Project/_0T_Init_TidalX.scd#L55)** to set the sound folder path to your sound database.
+2. Open SuperCollider initialization file [`_0T_Init_TidalX.scd`](L4B_SC/L4B_SC_Project/_0T_Init_TidalX.scd),
+3. Edit [line 55](L4B_SC/L4B_SC_Project/_0T_Init_TidalX.scd#L55) to set the sound folder path to your sound database.
 
 ---
 
@@ -218,6 +218,8 @@ Create a four-track code execution partition by opening all Tidal Cycles files f
 
 Other code execution workflows are possible. For example, you can execute code lines by selecting different splits and tabs. *(The images above represent four splits of the first tab.)*
 
+📌 **Note:** The DJCode files provided here are example templates as I'm currently focusing on a four-track model. However, it is possible to add additional control pages. You can use 2-3 batch find/replace operations to change the variable names. See the instructions at the end of the file [DJCode2.tidal (lines 486-489)](L4B_Tidal/DJCode2.tidal#L486-L489) for examples.
+
 📌 **Note:** This step is only necessary the first time. Once you save your Pulsar workspace, you can simply reopen Pulsar with the saved tab layout for subsequent sessions.
 
 ---
@@ -226,10 +228,7 @@ Other code execution workflows are possible. For example, you can execute code l
 
 ### 1️⃣ Start SuperCollider
 
-Open SuperCollider and evaluate the initialization file:
-- Navigate to folder [`L4B_SC/L4B_SC_Project/`](L4B_SC/L4B_SC_Project/),
-- Open SC initialization file [`_0T_Init_TidalX.scd`](L4B_SC/L4B_SC_Project/_0T_Init_TidalX.scd),
-- Evaluate the section in parentheses between [lines 16 and 422](L4B_SC/L4B_SC_Project/_0T_Init_TidalX.scd#L16-L422) within the file (Cmd+Enter on macOS, Ctrl+Enter on Windows/Linux).
+Navigate to folder [`L4B_SC/L4B_SC_Project/`](L4B_SC/L4B_SC_Project/) and open SuperCollider initialization file [`_0T_Init_TidalX.scd`](L4B_SC/L4B_SC_Project/_0T_Init_TidalX.scd), then evaluate the section in parentheses between [lines 16 and 422](L4B_SC/L4B_SC_Project/_0T_Init_TidalX.scd#L16-L422) within the file (Cmd+Enter on macOS, Ctrl+Enter on Windows/Linux).
 
 This will:
 - Boot the SuperCollider server,
