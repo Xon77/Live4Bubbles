@@ -87,22 +87,7 @@ Copy the [`L4B_SC/SuperDirtMixerX/`](L4B_SC/SuperDirtMixerX/) folder into your S
 - **Linux**: `~/.local/share/SuperCollider/Extensions/`,
 - **Windows**: `%USERPROFILE%\AppData\Local\SuperCollider\Extensions\`.
 
-### 3️⃣ Setup your Sound Database
-
-Your sound folder must be structured following the [Live 4 Life sound database structure](https://github.com/Xon77/L4LSoundsDataBase/tree/main/SoundFolder), except that folder names should use underscores instead of spaces (e.g., `DB_MBass` instead of `DB MBass`).
-
-Example structure:
-```
-YourSoundFolder/
-├── DB_Kick/
-│   ├── sound1.wav
-│   └── sound2.wav
-├── DB_Snare/
-├── DB_Bass/
-└── ...
-```
-
-### 4️⃣ Configure Pulsar Tidal Cycles Settings
+### 3️⃣ Configure Pulsar Tidal Cycles Settings
 
 In Pulsar's Package Manager, configure the Tidal Cycles settings:
 
@@ -113,7 +98,7 @@ In Pulsar's Package Manager, configure the Tidal Cycles settings:
    - Use the absolute path to [`L4B_Tidal/BootTidal/BootTidal.hs`](L4B_Tidal/BootTidal/BootTidal.hs)
    - Example: `/Users/YourUsername/Live4Bubbles/L4B_Tidal/BootTidal/BootTidal.hs`
 
-### 5️⃣ Edit BootTidal.hs Script Paths
+### 4️⃣ Edit BootTidal.hs Script Paths
 
 Edit the [`BootTidal.hs`](L4B_Tidal/BootTidal/BootTidal.hs) file to update your script paths at the end of the file ([lines 308-316](L4B_Tidal/BootTidal/BootTidal.hs#L308-L316)), if you want to add extra SuperCollider synths and generators:
 
@@ -167,6 +152,23 @@ For a customized Pulsar appearance optimized for *Live 4 Bubbles*:
 ---
 
 # ⚙️ Setup
+
+---
+
+## 📁 Setup your Sound Database
+
+Your sound folder must be structured following the [Live 4 Life sound database structure](https://github.com/Xon77/L4LSoundsDataBase/tree/main/SoundFolder), except that folder names should use underscores instead of spaces (e.g., `DB_MBass` instead of `DB MBass`).
+
+Example structure:
+```
+YourSoundFolder/
+├── DB_Kick/
+│   ├── sound1.wav
+│   └── sound2.wav
+├── DB_Snare/
+├── DB_Bass/
+└── ...
+```
 
 ---
 
