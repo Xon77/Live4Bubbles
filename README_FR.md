@@ -332,7 +332,7 @@ Ce projet, brièvement présenté lors de **Composite Montréal** en juin 2025 �
 </p>
 
 <p align="center">
-<em>(Merci à Julien Dajez pour la captation des photos)</em>
+<em>Merci à Julien Dajez pour la captation des photos !</em>
 </p>
 
 ---

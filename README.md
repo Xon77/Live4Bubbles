@@ -332,7 +332,7 @@ This project, briefly introduced during **Composite Montréal** in June 2025 thr
 </p>
 
 <p align="center">
-<em>(Thanks to Julien Dajez for capturing the photos)</em>
+<em>Thanks to Julien Dajez for capturing the photos!</em>
 </p>
 
 ---
