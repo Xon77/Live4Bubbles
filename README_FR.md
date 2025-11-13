@@ -325,6 +325,12 @@ Les paramètres de configuration suivants dans [`_0T_Init_TidalX.scd`](L4B_SC/L4
 
 Ce projet, brièvement présenté lors de **Composite Montréal** en juin 2025 à travers un pitch de 5 minutes, a été présenté le **samedi 18 octobre 2025** dans le cadre d'un atelier expérimental public de trois heures au [Eastern Bloc](https://www.easternbloc.ca), qui comprenait une courte performance et une session d'exploration participative avec le public. Je remercie chaleureusement [Eastern Bloc](https://www.easternbloc.ca) et le [CALQ](https://www.calq.gouv.qc.ca/en/) pour leur soutien dans la réalisation de cette présentation.
 
+<h3 align="center">📸 Quelques photos de l'atelier à <a href="https://www.easternbloc.ca">Eastern Bloc</a></h3>
+
+<p align="center">
+<img src="Images/atelier_photos.gif" alt="Photos de l'atelier" />
+</p>
+
 ---
 
 # 🤝 Contribuer

@@ -325,7 +325,7 @@ The following configuration parameters in [`_0T_Init_TidalX.scd`](L4B_SC/L4B_SC_
 
 This project, briefly introduced during **Composite Montréal** in June 2025 through a 5-minute pitch, has been presented on **Saturday, October 18, 2025** as part of a three-hour public experimental workshop at [Eastern Bloc](https://www.easternbloc.ca), which included a short performance and a participatory exploration session with the audience. I warmly thank [Eastern Bloc](https://www.easternbloc.ca) and [CALQ](https://www.calq.gouv.qc.ca/en/) for their support in making this presentation possible.
 
-### 📸 Some photos from the workshop
+<h3 align="center">📸 Some photos from the workshop at <a href="https://www.easternbloc.ca">Eastern Bloc</a></h3>
 
 <p align="center">
 <img src="Images/atelier_photos.gif" alt="Workshop photos" />
