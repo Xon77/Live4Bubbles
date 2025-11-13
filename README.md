@@ -331,6 +331,10 @@ This project, briefly introduced during **Composite Montréal** in June 2025 thr
 <img src="Images/atelier_photos.gif" alt="Workshop photos" />
 </p>
 
+<p align="center">
+<em>(Thanks to Julien Dajez for capturing the photos)</em>
+</p>
+
 ---
 
 # 🤝 Contribute
