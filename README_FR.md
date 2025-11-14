@@ -319,6 +319,22 @@ Les paramètres de configuration suivants dans [`_0T_Init_TidalX.scd`](L4B_SC/L4
 
 ---
 
+# 🤝 Contribuer
+
+---
+
+**Vous souhaitez contribuer ?** Veuillez me contacter pour organiser un développement ultérieur.
+
+**Soutenez ce projet par des dons via [Ko-fi](https://ko-fi.com/live4life) (ponctuel) ou [Patreon](https://www.patreon.com/live4life) (soutien continu et cours).**
+
+<div align="center">
+
+[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/Live4Life) &nbsp;&nbsp; <a href="https://www.patreon.com/Live4Life"><img src="https://c5.patreon.com/external/logo/become_a_patron_button@2x.png" width="160"></a>
+
+</div>
+
+---
+
 # 📚 Références
 
 ---
@@ -334,22 +350,6 @@ Ce projet, brièvement présenté lors de **Composite Montréal** en juin 2025 �
 <p align="center">
 <em>Merci à Julien Dajez pour la captation des photos !</em>
 </p>
-
----
-
-# 🤝 Contribuer
-
----
-
-**Vous souhaitez contribuer ?** Veuillez me contacter pour organiser un développement ultérieur.
-
-**Soutenez ce projet par des dons via [Ko-fi](https://ko-fi.com/live4life) (ponctuel) ou [Patreon](https://www.patreon.com/live4life) (soutien continu et cours).**
-
-<div align="center">
-
-[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/Live4Life) &nbsp;&nbsp; <a href="https://www.patreon.com/Live4Life"><img src="https://c5.patreon.com/external/logo/become_a_patron_button@2x.png" width="160"></a>
-
-</div>
 
 ---
 
