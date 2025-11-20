@@ -365,6 +365,8 @@ As [mentioned in my previous project](https://github.com/Xon77/Live4Life?tab=rea
 - For creating the [SuperDirtMixer](https://github.com/thgrund/SuperDirtMixer) Quark,
 - For implementing the feature allowing the evaluation of Tidal code lines in Atom/Pulsar, which I had suggested on [GitHub](https://github.com/tidalcycles/pulsar-tidalcycles/issues/119).
 
+[**Notes sur l'IA**](https://github.com/Xon77/Live4Bubbles/wiki/AI-Notes)
+
 ---
 
 This project was supported by the [**Conseil des arts et des lettres du Québec (CALQ)**](https://www.calq.gouv.qc.ca/en/).

@@ -9,6 +9,8 @@
 
 // NetAddr // soon.localIP, network, localEndPoint, port in next release
 
+// FXs code with issues with new version GHC 9.12.2 vs 9.6.7 & Tidal 1.10.1 vs 1.9.5 ?
+
 
 Server.killAll;
 
@@ -133,7 +135,7 @@ s.options.maxNodes = 8192 * 500; /*1024 * 256*/
 ~tidalExtraMiFX = 0; // Collection of Mi-UGens FX synths XXXXXXXXX
 
 // Switches to setup specific VSTs
-~tidalExtraValhallaReverb = 0; // VST Vahalla Reverb XXXXXXXXX
+~tidalExtraValhallaReverb = 1; // VST Vahalla Reverb XXXXXXXXX
 ~tidalExtraVST = 0; // VST Instrument XXXXXXXXX
 
 ~vstName = \dexed; ~vstNameString = "Dexed.vst3"; // XXXXXXXXX
