@@ -36,6 +36,8 @@
 
 As shown in the images above representing a four-track configuration, this project is also designed to be used in conjunction with [Fizzy Hydra](https://github.com/Xon77/FizzyHydra) if you want to add audio-reactive visuals and a VJ system controlled notably by volume data and event triggering per track.
 
+Les deux outils permettent d'assembler, modifier et superposer plusieurs couches de fragments de code issus de bases de données via des interfaces graphiques et des contrôleurs, créant une forme hybride entre la composition assistée par ordinateur et le live coding traditionnel. La performance repose sur l'assemblage en temps réel de multiples fragments (rythmiques, effets, motifs), leur accumulation en couches superposées, et le contrôle gestuel de leurs dizaines de paramètres.
+
 ## ✨ Core Features
 
 ### 🎚️ Multi-Track Control System
