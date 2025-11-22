@@ -36,7 +36,7 @@
 
 As shown in the images above representing a four-track configuration, this project is also designed to be used in conjunction with [Fizzy Hydra](https://github.com/Xon77/FizzyHydra) if you want to add audio-reactive visuals and a VJ system controlled notably by volume data and event triggering per track.
 
-Both tools allow you to assemble, modify, and layer multiple code fragments from databases via graphical interfaces and controllers, creating a hybrid form between computer-assisted composition and traditional live coding. The performance relies on real-time assembly of multiple fragments (rhythmic, effects, patterns), their accumulation in layered stacks, and gestural control of their dozens of parameters.
+Both tools allow you to assemble, modify, and layer multiple code fragments from databases via graphical interfaces and controllers, creating a hybrid form between computer-assisted composition and traditional live coding. The performance relies on real-time assembly of multiple fragments of code (rhythmic, effects, patterns), their accumulation in layered stacks, and gestural control of their dozens of parameters.
 
 ## ✨ Core Features
 
