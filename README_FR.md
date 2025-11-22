@@ -36,7 +36,7 @@
 
 Comme le montrent les images ci-dessus représentant une configuration à quatre pistes, ce projet est également conçu pour être utilisé conjointement avec [Fizzy Hydra](https://github.com/Xon77/FizzyHydra) si vous souhaitez ajouter des visuels audio-réactifs et un système VJ contrôlé notamment par les données de volume et le déclenchement d'événements par piste.
 
-Les deux outils permettent d'assembler, modifier et superposer plusieurs couches de fragments de code issus de bases de données via des interfaces graphiques et des contrôleurs, créant une forme hybride entre la composition assistée par ordinateur et le live coding traditionnel. La performance repose sur l'assemblage en temps réel de multiples fragments (rythmiques, effets, motifs), leur accumulation en couches superposées, et le contrôle gestuel de leurs dizaines de paramètres.
+Les deux outils permettent d'assembler, modifier et superposer plusieurs couches de fragments de code issus de bases de données via des interfaces graphiques et des contrôleurs, créant une forme hybride entre la composition et performance assistée par ordinateur et le live coding traditionnel. La performance repose sur l'assemblage en temps réel de multiples fragments de code (rythmiques, effets, motifs), leur accumulation en couches superposées, et le contrôle gestuel de leurs dizaines de paramètres.
 
 ## ✨ Fonctionnalités principales
 
