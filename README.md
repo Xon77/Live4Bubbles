@@ -391,7 +391,7 @@ This project was supported by the [**Conseil des arts et des lettres du Québec 
 
 ### ⚠️ Usage Restrictions
 
-**Commercial Use:** You may not use this tool for commercial purposes.
+**No Commercial Use:** You may not use this tool for commercial purposes.
 
 **Free Party Spirit:** I wish it would be used in the spirit of [*Free Party*](https://en.wikipedia.org/wiki/Free_party). Unfortunately, *Free* does not mean free in this commercial world, but invites to contribute to the costs and labor according to one's ability to give. **I do not want this tool to be used, by any means, for personal profit.**
 
