@@ -26,17 +26,17 @@
 
 **A performance system for controlling Live Coding Databases from [Tidal Cycles](https://tidalcycles.org/) and [Hydra](https://hydra.ojack.xyz/) in the [Pulsar](https://pulsar-edit.dev/) text editor with [SuperCollider](https://supercollider.github.io/) GUI and controllers.**
 
-*This is my current main life-long project on which I dedicate myself to develop further and perform with this audiovisual system, for as many years as possible until the end of my life, hopefully! Here you will find my complete project setup and experiments.*
+*Live 4 Bubbles* is partly an extension and modified version based on [SuperDirtMixer](https://github.com/thgrund/SuperDirtMixer) from Thomas Grund. But it goes far beyond a mixer for Tidal Cycles. It transforms your live coding setup into a **performance system with control over your rhythmic, sonic and spatial patterns** of sound files and SuperCollider synthesis in real-time.
 
 ## 🔮 Vision and Limits
 
-*Live 4 Bubbles* is partly an extension and modified version based on [SuperDirtMixer](https://github.com/thgrund/SuperDirtMixer) from Thomas Grund. But it goes far beyond a mixer for Tidal Cycles. It transforms your live coding setup into a **performance system with control over your rhythmic, sonic and spatial patterns** of sound files and SuperCollider synthesis in real-time.
-
-⚠️ While *Live 4 Bubbles* can be launched quickly once installed, the installation process involves editing some configuration files and setting up numerous open-source dependencies and programs to maximize control possibilities over sound synthesis and pattern manipulation.
+*This is my current main life-long project on which I dedicate myself to develop further and perform with this audiovisual system, for as many years as possible until the end of my life, hopefully! Here you will find my complete project setup and experiments.*
 
 As shown in the images above representing a four-track configuration, this project is also designed to be used in conjunction with [Fizzy Hydra](https://github.com/Xon77/FizzyHydra) if you want to add audio-reactive visuals and a VJ system controlled notably by volume data and event triggering per track.
 
 Both tools allow you to assemble, modify, and layer multiple code fragments from databases via graphical interfaces and controllers, creating a hybrid form between computer-assisted composition and performance and traditional live coding. The performance relies on real-time assembly of multiple fragments of code (rhythmic, effects, patterns), their accumulation in layered stacks, and gestural control of their dozens of parameters.
+
+⚠️ While *Live 4 Bubbles* can be launched quickly once installed, the installation process involves editing some configuration files and setting up numerous open-source dependencies and programs to maximize control possibilities over sound synthesis and pattern manipulation.
 
 ## ✨ Core Features
 
