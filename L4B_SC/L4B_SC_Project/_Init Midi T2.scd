@@ -9,7 +9,7 @@
 
 
 	// ~tidalMidiLatency = MIDIOut(0).latency_(0.01);
-	~tidalMidiLatency = MIDIOut(0).latency_(0.01);
+	~tidalMidiLatency = MIDIOut(0).latency_(0.01); // Effect ?
 
 
 	~colorRed1 = Color.red(0.9);
