@@ -1,4 +1,5 @@
-{
+{ // Twisters for Live 4 Bubbles
+
 
 	MIDIClient.sources.do { |i, id| /*i.device.postln;*/
 		if (i.device == "Midi Fighter Twister 1", {~twisterIndex1 = id});
@@ -7,7 +8,8 @@
 	};
 
 
-	~tidalMidiLatency = MIDIOut(0).latency_(0.01);
+	// ~tidalMidiLatency = MIDIOut(0).latency_(0.01);
+	~tidalMidiLatency = MIDIOut(0).latency_(0);
 
 
 	~colorRed1 = Color.red(0.9);
@@ -125,9 +127,42 @@
 		~tidalHydraMValue.value = 0;
 		~tidalHydraSValue.value = 0;
 
-		~tidalPreButtons.do { |i, id| i.on.connectToUnique({ {~tidalGuiElements[id][\preset][\element].valueAction_(0)}.defer }) };
-		~tidalSeqButtons.do { |i, id| i.on.connectToUnique({ {~tidalGuiElements[id][\seqLine][\element].valueAction_(0)}.defer }) };
-		~tidalRytButtons.do { |i, id| i.on.connectToUnique({ {~tidalGuiElements[id][\ryt][\element].valueAction_(0)}.defer }) };
+		~tidalPreButtons.do { |i, id| i.connectToUnique({ { /*~tidalGuiElements[id][\preset][\element].valueAction_(0)*/
+			~tidalGuiElements[id][\preset][\value].valueAction_(~tidalGuiElements[id][\preset][\value].value/*.postln*/);
+		}.defer }) };
+
+		~tidalSeqButtons.do { |i, id| i.connectToUnique({ { // i.value.postln;
+			if (i.value == \on, { // i.value.postln; // Pouquoi déclencher 2 fois ??????
+                /*~tidalGuiElements[id][\seq Line][\element].valueAction_(0)*/
+				~tidalGuiElements[id][\seqLine][\value].valueAction_(~tidalSeqLineEndR.rand/*.postln*/)});
+		}.defer
+		}) };
+		// ~tidalSeqButtons.do { |i, id| i.off.connectToUnique({ { "b".postln; /*~tidalGuiElements[id][\seqLine][\element].valueAction_(0)*/~tidalGuiElements[id][\seqLine][\value].valueAction_(~tidalSeqLineEndR.rand);}.defer }) };
+
+		// ~tidalRytButtons.do { |i, id| i.connectToUnique({ {~tidalGuiElements[id][\ryt][\element].valueAction_(0)}.defer }) };
+		// ~tidalRytButtons.do { |i, id| i.connectToUnique({ if (i.value == \on, { i.value.postln }) })  };
+		// ~tidalRytButtons.do { |i, id| i.connectToUnique({ i.signal(\on).postln })  };
+
+		~tidalRytPrevButtonsValue = 0 ! ~tidalNbOfOrbits;
+		~tidalRytButtons.do { |i, id| i.connectToUnique({ { // i.value.postln; i.value.class.postln;
+			if (i.value == \on, {
+				if (~tidalGuiElements[id][\ryt][\value].value != 0, {
+					~tidalRytPrevButtonsValue[id] = ~tidalGuiElements[id][\ryt][\value].value/*.postln*/;
+					~tidalGuiElements[id][\ryt][\value].valueAction_(0);
+					// "a".postln;
+					// ~tidalGuiElements[id][\ryt][\value].value.postln;
+				},{
+					/*~tidalGuiElements[id][\ryt][\value].valueAction_(~tidalRytPrevButtonsValue[id]);
+					"b".postln*/
+				});
+			},{
+				~tidalGuiElements[id][\ryt][\value].valueAction_(~tidalRytPrevButtonsValue[id]);
+				// "c".postln
+			});
+		}.defer
+
+		}) };
+
 		~tidalDurAButtons.do { |i, id| i.on.connectToUnique({ {~tidalGuiElements[id][\legS][\value].valueAction_(1)}.defer }) };
 		~tidalFolButtons.do { |i, id| i.on.connectToUnique({ {~tidalGuiElements[id][\buf][\element].valueAction_(0)}.defer }) };
 		~tidalBufAButtons.do { |i, id| i.on.connectToUnique({ {~tidalGuiElements[id][\buf2][\element].valueAction_(0)}.defer }) };
@@ -156,11 +191,12 @@
 
 
 		// Connexions
+
 		~connectionsTidalPreMake = { |twister|
 
 			4.do { |i|
 				twister.envirGet.knobs[i].knobCV = ~tidalPreValues[i];
-				twister.envirGet.knobs[i].buttonCV = ~tidalPreValues[i];
+				twister.envirGet.knobs[i].buttonCV = ~tidalPreButtons[i];
 				twister.envirGet.knobs[i].ledColor_(Color.red);
 
 				twister.envirGet.knobs[i+4].knobCV = ~tidalSeqValues[i];
@@ -203,7 +239,7 @@
 
 			4.do { |i|
 				twister.envirGet.knobs[i].knobCV = ~tidalFolValues[i];
-				twister.envirGet.knobs[i].buttonCV = ~tidalFolValues[i];
+				twister.envirGet.knobs[i].buttonCV = ~tidalFolButtons[i];
 				twister.envirGet.knobs[i].ledColor_(Color.red);
 
 				twister.envirGet.knobs[i+4].knobCV = ~tidalBufValues[i];
@@ -317,6 +353,7 @@
 
 
 		// Initialisation Twister 2
+
 		4.do { |i|
 			~twister2.knobs[i].knobCV = ~tidalFolValues[i];
 			~twister2.knobs[i].buttonCV = ~tidalFolValues[i];
@@ -336,6 +373,7 @@
 		};
 
 		// Initialisation Twister 3
+
 		4.do { |i|
 			~twister3.knobs[i].knobCV = ~tidalRatValues[i];
 			~twister3.knobs[i].buttonCV = ~tidalRatButtons[i];
